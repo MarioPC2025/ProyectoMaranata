@@ -22,6 +22,17 @@
   white-space: nowrap;
 }
 
+/* The source link. Its mark stands in for the word on phones, so the underline the footer's other
+   links carry is moved onto the word alone: run through the glyph, it reads as a smudge. */
+.source {
+  text-decoration: none;
+}
+
+.sourceLabel {
+  margin-inline-start: 0.3em;
+  text-decoration: underline;
+}
+
 .credits {
   flex: 1 1 20rem;
   text-align: end;
@@ -39,5 +50,20 @@
   .credits {
     flex: 0 1 auto;
     margin-inline-start: auto;
+  }
+
+  /* The mark says GitHub on its own, and the shorter line leaves the credits beside it. */
+  .sourceLabel {
+    display: none;
+  }
+}
+
+/* Fingers: the mark on its own is a small target, so the link catches a little more around it.
+   Padding on an inline box leaves the line's height alone, and the negative inline margins give
+   the extra width back, so the footer's first line is no wider for it. */
+@media (pointer: coarse) {
+  .source {
+    padding: var(--space-1);
+    margin-inline: calc(var(--space-1) * -1);
   }
 }

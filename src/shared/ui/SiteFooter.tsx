@@ -1,7 +1,11 @@
 import type { ReactNode } from 'react';
+import { SourceCodeIcon } from './icons.tsx';
 import styles from './SiteFooter.module.css';
 
 const YEAR = new Date().getFullYear();
+
+/** Where the code lives. Open source is part of the project, so every page links to it. */
+const REPOSITORY_URL = 'https://github.com/trekhleb/bible-cross-references';
 
 interface SiteFooterProps {
   /** Page-specific credits, such as data attribution. */
@@ -10,12 +14,23 @@ interface SiteFooterProps {
   readonly className?: string | undefined;
 }
 
-/** The minimal site-wide footer: year and a link to the author's site, plus credits. */
+/** The minimal site-wide footer: year, the author's site and the source, plus credits. */
 export function SiteFooter({ children, className }: SiteFooterProps) {
   return (
     <footer className={className ? `${styles.footer} ${className}` : styles.footer}>
       <span className={styles.owner}>
-        © {YEAR} · <a href="https://trekhleb.dev">trekhleb.dev</a>
+        © {YEAR} · <a href="https://trekhleb.dev">trekhleb.dev</a> ·{' '}
+        <a
+          className={styles.source}
+          href={REPOSITORY_URL}
+          target="_blank"
+          rel="noreferrer"
+          title="Source code on GitHub"
+          aria-label="Source code on GitHub"
+        >
+          <SourceCodeIcon />
+          <span className={styles.sourceLabel}>GitHub</span>
+        </a>
       </span>
       {children !== undefined && <span className={styles.credits}>{children}</span>}
     </footer>

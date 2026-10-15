@@ -10,6 +10,7 @@ import {
   LuChevronLeft,
   LuChevronRight,
   LuCopy,
+  LuGithub,
   LuHand,
   LuMouse,
   LuMousePointerClick,
@@ -85,3 +86,7 @@ export const GenresIcon = decorative(LuPalette);
 export const OutgoingIcon = decorative(LuArrowRight);
 export const IncomingIcon = decorative(LuArrowLeft);
 export const BothDirectionsIcon = decorative(LuArrowRightLeft);
+
+// The source code, which lives on GitHub. Lucide draws the mark in the same stroke as the rest,
+// so the footer's link stays in one family instead of pulling in a second icon set for one glyph.
+export const SourceCodeIcon = decorative(LuGithub);
