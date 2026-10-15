@@ -4,7 +4,7 @@ import styles from './SiteFooter.module.css';
 
 const YEAR = new Date().getFullYear();
 
-/** Where the code lives. Open source is part of the project, so every page links to it. */
+/** Where the code lives. The project is open source, so every page points at it. */
 const REPOSITORY_URL = 'https://github.com/trekhleb/bible-cross-references';
 
 interface SiteFooterProps {
@@ -14,7 +14,7 @@ interface SiteFooterProps {
   readonly className?: string | undefined;
 }
 
-/** The minimal site-wide footer: year, the author's site and the source, plus credits. */
+/** The minimal site-wide footer: the year, the author's site and the source, plus credits. */
 export function SiteFooter({ children, className }: SiteFooterProps) {
   return (
     <footer className={className ? `${styles.footer} ${className}` : styles.footer}>

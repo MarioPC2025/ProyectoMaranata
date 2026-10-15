@@ -22,9 +22,13 @@
   white-space: nowrap;
 }
 
-/* The source link. Its mark stands in for the word on phones, so the underline the footer's other
-   links carry is moved onto the word alone: run through the glyph, it reads as a smudge. */
+/* The source link. The underline the footer's other links carry sits on its word alone: drawn
+   through the mark, it reads as a smudge. The padding gives a finger more than the mark itself to
+   hit; on an inline box it leaves the line's height alone, and the negative margins hand the
+   width back, so the line is no wider for it. */
 .source {
+  margin-inline: calc(var(--space-1) * -1);
+  padding: var(--space-1);
   text-decoration: none;
 }
 
@@ -39,9 +43,12 @@
 }
 
 /* Phones: one line, owner on the left and the (shortened) credits on the right, when it fits;
-   otherwise the credits wrap below rather than lose anything. */
+   otherwise the credits wrap below rather than lose anything. Each row is spaced on its own, so
+   the credits sit at the far end while they share the owner's row, and start at the same edge as
+   the owner once they have a row to themselves. */
 @media (max-width: 47.99rem) {
   .footer {
+    justify-content: space-between;
     column-gap: var(--space-2);
     padding-inline: var(--space-3);
     font-size: 0.6875rem;
@@ -49,21 +56,10 @@
 
   .credits {
     flex: 0 1 auto;
-    margin-inline-start: auto;
   }
 
-  /* The mark says GitHub on its own, and the shorter line leaves the credits beside it. */
+  /* The mark says GitHub on its own. */
   .sourceLabel {
     display: none;
-  }
-}
-
-/* Fingers: the mark on its own is a small target, so the link catches a little more around it.
-   Padding on an inline box leaves the line's height alone, and the negative inline margins give
-   the extra width back, so the footer's first line is no wider for it. */
-@media (pointer: coarse) {
-  .source {
-    padding: var(--space-1);
-    margin-inline: calc(var(--space-1) * -1);
   }
 }
