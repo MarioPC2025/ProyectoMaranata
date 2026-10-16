@@ -1,5 +1,15 @@
+/* Phones keep the attribution itself: the creator, the licence and the note that the data was
+   changed. Everything else is background. */
 @media (max-width: 47.99rem) {
   .detail {
+    display: none;
+  }
+}
+
+/* The background only appears where the footer still fits on one line with it: the full credit
+   line measures about 86rem, so it waits for a little more than that. */
+@media (max-width: 86.99rem) {
+  .wide {
     display: none;
   }
 }

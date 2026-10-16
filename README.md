@@ -32,6 +32,9 @@ It is free, open source, and built only on openly licensed data (see [Data](#dat
 - Zoom from the whole Bible down to single verses; hover a passage to see how many connections it
   has.
 - Search for any reference ("John 3:16", "Ps 23") or click a passage to see where its links land.
+- Read it in the Berean Standard Bible or the King James Version; the choice is remembered and
+  travels in the link you share
+  ([`?t=kjv`](https://trekhleb.dev/bible-cross-references/?ref=John.3.16&t=kjv)).
 
 ### Focus a passage
 
@@ -65,12 +68,19 @@ exactly what you are looking at.
 
 ## Data
 
-The app is built on two openly licensed datasets:
+The app is built on openly licensed datasets only:
 
-| Dataset          | Source                                                                                                                                | License                                                   |
-| ---------------- | ------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------- |
-| Bible text       | [Berean Standard Bible](https://berean.bible/) (BSB)                                                                                  | [Public domain](https://berean.bible/terms.htm)           |
-| Cross-references | [OpenBible.info](https://www.openbible.info/labs/cross-references/), largely from the public-domain _Treasury of Scripture Knowledge_ | [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) |
+| Dataset          | Source                                                                                                                                | License                                                                                        |
+| ---------------- | ------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
+| Bible text       | [Berean Standard Bible](https://berean.bible/) (BSB), the default                                                                     | [Public domain](https://berean.bible/terms.htm)                                                |
+| Bible text       | [King James Version](https://ebible.org/Scriptures/details.php?id=eng-kjv2006) (KJV), the 1769 text, from eBible.org                  | [Public domain](https://ebible.org/Scriptures/details.php?id=eng-kjv2006) (see the note below) |
+| Cross-references | [OpenBible.info](https://www.openbible.info/labs/cross-references/), largely from the public-domain _Treasury of Scripture Knowledge_ | [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)                                      |
+
+A note on the KJV: it is public domain in the United States and most of the world, but in the
+United Kingdom rights in the Authorized Version are vested in the Crown and administered by the
+Crown's patentee, Cambridge University Press, under letters patent that do not expire. The app
+says so where the translation is chosen. It is offered alongside the BSB, never instead of it, and
+its text is only downloaded for readers who ask for it.
 
 A note on what the links mean: they are the _Treasury of Scripture Knowledge_'s cross-references,
 which connect passages by shared themes, words, people and events. OpenBible.info readers have
@@ -79,9 +89,10 @@ By default the site shows the links with at least 4 votes, the best supported 44
 hides the links readers voted down (0.4%) and the loosest ones; the Filters menu shows more, down to
 every link.
 
-Both files are committed to [`data/raw/`](data/raw/) exactly as downloaded, and
-[`data/sources.json`](data/sources.json) pins each one by SHA-256, so the site can always be
-rebuilt, even if an upstream URL changes. `npm run dev` and `npm run build` turn them into the app's
+The smaller files are committed to [`data/raw/`](data/raw/) exactly as downloaded;
+[`data/sources.json`](data/sources.json) pins every source by SHA-256, and anything not committed
+(the KJV archive, 4.4 MB) is downloaded by the build and checked against its pin, so a dataset is
+never built from a file nobody vouched for. `npm run dev` and `npm run build` turn them into the app's
 datasets in `public/data/` (generated, git-ignored), validated against the canonical KJV
 versification (31,102 verses).
 
@@ -169,6 +180,9 @@ The code is released under the [MIT License](LICENSE). The data keeps its own li
 > Cross-reference data: OpenBible.info (CC BY 4.0), largely from the public-domain Treasury of
 > Scripture Knowledge. Modified: re-indexed to KJV verse numbering.
 > Scripture text: Berean Standard Bible (BSB), dedicated to the public domain.
+> Scripture text: King James Version (Authorized Version), the 1769 text, public domain in the
+> United States and most of the world; in the United Kingdom rights are vested in the Crown and
+> administered by the Crown's patentee, Cambridge University Press.
 
 UI icons are from [Lucide](https://lucide.dev/) (ISC License), plus the touch-gesture icons from
 [Material Design Icons](https://fonts.google.com/icons) (Apache License 2.0), via

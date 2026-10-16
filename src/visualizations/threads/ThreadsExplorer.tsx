@@ -48,6 +48,7 @@ export function ThreadsExplorer({
   filter,
   onFilterChange,
   masthead,
+  translationMenu,
   passageLinks,
   shareUrl,
 }: VisualizationProps) {
@@ -73,17 +74,18 @@ export function ThreadsExplorer({
   return (
     <VizPage
       masthead={masthead}
-      credits={<Credits />}
+      credits={<Credits translation={data.translation.manifest} />}
       onPanelClose={closePanel}
       controls={
         <>
           <ReferenceSearch versification={data.versification} onSelect={onNavigate} />
+          {translationMenu}
           <SegmentedControl
             label="Thread direction"
             options={DIRECTIONS}
             value={direction}
             onChange={setDirection}
-            iconsOnlyOnPhones
+            iconsOnlyWhenNarrow
           />
           <GenreMenu
             hiddenGenres={filter.hiddenGenres}

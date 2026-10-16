@@ -36,6 +36,7 @@ export function ArcsExplorer({
   filter,
   onFilterChange,
   masthead,
+  translationMenu,
   passageLinks,
   shareUrl,
 }: VisualizationProps) {
@@ -61,11 +62,12 @@ export function ArcsExplorer({
   return (
     <VizPage
       masthead={masthead}
-      credits={<Credits inspiration={INSPIRATION} />}
+      credits={<Credits translation={data.translation.manifest} inspiration={INSPIRATION} />}
       onPanelClose={closePanel}
       controls={
         <>
           <ReferenceSearch versification={data.versification} onSelect={onNavigate} />
+          {translationMenu}
           <FiltersMenu
             filter={filter}
             defaults={DEFAULT_LINK_FILTER}

@@ -77,7 +77,8 @@
 
 @media (max-width: 47.99rem) {
   .header {
-    gap: var(--space-2);
+    /* Tight enough for the busiest view to keep its controls on one row. */
+    gap: var(--space-2) 0.375rem;
     padding-inline: var(--space-3);
   }
 

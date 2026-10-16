@@ -2,6 +2,7 @@ import { createHash } from 'node:crypto';
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { transformWithOxc, type Plugin } from 'vite';
+import { DATASETS_DIRECTORY } from '../src/core/datasets/paths.ts';
 import { vizDatasetPaths } from '../src/visualizations/shared/viz-datasets.ts';
 import { atEndOfHead, PAGES, pageOf, ROOT_DIR, SITE_NAME } from './site.ts';
 
@@ -94,6 +95,7 @@ export function offline(): Plugin {
       const injected = [
         `const PRECACHE = ${JSON.stringify([...pages, ...files, ...OFFLINE_PUBLIC_FILES])};`,
         `const DATASETS = ${JSON.stringify(vizDatasetPaths())};`,
+        `const DATA_DIRECTORY = ${JSON.stringify(DATASETS_DIRECTORY)};`,
         `const VERSION = ${JSON.stringify(version.digest('hex').slice(0, 16))};`,
       ].join('\n');
       this.emitFile({ type: 'asset', fileName: 'sw.js', source: `${injected}\n${worker.code}` });

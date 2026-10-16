@@ -17,8 +17,10 @@ declare const self: ServiceWorkerGlobalScope;
 // Injected by the build (`offline()` in vite/offline.ts): paths relative to the worker's scope.
 /** This version's pages and files. */
 declare const PRECACHE: readonly string[];
-/** The datasets, cached across versions. */
+/** The datasets a first visit needs, cached across versions. */
 declare const DATASETS: readonly string[];
+/** Where all datasets live, so the ones loaded later (another translation) are cached too. */
+declare const DATA_DIRECTORY: string;
 /** A hash of this version's files; a new version gets new caches. */
 declare const VERSION: string;
 
@@ -33,6 +35,7 @@ const scope = new URL(self.registration.scope);
 const LOOKUP: CacheQueryOptions = { ignoreVary: true };
 const toUrl = (path: string) => new URL(path, scope).href;
 const datasetUrls = new Set(DATASETS.map(toUrl));
+const dataPath = new URL(`${DATA_DIRECTORY}/`, scope).pathname;
 
 self.addEventListener('install', (event) => {
   event.waitUntil(
@@ -77,7 +80,7 @@ self.addEventListener('fetch', (event) => {
   }
   if (request.mode === 'navigate') {
     event.respondWith(page(request));
-  } else if (datasetUrls.has(url.href)) {
+  } else if (url.pathname.startsWith(dataPath)) {
     event.respondWith(dataset(event, request));
   } else {
     event.respondWith(file(request));
