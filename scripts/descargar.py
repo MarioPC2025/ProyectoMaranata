@@ -25,7 +25,7 @@ def descargar(nombre: str, url: str) -> None:
         print(f"{nombre}: ya descargado, se omite")
         return
     print(f"{nombre}: descargando {url}")
-    req = urllib.request.Request(url, headers={"User-Agent": "MaranathaBible/0.1"})
+    req = urllib.request.Request(url, headers={"User-Agent": "ProyectoMaranata/0.1"})
     with urllib.request.urlopen(req, timeout=120) as resp:
         datos = resp.read()
     destino.mkdir(parents=True, exist_ok=True)

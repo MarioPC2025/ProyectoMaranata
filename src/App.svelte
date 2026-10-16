@@ -13,12 +13,12 @@
   })
 
   $effect(() => {
-    if (!referencia) document.title = 'MaranathaBible — Referencias cruzadas de la Biblia'
+    if (!referencia) document.title = 'Proyecto Maranata — Referencias cruzadas de la Biblia'
   })
 </script>
 
 <header class="barra">
-  <a class="marca" href="/">MaranathaBible</a>
+  <a class="marca" href="/">Proyecto Maranata</a>
   <Buscador />
 </header>
 

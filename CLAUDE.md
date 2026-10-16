@@ -1,8 +1,8 @@
-# MaranathaBible — contexto del proyecto
+# Proyecto Maranata — contexto del proyecto
 
 Web (y luego app Android) en español para explorar la Biblia: visualización de las ~345.000 referencias cruzadas (inspirada en https://trekhleb.dev/bible-cross-references/) y un lector de estudio con hebreo/griego (inspirado en https://www.stepbible.org/).
 
-- Autor: Mario Baldovino. Repo: MarioPC2025/MaranathaBible. Licencia del código: MIT.
+- Autor: Mario Baldovino. Repo: MarioPC2025/ProyectoMaranata. Licencia del código: MIT.
 - Idioma de la interfaz, el código comentado y los commits: español.
 - Proyecto personal y sin fines de lucro, **separado de Mario PC** (otra cuenta de Cloudflare y mail dedicado).
 - Dominio: pendiente.

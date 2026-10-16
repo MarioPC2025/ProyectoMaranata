@@ -42,7 +42,7 @@
   })
 
   $effect(() => {
-    document.title = `${formatear({ ...referencia, capitulo })} — MaranathaBible`
+    document.title = `${formatear({ ...referencia, capitulo })} — Proyecto Maranata`
   })
 
   function mostrarError(e: unknown) {

@@ -1,4 +1,4 @@
-# MaranathaBible
+# Proyecto Maranata
 
 Web (y más adelante app Android) en español para explorar las ~345.000 referencias cruzadas de la Biblia, con un lector de estudio con hebreo y griego en una segunda etapa.
 

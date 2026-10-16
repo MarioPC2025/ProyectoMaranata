@@ -1,6 +1,6 @@
 # Fuentes de datos y atribuciones
 
-El código de MaranathaBible está bajo licencia MIT. Los datos tienen licencias propias, listadas acá.
+El código de Proyecto Maranata está bajo licencia MIT. Los datos tienen licencias propias, listadas acá.
 
 ## Referencias cruzadas
 - **OpenBible.info Cross References** — https://www.openbible.info/labs/cross-references/

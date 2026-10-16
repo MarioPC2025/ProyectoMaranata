@@ -148,7 +148,7 @@ vite.config.ts.timestamp-*
 # Turbo Repo
 .turbo
 
-# --- MaranathaBible ---
+# --- Proyecto Maranata ---
 !.env.local.example
 .dev.vars
 .wrangler/
