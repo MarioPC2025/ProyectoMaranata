@@ -1,5 +1,6 @@
 import type { ReactNode } from 'react';
 import { SourceCodeIcon } from './icons.tsx';
+import { InstallLink } from './InstallGuide.tsx';
 import styles from './SiteFooter.module.css';
 
 const YEAR = new Date().getFullYear();
@@ -14,7 +15,10 @@ interface SiteFooterProps {
   readonly className?: string | undefined;
 }
 
-/** The minimal site-wide footer: the year, the author's site and the source, plus credits. */
+/**
+ * The minimal site-wide footer: the year, the author's site, the source and how to install the
+ * app, plus credits.
+ */
 export function SiteFooter({ children, className }: SiteFooterProps) {
   return (
     <footer className={className ? `${styles.footer} ${className}` : styles.footer}>
@@ -30,7 +34,8 @@ export function SiteFooter({ children, className }: SiteFooterProps) {
         >
           <SourceCodeIcon />
           <span className={styles.sourceLabel}>GitHub</span>
-        </a>
+        </a>{' '}
+        <InstallLink />
       </span>
       {children !== undefined && <span className={styles.credits}>{children}</span>}
     </footer>

@@ -60,11 +60,31 @@ Threads.
 
 Both views work on phones. On the arcs, touch and hold, then slide, to preview passages (on the book
 bar, just slide), and pinch to zoom. The details open in a sheet that you drag up to read and pull
-down to close. After the first visit the site loads instantly and works offline, and it can be
-installed as an app. Every passage has its own link,
-filters included, e.g.
+down to close. Every passage has its own link, filters included, e.g.
 [`?ref=John.3.16`](https://trekhleb.dev/bible-cross-references/?ref=John.3.16), so you can share
 exactly what you are looking at.
+
+### Install it, and read with no connection
+
+Every footer carries a quiet **Install** link — an arrow alone on phones — which opens the steps
+for the device you are reading on. The same guide opens at
+[`#install`](https://trekhleb.dev/bible-cross-references/#install), so that address can be sent to
+someone who asks for "the app". Inside the installed app the link is gone, since the browser tells
+the page it is already running as one.
+
+| Device          | How                                                                                                                                  |
+| --------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
+| iPhone and iPad | Safari's share button, then _Add to Home Screen_. Other iOS browsers offer the same item where they support it (iOS 16.4 and later). |
+| Android         | Chrome's menu, then _Install app_.                                                                                                   |
+| Chrome, Edge    | The install button at the end of the address bar.                                                                                    |
+| Safari on a Mac | _Share → Add to Dock_.                                                                                                               |
+
+Open it once while you are online. The service worker ([`sw/`](sw/)) then keeps the pages, this
+version's code and the datasets on the device, so the whole Bible, its 344,799 cross-references and
+the text you are reading all work with no connection, and open instantly on the next visit. On an
+iPhone or iPad that first visit has to happen inside the installed app: a home-screen app there has
+storage of its own, apart from Safari's. On Android and the desktop the two share it, so the visit
+that installed the app has already done the work.
 
 ## Data
 
@@ -163,6 +183,35 @@ builds use the base path `/bible-cross-references/`, and `npm run preview` serve
 - `sitemap.xml`;
 - a web app manifest and a service worker (from [`sw/`](sw/)). The worker is scoped to the site's
   path, so it never touches the rest of the domain.
+
+Each release caches under a name of its own, a hash of the files it was built from. A new worker
+installs beside the running one, takes over, and deletes the previous release's cache; pages are
+fetched from the network first, so an online reader always has the newest one. Every visit asks
+for the newest worker ([`src/app/register-offline-cache.ts`](src/app/register-offline-cache.ts))
+rather than leaving that to the browser's own check, which it may put off for a day.
+
+If the offline cache ever has to be withdrawn, replace the body of
+[`sw/service-worker.ts`](sw/service-worker.ts) with a worker that removes itself, keeping the
+`declare const self` line at the top, and deploy that:
+
+```ts
+self.addEventListener('install', () => void self.skipWaiting());
+self.addEventListener('activate', (event) => {
+  event.waitUntil(
+    (async () => {
+      for (const name of await caches.keys()) {
+        if (name.startsWith('bible-cross-references')) {
+          await caches.delete(name);
+        }
+      }
+      await self.registration.unregister();
+    })(),
+  );
+});
+```
+
+One visit then unregisters the worker and deletes every cache it made, and the site goes on as an
+ordinary one. Taking `sw.js` off the server does not do this: the registration survives a 404.
 
 The live site counts visits with Google Analytics. The tag only reports from trekhleb.dev, so local
 previews and forks deployed elsewhere send nothing. To build for another location, set the path and

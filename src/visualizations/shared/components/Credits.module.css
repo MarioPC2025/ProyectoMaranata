@@ -1,7 +1,9 @@
-/* Phones keep the attribution itself: the creator, the licence and the note that the data was
-   changed. Everything else is background. */
+/* Phones keep the attribution the licence asks for, and nothing else: the creator and the
+   licence of the cross-references. The rest, the text's own credit included, is background — and
+   the room it frees is what keeps the footer on one line on a 320px phone. */
 @media (max-width: 47.99rem) {
-  .detail {
+  .detail,
+  .text {
     display: none;
   }
 }

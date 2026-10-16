@@ -49,7 +49,9 @@
 @media (max-width: 47.99rem) {
   .footer {
     justify-content: space-between;
-    column-gap: var(--space-2);
+    /* The two halves nearly fill a 360px phone between them, and the credit cannot be shortened
+       (it is the licence), so they are set as close as two separate sentences can be. */
+    column-gap: var(--space-1);
     padding-inline: var(--space-3);
     font-size: 0.6875rem;
   }
@@ -61,5 +63,20 @@
   /* The mark says GitHub on its own. */
   .sourceLabel {
     display: none;
+  }
+
+  /* The install arrow stands right after it: the mark keeps the width of its own padding on
+     that side, so the two hit areas meet rather than overlap. */
+  .source {
+    margin-inline-end: 0;
+  }
+}
+
+/* The narrowest phones still in use: the credit is the one part of the line that cannot be
+   shortened (it is the licence), so the last few pixels come off the page's edges instead. */
+@media (max-width: 22.49rem) {
+  .footer {
+    column-gap: var(--space-1);
+    padding-inline: var(--space-2);
   }
 }

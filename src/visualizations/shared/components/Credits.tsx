@@ -12,12 +12,14 @@ interface CreditsProps {
  * Data attribution plus the visualization's inspiration.
  *
  * The links are CC BY 4.0, which asks for the creator, a link to the licence and an indication
- * that the material was changed. The creator, the licence and the text are named at every width;
- * the note that the links were re-indexed joins them from 48rem up, and the full statement, with
- * what the change was, is in the README that the footer's source mark links to. A phone footer
- * has room for the attribution or for the background, not for both.
+ * that the material was changed. The creator and the licence are named at every width; the note
+ * that the links were re-indexed joins them from 48rem up, and the full statement, with what the
+ * change was, is in the README that the footer's source mark links to. A phone footer has room
+ * for the attribution or for the background, not for both.
  *
- * The text's own credit comes from its manifest, so it follows whichever translation is read.
+ * The text's own credit comes from its manifest, so it follows whichever translation is read. On
+ * a phone it goes with the background: it is a courtesy rather than a condition (every text here
+ * is public domain), and the header's picker names the text being read at every width.
  */
 export function Credits({ translation, inspiration }: CreditsProps) {
   return (
@@ -34,11 +36,15 @@ export function Credits({ translation, inspiration }: CreditsProps) {
       <span className={styles.detail}>
         , re-indexed<span className={styles.wide}> to KJV verse numbering</span>
       </span>
-      ) · Text:{' '}
-      <a href={translation.homepage} target="_blank" rel="noreferrer">
-        {translation.abbreviation}
-      </a>
-      <span className={styles.detail}> ({translation.license.name.toLowerCase()})</span>
+      )
+      <span className={styles.text}>
+        {' '}
+        · Text:{' '}
+        <a href={translation.homepage} target="_blank" rel="noreferrer">
+          {translation.abbreviation}
+        </a>
+        <span className={styles.detail}> ({translation.license.name.toLowerCase()})</span>
+      </span>
       {inspiration && (
         <span className={styles.wide}>
           {' '}
