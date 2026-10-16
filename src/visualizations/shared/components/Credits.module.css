@@ -8,9 +8,11 @@
   }
 }
 
-/* The background only appears where the footer still fits on one line with it: the full credit
-   line measures about 86rem, so it waits for a little more than that. */
-@media (max-width: 86.99rem) {
+/* The background only appears where the footer still fits on one line with it. The whole line
+   measures about 80rem here; it waits for 92rem, because a font is not the same width everywhere
+   (the system stack is wider on a Mac than on the Linux box this was measured on) and the line
+   breaking is the one thing that must not happen. */
+@media (max-width: 91.99rem) {
   .wide {
     display: none;
   }

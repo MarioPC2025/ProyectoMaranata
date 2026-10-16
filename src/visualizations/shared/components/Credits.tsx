@@ -49,10 +49,16 @@ export function Credits({ translation, inspiration }: CreditsProps) {
         <span className={styles.wide}>
           {' '}
           · Inspired by{' '}
-          <a href={inspiration.url} target="_blank" rel="noreferrer">
-            {inspiration.title}
-          </a>{' '}
-          by {inspiration.author}
+          {/* The work's own name is this app's name too, so saying it here reads as a stutter and
+              costs the line the room it needs; the link, and its tooltip, still carry it. */}
+          <a
+            href={inspiration.url}
+            target="_blank"
+            rel="noreferrer"
+            title={`${inspiration.title}, by ${inspiration.author}`}
+          >
+            {inspiration.author}
+          </a>
         </span>
       )}
     </>
