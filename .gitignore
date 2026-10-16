@@ -147,3 +147,11 @@ vite.config.ts.timestamp-*
 
 # Turbo Repo
 .turbo
+
+# --- MaranathaBible ---
+!.env.local.example
+.dev.vars
+.wrangler/
+data/raw/
+__pycache__/
+.pytest_cache/

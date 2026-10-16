@@ -1,0 +1,5 @@
+dist/
+public/data/
+data/
+.wrangler/
+package-lock.json

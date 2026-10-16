@@ -1,0 +1,3 @@
+# Copiá este archivo como .dev.vars y completá los valores. .dev.vars NO se sube al repo.
+# Secretos del Worker de Cloudflare (desarrollo local con wrangler)
+APIBIBLE_KEY=

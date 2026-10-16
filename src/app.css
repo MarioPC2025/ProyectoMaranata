@@ -1,0 +1,64 @@
+/* Tokens de diseño provisorios: el diseño visual todavía está pendiente.
+   Cambiar acá los colores cambia todo el sitio. */
+:root {
+  --fondo: #fbfaf7;
+  --texto: #1f1d1a;
+  --texto-suave: #5f5a52;
+  --borde: #e2ded6;
+  --acento: #2f5d8a;
+  --fuente-lectura: Georgia, 'Times New Roman', serif;
+  --fuente-interfaz: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-tema='claro']) {
+    --fondo: #121417;
+    --texto: #e8e6e1;
+    --texto-suave: #a39f97;
+    --borde: #2a2e33;
+    --acento: #8fb8e3;
+    color-scheme: dark;
+  }
+}
+
+:root[data-tema='oscuro'] {
+  --fondo: #121417;
+  --texto: #e8e6e1;
+  --texto-suave: #a39f97;
+  --borde: #2a2e33;
+  --acento: #8fb8e3;
+  color-scheme: dark;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--fondo);
+  color: var(--texto);
+  font-family: var(--fuente-interfaz);
+  line-height: 1.5;
+}
+
+a {
+  color: var(--acento);
+}
+
+.oculto {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+:focus-visible {
+  outline: 2px solid var(--acento);
+  outline-offset: 2px;
+}
