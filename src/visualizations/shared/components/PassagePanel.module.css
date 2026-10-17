@@ -69,6 +69,10 @@
   display: grid;
   gap: var(--space-4);
   align-content: start;
+  /* The height of a section's band. The expanded word sticks directly below one, so both the
+     band and that offset are measured from here. */
+  --band-height: 2.375rem;
+
   padding: var(--space-3) var(--space-4) var(--space-6);
   overflow-y: auto;
   overscroll-behavior: contain;
@@ -367,6 +371,17 @@
   rotate: 180deg;
 }
 
+/* While a word is open, it stays just below its section's band, so a reader scrolling its
+   verses can see both which section this is and whose verses these are. It is sticky inside its
+   own group, so it gives way as the next word arrives rather than piling up. The band's offset
+   is measured from the scrollport, which starts a padding's width below the panel's top edge. */
+.word[aria-expanded='true'] {
+  position: sticky;
+  inset-block-start: calc(var(--band-height) - var(--space-3));
+  z-index: 1;
+  background: var(--color-surface);
+}
+
 /* Its verses hang under it, indented the way a list under a heading would be. */
 .wordVerse {
   padding-inline-start: var(--space-4);
@@ -416,6 +431,7 @@
   align-items: center;
   gap: var(--space-2);
   inline-size: 100%;
+  min-block-size: var(--band-height);
   padding: var(--space-2) var(--space-4);
   border: 0;
   border-block: 1px solid var(--color-border);
@@ -476,8 +492,8 @@
 
 /* Touch: a band is a target like any other. */
 @media (pointer: coarse) {
-  .sectionToggle {
-    min-block-size: 2.75rem;
+  .scroll {
+    --band-height: 2.75rem;
   }
 }
 
