@@ -53,7 +53,7 @@
     {
       "id": "stepbible-tahot-gen-deu",
       "description": "Translators Amalgamated Hebrew OT (Genesis-Deuteronomy), word-per-line with Strongs",
-      "url": "https://raw.githubusercontent.com/STEPBible/STEPBible-Data/master/Translators%20Amalgamated%20OT+NT/TAHOT%20Gen-Deu%20-%20Translators%20Amalgamated%20Hebrew%20OT%20-%20STEPBible.org%20CC_BY.txt",
+      "url": "https://raw.githubusercontent.com/STEPBible/STEPBible-Data/master/Translators%20Amalgamated%20OT+NT/TAHOT%20Gen-Deu%20-%20Translators%20Amalgamated%20Hebrew%20OT%20-%20STEPBible.org%20CC%20BY.txt",
       "fileName": "stepbible-tahot-gen-deu.txt",
       "sha256": "e9b8546ee48fe0bfc57c3b70f5f40e98d96580e803526d19026224e31753368b",
       "retrievedAt": "2026-10-16",
@@ -63,7 +63,7 @@
     {
       "id": "stepbible-tahot-jos-est",
       "description": "Translators Amalgamated Hebrew OT (Joshua-Esther), word-per-line with Strongs",
-      "url": "https://raw.githubusercontent.com/STEPBible/STEPBible-Data/master/Translators%20Amalgamated%20OT+NT/TAHOT%20Jos-Est%20-%20Translators%20Amalgamated%20Hebrew%20OT%20-%20STEPBible.org%20CC_BY.txt",
+      "url": "https://raw.githubusercontent.com/STEPBible/STEPBible-Data/master/Translators%20Amalgamated%20OT+NT/TAHOT%20Jos-Est%20-%20Translators%20Amalgamated%20Hebrew%20OT%20-%20STEPBible.org%20CC%20BY.txt",
       "fileName": "stepbible-tahot-jos-est.txt",
       "sha256": "195fee1dc3653bab33701f170734eb894ed647c10cd08cc61749375fe8b73775",
       "retrievedAt": "2026-10-16",
@@ -73,7 +73,7 @@
     {
       "id": "stepbible-tahot-job-sng",
       "description": "Translators Amalgamated Hebrew OT (Job-Song of Songs), word-per-line with Strongs",
-      "url": "https://raw.githubusercontent.com/STEPBible/STEPBible-Data/master/Translators%20Amalgamated%20OT+NT/TAHOT%20Job-Sng%20-%20Translators%20Amalgamated%20Hebrew%20OT%20-%20STEPBible.org%20CC_BY.txt",
+      "url": "https://raw.githubusercontent.com/STEPBible/STEPBible-Data/master/Translators%20Amalgamated%20OT+NT/TAHOT%20Job-Sng%20-%20Translators%20Amalgamated%20Hebrew%20OT%20-%20STEPBible.org%20CC%20BY.txt",
       "fileName": "stepbible-tahot-job-sng.txt",
       "sha256": "bb508af3af07822fca84cc43a0eba79eb70eecf672aabc0245b8d8cecf329d96",
       "retrievedAt": "2026-10-16",
@@ -83,7 +83,7 @@
     {
       "id": "stepbible-tahot-isa-mal",
       "description": "Translators Amalgamated Hebrew OT (Isaiah-Malachi), word-per-line with Strongs",
-      "url": "https://raw.githubusercontent.com/STEPBible/STEPBible-Data/master/Translators%20Amalgamated%20OT+NT/TAHOT%20Isa-Mal%20-%20Translators%20Amalgamated%20Hebrew%20OT%20-%20STEPBible.org%20CC_BY.txt",
+      "url": "https://raw.githubusercontent.com/STEPBible/STEPBible-Data/master/Translators%20Amalgamated%20OT+NT/TAHOT%20Isa-Mal%20-%20Translators%20Amalgamated%20Hebrew%20OT%20-%20STEPBible.org%20CC%20BY.txt",
       "fileName": "stepbible-tahot-isa-mal.txt",
       "sha256": "f3ded203d2a74d6368932c97ae550d1d0754b271af491dc0dedf36fe3ba0bcc5",
       "retrievedAt": "2026-10-16",
