@@ -78,10 +78,16 @@ the way out if it ever happened.
 | Flow                                                                 | Covered by           |
 | -------------------------------------------------------------------- | -------------------- |
 | The footer is one line, and on screen, at 320–1920px (twelve widths) | `responsive.spec.ts` |
+| …and still one line with a font a tenth wider than this machine's    | `responsive.spec.ts` |
 | The details are a side column on a desktop                           | `responsive.spec.ts` |
 | …and a sheet at the bottom on a phone, which opens to full height    | `responsive.spec.ts` |
 | The header's controls stay reachable on a phone                      | `responsive.spec.ts` |
 | Every page loads with nothing in the console                         | `responsive.spec.ts` |
+
+The font test earns its place: the footer is set in whatever UI font the reader's system has, and
+those differ in width by about a tenth between the narrowest and the widest. A layout measured on
+one machine can wrap on another — which is exactly how a two-line footer at 320px reached CI once.
+Walking the font up locally turns that into a failure here instead.
 
 Layout is checked by measuring, not by comparing images: "the footer is 30px tall and its right
 edge is inside the viewport" means the same thing on every machine, while a pixel baseline does

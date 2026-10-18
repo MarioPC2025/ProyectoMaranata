@@ -39,6 +39,35 @@ test.describe('the layout holds at every width', () => {
     });
   }
 
+  /**
+   * The line is set in whatever UI font the reader's system has, and those differ in width by
+   * roughly a tenth between the narrowest and the widest. Measuring on one machine therefore
+   * proves nothing about another — this walks the font up and insists the line still holds, so a
+   * layout that only just fits here fails here rather than on somebody's phone.
+   */
+  for (const width of [320, 360, 375]) {
+    test(`${String(width)}px: the footer still holds with a tenth wider font`, async ({ page }) => {
+      await page.setViewportSize({ width, height: 800 });
+      await page.goto('./');
+      await waitForApp(page);
+      const wrapped = await page.locator(`${ACTIVE} footer`).evaluate((footer) => {
+        const element = footer as HTMLElement;
+        const base = Number.parseFloat(getComputedStyle(element).fontSize);
+        const tops = (scale: number) => {
+          element.style.fontSize = `${String(base * scale)}px`;
+          const rows = [...footer.children].map((child) =>
+            Math.round(child.getBoundingClientRect().top),
+          );
+          element.style.fontSize = '';
+          return new Set(rows).size;
+        };
+        return { at10: tops(1.1), at15: tops(1.15) };
+      });
+      expect(wrapped.at10).toBe(1);
+      expect(wrapped.at15).toBe(1);
+    });
+  }
+
   test('the details panel is a side column on a desktop', async ({ page }) => {
     await page.setViewportSize({ width: 1440, height: 900 });
     await page.goto('./?ref=John.3.16');

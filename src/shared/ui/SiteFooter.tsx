@@ -23,7 +23,8 @@ export function SiteFooter({ children, className }: SiteFooterProps) {
   return (
     <footer className={className ? `${styles.footer} ${className}` : styles.footer}>
       <span className={styles.owner}>
-        © {YEAR} · <a href="https://trekhleb.dev">trekhleb.dev</a> ·{' '}
+        <span className={styles.copyright}>© {YEAR} · </span>
+        <a href="https://trekhleb.dev">trekhleb.dev</a> ·{' '}
         <a
           className={styles.source}
           href={REPOSITORY_URL}
