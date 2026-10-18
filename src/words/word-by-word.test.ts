@@ -4,7 +4,9 @@ import {
   forgetWordFiles,
   isPsalmTitle,
   loadBookWords,
+  loadNames,
   mainStrong,
+  nameCard,
   resetWordByWord,
   splitStrongs,
   versesWithStrong,
@@ -126,6 +128,17 @@ describe('la carga de los archivos', () => {
     expect(hebrew.morphology).toEqual({ M: 1 });
     const greek = await wordByWordLoader(43).load();
     expect(greek.lexicon).toEqual({ L: expect.stringContaining('lexico/G.json.gz') as string });
+  });
+
+  it('trae las fichas de nombres y, si no llegan, sigue sin ellas', async () => {
+    const card = ['P', 'Aarón', '', '', 1, [], [], [], [], 334, [2, 4, 14]];
+    fetchMock.mockImplementation(() => json({ indice: { H0175: 0 }, fichas: [card] }));
+    const names = await loadNames();
+    expect(nameCard(names, 'H0175')).toEqual(card);
+    expect(nameCard(names, 'H9999')).toBeUndefined();
+    forgetWordFiles();
+    fetchMock.mockResolvedValueOnce(new Response('', { status: 404 }));
+    expect(await loadNames()).toEqual({ indice: {}, fichas: [] });
   });
 
   it('guarda el libro cargado, y se puede olvidar para reintentar', () => {

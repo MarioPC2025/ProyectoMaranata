@@ -654,6 +654,11 @@
   font-weight: 600;
 }
 
+.nameSummary {
+  display: block;
+  margin-top: var(--space-1);
+}
+
 @media (max-width: 480px) {
   .wordCardList {
     grid-template-columns: 1fr;

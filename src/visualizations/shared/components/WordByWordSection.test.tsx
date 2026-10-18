@@ -37,6 +37,26 @@ const DATA: WordByWordData = {
     H1254A: ['בָּרָא', 'ba.ra', 'V', 'to create'],
   },
   morphology: { 'N-NSM': 'Sustantivo, nominativo masculino singular' },
+  names: {
+    indice: { H0430G: 0, H1254A: 2 },
+    fichas: [
+      [
+        'P',
+        'Aarón',
+        'Hermano de Moisés',
+        'Fue el primer sumo sacerdote.',
+        1,
+        [1],
+        [],
+        [],
+        [],
+        334,
+        [2, 4, 14],
+      ],
+      ['P', 'Amram', '', '', 0, [], [], [], [], 5, null],
+      ['L', 'Bethel', 'A city', '', 0, [], [], [], [], 1, null],
+    ],
+  },
 };
 
 const GEN_1_1 = verseIndex('Gen', 1, 1);
@@ -97,6 +117,31 @@ describe('WordByWordSection', () => {
     expect(within(card).getByText('to create')).toBeDefined();
     await userEvent.click(screen.getByRole('button', { name: /בָּרָא/ }));
     expect(screen.queryByRole('article')).toBeNull();
+  });
+
+  it('muestra la ficha de un nombre propio con su familia y dónde aparece', async () => {
+    serve(DATA);
+    renderVerse();
+    await screen.findByText('Texto hebreo');
+    await userEvent.click(firstButton(/אֱלֹהִים/));
+    const card = screen.getByRole('article');
+    expect(within(card).getByText('Persona')).toBeDefined();
+    expect(within(card).getByText('Aarón')).toBeDefined();
+    expect(within(card).getByText('Fue el primer sumo sacerdote.')).toBeDefined();
+    expect(within(card).getByText('Amram')).toBeDefined();
+    expect(within(card).getByText(/^334 versículos; la primera vez, .+ 4:14$/)).toBeDefined();
+    expect(within(card).getByText(/traducida automáticamente/)).toBeDefined();
+  });
+
+  it('avisa cuando la ficha de un nombre está en inglés', async () => {
+    serve(DATA);
+    renderVerse();
+    await screen.findByText('Texto hebreo');
+    await userEvent.click(screen.getByRole('button', { name: /בָּרָא/ }));
+    const card = screen.getByRole('article');
+    expect(within(card).getByText('Lugar')).toBeDefined();
+    expect(within(card).getByText('1 versículo')).toBeDefined();
+    expect(within(card).getByText('Ficha: TIPNR (STEP Bible).')).toBeDefined();
   });
 
   it('explica las partes de una palabra compuesta y marca la principal', async () => {

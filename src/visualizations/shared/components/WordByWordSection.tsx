@@ -1,8 +1,9 @@
 import '@fontsource/noto-serif-hebrew/hebrew-400.css';
 import '@fontsource/noto-serif/greek-400.css';
 import '@fontsource/noto-serif/greek-ext-400.css';
-import { useEffect, useState } from 'react';
-import { getBook } from '../../../core/bible/books.ts';
+import { Fragment, useEffect, useState } from 'react';
+import { BOOKS, getBook } from '../../../core/bible/books.ts';
+import { formatVerseRef } from '../../../core/bible/reference-format.ts';
 import type { VerseIndex } from '../../../core/bible/verse-ref.ts';
 import type { Versification } from '../../../core/bible/versification.ts';
 import { formatInteger } from '../../../shared/lib/format.ts';
@@ -11,12 +12,14 @@ import { WordsIcon } from '../../../shared/ui/icons.tsx';
 import {
   isPsalmTitle,
   mainStrong,
+  nameCard,
   resetWordByWord,
   splitStrongs,
   versesWithStrong,
   wordByWordLoader,
   wordGloss,
   WORD_MARK,
+  type NameCard,
   type Word,
   type WordByWordData,
 } from '../../../words/word-by-word.ts';
@@ -140,6 +143,7 @@ function WordCard({
   const { parts, main } = splitStrongs(word[4]);
   const strong = parts[main] ?? '';
   const entry = data.lexicon[strong];
+  const card = nameCard(data.names, strong);
   const gloss = wordGloss(word);
   return (
     <article className={styles.wordCard} aria-live="polite">
@@ -166,6 +170,7 @@ function WordCard({
             </dd>
           </>
         )}
+        {card && <NameDetails card={card} data={data} />}
         {parts.length > 1 && (
           <>
             <dt>Partes de la palabra</dt>
@@ -194,6 +199,61 @@ function WordCard({
         )}
       </dl>
     </article>
+  );
+}
+
+const NAME_KIND = { P: 'Persona', L: 'Lugar', O: 'Nombre propio' } as const;
+
+/** La ficha de una persona, un lugar u otro nombre propio (TIPNR), dentro de la de la palabra. */
+function NameDetails({ card, data }: { readonly card: NameCard; readonly data: WordByWordData }) {
+  const [
+    kind,
+    name,
+    brief,
+    summary,
+    translated,
+    parents,
+    siblings,
+    partners,
+    children,
+    verses,
+    first,
+  ] = card;
+  const family = [
+    ['Padres', parents],
+    ['Hermanos', siblings],
+    ['Cónyuge', partners],
+    ['Hijos', children],
+  ] as const;
+  const [book, chapter, verse] = first ?? [0, 0, 0];
+  const firstBook = BOOKS[book - 1];
+  return (
+    <>
+      <dt>{NAME_KIND[kind]}</dt>
+      <dd>
+        <strong>{name}</strong>
+        {brief && ` · ${brief}`}
+        {translated === 0 && <span className={styles.muted}> (en inglés)</span>}
+        {summary && <span className={styles.nameSummary}>{summary}</span>}
+      </dd>
+      {family.map(
+        ([label, members]) =>
+          members.length > 0 && (
+            <Fragment key={label}>
+              <dt>{label}</dt>
+              <dd>{members.map((member) => data.names.fichas[member]?.[1]).join(', ')}</dd>
+            </Fragment>
+          ),
+      )}
+      <dt>En la Biblia</dt>
+      <dd>
+        {verses === 1 ? '1 versículo' : `${formatInteger(verses)} versículos`}
+        {firstBook && `; la primera vez, ${formatVerseRef({ book: firstBook.id, chapter, verse })}`}
+        <span className={`${styles.nameSummary} ${styles.muted}`}>
+          Ficha: TIPNR (STEP Bible){translated === 1 && ', traducida automáticamente, en revisión'}.
+        </span>
+      </dd>
+    </>
   );
 }
 

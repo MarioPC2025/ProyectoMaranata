@@ -14,6 +14,7 @@ public/data/*
 !public/data/original/
 !public/data/lexico/
 !public/data/morfologia.json
+!public/data/nombres.json.gz
 # Except this one: 4.4 MB of archive for one translation is not worth keeping in the repository,
 # so the build downloads it on demand and checks it against its pin in data/sources.json.
 data/raw/eng-kjv2006_vpl.zip

@@ -25,6 +25,38 @@ export type Lexicon = Readonly<Record<string, readonly [string, string, string, 
 
 export type Morphology = Readonly<Record<string, string>>;
 
+/**
+ * La ficha de una persona, un lugar u otro nombre propio (TIPNR, `scripts/nombres.py`). Los
+ * textos van en español si están traducidos (`translated` 1) y, si no, en inglés.
+ */
+export type NameCard = readonly [
+  kind: 'P' | 'L' | 'O',
+  name: string,
+  brief: string,
+  summary: string,
+  translated: number,
+  parents: readonly number[],
+  siblings: readonly number[],
+  partners: readonly number[],
+  children: readonly number[],
+  verses: number,
+  first: readonly [book: number, chapter: number, verse: number] | null,
+];
+
+/** Las fichas y, para cada Strong de cada forma de un nombre, su ficha. */
+export interface Names {
+  readonly indice: Readonly<Record<string, number>>;
+  readonly fichas: readonly NameCard[];
+}
+
+const NO_NAMES: Names = { indice: {}, fichas: [] };
+
+/** La ficha del nombre propio que tiene ese Strong, si la hay. */
+export function nameCard(names: Names, strong: string): NameCard | undefined {
+  const index = names.indice[strong];
+  return index === undefined ? undefined : names.fichas[index];
+}
+
 export const WORD_MARK = {
   normal: 0,
   /** Griego: solo en el Textus Receptus (del que se tradujo la RV1909). */
@@ -133,11 +165,17 @@ export function loadMorphology(): Promise<Morphology> {
   return fetchJson<Morphology>('morfologia.json');
 }
 
+/** Las fichas de nombres propios. Si no llegan, el texto original se muestra igual, sin ellas. */
+export function loadNames(): Promise<Names> {
+  return fetchJson<Names>('nombres.json.gz').catch(() => NO_NAMES);
+}
+
 /** Todo lo que hace falta para mostrar un libro palabra por palabra. */
 export interface WordByWordData {
   readonly words: BookWords;
   readonly lexicon: Lexicon;
   readonly morphology: Morphology;
+  readonly names: Names;
 }
 
 const bookLoaders = new Map<number, CachedLoader<WordByWordData>>();
@@ -146,12 +184,13 @@ export function wordByWordLoader(bookNumber: number): CachedLoader<WordByWordDat
   let loader = bookLoaders.get(bookNumber);
   if (!loader) {
     loader = createCachedLoader(async () => {
-      const [words, lexicon, morphology] = await Promise.all([
+      const [words, lexicon, morphology, names] = await Promise.all([
         loadBookWords(bookNumber),
         loadLexicon(bookNumber <= 39 ? 'H' : 'G'),
         loadMorphology(),
+        loadNames(),
       ]);
-      return { words, lexicon, morphology };
+      return { words, lexicon, morphology, names };
     });
     bookLoaders.set(bookNumber, loader);
   }

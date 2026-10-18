@@ -28,7 +28,7 @@
     "data": "npm run data:fetch && npm run data:build",
     "data:fetch": "node scripts/data/fetch.ts",
     "data:build": "node scripts/data/build.ts",
-    "data:original": "python scripts/descargar.py && python scripts/construir_original.py"
+    "data:original": "python scripts/descargar.py && python scripts/construir_original.py && python scripts/nombres.py"
   },
   "allowScripts": {
     "workerd@1.20261012.1": true
