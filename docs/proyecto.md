@@ -22,33 +22,33 @@ Atribuciones completas en `DATA_SOURCES.md`. Todo cambio a datos CC BY (por ejem
 
 ## Funcionalidades por fase
 
-### Fase 1 — Visualizador de referencias cruzadas
+La base es el repositorio de trekhleb (arcos y hilos); lo propio de Maranata se agregó encima sin cambiar su estilo ni su forma de usarse.
+
+### Fase 1 — Visualizador de referencias cruzadas (hecha)
 
 - Todos los versículos en una línea (Génesis → Apocalipsis) con las referencias como arcos, coloreados por género literario; vista por capítulo con hilos hacia donde conecta.
-- Al pasar el mouse o tocar: texto del versículo (RV1909 local) y sus referencias.
-- Selector "Ver en...": NTV (API.Bible), NVI-S y RVES (YouVersion); lo no licenciado, como link externo.
-- La NTV se pide solo cuando el usuario la elige (nunca por adelantado), con caché global por capítulo (Workers KV, 30 días) y un contador mensual que la oculta antes de llegar a las 5.000 llamadas.
-- Búsqueda tolerante en español: "juan 3.16", "Jn3:16", "1 co 13", con abreviaturas en español (Gn, Éx, Lv, Nm, Dt, ..., Jn, Hch, Ro, 1 Co, ..., Ap).
-- Links compartibles por versículo (URL propia por referencia).
-- Mobile first y accesible.
-- Si una API revoca el acceso, la versión desaparece del selector y el sitio sigue andando con RV1909.
+- Texto del versículo y sus referencias en el panel de detalles. Traducciones incluidas: RV1909 (por defecto), BSB y KJV.
+- "Leer también en": NTV (API.Bible), NVI-S y RVES (YouVersion), como capítulo completo en el panel; RVR1960 y TLA, como enlace a BibleGateway.
+- La NTV se pide solo cuando el lector la elige, con caché global por capítulo (Workers KV, 29 días) y un contador mensual que la corta antes de las 5.000 llamadas.
+- Búsqueda tolerante en español (tildes, ordinales, abreviaturas) y con nombres en inglés.
+- Enlaces compartibles; instalable y sin conexión; mobile first.
 
-### Fase 2 — Lector con modo estudio (estilo STEP)
+### Fase 2 — Modo estudio (en curso)
 
-- RV1909 con palabras clickeables vía Strong: resalta todas las apariciones de la misma palabra original (concordancia).
-- Panel de hebreo/arameo y griego (TAHOT/TAGNT): palabra original, transliteración (pronunciación), análisis morfológico y definición breve en español.
-- NTV/NVI-S como columnas paralelas de solo lectura (sin resaltado).
-- Fichas de nombres propios (TIPNR) y referencias cruzadas integradas al lector.
-- Léxico TBESH/TBESG traducido al español en lote con IA + revisión humana de términos teológicos.
+- Hecho: hebreo/arameo y griego palabra por palabra en el panel (TAHOT/TAGNT): transliteración, glosa (en español en el griego), morfología en español, partes de la palabra y variantes TR/NA.
+- Hecho: en un capítulo, tocar una palabra del texto original resalta las que comparten su Strong y marca los versículos que la contienen.
+- Hecho: "Misma palabra hebrea/griega" (dataset de trekhleb, `words/stepbible.json`).
+- Pendiente: la RV1909 no lleva Strong (regla legal 6), así que no se puede marcar la palabra dentro del texto en español.
+- Pendiente: glosas del hebreo en español; fichas de nombres propios (TIPNR); léxico TBESH/TBESG traducido (IA + revisión humana).
 
 ### Fase 3 — App Android
 
-- La misma base de código como PWA empaquetada con Capacitor y publicada en Google Play.
+- La misma base de código como PWA empaquetada con Capacitor y publicada en Google Play. Ícono: `public/icono.svg`, `public/icons/`.
 - Offline: RV1909, léxicos y referencias. Las versiones por API requieren conexión.
 
 ## Diseño
 
-Pendiente de decidir: oscuro y minimalista como el original de trekhleb, o una identidad visual propia. Requisitos ya definidos: legible en celular, modo claro/oscuro, tipografía cómoda para lectura larga, nombres de libros en español.
+El de trekhleb, sin cambios: oscuro y minimalista. Lo propio: el logo (`public/icono.svg`, de donde salen el favicon y los íconos de la app).
 
 ## Pendientes
 
@@ -58,9 +58,9 @@ Pendiente de decidir: oscuro y minimalista como el original de trekhleb, o una i
 - [ ] Mail a Rubén Gómez (rubeng{at}infotelecom{dot}es, según la ficha de CrossWire): permiso para usar su etiquetado Strong de la RV1909 fuera de CrossWire.
 - [ ] Confirmar con support@api.bible el modelo (sin fines de lucro, sin donaciones al lanzar) y guardar la respuesta.
 - [ ] Gestionar licencias de RVR1960 y TLA (SBU / Sociedad Bíblica Argentina) y NRV2000 (Sociedad Bíblica Emanuel).
-- [ ] Verificar la licencia del repo de trekhleb.
+- [x] Verificar la licencia del repo de trekhleb (MIT, © Oleksii Trekhleb; se conserva su nota en `LICENSE`).
 - [ ] Verificar con STEPBible los términos de las definiciones de TBESH y TBESG (basadas en el Abridged BDB y el Abridged Thayer).
 - [ ] Conseguir un revisor con formación bíblica para la traducción del léxico.
-- [ ] Decidir el diseño visual.
+- [x] Decidir el diseño visual (el de trekhleb).
 - [ ] Cuenta de desarrollador de Google Play (fase 3).
-- [x] Realinear los capítulos de la RV1909 que no coincidían con la versificación KJV (`scripts/realinear.py`).
+- [x] Realinear los capítulos de la RV1909 que no coincidían con la versificación KJV (`scripts/data/importers/rv1909.ts`).

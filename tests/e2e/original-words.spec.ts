@@ -6,7 +6,7 @@ test.describe('the Hebrew and Greek behind a verse', () => {
     page,
   }) => {
     await openPassage(page, 'Acts.5.14');
-    const band = page.locator(PANEL).getByRole('button', { name: /Same Greek word/ });
+    const band = page.locator(PANEL).getByRole('button', { name: /Misma palabra griega/ });
     await expect(band).toBeVisible();
     await expect(page.locator(PANEL).getByRole('button', { name: /plēthos/ })).toContainText(
       'multitude',
@@ -16,7 +16,7 @@ test.describe('the Hebrew and Greek behind a verse', () => {
   test('a Hebrew verse says Hebrew, and marks the script', async ({ page }) => {
     await openPassage(page, 'Gen.1.1');
     await expect(
-      page.locator(PANEL).getByRole('button', { name: /Same Hebrew word/ }),
+      page.locator(PANEL).getByRole('button', { name: /Misma palabra hebrea/ }),
     ).toBeVisible();
     await expect(page.locator(`${PANEL} strong[lang="he"]`).first()).toBeVisible();
   });
@@ -28,7 +28,7 @@ test.describe('the Hebrew and Greek behind a verse', () => {
       .getByRole('button', { name: /plēthos/ })
       .click();
     // The connection the cross-references do not make.
-    await expect(page.locator(PANEL).getByRole('button', { name: /^Luke 5:6/ })).toBeVisible();
+    await expect(page.locator(PANEL).getByRole('button', { name: /^Lucas 5:6/ })).toBeVisible();
   });
 
   test('one of those verses can be followed', async ({ page }) => {
@@ -39,9 +39,9 @@ test.describe('the Hebrew and Greek behind a verse', () => {
       .click();
     await page
       .locator(PANEL)
-      .getByRole('button', { name: /^Luke 5:6/ })
+      .getByRole('button', { name: /^Lucas 5:6/ })
       .click();
-    await expect(page.locator(PANEL).getByRole('heading', { name: 'Luke 5:6' })).toBeVisible();
+    await expect(page.locator(PANEL).getByRole('heading', { name: 'Lucas 5:6' })).toBeVisible();
     await expect(page).toHaveURL(/ref=Luke\.5\.6/);
   });
 
@@ -77,10 +77,12 @@ test.describe('the Hebrew and Greek behind a verse', () => {
 
   test('the credit stays even when the section is folded away', async ({ page }) => {
     await openPassage(page, 'Gen.1.1');
-    const band = page.locator(PANEL).getByRole('button', { name: /Same Hebrew word/ });
+    const band = page.locator(PANEL).getByRole('button', { name: /Misma palabra hebrea/ });
     await band.click();
     await expect(band).toHaveAttribute('aria-expanded', 'false');
-    await expect(page.locator(PANEL).getByRole('link', { name: 'STEP Bible' })).toBeVisible();
+    await expect(
+      page.locator(PANEL).getByRole('link', { name: 'STEP Bible' }).first(),
+    ).toBeVisible();
   });
 
   test('the words file is fetched only once a verse is opened', async ({ page }) => {
@@ -97,7 +99,7 @@ test.describe('the Hebrew and Greek behind a verse', () => {
 
     await openPassage(page, 'Gen.1.1');
     await expect(
-      page.locator(PANEL).getByRole('button', { name: /Same Hebrew word/ }),
+      page.locator(PANEL).getByRole('button', { name: /Misma palabra hebrea/ }),
     ).toBeVisible();
     expect(requests.length).toBeGreaterThan(0);
   });

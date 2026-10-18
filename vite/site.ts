@@ -36,7 +36,7 @@ export const AUTHOR = {
  * usual 1200×630, so it stays sharp on high-density screens after platforms scale it down.
  */
 export const SOCIAL_IMAGE = {
-  file: 'social-preview.jpg',
+  file: 'social-preview.png',
   width: 2400,
   height: 1260,
   alt: 'Arcos que conectan los versículos de la Biblia, de Génesis a Apocalipsis, coloreados por género',

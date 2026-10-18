@@ -95,7 +95,7 @@ test.describe('the layout holds at every width', () => {
     const before = await page.locator(PANEL).boundingBox();
     await page
       .locator(PANEL)
-      .getByRole('button', { name: /Expand details/ })
+      .getByRole('button', { name: /Expandir detalles/ })
       .click();
     await expect
       .poll(async () => Math.round((await page.locator(PANEL).boundingBox())?.y ?? 0))
@@ -106,7 +106,7 @@ test.describe('the layout holds at every width', () => {
     await page.setViewportSize({ width: 390, height: 844 });
     await page.goto('./');
     await waitForApp(page);
-    for (const control of [/Filters/, /Translation/]) {
+    for (const control of [/Filtros/, /Traducción/]) {
       await expect(page.locator(ACTIVE).getByRole('button', { name: control })).toBeVisible();
     }
     await expect(page.locator(ACTIVE).getByRole('searchbox')).toBeVisible();

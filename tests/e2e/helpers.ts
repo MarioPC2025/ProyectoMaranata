@@ -27,7 +27,7 @@ export function collectErrors(page: Page): string[] {
  * are off screen until it is opened. On a desktop there is no handle and nothing to do.
  */
 export async function openPanel(page: Page): Promise<void> {
-  const handle = page.locator(PANEL).getByRole('button', { name: 'Expand details' });
+  const handle = page.locator(PANEL).getByRole('button', { name: 'Expandir detalles' });
   if (await handle.isVisible()) {
     await handle.click();
   }

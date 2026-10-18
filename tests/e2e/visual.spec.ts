@@ -29,7 +29,7 @@ test.describe('the whole Bible', () => {
     // Only a phone folds the legend away; on a desktop it is already open in the shot above.
     test.skip(test.info().project.name !== 'visual-phone', 'The legend is always open here.');
     await show(page);
-    await page.locator(ACTIVE).getByRole('button', { name: 'Show genres' }).click();
+    await page.locator(ACTIVE).getByRole('button', { name: 'Mostrar géneros' }).click();
     await settle(page);
     await expect(page).toHaveScreenshot('arcs-genres.png', FULL);
   });
@@ -76,7 +76,7 @@ test.describe('the Hebrew and Greek', () => {
     await openPanel(page);
     await page
       .locator(PANEL)
-      .getByRole('button', { name: /Same Greek word/ })
+      .getByRole('button', { name: /Misma palabra griega/ })
       .waitFor();
     await settle(page);
     await expect(page.locator(PANEL)).toHaveScreenshot('words-greek.png');
@@ -98,7 +98,7 @@ test.describe('the Hebrew and Greek', () => {
     await openPanel(page);
     await page
       .locator(PANEL)
-      .getByRole('button', { name: /Same Hebrew word/ })
+      .getByRole('button', { name: /Misma palabra hebrea/ })
       .waitFor();
     await settle(page);
     await expect(page.locator(PANEL)).toHaveScreenshot('words-hebrew.png');
@@ -110,7 +110,7 @@ test.describe('the controls', () => {
     await show(page);
     await page
       .locator(ACTIVE)
-      .getByRole('button', { name: /Filters/ })
+      .getByRole('button', { name: /Filtros/ })
       .click();
     await settle(page);
     await expect(page).toHaveScreenshot('menu-filters.png', FULL);
@@ -120,7 +120,7 @@ test.describe('the controls', () => {
     await show(page);
     await page
       .locator(ACTIVE)
-      .getByRole('button', { name: /Translation/ })
+      .getByRole('button', { name: /Traducción/ })
       .click();
     await settle(page);
     await expect(page).toHaveScreenshot('menu-translation.png', FULL);
@@ -158,7 +158,7 @@ test.describe('the loading and error screens', () => {
       await new Promise(() => undefined);
     });
     await page.goto('./');
-    await page.getByText(/Loading 31,102 verses/).waitFor();
+    await page.getByText(/Cargando 31\.102 versículos/).waitFor();
     await settle(page);
     await expect(page).toHaveScreenshot('loading.png', FULL);
   });

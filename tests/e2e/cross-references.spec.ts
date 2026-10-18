@@ -4,26 +4,28 @@ import { ACTIVE, PANEL, openPassage, waitForApp } from './helpers.ts';
 test.describe('cross-references', () => {
   test('a verse lists where it points and what points at it', async ({ page }) => {
     await openPassage(page, 'John.3.16');
-    await expect(page.locator(PANEL).getByRole('button', { name: /References/ })).toBeVisible();
-    await expect(page.locator(PANEL).getByRole('button', { name: /Referenced by/ })).toBeVisible();
+    await expect(page.locator(PANEL).getByRole('button', { name: /Referencias/ })).toBeVisible();
+    await expect(
+      page.locator(PANEL).getByRole('button', { name: /Referenciado por/ }),
+    ).toBeVisible();
     await expect(
       page
         .locator(PANEL)
-        .getByRole('button', { name: /^Romans 5:8/ })
+        .getByRole('button', { name: /^Romanos 5:8/ })
         .first(),
     ).toBeVisible();
   });
 
   test('a section can be folded away, and stays folded on the next visit', async ({ page }) => {
     await openPassage(page, 'John.3.16');
-    const band = page.locator(PANEL).getByRole('button', { name: /^References where/ });
+    const band = page.locator(PANEL).getByRole('button', { name: /^Referencias adónde/ });
     await band.click();
     await expect(band).toHaveAttribute('aria-expanded', 'false');
 
     await page.reload();
     await waitForApp(page);
     await expect(
-      page.locator(PANEL).getByRole('button', { name: /^References where/ }),
+      page.locator(PANEL).getByRole('button', { name: /^Referencias adónde/ }),
     ).toHaveAttribute('aria-expanded', 'false');
   });
 
@@ -44,10 +46,10 @@ test.describe('cross-references', () => {
 
   test('the genre breakdown opens', async ({ page }) => {
     await openPassage(page, 'John.3.16');
-    const band = page.locator(PANEL).getByRole('button', { name: /Connects to/ });
+    const band = page.locator(PANEL).getByRole('button', { name: /Se conecta con/ });
     await band.click();
     await expect(band).toHaveAttribute('aria-expanded', 'true');
-    await expect(page.locator(PANEL).getByText('Gospels').first()).toBeVisible();
+    await expect(page.locator(PANEL).getByText('Evangelios').first()).toBeVisible();
   });
 
   test('raising the vote threshold shows fewer links, and says so in the address', async ({
@@ -57,15 +59,15 @@ test.describe('cross-references', () => {
     await waitForApp(page);
     const shownBefore = await page
       .locator(ACTIVE)
-      .getByText(/of 344,799 links shown/)
+      .getByText(/de 344\.799 enlaces mostrados/)
       .textContent();
     await page
       .locator(ACTIVE)
-      .getByRole('button', { name: /Filters/ })
+      .getByRole('button', { name: /Filtros/ })
       .click();
     await page.locator(ACTIVE).getByRole('combobox').first().selectOption('20');
     await expect(page).toHaveURL(/votes=20/);
-    await expect(page.locator(ACTIVE).getByText(/of 344,799 links shown/)).not.toHaveText(
+    await expect(page.locator(ACTIVE).getByText(/de 344\.799 enlaces mostrados/)).not.toHaveText(
       shownBefore ?? '',
     );
   });
@@ -75,7 +77,7 @@ test.describe('cross-references', () => {
     await waitForApp(page);
     await page
       .locator(ACTIVE)
-      .getByRole('button', { name: /Filters/ })
+      .getByRole('button', { name: /Filtros/ })
       .click();
     await expect(page.locator(ACTIVE).getByRole('combobox').first()).toHaveValue('20');
   });
@@ -84,11 +86,11 @@ test.describe('cross-references', () => {
     await page.goto('./');
     await waitForApp(page);
     // On a phone the legend is folded into an icon button; the genres are behind it.
-    const legend = page.locator(ACTIVE).getByRole('button', { name: 'Show genres' });
+    const legend = page.locator(ACTIVE).getByRole('button', { name: 'Mostrar géneros' });
     if (await legend.isVisible()) {
       await legend.click();
     }
-    const law = page.locator(ACTIVE).getByRole('button', { name: /^Law/ }).first();
+    const law = page.locator(ACTIVE).getByRole('button', { name: /^Ley/ }).first();
     await law.click();
     await expect(law).toHaveAttribute('aria-pressed', 'false');
     await law.click();

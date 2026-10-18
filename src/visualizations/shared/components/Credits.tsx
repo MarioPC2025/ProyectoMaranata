@@ -45,6 +45,17 @@ export function Credits({ translation, inspiration }: CreditsProps) {
         </a>
         <span className={styles.detail}> ({translation.license.name.toLowerCase()})</span>
       </span>
+      <span className={styles.wide}>
+        {' '}
+        · Base:{' '}
+        <a
+          href="https://github.com/trekhleb/bible-cross-references"
+          target="_blank"
+          rel="noreferrer"
+        >
+          Oleksii Trekhleb
+        </a>
+      </span>
       {inspiration && (
         <span className={styles.wide}>
           {' '}

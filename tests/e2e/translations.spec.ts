@@ -6,11 +6,11 @@ test.describe('translations', () => {
     page,
   }) => {
     await openPassage(page, 'John.3.16');
-    await expect(page.locator(PANEL)).toContainText(/one and only Son/);
+    await expect(page.locator(PANEL)).toContainText(/Hijo unigénito/);
 
     await page
       .locator(ACTIVE)
-      .getByRole('button', { name: /Translation/ })
+      .getByRole('button', { name: /Traducción/ })
       .click();
     await page
       .locator(ACTIVE)
@@ -24,7 +24,7 @@ test.describe('translations', () => {
   test('a shared address opens in the translation it names', async ({ page }) => {
     await openPassage(page, 'John.3.16', '&t=kjv');
     await expect(page.locator(PANEL)).toContainText(/only begotten Son/);
-    await expect(page.locator(ACTIVE).getByRole('button', { name: /Translation/ })).toContainText(
+    await expect(page.locator(ACTIVE).getByRole('button', { name: /Traducción/ })).toContainText(
       'KJV',
     );
   });
@@ -33,7 +33,7 @@ test.describe('translations', () => {
     await openPassage(page, 'John.3.16');
     await page
       .locator(ACTIVE)
-      .getByRole('button', { name: /Translation/ })
+      .getByRole('button', { name: /Traducción/ })
       .click();
     await page
       .locator(ACTIVE)
@@ -43,7 +43,7 @@ test.describe('translations', () => {
 
     await page.goto('./');
     await waitForApp(page);
-    await expect(page.locator(ACTIVE).getByRole('button', { name: /Translation/ })).toContainText(
+    await expect(page.locator(ACTIVE).getByRole('button', { name: /Traducción/ })).toContainText(
       'KJV',
     );
   });
@@ -51,7 +51,7 @@ test.describe('translations', () => {
   test('the credit in the footer follows the translation on screen', async ({ page }) => {
     await page.goto('./');
     await waitForApp(page);
-    await expect(page.locator(`${ACTIVE} footer`)).toContainText('BSB');
+    await expect(page.locator(`${ACTIVE} footer`)).toContainText('RV1909');
   });
 
   test('a quote is copied with its reference and a link that names the translation', async ({
@@ -60,13 +60,17 @@ test.describe('translations', () => {
   }) => {
     await context.grantPermissions(['clipboard-read', 'clipboard-write']);
     await openPassage(page, 'Ps.23.1');
-    await page.locator(PANEL).getByRole('button', { name: /^Copy/ }).first().click();
+    await page
+      .locator(PANEL)
+      .getByRole('button', { name: /^Copiar/ })
+      .first()
+      .click();
     // Writing to the clipboard is asynchronous, and the panel says so when it has finished:
     // reading before that is a race, which is a slow machine away from an empty string.
-    await expect(page.locator(PANEL).getByRole('status').first()).toHaveText(/copied/);
+    await expect(page.locator(PANEL).getByRole('status').first()).toHaveText(/copiado/);
     const copied = await page.evaluate(() => navigator.clipboard.readText());
-    expect(copied).toContain('Psalm 23:1');
-    expect(copied).toContain('(BSB)');
-    expect(copied).toContain('?ref=Ps.23.1&t=bsb');
+    expect(copied).toContain('Salmo 23:1');
+    expect(copied).toContain('(RV1909)');
+    expect(copied).toContain('?ref=Ps.23.1&t=rv1909');
   });
 });

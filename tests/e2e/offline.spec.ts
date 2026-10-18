@@ -57,8 +57,8 @@ test.describe('the offline cache', () => {
     await context.setOffline(true);
     await page.reload();
     await waitForApp(page);
-    await expect(page.locator(PANEL).getByRole('heading', { name: 'John 3:16' })).toBeVisible();
-    await expect(page.locator(PANEL)).toContainText(/For God so loved the world/);
+    await expect(page.locator(PANEL).getByRole('heading', { name: 'Juan 3:16' })).toBeVisible();
+    await expect(page.locator(PANEL)).toContainText(/Porque de tal manera amó Dios al mundo/);
     await context.setOffline(false);
   });
 
@@ -66,7 +66,7 @@ test.describe('the offline cache', () => {
     await installWorker(page);
     await page
       .locator(ACTIVE)
-      .getByRole('button', { name: /Translation/ })
+      .getByRole('button', { name: /Traducción/ })
       .click();
     await page
       .locator(ACTIVE)
@@ -164,13 +164,13 @@ test.describe('the install guide', () => {
   test('opens from the footer and shows the steps for a device', async ({ page }) => {
     await page.goto('./');
     await waitForApp(page);
-    await page.locator(`${ACTIVE} footer`).getByRole('button', { name: 'Install the app' }).click();
+    await page.locator(`${ACTIVE} footer`).getByRole('button', { name: 'Instalar la app' }).click();
     const dialog = page.getByRole('dialog');
     await expect(dialog).toBeVisible();
     await dialog.getByRole('button', { name: 'iPhone', exact: true }).click();
-    await expect(dialog).toContainText(/Add to Home Screen/);
-    await dialog.getByRole('button', { name: 'Desktop', exact: true }).click();
-    await expect(dialog).toContainText(/address bar/);
+    await expect(dialog).toContainText(/Añadir a pantalla de inicio/);
+    await dialog.getByRole('button', { name: 'Computador', exact: true }).click();
+    await expect(dialog).toContainText(/barra de direcciones/);
   });
 
   test('opens straight from #install, and gives the address back when closed', async ({ page }) => {
@@ -178,7 +178,7 @@ test.describe('the install guide', () => {
     await waitForApp(page);
     const dialog = page.getByRole('dialog');
     await expect(dialog).toBeVisible();
-    await dialog.getByRole('button', { name: 'Close' }).click();
+    await dialog.getByRole('button', { name: 'Cerrar' }).click();
     await expect(page).toHaveURL(/\?ref=John\.3\.16$/);
   });
 });
