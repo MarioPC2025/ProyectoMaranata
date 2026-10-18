@@ -16,6 +16,7 @@ import {
 import { importBsbText } from './importers/bsb.ts';
 import { importEbibleVerseLines } from './importers/ebible-vpl.ts';
 import { importOpenBibleCrossReferences } from './importers/openbible.ts';
+import { importRv1909 } from './importers/rv1909.ts';
 import { getWordSourceManifest } from '../../src/words/registry.ts';
 import { importStepBibleWords, type TaggedLanguage } from './importers/stepbible.ts';
 import { extractZipTextEntry } from './lib/files.ts';
@@ -43,6 +44,14 @@ function provenanceOf({ url, sha256, retrievedAt }: RawSource) {
 
 /** One builder per translation: the compiler enforces that every translation ID has one. */
 const TRANSLATION_BUILDERS: Readonly<Record<TranslationId, DatasetBuilder>> = {
+  rv1909: {
+    outputPath: translationDatasetPath('rv1909'),
+    build: async (readSource) => {
+      const { source, content } = await readSource('rv1909');
+      const text = extractZipTextEntry(content, 'spaRV1909_vpl.txt');
+      return importRv1909(text, { ...provenanceOf(source), snapshotDate: null });
+    },
+  },
   bsb: {
     outputPath: translationDatasetPath('bsb'),
     build: async (readSource) => {

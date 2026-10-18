@@ -5,7 +5,7 @@ import { SegmentedControl } from './SegmentedControl.tsx';
 
 const OPTIONS = [
   { value: 'both' as const, label: 'Both directions' },
-  { value: 'out' as const, label: 'References' },
+  { value: 'out' as const, label: 'Referencias' },
 ];
 
 describe('SegmentedControl', () => {
@@ -19,7 +19,7 @@ describe('SegmentedControl', () => {
 
   it('marks exactly the chosen one as pressed', () => {
     render(<SegmentedControl label="Direction" options={OPTIONS} value="out" onChange={vi.fn()} />);
-    expect(screen.getByRole('button', { name: 'References' }).getAttribute('aria-pressed')).toBe(
+    expect(screen.getByRole('button', { name: 'Referencias' }).getAttribute('aria-pressed')).toBe(
       'true',
     );
     expect(
@@ -32,7 +32,7 @@ describe('SegmentedControl', () => {
     render(
       <SegmentedControl label="Direction" options={OPTIONS} value="both" onChange={onChange} />,
     );
-    await userEvent.click(screen.getByRole('button', { name: 'References' }));
+    await userEvent.click(screen.getByRole('button', { name: 'Referencias' }));
     expect(onChange).toHaveBeenCalledWith('out');
   });
 
@@ -50,19 +50,19 @@ describe('SegmentedControl', () => {
     render(
       <SegmentedControl
         label="Views"
-        options={[{ value: 'arcs' as const, label: 'Arcs', icon: Icon }]}
+        options={[{ value: 'arcs' as const, label: 'Arcos', icon: Icon }]}
         value="arcs"
         onChange={vi.fn()}
         iconsOnlyWhenNarrow
       />,
     );
-    const button = screen.getByRole('button', { name: 'Arcs' });
-    expect(button.getAttribute('title')).toBe('Arcs');
+    const button = screen.getByRole('button', { name: 'Arcos' });
+    expect(button.getAttribute('title')).toBe('Arcos');
     expect(screen.getByTestId('icon')).toBeDefined();
   });
 
   it('has no tooltip where the label is always visible', () => {
     render(<SegmentedControl label="D" options={OPTIONS} value="both" onChange={vi.fn()} />);
-    expect(screen.getByRole('button', { name: 'References' }).getAttribute('title')).toBeNull();
+    expect(screen.getByRole('button', { name: 'Referencias' }).getAttribute('title')).toBeNull();
   });
 });

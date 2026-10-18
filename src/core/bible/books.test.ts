@@ -23,7 +23,7 @@ describe('book helpers', () => {
   });
 
   it('uses the singular name when citing Psalms', () => {
-    expect(getReferenceName(getBook('Ps'))).toBe('Psalm');
-    expect(getReferenceName(getBook('Gen'))).toBe('Genesis');
+    expect(getReferenceName(getBook('Ps'))).toBe('Salmo');
+    expect(getReferenceName(getBook('Gen'))).toBe('Génesis');
   });
 });

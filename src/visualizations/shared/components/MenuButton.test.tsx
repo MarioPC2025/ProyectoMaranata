@@ -6,7 +6,7 @@ import { MenuButton } from './MenuButton.tsx';
 
 function renderMenu(props: Partial<Parameters<typeof MenuButton>[0]> = {}) {
   return render(
-    <MenuButton label="Filters" icon={FiltersIcon} {...props}>
+    <MenuButton label="Filtros" icon={FiltersIcon} {...props}>
       <p>menu contents</p>
     </MenuButton>,
   );
@@ -31,13 +31,13 @@ describe('MenuButton', () => {
   it('closes when something outside it is used', async () => {
     render(
       <div>
-        <MenuButton label="Filters">
+        <MenuButton label="Filtros">
           <p>menu contents</p>
         </MenuButton>
         <button type="button">elsewhere</button>
       </div>,
     );
-    await userEvent.click(screen.getByRole('button', { name: 'Filters' }));
+    await userEvent.click(screen.getByRole('button', { name: 'Filtros' }));
     expect(screen.getByText('menu contents')).toBeDefined();
     await userEvent.click(screen.getByRole('button', { name: 'elsewhere' }));
     expect(screen.queryByText('menu contents')).toBeNull();
@@ -45,7 +45,7 @@ describe('MenuButton', () => {
 
   it('stays open while the menu itself is used', async () => {
     renderMenu();
-    await userEvent.click(screen.getByRole('button', { name: 'Filters' }));
+    await userEvent.click(screen.getByRole('button', { name: 'Filtros' }));
     await userEvent.click(screen.getByText('menu contents'));
     expect(screen.getByText('menu contents')).toBeDefined();
   });
@@ -69,17 +69,17 @@ describe('MenuButton', () => {
     renderMenu({ value: 'KJV' });
     const button = screen.getByRole('button');
     expect(button.textContent).toContain('KJV');
-    expect(button.getAttribute('aria-label')).toBe('Filters: KJV');
+    expect(button.getAttribute('aria-label')).toBe('Filtros: KJV');
   });
 
   it('is named for itself when it shows no value', () => {
     renderMenu();
-    expect(screen.getByRole('button').getAttribute('aria-label')).toBe('Filters');
+    expect(screen.getByRole('button').getAttribute('aria-label')).toBe('Filtros');
   });
 
   it('says when its settings differ from the defaults', () => {
     renderMenu({ indicator: true });
-    expect(screen.getByRole('button').getAttribute('aria-label')).toBe('Filters (changed)');
+    expect(screen.getByRole('button').getAttribute('aria-label')).toBe('Filtros (cambiado)');
   });
 
   it('says when the choice is still being applied', () => {

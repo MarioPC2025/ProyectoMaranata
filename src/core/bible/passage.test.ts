@@ -27,8 +27,8 @@ describe('passages', () => {
   });
 
   it('formats and round-trips OSIS IDs', () => {
-    expect(formatPassage(versePassage(JOHN_3_16), kjv)).toBe('John 3:16');
-    expect(formatPassage({ kind: 'chapter', book: 'Ps', chapter: 23 }, kjv)).toBe('Psalm 23');
+    expect(formatPassage(versePassage(JOHN_3_16), kjv)).toBe('Juan 3:16');
+    expect(formatPassage({ kind: 'chapter', book: 'Ps', chapter: 23 }, kjv)).toBe('Salmo 23');
     expect(toPassageOsisId(ISAIAH_53, kjv)).toBe('Isa.53');
     expect(parsePassageOsisId('Isa.53', kjv)).toEqual(ISAIAH_53);
     expect(parsePassageOsisId('John.3.16', kjv)).toEqual(versePassage(JOHN_3_16));

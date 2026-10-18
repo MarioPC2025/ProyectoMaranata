@@ -121,7 +121,7 @@ export function ArcsStage({
       className={styles.stage}
       tabIndex={0}
       role="application"
-      aria-label="Arc diagram of cross-references. Drag or use the arrow keys to pan, scroll or +/- to zoom, click to focus a passage, Escape to clear. On a touch screen, touch and hold to preview a passage."
+      aria-label="Diagrama de arcos de las referencias cruzadas. Arrastra o usa las flechas para mover, desplaza o usa +/- para acercar, haz clic para enfocar un pasaje y Escape para quitar el foco. En una pantalla táctil, mantén el dedo para ver un pasaje."
     >
       <canvas ref={glCanvasRef} className={styles.canvas} />
       <canvas ref={overlayCanvasRef} className={styles.canvas} aria-hidden="true" />

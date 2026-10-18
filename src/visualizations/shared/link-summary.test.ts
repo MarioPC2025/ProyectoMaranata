@@ -23,7 +23,7 @@ describe('summarizeLinks', () => {
       verseCount: 31102,
       shownLinks: 2,
       totalLinks: 3,
-      connectedVerses: 5, // Gen 1:1, Ps 23:1 and John 1:1–3
+      connectedVerses: 5, // Gen 1:1, Ps 23:1 and Juan 1:1–3
       crossTestamentLinks: 1,
     });
   });

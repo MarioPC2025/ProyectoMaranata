@@ -96,7 +96,7 @@ export function MenuButton({
         className={`${styles.button} ${styles.menuButton}`}
         // Named explicitly: on phones the label is hidden and only the icon shows, and a menu
         // showing its value says both ("Translation: KJV").
-        aria-label={indicator ? `${name} (changed)` : name}
+        aria-label={indicator ? `${name} (cambiado)` : name}
         aria-expanded={open}
         aria-controls={popoverId}
         aria-busy={busy || undefined}

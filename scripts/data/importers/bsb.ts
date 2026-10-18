@@ -1,4 +1,5 @@
-import { BOOKS, getReferenceName, type BookId } from '../../../src/core/bible/books.ts';
+import { BOOKS, type BookId } from '../../../src/core/bible/books.ts';
+import { ENGLISH_NAMES } from '../../../src/core/bible/english-names.ts';
 import { toOsisId, type VerseIndex } from '../../../src/core/bible/verse-ref.ts';
 import { CANONICAL_VERSIFICATION } from '../../../src/core/bible/versification.ts';
 import {
@@ -21,10 +22,7 @@ const COLUMN_HEADER = 'Verse\t';
 const VERSE_LINE_PATTERN = /^(.+) (\d+):(\d+)\t(.*)$/;
 
 const BOOK_IDS_BY_NAME: ReadonlyMap<string, BookId> = new Map(
-  BOOKS.flatMap((book) => [
-    [book.name, book.id],
-    [getReferenceName(book), book.id],
-  ]),
+  BOOKS.flatMap((book) => ENGLISH_NAMES[book.id].map((name) => [name, book.id] as const)),
 );
 
 export function importBsbText(text: string, provenance: DatasetProvenance): TranslationTextFile {

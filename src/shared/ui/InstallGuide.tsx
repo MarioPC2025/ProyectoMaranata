@@ -41,14 +41,14 @@ export function InstallLink() {
       type="button"
       className={styles.trigger}
       // Named here, not by the word beside the arrow: on phones the arrow stands on its own.
-      title="Install the app"
-      aria-label="Install the app"
+      title="Instalar la app"
+      aria-label="Instalar la app"
       onClick={() => {
         showGuide?.();
       }}
     >
       <InstallIcon />
-      <span className={styles.triggerLabel}>Install</span>
+      <span className={styles.triggerLabel}>Instalar</span>
     </button>
   );
 }
@@ -72,12 +72,15 @@ const GUIDES: Record<InstallPlatform, PlatformGuide> = {
   ios: {
     label: 'iPhone',
     steps: [
-      { icon: ShareIcon, text: <>Tap the share button in Safari&apos;s toolbar.</> },
+      {
+        icon: ShareIcon,
+        text: <>Toca el botón de compartir en la barra de herramientas de Safari.</>,
+      },
       {
         icon: AddToHomeScreenIcon,
         text: (
           <>
-            Scroll down and choose <b>Add to Home Screen</b>.
+            Desplázate hacia abajo y elige <b>Añadir a pantalla de inicio</b>.
           </>
         ),
       },
@@ -85,27 +88,27 @@ const GUIDES: Record<InstallPlatform, PlatformGuide> = {
         icon: DoneIcon,
         text: (
           <>
-            Tap <b>Add</b>. The app joins the others on your home screen.
+            Toca <b>Añadir</b>. La app se une a las demás en tu pantalla de inicio.
           </>
         ),
       },
     ],
     note: (
       <>
-        Safari always offers this. Chrome, Edge and Firefox on an iPhone or iPad share the same
-        menu, and offer it where they support it.
+        Safari siempre lo ofrece. Chrome, Edge y Firefox en un iPhone o iPad comparten el mismo menú
+        y lo ofrecen donde lo admiten.
       </>
     ),
   },
   android: {
     label: 'Android',
     steps: [
-      { icon: BrowserMenuIcon, text: <>Open the menu in Chrome&apos;s toolbar.</> },
+      { icon: BrowserMenuIcon, text: <>Abre el menú de la barra de herramientas de Chrome.</> },
       {
         icon: AddToHomeScreenIcon,
         text: (
           <>
-            Choose <b>Install app</b>, or <b>Add to Home screen</b>.
+            Elige <b>Instalar app</b> o <b>Añadir a la pantalla de inicio</b>.
           </>
         ),
       },
@@ -113,32 +116,36 @@ const GUIDES: Record<InstallPlatform, PlatformGuide> = {
         icon: DoneIcon,
         text: (
           <>
-            Confirm <b>Install</b>.
+            Confirma con <b>Instalar</b>.
           </>
         ),
       },
     ],
   },
   desktop: {
-    label: 'Desktop',
+    label: 'Computador',
     steps: [
       {
         icon: AddressBarInstallIcon,
-        text: <>In Chrome or Edge, click the install button at the end of the address bar.</>,
+        text: (
+          <>
+            En Chrome o Edge, haz clic en el botón de instalar al final de la barra de direcciones.
+          </>
+        ),
       },
       {
         icon: DoneIcon,
         text: (
           <>
-            Choose <b>Install</b>. The app opens in a window of its own.
+            Elige <b>Instalar</b>. La app se abre en su propia ventana.
           </>
         ),
       },
     ],
     note: (
       <>
-        Safari on a Mac installs from <b>Share → Add to Dock</b>. Firefox installs no web apps, but
-        the site still works offline there once you have opened it.
+        Safari en una Mac instala desde <b>Compartir → Añadir al Dock</b>. Firefox no instala apps
+        web, pero el sitio igualmente funciona sin conexión una vez que lo abriste.
       </>
     ),
   },
@@ -215,12 +222,12 @@ export function InstallGuideDialog() {
       <div className={styles.card}>
         <div className={styles.head}>
           <h2 id="install-guide-title" className={styles.title}>
-            Install the app
+            Instalar la app
           </h2>
           <button
             type="button"
             className={styles.close}
-            aria-label="Close"
+            aria-label="Cerrar"
             onClick={() => {
               dialogRef.current?.close();
             }}
@@ -229,7 +236,7 @@ export function InstallGuideDialog() {
           </button>
         </div>
         <p className={styles.lede}>
-          Keep it on your home screen and read it with no connection. No app store, no account.
+          Tenla en tu pantalla de inicio y léela sin conexión. Sin tienda de apps ni cuenta.
         </p>
         {canPrompt && (
           <button
@@ -240,10 +247,10 @@ export function InstallGuideDialog() {
             }}
           >
             <InstallIcon />
-            Install now
+            Instalar ahora
           </button>
         )}
-        <div className={styles.tabs} role="group" aria-label="Device">
+        <div className={styles.tabs} role="group" aria-label="Dispositivo">
           {PLATFORMS.map((option) => (
             <button
               key={option}
@@ -270,8 +277,8 @@ export function InstallGuideDialog() {
         </ol>
         {guide.note !== undefined && <p className={styles.note}>{guide.note}</p>}
         <p className={styles.note}>
-          Open the app once while you are online: that is when it stores the Bible text and the
-          cross-references on your device.
+          Abre la app una vez con conexión: es cuando guarda en tu dispositivo el texto bíblico y
+          las referencias cruzadas.
         </p>
       </div>
     </dialog>

@@ -97,16 +97,16 @@ describe('OriginalWordsSection', () => {
 
   it('appears once they have', async () => {
     renderSection();
-    expect(await screen.findByText(/SAME HEBREW WORD|Same Hebrew word/i)).toBeDefined();
+    expect(await screen.findByText(/Misma palabra hebrea/i)).toBeDefined();
   });
 
   it('says Hebrew in the Old Testament and Greek in the New', async () => {
     const { unmount } = renderSection(GEN_1_1);
-    expect(await screen.findByRole('heading', { name: /Hebrew/i })).toBeDefined();
+    expect(await screen.findByRole('heading', { name: /hebrea/i })).toBeDefined();
     unmount();
     state.loaded = dataset();
     renderSection(ACTS_5_14);
-    expect(await screen.findByRole('heading', { name: /Greek/i })).toBeDefined();
+    expect(await screen.findByRole('heading', { name: /griega/i })).toBeDefined();
   });
 
   it("lists the verse's words, rarest first, with how it sounds and what it means", async () => {
@@ -127,7 +127,7 @@ describe('OriginalWordsSection', () => {
     renderSection(ACTS_5_14);
     const word = await screen.findByRole('button', { name: /plēthos/ });
     await userEvent.click(word);
-    expect(screen.getByText(/Luke 5:6/)).toBeDefined();
+    expect(screen.getByText(/Lucas 5:6/)).toBeDefined();
     expect(word.getAttribute('aria-expanded')).toBe('true');
   });
 
@@ -136,7 +136,7 @@ describe('OriginalWordsSection', () => {
     const word = await screen.findByRole('button', { name: /plēthos/ });
     await userEvent.click(word);
     await userEvent.click(word);
-    expect(screen.queryByText(/Luke 5:6/)).toBeNull();
+    expect(screen.queryByText(/Lucas 5:6/)).toBeNull();
   });
 
   it('opens one word at a time', async () => {
@@ -155,26 +155,26 @@ describe('OriginalWordsSection', () => {
     const onSelect = vi.fn();
     render(<OriginalWordsSection verse={ACTS_5_14} data={data} onSelect={onSelect} />);
     await userEvent.click(await screen.findByRole('button', { name: /plēthos/ }));
-    await userEvent.click(screen.getByText(/Luke 5:6/).closest('button') as HTMLElement);
+    await userEvent.click(screen.getByText(/Lucas 5:6/).closest('button') as HTMLElement);
     expect(onSelect).toHaveBeenCalledWith({ kind: 'verse', verse: LUKE_5_6 });
   });
 
   it('marks the verse being read, among the others', async () => {
     renderSection(ACTS_5_14);
     await userEvent.click(await screen.findByRole('button', { name: /plēthos/ }));
-    expect(document.querySelector('[aria-current="true"]')?.textContent).toContain('Acts 5:14');
+    expect(document.querySelector('[aria-current="true"]')?.textContent).toContain('Hechos 5:14');
   });
 
   it('credits the source, and says what was left out', async () => {
     renderSection();
     expect(await screen.findByText(/STEP Bible/)).toBeDefined();
     expect(screen.getByText(/Tyndale House/)).toBeDefined();
-    expect(screen.getByText(/more than 100 verses are left out/)).toBeDefined();
+    expect(screen.getByText(/más de 100 versículos/)).toBeDefined();
   });
 
   it('keeps the credit visible when the section is folded away', async () => {
     renderSection();
-    const band = await screen.findByRole('button', { name: /Same Hebrew word/i });
+    const band = await screen.findByRole('button', { name: /Misma palabra hebrea/i });
     await userEvent.click(band);
     expect(screen.getByText(/STEP Bible/)).toBeDefined();
   });

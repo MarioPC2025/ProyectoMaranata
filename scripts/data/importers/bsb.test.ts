@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest';
-import { BOOKS, getReferenceName } from '../../../src/core/bible/books.ts';
+import { BOOKS } from '../../../src/core/bible/books.ts';
+import { ENGLISH_NAMES } from '../../../src/core/bible/english-names.ts';
 import { KJV_CHAPTER_VERSE_COUNTS } from '../../../src/core/bible/kjv-versification.ts';
 import { PROVENANCE, verseIndex } from '../../../src/test-utils/fixtures.ts';
 import { importBsbText } from './bsb.ts';
@@ -13,7 +14,7 @@ function createBsbText(transform: (line: string) => string | null = (line) => li
   const lines = BOOKS.flatMap((book) =>
     KJV_CHAPTER_VERSE_COUNTS[book.id].flatMap((verseCount, chapterOffset) =>
       Array.from({ length: verseCount }, (_, verseOffset) => {
-        const reference = `${getReferenceName(book)} ${chapterOffset + 1}:${verseOffset + 1}`;
+        const reference = `${ENGLISH_NAMES[book.id].at(-1) ?? ''} ${chapterOffset + 1}:${verseOffset + 1}`;
         return transform(`${reference}\tText of ${reference}.`);
       }),
     ),

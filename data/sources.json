@@ -21,6 +21,16 @@
       "homepage": "https://ebible.org/Scriptures/details.php?id=eng-kjv2006"
     },
     {
+      "id": "rv1909",
+      "description": "Reina-Valera 1909, eBible.org edition, verse-per-line text in a ZIP archive",
+      "url": "https://ebible.org/Scriptures/spaRV1909_vpl.zip",
+      "fileName": "spaRV1909_vpl.zip",
+      "sha256": "9385c263dd7952b9adebb5e0c9b5b3756fee495dab451aacb30d4f4adcc7ae3e",
+      "retrievedAt": "2026-10-18",
+      "license": "Public domain",
+      "homepage": "https://ebible.org/Scriptures/details.php?id=spaRV1909"
+    },
+    {
       "id": "openbible",
       "description": "OpenBible.info cross-references (TSV in a ZIP archive)",
       "url": "https://a.openbible.info/data/cross-references.zip",

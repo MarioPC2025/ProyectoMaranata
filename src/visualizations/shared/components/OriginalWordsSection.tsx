@@ -81,10 +81,10 @@ export function OriginalWordsSection({
       <PanelSection
         id="same-word"
         icon={WordsIcon}
-        title={`Same ${language} word`}
-        description="where else it is used"
+        title={`Misma palabra ${language === 'Hebrew' ? 'hebrea' : 'griega'}`}
+        description="dónde más se usa"
         count={inVerse.length}
-        countLabel="words"
+        countLabel="palabras"
       >
         {visible.map((word) => {
           const open = openWord === word.index;
@@ -134,14 +134,14 @@ export function OriginalWordsSection({
               setExpanded(true);
             }}
           >
-            Show {formatInteger(inVerse.length - INITIAL_WORDS)} more
+            Mostrar {formatInteger(inVerse.length - INITIAL_WORDS)} más
           </button>
         )}
       </PanelSection>
       {/* Outside the section's body: the credit is a condition of using the data, so it does
           not go away when a reader folds the words out of sight. */}
       <p className={styles.credit}>
-        Words:{' '}
+        Palabras:{' '}
         <a href={words.manifest.homepage} target="_blank" rel="noreferrer">
           STEP Bible
         </a>{' '}
@@ -149,8 +149,8 @@ export function OriginalWordsSection({
         <a href={words.manifest.license.url} target="_blank" rel="noreferrer">
           {words.manifest.license.name}
         </a>
-        ), based on work at Tyndale House, Cambridge; reduced to dictionary forms. Words used in
-        more than {formatInteger(words.maxVerses)} verses are left out.
+        ), basado en el trabajo de Tyndale House, Cambridge; reducido a formas de diccionario. Se
+        omiten las palabras usadas en más de {formatInteger(words.maxVerses)} versículos.
       </p>
     </>
   );

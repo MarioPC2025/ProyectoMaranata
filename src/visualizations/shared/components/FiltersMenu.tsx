@@ -20,7 +20,7 @@ interface FiltersMenuProps {
 
 /** Short option labels: the minimum is included, hence ≥ (e.g. "≥ 4" keeps links with 4 votes). */
 function thresholdLabel(minVotes: number): string {
-  return minVotes === -Infinity ? 'All' : `≥ ${String(minVotes)}`;
+  return minVotes === -Infinity ? 'Todos' : `≥ ${String(minVotes)}`;
 }
 
 /** Low-key link filters: a button that opens a small popover. */
@@ -33,9 +33,9 @@ export function FiltersMenu({
 }: FiltersMenuProps) {
   const isDefault = isDefaultFilter(filter, defaults);
   return (
-    <MenuButton label="Filters" icon={FiltersIcon} indicator={!isDefault}>
+    <MenuButton label="Filtros" icon={FiltersIcon} indicator={!isDefault}>
       <label className={styles.field}>
-        Community votes
+        Votos de la comunidad
         <select
           className={styles.select}
           value={String(filter.minVotes)}
@@ -51,12 +51,14 @@ export function FiltersMenu({
         </select>
       </label>
       <p className={styles.hint}>
-        Votes rank how helpful OpenBible.info readers found a link; they don’t prove it right or
-        wrong. Showing {formatInteger(shownLinks)} of {formatInteger(totalLinks)} links (
-        {describeThreshold(filter.minVotes)}
-        {filter.hiddenGenres.size > 0 && `, ${filter.hiddenGenres.size} genres hidden`}).
+        Los votos ordenan qué tan útil les pareció un enlace a los lectores de OpenBible.info; no
+        prueban que sea correcto o incorrecto. Mostrando {formatInteger(shownLinks)} de{' '}
+        {formatInteger(totalLinks)} enlaces ({describeThreshold(filter.minVotes)}
+        {filter.hiddenGenres.size > 0 && `, ${filter.hiddenGenres.size} géneros ocultos`}).
       </p>
-      <p className={styles.hint}>Tip: tap a genre in the legend to hide or show it.</p>
+      <p className={styles.hint}>
+        Consejo: toca un género en la leyenda para ocultarlo o mostrarlo.
+      </p>
       <button
         type="button"
         className={styles.button}
@@ -66,7 +68,7 @@ export function FiltersMenu({
         }}
       >
         <ResetIcon />
-        Reset filters
+        Restablecer filtros
       </button>
     </MenuButton>
   );

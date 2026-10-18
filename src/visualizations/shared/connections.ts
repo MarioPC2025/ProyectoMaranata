@@ -98,13 +98,13 @@ export function landingNote(
 ): string | null {
   const { link, direction } = connection;
   if (direction === 'incoming' && link.targetEnd !== link.targetStart) {
-    return `to ${formatVerseIndexRange(versification, link.targetStart, link.targetEnd)}`;
+    return `a ${formatVerseIndexRange(versification, link.targetStart, link.targetEnd)}`;
   }
   if (!inChapter) {
     return null;
   }
   const verse = versification.refAt(connection.here).verse;
-  return `${direction === 'outgoing' ? 'from' : 'to'} v. ${String(verse)}`;
+  return `${direction === 'outgoing' ? 'desde' : 'hacia'} v. ${String(verse)}`;
 }
 
 /** Groups connections (already sorted by their other end) by the book of the other end. */

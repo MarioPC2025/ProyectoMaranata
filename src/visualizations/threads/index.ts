@@ -7,9 +7,9 @@ const explorer = import('./ThreadsExplorer.tsx');
 
 export const threads = {
   id: 'threads',
-  title: 'Threads',
-  shortTitle: 'Threads',
+  title: 'Hilos',
+  shortTitle: 'Hilos',
   icon: ReadingIcon,
-  openLabel: 'Read in context',
+  openLabel: 'Leer en contexto',
   Component: lazy(async () => ({ default: (await explorer).ThreadsExplorer })),
 } as const satisfies Visualization;

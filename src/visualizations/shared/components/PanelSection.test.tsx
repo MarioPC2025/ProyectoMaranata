@@ -9,8 +9,8 @@ function renderSection(props: Partial<Parameters<typeof PanelSection>[0]> = {}) 
     <PanelSection
       id="references"
       icon={OutgoingIcon}
-      title="References"
-      description="where this passage points"
+      title="Referencias"
+      description="adónde apunta este pasaje"
       {...props}
     >
       <p>the body</p>
@@ -22,8 +22,8 @@ describe('PanelSection', () => {
   it('names the section and says what it holds', () => {
     renderSection();
     const toggle = screen.getByRole('button');
-    expect(toggle.textContent).toContain('References');
-    expect(toggle.textContent).toContain('where this passage points');
+    expect(toggle.textContent).toContain('Referencias');
+    expect(toggle.textContent).toContain('adónde apunta este pasaje');
   });
 
   it('is a heading, so the panel can be navigated by its sections', () => {
@@ -70,7 +70,7 @@ describe('PanelSection', () => {
   });
 
   it('remembers each section separately', async () => {
-    renderSection({ id: 'same-word', title: 'Same Greek word' });
+    renderSection({ id: 'same-word', title: 'Misma palabra griega' });
     await userEvent.click(screen.getByRole('button'));
     expect(localStorage.getItem('bible-cross-references:panel:same-word')).toBe('false');
     expect(localStorage.getItem('bible-cross-references:panel:references')).toBeNull();
@@ -79,7 +79,7 @@ describe('PanelSection', () => {
   it('shows a count when there is one to show, and names what it counts', () => {
     renderSection({ count: 1234, countLabel: 'passages' });
     const toggle = screen.getByRole('button');
-    expect(toggle.textContent).toContain('1,234');
+    expect(toggle.textContent).toContain('1.234');
     expect(toggle.textContent).toContain('passages');
   });
 

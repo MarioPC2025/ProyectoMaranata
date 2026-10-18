@@ -8,9 +8,9 @@ const explorer = import('./ArcsExplorer.tsx');
 
 export const arcs = {
   id: 'arcs',
-  title: 'Arcs',
-  shortTitle: 'Arcs',
+  title: 'Arcos',
+  shortTitle: 'Arcos',
   icon: ArcsIcon,
-  openLabel: 'Show in Arcs',
+  openLabel: 'Ver en Arcos',
   Component: lazy(async () => ({ default: (await explorer).ArcsExplorer })),
 } as const satisfies Visualization;

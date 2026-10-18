@@ -119,18 +119,18 @@ describe('the copy button', () => {
   it('is not offered where the page cannot write to the clipboard', () => {
     Object.defineProperty(window, 'isSecureContext', { value: false, configurable: true });
     renderPanel();
-    expect(screen.queryByRole('button', { name: /Copy John 3:16/ })).toBeNull();
+    expect(screen.queryByRole('button', { name: /Copiar Juan 3:16/ })).toBeNull();
   });
 
   it('copies the verse with its reference and a link', async () => {
     renderPanel();
-    await userEvent.click(screen.getByRole('button', { name: 'Copy John 3:16 with a link' }));
+    await userEvent.click(screen.getByRole('button', { name: 'Copiar Juan 3:16 con un enlace' }));
     await waitFor(() => {
       expect(clipboard.writeText).toHaveBeenCalled();
     });
     const [written] = clipboard.writeText.mock.calls[0] ?? [];
     expect(written).toContain('For God so loved the world…');
-    expect(written).toContain('John 3:16 (BSB)');
+    expect(written).toContain('Juan 3:16 (BSB)');
     expect(written).toContain('https://example.org/?ref=John.3.16');
   });
 
@@ -139,9 +139,9 @@ describe('the copy button', () => {
 
   it('says so, and then stops saying so', async () => {
     renderPanel();
-    await userEvent.click(screen.getByRole('button', { name: 'Copy John 3:16 with a link' }));
+    await userEvent.click(screen.getByRole('button', { name: 'Copiar Juan 3:16 con un enlace' }));
     await waitFor(() => {
-      expect(verseStatus()?.textContent).toBe('John 3:16 copied');
+      expect(verseStatus()?.textContent).toBe('Juan 3:16 copiado');
     });
     await waitFor(
       () => {
@@ -153,7 +153,9 @@ describe('the copy button', () => {
 
   it('copies a cross-referenced passage from its own button', async () => {
     renderPanel();
-    await userEvent.click(screen.getByRole('button', { name: /Copy Romans 5:8–9 with a link/ }));
+    await userEvent.click(
+      screen.getByRole('button', { name: /Copiar Romanos 5:8–9 con un enlace/ }),
+    );
     await waitFor(() => {
       expect(clipboard.writeText).toHaveBeenCalled();
     });
@@ -162,7 +164,7 @@ describe('the copy button', () => {
   it('says nothing when the clipboard refuses, and stays usable', async () => {
     clipboard.writeText.mockRejectedValueOnce(new Error('denied'));
     renderPanel();
-    await userEvent.click(screen.getByRole('button', { name: 'Copy John 3:16 with a link' }));
+    await userEvent.click(screen.getByRole('button', { name: 'Copiar Juan 3:16 con un enlace' }));
     await waitFor(() => {
       expect(verseStatus()?.textContent).toBe('');
     });
@@ -170,8 +172,10 @@ describe('the copy button', () => {
 
   it('copies a chapter\u2019s links rather than the chapter itself', async () => {
     renderPanel(chapterPassageOf(JOHN_3_16, CANONICAL_VERSIFICATION));
-    expect(screen.queryByRole('button', { name: /Copy John 3 with a link/ })).toBeNull();
-    await userEvent.click(screen.getByRole('button', { name: /Copy Romans 5:8–9 with a link/ }));
+    expect(screen.queryByRole('button', { name: /Copiar Juan 3 con un enlace/ })).toBeNull();
+    await userEvent.click(
+      screen.getByRole('button', { name: /Copiar Romanos 5:8–9 con un enlace/ }),
+    );
     await waitFor(() => {
       expect(clipboard.writeText).toHaveBeenCalled();
     });

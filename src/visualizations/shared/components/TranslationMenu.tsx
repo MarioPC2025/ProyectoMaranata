@@ -28,8 +28,8 @@ export function TranslationMenu({
   // Both visualizations stay mounted, so each one's radios need a group name of their own.
   const group = useId();
   return (
-    <MenuButton label="Translation" value={current.abbreviation} busy={pending}>
-      <div className={styles.field} role="radiogroup" aria-label="Translation">
+    <MenuButton label="Traducción" value={current.abbreviation} busy={pending}>
+      <div className={styles.field} role="radiogroup" aria-label="Traducción">
         {TRANSLATION_MANIFESTS.map((translation) => (
           <label key={translation.id} className={styles.choice}>
             <input
@@ -48,7 +48,7 @@ export function TranslationMenu({
       </div>
       {error !== null && (
         <p role="alert" className={styles.menuError}>
-          {error} Check your connection and try again.
+          {error} Revisa tu conexión e inténtalo de nuevo.
         </p>
       )}
       <p className={styles.hint}>{current.attribution}</p>

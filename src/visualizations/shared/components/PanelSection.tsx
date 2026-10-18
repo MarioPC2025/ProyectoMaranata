@@ -63,7 +63,7 @@ export function PanelSection({
           {count !== undefined && (
             <span className={styles.count}>
               {formatInteger(count)}
-              <span className={styles.visuallyHidden}> {countLabel ?? 'items'}</span>
+              <span className={styles.visuallyHidden}> {countLabel ?? 'elementos'}</span>
             </span>
           )}
           <ExpandIcon className={styles.chevron} />

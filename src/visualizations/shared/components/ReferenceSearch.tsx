@@ -10,7 +10,7 @@ interface ReferenceSearchProps {
   readonly onSelect: (passage: Passage) => void;
 }
 
-/** "Go to" box: accepts references such as `John 3:16`, `jn 3 16`, `Ps 23` or `Gen.1.1`. */
+/** "Ir a": acepta referencias como `Juan 3:16`, `jn 3 16`, `Sal 23` o `Gen.1.1`. */
 export function ReferenceSearch({ versification, onSelect }: ReferenceSearchProps) {
   const [error, setError] = useState<string | null>(null);
   const errorId = useId();
@@ -39,8 +39,8 @@ export function ReferenceSearch({ versification, onSelect }: ReferenceSearchProp
         name="reference"
         type="search"
         className={styles.input}
-        placeholder="Go to… John 3:16, Ps 23"
-        aria-label="Go to a Bible reference"
+        placeholder="Ir a… Juan 3:16, Sal 23"
+        aria-label="Ir a una referencia bíblica"
         aria-invalid={error !== null}
         aria-describedby={error === null ? undefined : errorId}
         autoComplete="off"

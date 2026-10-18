@@ -40,7 +40,9 @@ export function VizDataBoundary({ children }: VizDataBoundaryProps) {
       )}
     >
       <Suspense
-        fallback={<LoadingArcs label="Loading 31,102 verses and 344,799 cross-references…" />}
+        fallback={
+          <LoadingArcs label="Cargando 31.102 versículos y 344.799 referencias cruzadas…" />
+        }
       >
         <Loaded>{children}</Loaded>
       </Suspense>

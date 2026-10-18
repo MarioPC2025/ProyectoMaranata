@@ -24,7 +24,7 @@ interface CreditsProps {
 export function Credits({ translation, inspiration }: CreditsProps) {
   return (
     <>
-      <span className={styles.detail}>Links: </span>
+      <span className={styles.detail}>Enlaces: </span>
       <a href="https://www.openbible.info/labs/cross-references/" target="_blank" rel="noreferrer">
         OpenBible.info
       </a>{' '}
@@ -32,14 +32,14 @@ export function Credits({ translation, inspiration }: CreditsProps) {
       <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noreferrer">
         CC BY 4.0
       </a>
-      <span className={styles.wide}>, from the Treasury of Scripture Knowledge</span>
+      <span className={styles.wide}>, del Treasury of Scripture Knowledge</span>
       <span className={styles.detail}>
-        , re-indexed<span className={styles.wide}> to KJV verse numbering</span>
+        , reindexado<span className={styles.wide}> a la numeración de la KJV</span>
       </span>
       )
       <span className={styles.text}>
         {' '}
-        · Text:{' '}
+        · Texto:{' '}
         <a href={translation.homepage} target="_blank" rel="noreferrer">
           {translation.abbreviation}
         </a>
@@ -48,14 +48,14 @@ export function Credits({ translation, inspiration }: CreditsProps) {
       {inspiration && (
         <span className={styles.wide}>
           {' '}
-          · Inspired by{' '}
+          · Inspirado en{' '}
           {/* The work's own name is this app's name too, so saying it here reads as a stutter and
               costs the line the room it needs; the link, and its tooltip, still carry it. */}
           <a
             href={inspiration.url}
             target="_blank"
             rel="noreferrer"
-            title={`${inspiration.title}, by ${inspiration.author}`}
+            title={`${inspiration.title}, de ${inspiration.author}`}
           >
             {inspiration.author}
           </a>

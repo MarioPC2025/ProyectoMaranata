@@ -3,7 +3,9 @@ import userEvent from '@testing-library/user-event';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import { DebugPage } from '../features/debug/DebugPage.tsx';
 import { debugDataLoader } from '../features/debug/debug-data.ts';
+import type { TranslationId } from '../core/datasets/ids.ts';
 import { mount } from '../shared/lib/mount.tsx';
+import { DEFAULT_TRANSLATION_ID } from '../translations/registry.ts';
 import {
   createCrossReferenceColumns,
   createTranslationFile,
@@ -49,7 +51,10 @@ function serve({ failing = false } = {}) {
     }
     const body = String(input).includes('cross-references')
       ? CROSS_REFERENCES
-      : createTranslationFile();
+      : createTranslationFile(
+          new Map(),
+          /translations\/(\w+)\.json/.exec(String(input))?.[1] as TranslationId,
+        );
     return Promise.resolve(new Response(JSON.stringify(body)));
   });
   vi.stubGlobal('fetch', fetch);
@@ -95,7 +100,7 @@ describe('VizDataBoundary', () => {
   it('waits with a loading screen that says what is coming', () => {
     serve();
     render(<VizDataBoundary>{() => <p>done</p>}</VizDataBoundary>);
-    expect(screen.getByText(/Loading 31,102 verses/)).toBeDefined();
+    expect(screen.getByText(/Cargando 31\.102 versículos/)).toBeDefined();
   });
 
   it('explains a failed download and offers to try again', async () => {
@@ -143,7 +148,7 @@ describe('VizPage', () => {
         <canvas />
       </VizPage>,
     );
-    expect(screen.queryByLabelText('Details')).toBeNull();
+    expect(screen.queryByLabelText('Detalles')).toBeNull();
   });
 
   it('shows the details panel, with a handle to open it fully', () => {
@@ -152,8 +157,8 @@ describe('VizPage', () => {
         <canvas />
       </VizPage>,
     );
-    expect(screen.getByLabelText('Details')).toBeDefined();
-    expect(screen.getByRole('button', { name: 'Expand details' })).toBeDefined();
+    expect(screen.getByLabelText('Detalles')).toBeDefined();
+    expect(screen.getByRole('button', { name: 'Expandir detalles' })).toBeDefined();
   });
 
   it('opens and closes the sheet from its handle', async () => {
@@ -162,8 +167,8 @@ describe('VizPage', () => {
         <canvas />
       </VizPage>,
     );
-    await userEvent.click(screen.getByRole('button', { name: 'Expand details' }));
-    expect(screen.getByRole('button', { name: 'Collapse details' })).toBeDefined();
+    await userEvent.click(screen.getByRole('button', { name: 'Expandir detalles' }));
+    expect(screen.getByRole('button', { name: 'Contraer detalles' })).toBeDefined();
   });
 });
 
@@ -178,7 +183,7 @@ describe('ViewSwitch', () => {
       />,
     );
     expect(screen.getAllByRole('link')).toHaveLength(VIEWS.length);
-    expect(screen.getByRole('link', { name: 'Arcs' }).getAttribute('aria-current')).toBe('page');
+    expect(screen.getByRole('link', { name: 'Arcos' }).getAttribute('aria-current')).toBe('page');
   });
 
   it('opens a view in place, without loading the page again', async () => {
@@ -191,7 +196,7 @@ describe('ViewSwitch', () => {
         onOpen={onOpen}
       />,
     );
-    await userEvent.click(screen.getByRole('link', { name: 'Threads' }));
+    await userEvent.click(screen.getByRole('link', { name: 'Hilos' }));
     expect(onOpen).toHaveBeenCalledWith(expect.objectContaining({ id: 'threads' }));
   });
 
@@ -204,7 +209,7 @@ describe('ViewSwitch', () => {
         onOpen={vi.fn()}
       />,
     );
-    expect(screen.getByRole('link', { name: 'Threads' }).getAttribute('href')).toBe('/threads/');
+    expect(screen.getByRole('link', { name: 'Hilos' }).getAttribute('href')).toBe('/threads/');
   });
 });
 
@@ -266,7 +271,7 @@ describe('the debug dataset loader', () => {
     const fetch = serve();
     debugDataLoader.reset();
     const data = await debugDataLoader.load();
-    expect(data.translation.translation.manifest.id).toBe('bsb');
+    expect(data.translation.translation.manifest.id).toBe(DEFAULT_TRANSLATION_ID);
     expect(data.crossReferences).toHaveLength(1);
     expect(fetch).toHaveBeenCalledTimes(2);
   });

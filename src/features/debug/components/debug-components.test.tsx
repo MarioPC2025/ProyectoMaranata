@@ -75,14 +75,14 @@ describe('VerseLink', () => {
 
   it('names the verse it points at', () => {
     renderLink(<VerseLink verse={verseIndex('John', 3, 16)} />);
-    expect(screen.getByRole('button', { name: /John 3:16/ })).toBeDefined();
+    expect(screen.getByRole('button', { name: /Juan 3:16/ })).toBeDefined();
   });
 
   it('names a range by its ends', () => {
     renderLink(
       <VerseLink verse={verseIndex('John', 3, 16)} rangeEnd={verseIndex('John', 3, 17)} />,
     );
-    expect(screen.getByRole('button').textContent).toMatch(/John 3:16.+17/);
+    expect(screen.getByRole('button').textContent).toMatch(/Juan 3:16.+17/);
   });
 
   it('opens the verse in the inspector', async () => {

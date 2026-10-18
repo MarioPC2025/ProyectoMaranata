@@ -59,12 +59,12 @@ describe('KeyValueList', () => {
     render(
       <KeyValueList
         items={[
-          { label: 'Verses', value: '31,102' },
+          { label: 'Versículos', value: '31,102' },
           { label: 'Links', value: 7 },
         ]}
       />,
     );
-    expect(screen.getByText('Verses')).toBeDefined();
+    expect(screen.getByText('Versículos')).toBeDefined();
     expect(screen.getByText('31,102')).toBeDefined();
     expect(screen.getByText('Links')).toBeDefined();
     expect(screen.getByText('7')).toBeDefined();

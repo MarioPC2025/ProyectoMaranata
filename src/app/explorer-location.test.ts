@@ -121,7 +121,7 @@ describe('explorerUrl', () => {
 
   it('names the translation unless it is the default, so a shared link keeps it', () => {
     const passage = { passage: JOHN_3_16, filter: DEFAULT_LINK_FILTER };
-    expect(explorerUrl(ROUTES[0], { ...passage, translation: 'bsb' }, '/', kjv)).toBe(
+    expect(explorerUrl(ROUTES[0], { ...passage, translation: 'rv1909' }, '/', kjv)).toBe(
       '/?ref=John.3.16',
     );
     expect(explorerUrl(ROUTES[0], { ...passage, translation: 'kjv' }, '/', kjv)).toBe(
@@ -140,8 +140,8 @@ describe('explorerUrl', () => {
       translation: DEFAULT_TRANSLATION_ID,
     };
     // A quote of the default translation has to open in it, whatever its reader usually reads.
-    expect(explorerUrl(ROUTES[0], quoted, '/', kjv, null)).toBe('/?ref=John.3.16&t=bsb');
-    expect(parse('/?ref=John.3.16&t=bsb', '/', 'kjv').translation).toBe('bsb');
+    expect(explorerUrl(ROUTES[0], quoted, '/', kjv, null)).toBe('/?ref=John.3.16&t=rv1909');
+    expect(parse('/?ref=John.3.16&t=rv1909', '/', 'kjv').translation).toBe('rv1909');
   });
 
   it('keeps a URL on the text it shows, whichever translation the reader prefers', () => {
@@ -150,13 +150,13 @@ describe('explorerUrl', () => {
     const reading = {
       passage: JOHN_3_16,
       filter: DEFAULT_LINK_FILTER,
-      translation: 'bsb',
+      translation: 'rv1909',
     } as const;
     const url = explorerUrl(ROUTES[0], reading, '/', kjv, plainTranslationFor('kjv'));
-    expect(url).toBe('/?ref=John.3.16&t=bsb');
-    expect(parse(url, '/', 'kjv').translation).toBe('bsb');
+    expect(url).toBe('/?ref=John.3.16&t=rv1909');
+    expect(parse(url, '/', 'kjv').translation).toBe('rv1909');
     // While a reader is on their own translation, their links stay plain.
-    expect(plainTranslationFor('bsb')).toBe('bsb');
+    expect(plainTranslationFor('rv1909')).toBe('rv1909');
     expect(plainTranslationFor('kjv')).toBeNull();
   });
 

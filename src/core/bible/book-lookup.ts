@@ -1,24 +1,37 @@
 import { BOOKS, getReferenceName, type Book } from './books.ts';
+import { ENGLISH_NAMES } from './english-names.ts';
 
 export type BookLookupResult =
   | { readonly kind: 'found'; readonly book: Book }
   | { readonly kind: 'ambiguous'; readonly candidates: readonly Book[] }
   | { readonly kind: 'unknown' };
 
+/** Los ordinales con que se escribe el número de un libro: "primera de", "1ra", "II". */
+const ORDINALS: readonly (readonly [RegExp, string])[] = [
+  [/^(primera|primero|primer|1ra|1ro|1a|1o|i)\s+(de\s+)?/, '1'],
+  [/^(segunda|segundo|2da|2do|2a|2o|ii)\s+(de\s+)?/, '2'],
+  [/^(tercera|tercero|3ra|3ro|3a|3o|iii)\s+(de\s+)?/, '3'],
+];
+
+/** Minúsculas y sin tildes ni otras marcas ("Éxodo" → "exodo"). */
+export function stripAccents(value: string): string {
+  return value.normalize('NFD').replace(/\p{M}/gu, '').toLowerCase();
+}
+
 /**
- * Normalizes a book name for lookup: lowercase, a leading roman numeral followed by a space turned
- * into a digit ("II Kings" → "2kings"), spaces and dots removed.
+ * Normalizes a book name for lookup: lowercase, without accents, a leading ordinal ("primera de",
+ * "1ra", or a roman numeral) turned into a digit ("II Reyes" → "2reyes"), spaces and dots removed.
  */
 export function normalizeBookName(value: string): string {
-  return value
-    .trim()
-    .toLowerCase()
-    .replace(/^(i{1,3})\s+/, (_match: string, numeral: string) => String(numeral.length))
-    .replace(/[\s.]+/g, '');
+  let name = stripAccents(value.trim());
+  for (const [pattern, digit] of ORDINALS) {
+    name = name.replace(pattern, digit);
+  }
+  return name.replace(/[\s.]+/g, '');
 }
 
 function bookNames(book: Book): string[] {
-  return [book.name, getReferenceName(book)];
+  return [book.name, getReferenceName(book), ...ENGLISH_NAMES[book.id]];
 }
 
 function buildExactIndex(): ReadonlyMap<string, Book> {
@@ -45,7 +58,7 @@ const NORMALIZED_NAMES: readonly { readonly book: Book; readonly names: readonly
  * Finds a book by name, OSIS ID or common abbreviation (case-insensitive).
  *
  * Exact matches win; otherwise the query is matched as a prefix of the full book names, so
- * "gene" finds Genesis while "jo" is reported as ambiguous.
+ * "gene" finds Génesis while "jo" is reported as ambiguous.
  */
 export function lookupBook(query: string): BookLookupResult {
   const key = normalizeBookName(query);

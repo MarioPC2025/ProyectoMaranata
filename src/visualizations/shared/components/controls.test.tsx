@@ -16,7 +16,7 @@ describe('ReferenceSearch', () => {
 
   it('opens a verse that is typed in full', async () => {
     const { onSelect, input } = renderSearch();
-    await userEvent.type(input, 'John 3:16{Enter}');
+    await userEvent.type(input, 'Juan 3:16{Enter}');
     expect(onSelect).toHaveBeenCalledWith({ kind: 'verse', verse: verseIndex('John', 3, 16) });
   });
 
@@ -31,7 +31,7 @@ describe('ReferenceSearch', () => {
 
   it('opens a whole chapter when no verse is given', async () => {
     const { onSelect, input } = renderSearch();
-    await userEvent.type(input, 'Psalm 23{Enter}');
+    await userEvent.type(input, 'Salmo 23{Enter}');
     expect(onSelect).toHaveBeenCalledWith({ kind: 'chapter', book: 'Ps', chapter: 23 });
   });
 
@@ -55,7 +55,7 @@ describe('ReferenceSearch', () => {
     await userEvent.type(input, 'nonsense{Enter}');
     expect(screen.getByRole('alert')).toBeDefined();
     await userEvent.clear(input);
-    await userEvent.type(input, 'John 3:16{Enter}');
+    await userEvent.type(input, 'Juan 3:16{Enter}');
     expect(screen.queryByRole('alert')).toBeNull();
   });
 
@@ -69,8 +69,8 @@ describe('ReferenceSearch', () => {
 describe('GenreToggles', () => {
   it('shows every genre, grouped by testament', () => {
     render(<GenreToggles hiddenGenres={new Set()} onToggle={vi.fn()} />);
-    expect(screen.getByText('Old Testament')).toBeDefined();
-    expect(screen.getByText('New Testament')).toBeDefined();
+    expect(screen.getByText('Antiguo Testamento')).toBeDefined();
+    expect(screen.getByText('Nuevo Testamento')).toBeDefined();
     expect(screen.getAllByRole('button')).toHaveLength(GENRES.length);
   });
 
@@ -83,13 +83,13 @@ describe('GenreToggles', () => {
 
   it('marks a hidden genre as not pressed', () => {
     render(<GenreToggles hiddenGenres={new Set(['law'])} onToggle={vi.fn()} />);
-    expect(screen.getByRole('button', { name: /Law/ }).getAttribute('aria-pressed')).toBe('false');
+    expect(screen.getByRole('button', { name: /Ley/ }).getAttribute('aria-pressed')).toBe('false');
   });
 
   it('reports the genre that was toggled', async () => {
     const onToggle = vi.fn();
     render(<GenreToggles hiddenGenres={new Set()} onToggle={onToggle} />);
-    await userEvent.click(screen.getByRole('button', { name: /Revelation/ }));
+    await userEvent.click(screen.getByRole('button', { name: /Apocalipsis/ }));
     expect(onToggle).toHaveBeenCalledWith('revelation');
   });
 });

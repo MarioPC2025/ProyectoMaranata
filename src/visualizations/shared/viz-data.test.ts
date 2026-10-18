@@ -155,7 +155,7 @@ describe('the original words', () => {
 describe('vizDatasetPaths', () => {
   it('names the links and the default text, which the HTML preloads', () => {
     expect(vizDatasetPaths()).toEqual([
-      translationDatasetPath('bsb'),
+      translationDatasetPath('rv1909'),
       crossReferencesDatasetPath(vizCrossReferenceSource().id),
     ]);
   });

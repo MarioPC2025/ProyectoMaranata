@@ -1,6 +1,9 @@
-const integerFormat = new Intl.NumberFormat('en-US');
-const decimalFormat = new Intl.NumberFormat('en-US', { maximumFractionDigits: 2 });
-const percentFormat = new Intl.NumberFormat('en-US', {
+const integerFormat = new Intl.NumberFormat('es', { useGrouping: 'always' });
+const decimalFormat = new Intl.NumberFormat('es', {
+  maximumFractionDigits: 2,
+  useGrouping: 'always',
+});
+const percentFormat = new Intl.NumberFormat('es', {
   style: 'percent',
   maximumFractionDigits: 1,
 });

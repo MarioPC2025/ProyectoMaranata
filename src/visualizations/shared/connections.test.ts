@@ -18,7 +18,7 @@ const index = new CrossReferenceIndex(
     { from: JOHN_3_16, to: ROM_8_32, votes: 510 },
     { from: JOHN_3_16, to: ROM_5_8, votes: 983 },
     { from: JOHN_3_17, to: GEN_22_2, votes: 1 },
-    // An incoming link to a range covering both John 3:16 and 3:17 must be counted once.
+    // An incoming link to a range covering both Juan 3:16 and 3:17 must be counted once.
     { from: GEN_22_2, to: JOHN_3_16, toEnd: JOHN_3_17, votes: 7 },
     { from: ROM_5_8, to: JOHN_3_16, votes: -2 },
   ]),
@@ -58,7 +58,7 @@ describe('landingNote', () => {
 
   it('names the whole passage a link points to, which the verse is only part of', () => {
     expect(intoRange && landingNote(intoRange, CANONICAL_VERSIFICATION, false)).toBe(
-      'to John 3:16–17',
+      'a Juan 3:16–17',
     );
   });
 
@@ -68,8 +68,8 @@ describe('landingNote', () => {
 
   it("names the chapter's verse where each other link starts or lands", () => {
     const [fromVerse] = outgoing;
-    expect(intoVerse && landingNote(intoVerse, CANONICAL_VERSIFICATION, true)).toBe('to v. 16');
-    expect(fromVerse && landingNote(fromVerse, CANONICAL_VERSIFICATION, true)).toBe('from v. 16');
+    expect(intoVerse && landingNote(intoVerse, CANONICAL_VERSIFICATION, true)).toBe('hacia v. 16');
+    expect(fromVerse && landingNote(fromVerse, CANONICAL_VERSIFICATION, true)).toBe('desde v. 16');
   });
 });
 

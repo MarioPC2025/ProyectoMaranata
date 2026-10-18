@@ -6,10 +6,10 @@ describe('InAppLink', () => {
   it('is a real link, so it can be opened in a new tab or copied', () => {
     render(
       <InAppLink href="/threads/?ref=John.3.16" onFollow={vi.fn()}>
-        Threads
+        Hilos
       </InAppLink>,
     );
-    expect(screen.getByRole('link', { name: 'Threads' })).toHaveProperty(
+    expect(screen.getByRole('link', { name: 'Hilos' })).toHaveProperty(
       'href',
       expect.stringContaining('/threads/?ref=John.3.16'),
     );

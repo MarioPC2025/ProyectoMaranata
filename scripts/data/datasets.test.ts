@@ -1,8 +1,10 @@
 import { strToU8, zipSync } from 'fflate';
 import { describe, expect, it } from 'vitest';
+import { ENGLISH_NAMES } from '../../src/core/bible/english-names.ts';
 import { CANONICAL_VERSIFICATION } from '../../src/core/bible/versification.ts';
 import { DATASET_BUILDERS, type RawSourceContent } from './datasets.ts';
 import { BOOK_CODES as KJV_CODES } from './importers/ebible-vpl.ts';
+import { vplRv1909 } from './importers/rv1909-fixture.ts';
 import type { RawSource } from './lib/sources.ts';
 
 function source(id: string): RawSource {
@@ -28,7 +30,7 @@ function everyVerse(render: (index: number) => string): string {
 const BSB = everyVerse((index) => {
   const ref = CANONICAL_VERSIFICATION.refAt(index);
   const book = CANONICAL_VERSIFICATION.bookAt(index);
-  return `${book.name} ${String(ref.chapter)}:${String(ref.verse)}\tVerse ${String(index)}.`;
+  return `${ENGLISH_NAMES[book.id][0] ?? ''} ${String(ref.chapter)}:${String(ref.verse)}\tVerse ${String(index)}.`;
 });
 
 const KJV = everyVerse((index) => {
@@ -40,6 +42,7 @@ const KJV = everyVerse((index) => {
 const CONTENT: Readonly<Record<string, string | Uint8Array>> = {
   bsb: `The Holy Bible, Berean Standard Bible\nVerse\tBerean Standard Bible\n${BSB}`,
   kjv: zipSync({ 'eng-kjv2006_vpl.txt': strToU8(KJV) }),
+  rv1909: zipSync({ 'spaRV1909_vpl.txt': strToU8(vplRv1909()) }),
   openbible: zipSync({
     'cross_references.txt': strToU8(
       'From Verse\tTo Verse\tVotes\t# CC-BY 2026-01-01\nGen.1.1\tJohn.1.1\t5',
@@ -80,6 +83,7 @@ const readSource = (id: string): Promise<RawSourceContent> => {
 describe('DATASET_BUILDERS', () => {
   it('has one builder per dataset the app loads', () => {
     expect(DATASET_BUILDERS.map((builder) => builder.outputPath)).toEqual([
+      'data/translations/rv1909.json',
       'data/translations/bsb.json',
       'data/translations/kjv.json',
       'data/cross-references/openbible.json',

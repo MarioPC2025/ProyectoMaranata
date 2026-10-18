@@ -244,7 +244,7 @@ export function ThreadsStage({
           <div className={styles.column}>
             <p className={styles.eyebrow}>
               <span className={styles.key} style={{ background: GENRE_COLORS[genre.id] }} />
-              {genre.name} · {genre.testament === 'OT' ? 'Old Testament' : 'New Testament'}
+              {genre.name} · {genre.testament === 'OT' ? 'Antiguo Testamento' : 'Nuevo Testamento'}
             </p>
             <div className={styles.titleRow}>
               <h2 className={styles.title}>
@@ -253,27 +253,27 @@ export function ThreadsStage({
                   <span className={styles.position}>:{versification.refAt(topVerse).verse}</span>
                 )}
               </h2>
-              <nav className={styles.chapterNav} aria-label="Chapters">
+              <nav className={styles.chapterNav} aria-label="Capítulos">
                 <button
                   type="button"
                   disabled={!previousChapter}
-                  aria-label="Previous chapter"
+                  aria-label="Capítulo anterior"
                   onClick={() => {
                     if (previousChapter) onSelect(previousChapter);
                   }}
                 >
                   <PreviousIcon />
-                  <span className={styles.navLabel}>Previous chapter</span>
+                  <span className={styles.navLabel}>Capítulo anterior</span>
                 </button>
                 <button
                   type="button"
                   disabled={!nextChapter}
-                  aria-label="Next chapter"
+                  aria-label="Capítulo siguiente"
                   onClick={() => {
                     if (nextChapter) onSelect(nextChapter);
                   }}
                 >
-                  <span className={styles.navLabel}>Next chapter</span>
+                  <span className={styles.navLabel}>Capítulo siguiente</span>
                   <NextIcon />
                 </button>
               </nav>
@@ -315,16 +315,19 @@ export function ThreadsStage({
                   <button
                     type="button"
                     className={styles.number}
-                    aria-label={`Verse ${offset + 1}: show its connections`}
+                    aria-label={`Versículo ${offset + 1}: ver sus conexiones`}
                     aria-pressed={verse === selectedVerse}
                   >
                     {offset + 1}
                   </button>
                   <span className={text ? styles.text : `${styles.text} ${styles.omitted}`}>
                     {text ||
-                      `Omitted in the ${translation.manifest.abbreviation} (not in the earliest manuscripts).`}
+                      `Omitido en la ${translation.manifest.abbreviation} (no está en los manuscritos más antiguos).`}
                   </span>
-                  <span className={styles.count} title={`${count} connections`}>
+                  <span
+                    className={styles.count}
+                    title={`${count} ${count === 1 ? 'conexión' : 'conexiones'}`}
+                  >
                     {count > 0 ? formatInteger(count) : ''}
                   </span>
                 </li>
@@ -364,14 +367,14 @@ export function ThreadsStage({
           ref={canvasRef}
           className={styles.canvas}
           role="img"
-          aria-label="Threads from the verses of this chapter to where their cross-references land in the Bible, shown as a vertical bar of all 66 books."
+          aria-label="Hilos desde los versículos de este capítulo hasta donde caen sus referencias cruzadas en la Biblia, sobre una barra vertical con los 66 libros."
         />
         {spineHover && (
           <div className={styles.tooltip} style={{ top: spineHover.y }}>
             {getBook(spineHover.book).name}{' '}
             <span>
-              · {formatInteger(spineHover.count)} {spineHover.count === 1 ? 'thread' : 'threads'}{' '}
-              from here · click to read
+              · {formatInteger(spineHover.count)} {spineHover.count === 1 ? 'hilo' : 'hilos'} desde
+              aquí · clic para leer
             </span>
           </div>
         )}

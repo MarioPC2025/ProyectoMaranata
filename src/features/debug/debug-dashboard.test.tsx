@@ -85,7 +85,7 @@ describe('TranslationSection', () => {
     renderSection();
     expect(screen.getByText('Books')).toBeDefined();
     expect(screen.getByText('66')).toBeDefined();
-    expect(screen.getByText('31,102')).toBeDefined();
+    expect(screen.getByText('31.102')).toBeDefined();
   });
 
   it('says the translation has no omitted verses when every verse has text', () => {
@@ -95,7 +95,7 @@ describe('TranslationSection', () => {
 
   it('lists a verse the translation leaves out', () => {
     renderSection(new Map([[GEN_1_2, '']]));
-    expect(screen.getByRole('button', { name: 'Genesis 1:2' })).toBeDefined();
+    expect(screen.getByRole('button', { name: 'Génesis 1:2' })).toBeDefined();
   });
 
   it('credits the source of the text', () => {
@@ -126,7 +126,7 @@ describe('TextSearch', () => {
     await userEvent.type(screen.getByRole('searchbox'), 'living water');
     await userEvent.click(screen.getByRole('button', { name: /Search/ }));
     expect(screen.getByText(/2 verses contain/)).toBeDefined();
-    expect(screen.getByRole('button', { name: 'Genesis 1:1' })).toBeDefined();
+    expect(screen.getByRole('button', { name: 'Génesis 1:1' })).toBeDefined();
   });
 
   it('says so when nothing matches', async () => {
@@ -155,7 +155,7 @@ describe('VerseInspector', () => {
 
   it('shows the verse, its text and where it sits in the canon', () => {
     renderInspector();
-    expect(screen.getAllByText('Genesis 1:1').length).toBeGreaterThan(0);
+    expect(screen.getAllByText('Génesis 1:1').length).toBeGreaterThan(0);
     expect(screen.getByText('Gen.1.1')).toBeDefined();
   });
 
@@ -193,7 +193,7 @@ describe('VerseInspector', () => {
     const onSelect = renderInspector();
     const input = screen.getByLabelText('Bible reference');
     await userEvent.clear(input);
-    await userEvent.type(input, 'John 3:16');
+    await userEvent.type(input, 'Juan 3:16');
     await userEvent.click(screen.getByRole('button', { name: /Inspect/ }));
     expect(onSelect).toHaveBeenCalledWith(JOHN_3_16);
   });
@@ -221,7 +221,7 @@ describe('VerseInspector', () => {
     const onSelect = renderInspector();
     const input = screen.getByLabelText('Bible reference');
     await userEvent.clear(input);
-    await userEvent.type(input, 'John 3:999');
+    await userEvent.type(input, 'Juan 3:999');
     await userEvent.click(screen.getByRole('button', { name: /Inspect/ }));
     expect(screen.getByRole('alert')).toBeDefined();
     expect(onSelect).not.toHaveBeenCalled();
@@ -276,7 +276,7 @@ describe('CrossReferencesSection', () => {
 
   it('lists the verses that no link touches', () => {
     renderSection();
-    // Genesis 1:1 to 1:3 are linked; the rest of the fixture's range is not.
+    // Génesis 1:1 to 1:3 are linked; the rest of the fixture's range is not.
     expect(
       screen.getByText(new RegExp(`Verses without any link \\(${FIXTURE_VERSE_COUNT - 3}\\)`)),
     ).toBeDefined();
@@ -304,25 +304,25 @@ describe('DebugDashboard', () => {
     window.history.replaceState(null, '', '/debug/');
   });
 
-  /** The dashboard inspects John 3:16 by default, so its dataset has to reach that far. */
+  /** The dashboard inspects Juan 3:16 by default, so its dataset has to reach that far. */
   function renderDashboard() {
     render(<DebugDashboard data={createDebugData([], new Map(), createWholeBibleDataset())} />);
   }
 
-  it('opens on John 3:16, the verse the app is best known by', () => {
+  it('opens on Juan 3:16, the verse the app is best known by', () => {
     renderDashboard();
-    expect(screen.getAllByText('John 3:16').length).toBeGreaterThan(0);
+    expect(screen.getAllByText('Juan 3:16').length).toBeGreaterThan(0);
   });
 
   it('opens the verse the address names instead', () => {
     window.history.replaceState(null, '', '/debug/?verse=Gen.1.1');
     renderDashboard();
-    expect(screen.getAllByText('Genesis 1:1').length).toBeGreaterThan(0);
+    expect(screen.getAllByText('Génesis 1:1').length).toBeGreaterThan(0);
   });
 
   it('moves the inspector to a verse clicked anywhere on the page, and says so in the address', async () => {
     renderDashboard();
-    const [link] = screen.getAllByRole('button', { name: 'Genesis 1:1' });
+    const [link] = screen.getAllByRole('button', { name: 'Génesis 1:1' });
     await userEvent.click(link ?? screen.getByRole('button', { name: /Inspect/ }));
     await waitFor(() => {
       expect(window.location.search).toContain('verse=Gen.1.1');

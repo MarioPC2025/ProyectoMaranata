@@ -11,16 +11,16 @@ interface GenreDefinition {
  * Every genre is a contiguous run of books, so genres can be laid out as segments or regions.
  */
 const GENRE_DEFINITIONS = [
-  { id: 'law', name: 'Law', testament: 'OT' },
-  { id: 'history', name: 'History', testament: 'OT' },
-  { id: 'poetry', name: 'Poetry & Wisdom', testament: 'OT' },
-  { id: 'major-prophets', name: 'Major Prophets', testament: 'OT' },
-  { id: 'minor-prophets', name: 'Minor Prophets', testament: 'OT' },
-  { id: 'gospels', name: 'Gospels', testament: 'NT' },
-  { id: 'acts', name: 'Acts', testament: 'NT' },
-  { id: 'pauline-epistles', name: 'Pauline Epistles', testament: 'NT' },
-  { id: 'general-epistles', name: 'General Epistles', testament: 'NT' },
-  { id: 'revelation', name: 'Revelation', testament: 'NT' },
+  { id: 'law', name: 'Ley', testament: 'OT' },
+  { id: 'history', name: 'Historia', testament: 'OT' },
+  { id: 'poetry', name: 'Poesía y sabiduría', testament: 'OT' },
+  { id: 'major-prophets', name: 'Profetas mayores', testament: 'OT' },
+  { id: 'minor-prophets', name: 'Profetas menores', testament: 'OT' },
+  { id: 'gospels', name: 'Evangelios', testament: 'NT' },
+  { id: 'acts', name: 'Hechos', testament: 'NT' },
+  { id: 'pauline-epistles', name: 'Cartas de Pablo', testament: 'NT' },
+  { id: 'general-epistles', name: 'Cartas generales', testament: 'NT' },
+  { id: 'revelation', name: 'Apocalipsis', testament: 'NT' },
 ] as const satisfies readonly GenreDefinition[];
 
 export type GenreId = (typeof GENRE_DEFINITIONS)[number]['id'];

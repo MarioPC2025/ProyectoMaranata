@@ -110,7 +110,7 @@ export function Explorer({ core }: { readonly core: VizCore }) {
             await translationLoader(id).load();
           } catch {
             resetTranslation(id);
-            setTranslationError(`${getTranslationManifest(id).name} could not be loaded.`);
+            setTranslationError(`No se pudo cargar ${getTranslationManifest(id).name}.`);
             return;
           }
           if (requestedTranslation.current !== id) {
@@ -173,7 +173,7 @@ export function Explorer({ core }: { readonly core: VizCore }) {
           fallback={(error) => (
             <VizPage masthead={masthead} credits={<Credits translation={translation.manifest} />}>
               <p role="alert" className={styles.error}>
-                {view.title} could not start: {error.message}
+                {view.title} no pudo iniciar: {error.message}
               </p>
             </VizPage>
           )}

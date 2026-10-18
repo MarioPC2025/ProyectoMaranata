@@ -3,12 +3,15 @@ export type Testament = 'OT' | 'NT';
 interface BookDefinition {
   /** OSIS book ID, e.g. `Gen`, `1Cor` (https://crosswire.org/osis/). */
   readonly id: string;
-  /** Full English name, e.g. `Genesis`. */
+  /** Nombre completo en español, p. ej. `Génesis`. */
   readonly name: string;
-  /** Name used when citing a single passage, if it differs from `name` (e.g. `Psalm 23:1`). */
+  /** Name used when citing a single passage, if it differs from `name` (e.g. `Salmo 23:1`). */
   readonly referenceName?: string;
   readonly testament: Testament;
-  /** Extra spellings accepted when parsing user input, normalized (lowercase, no spaces or dots). */
+  /**
+   * Otras formas de escribirlo al buscar (abreviaturas en español y en inglés), normalizadas: en
+   * minúsculas, sin tildes, espacios ni puntos.
+   */
   readonly aliases: readonly string[];
 }
 
@@ -19,83 +22,123 @@ interface BookDefinition {
  * cross-reference dataset uses.
  */
 const BOOK_DEFINITIONS = [
-  { id: 'Gen', name: 'Genesis', testament: 'OT', aliases: ['ge', 'gn'] },
-  { id: 'Exod', name: 'Exodus', testament: 'OT', aliases: ['ex', 'exo'] },
-  { id: 'Lev', name: 'Leviticus', testament: 'OT', aliases: ['le', 'lv'] },
-  { id: 'Num', name: 'Numbers', testament: 'OT', aliases: ['nu', 'nm', 'nb'] },
-  { id: 'Deut', name: 'Deuteronomy', testament: 'OT', aliases: ['de', 'dt', 'deu'] },
-  { id: 'Josh', name: 'Joshua', testament: 'OT', aliases: ['jos', 'jsh'] },
-  { id: 'Judg', name: 'Judges', testament: 'OT', aliases: ['jdg', 'jg', 'jdgs'] },
-  { id: 'Ruth', name: 'Ruth', testament: 'OT', aliases: ['ru', 'rth'] },
-  { id: '1Sam', name: '1 Samuel', testament: 'OT', aliases: ['1sa', '1sm'] },
-  { id: '2Sam', name: '2 Samuel', testament: 'OT', aliases: ['2sa', '2sm'] },
-  { id: '1Kgs', name: '1 Kings', testament: 'OT', aliases: ['1ki', '1kg'] },
-  { id: '2Kgs', name: '2 Kings', testament: 'OT', aliases: ['2ki', '2kg'] },
-  { id: '1Chr', name: '1 Chronicles', testament: 'OT', aliases: ['1ch', '1chron'] },
-  { id: '2Chr', name: '2 Chronicles', testament: 'OT', aliases: ['2ch', '2chron'] },
-  { id: 'Ezra', name: 'Ezra', testament: 'OT', aliases: ['ezr'] },
-  { id: 'Neh', name: 'Nehemiah', testament: 'OT', aliases: ['ne'] },
-  { id: 'Esth', name: 'Esther', testament: 'OT', aliases: ['es', 'est'] },
+  { id: 'Gen', name: 'Génesis', testament: 'OT', aliases: ['ge', 'gn', 'gen'] },
+  { id: 'Exod', name: 'Éxodo', testament: 'OT', aliases: ['ex', 'exo'] },
+  { id: 'Lev', name: 'Levítico', testament: 'OT', aliases: ['le', 'lv', 'lev'] },
+  { id: 'Num', name: 'Números', testament: 'OT', aliases: ['nu', 'nm', 'nb', 'num'] },
+  { id: 'Deut', name: 'Deuteronomio', testament: 'OT', aliases: ['de', 'dt', 'deu', 'deut'] },
+  { id: 'Josh', name: 'Josué', testament: 'OT', aliases: ['jos', 'jsh'] },
+  { id: 'Judg', name: 'Jueces', testament: 'OT', aliases: ['jdg', 'jg', 'jdgs', 'jue', 'jc'] },
+  { id: 'Ruth', name: 'Rut', testament: 'OT', aliases: ['ru', 'rth', 'rt'] },
+  { id: '1Sam', name: '1 Samuel', testament: 'OT', aliases: ['1sa', '1sm', '1s', '1sam'] },
+  { id: '2Sam', name: '2 Samuel', testament: 'OT', aliases: ['2sa', '2sm', '2s', '2sam'] },
+  { id: '1Kgs', name: '1 Reyes', testament: 'OT', aliases: ['1ki', '1kg', '1r', '1re', '1rey'] },
+  { id: '2Kgs', name: '2 Reyes', testament: 'OT', aliases: ['2ki', '2kg', '2r', '2re', '2rey'] },
+  {
+    id: '1Chr',
+    name: '1 Crónicas',
+    testament: 'OT',
+    aliases: ['1ch', '1chron', '1cr', '1cro', '1cron'],
+  },
+  {
+    id: '2Chr',
+    name: '2 Crónicas',
+    testament: 'OT',
+    aliases: ['2ch', '2chron', '2cr', '2cro', '2cron'],
+  },
+  { id: 'Ezra', name: 'Esdras', testament: 'OT', aliases: ['ezr', 'esd'] },
+  { id: 'Neh', name: 'Nehemías', testament: 'OT', aliases: ['ne'] },
+  { id: 'Esth', name: 'Ester', testament: 'OT', aliases: ['es', 'est'] },
   { id: 'Job', name: 'Job', testament: 'OT', aliases: ['jb'] },
   {
     id: 'Ps',
-    name: 'Psalms',
-    referenceName: 'Psalm',
+    name: 'Salmos',
+    referenceName: 'Salmo',
     testament: 'OT',
-    aliases: ['psa', 'psm', 'pss'],
+    aliases: ['psa', 'psm', 'pss', 'sal', 'sl'],
   },
-  { id: 'Prov', name: 'Proverbs', testament: 'OT', aliases: ['pr', 'pro', 'prv'] },
-  { id: 'Eccl', name: 'Ecclesiastes', testament: 'OT', aliases: ['ec', 'ecc', 'qoh'] },
+  { id: 'Prov', name: 'Proverbios', testament: 'OT', aliases: ['pr', 'pro', 'prv', 'prov'] },
+  { id: 'Eccl', name: 'Eclesiastés', testament: 'OT', aliases: ['ec', 'ecc', 'qoh', 'ecl', 'qo'] },
   {
     id: 'Song',
-    name: 'Song of Solomon',
+    name: 'Cantares',
     testament: 'OT',
-    aliases: ['sng', 'sos', 'songofsongs', 'canticles'],
+    aliases: [
+      'sng',
+      'sos',
+      'songofsongs',
+      'canticles',
+      'cnt',
+      'cantar',
+      'cantardeloscantares',
+      'cant',
+      'ct',
+    ],
   },
-  { id: 'Isa', name: 'Isaiah', testament: 'OT', aliases: ['is'] },
-  { id: 'Jer', name: 'Jeremiah', testament: 'OT', aliases: ['je', 'jr'] },
-  { id: 'Lam', name: 'Lamentations', testament: 'OT', aliases: ['la'] },
-  { id: 'Ezek', name: 'Ezekiel', testament: 'OT', aliases: ['eze', 'ezk'] },
+  { id: 'Isa', name: 'Isaías', testament: 'OT', aliases: ['is'] },
+  { id: 'Jer', name: 'Jeremías', testament: 'OT', aliases: ['je', 'jr'] },
+  { id: 'Lam', name: 'Lamentaciones', testament: 'OT', aliases: ['la', 'lm'] },
+  { id: 'Ezek', name: 'Ezequiel', testament: 'OT', aliases: ['eze', 'ezk', 'ez'] },
   { id: 'Dan', name: 'Daniel', testament: 'OT', aliases: ['da', 'dn'] },
-  { id: 'Hos', name: 'Hosea', testament: 'OT', aliases: ['ho'] },
+  { id: 'Hos', name: 'Oseas', testament: 'OT', aliases: ['ho', 'os'] },
   { id: 'Joel', name: 'Joel', testament: 'OT', aliases: ['jl'] },
-  { id: 'Amos', name: 'Amos', testament: 'OT', aliases: ['am'] },
-  { id: 'Obad', name: 'Obadiah', testament: 'OT', aliases: ['ob', 'oba'] },
-  { id: 'Jonah', name: 'Jonah', testament: 'OT', aliases: ['jon', 'jnh'] },
-  { id: 'Mic', name: 'Micah', testament: 'OT', aliases: ['mi', 'mc'] },
-  { id: 'Nah', name: 'Nahum', testament: 'OT', aliases: ['na'] },
-  { id: 'Hab', name: 'Habakkuk', testament: 'OT', aliases: ['hb'] },
-  { id: 'Zeph', name: 'Zephaniah', testament: 'OT', aliases: ['zep', 'zp'] },
-  { id: 'Hag', name: 'Haggai', testament: 'OT', aliases: ['hg'] },
-  { id: 'Zech', name: 'Zechariah', testament: 'OT', aliases: ['zec', 'zc'] },
-  { id: 'Mal', name: 'Malachi', testament: 'OT', aliases: ['ml'] },
-  { id: 'Matt', name: 'Matthew', testament: 'NT', aliases: ['mt', 'mat'] },
-  { id: 'Mark', name: 'Mark', testament: 'NT', aliases: ['mk', 'mr', 'mrk'] },
-  { id: 'Luke', name: 'Luke', testament: 'NT', aliases: ['lk', 'luk'] },
-  { id: 'John', name: 'John', testament: 'NT', aliases: ['jn', 'jhn', 'joh'] },
-  { id: 'Acts', name: 'Acts', testament: 'NT', aliases: ['ac', 'act'] },
-  { id: 'Rom', name: 'Romans', testament: 'NT', aliases: ['ro', 'rm'] },
-  { id: '1Cor', name: '1 Corinthians', testament: 'NT', aliases: ['1co'] },
-  { id: '2Cor', name: '2 Corinthians', testament: 'NT', aliases: ['2co'] },
-  { id: 'Gal', name: 'Galatians', testament: 'NT', aliases: ['ga'] },
-  { id: 'Eph', name: 'Ephesians', testament: 'NT', aliases: ['ephes'] },
-  { id: 'Phil', name: 'Philippians', testament: 'NT', aliases: ['php', 'pp'] },
-  { id: 'Col', name: 'Colossians', testament: 'NT', aliases: [] },
-  { id: '1Thess', name: '1 Thessalonians', testament: 'NT', aliases: ['1th', '1thes', '1ts'] },
-  { id: '2Thess', name: '2 Thessalonians', testament: 'NT', aliases: ['2th', '2thes', '2ts'] },
-  { id: '1Tim', name: '1 Timothy', testament: 'NT', aliases: ['1ti', '1tm'] },
-  { id: '2Tim', name: '2 Timothy', testament: 'NT', aliases: ['2ti', '2tm'] },
-  { id: 'Titus', name: 'Titus', testament: 'NT', aliases: ['ti', 'tit'] },
-  { id: 'Phlm', name: 'Philemon', testament: 'NT', aliases: ['phm', 'pm', 'philem'] },
-  { id: 'Heb', name: 'Hebrews', testament: 'NT', aliases: ['he'] },
-  { id: 'Jas', name: 'James', testament: 'NT', aliases: ['jm', 'jam'] },
-  { id: '1Pet', name: '1 Peter', testament: 'NT', aliases: ['1pe', '1pt'] },
-  { id: '2Pet', name: '2 Peter', testament: 'NT', aliases: ['2pe', '2pt'] },
-  { id: '1John', name: '1 John', testament: 'NT', aliases: ['1jn', '1jo', '1jhn'] },
-  { id: '2John', name: '2 John', testament: 'NT', aliases: ['2jn', '2jo', '2jhn'] },
-  { id: '3John', name: '3 John', testament: 'NT', aliases: ['3jn', '3jo', '3jhn'] },
-  { id: 'Jude', name: 'Jude', testament: 'NT', aliases: ['jud', 'jd'] },
-  { id: 'Rev', name: 'Revelation', testament: 'NT', aliases: ['re', 'rv', 'apocalypse'] },
+  { id: 'Amos', name: 'Amós', testament: 'OT', aliases: ['am'] },
+  { id: 'Obad', name: 'Abdías', testament: 'OT', aliases: ['ob', 'oba', 'abd'] },
+  { id: 'Jonah', name: 'Jonás', testament: 'OT', aliases: ['jon', 'jnh'] },
+  { id: 'Mic', name: 'Miqueas', testament: 'OT', aliases: ['mi', 'miq'] },
+  { id: 'Nah', name: 'Nahúm', testament: 'OT', aliases: ['na', 'nah'] },
+  { id: 'Hab', name: 'Habacuc', testament: 'OT', aliases: ['hb'] },
+  { id: 'Zeph', name: 'Sofonías', testament: 'OT', aliases: ['zep', 'zp', 'sof'] },
+  { id: 'Hag', name: 'Hageo', testament: 'OT', aliases: ['hg'] },
+  { id: 'Zech', name: 'Zacarías', testament: 'OT', aliases: ['zec', 'zc', 'zac'] },
+  { id: 'Mal', name: 'Malaquías', testament: 'OT', aliases: ['ml'] },
+  { id: 'Matt', name: 'Mateo', testament: 'NT', aliases: ['mt', 'mat'] },
+  { id: 'Mark', name: 'Marcos', testament: 'NT', aliases: ['mk', 'mr', 'mrk', 'mc', 'mar'] },
+  { id: 'Luke', name: 'Lucas', testament: 'NT', aliases: ['lk', 'luk', 'lc', 'luc'] },
+  { id: 'John', name: 'Juan', testament: 'NT', aliases: ['jn', 'jhn', 'joh'] },
+  { id: 'Acts', name: 'Hechos', testament: 'NT', aliases: ['ac', 'act', 'hch', 'hech', 'hec'] },
+  { id: 'Rom', name: 'Romanos', testament: 'NT', aliases: ['ro', 'rm', 'rom'] },
+  { id: '1Cor', name: '1 Corintios', testament: 'NT', aliases: ['1co', '1cor'] },
+  { id: '2Cor', name: '2 Corintios', testament: 'NT', aliases: ['2co', '2cor'] },
+  { id: 'Gal', name: 'Gálatas', testament: 'NT', aliases: ['ga', 'gal'] },
+  { id: 'Eph', name: 'Efesios', testament: 'NT', aliases: ['ephes', 'ef', 'efe'] },
+  { id: 'Phil', name: 'Filipenses', testament: 'NT', aliases: ['php', 'pp', 'flp', 'fil'] },
+  { id: 'Col', name: 'Colosenses', testament: 'NT', aliases: [] },
+  {
+    id: '1Thess',
+    name: '1 Tesalonicenses',
+    testament: 'NT',
+    aliases: ['1th', '1thes', '1ts', '1tes'],
+  },
+  {
+    id: '2Thess',
+    name: '2 Tesalonicenses',
+    testament: 'NT',
+    aliases: ['2th', '2thes', '2ts', '2tes'],
+  },
+  { id: '1Tim', name: '1 Timoteo', testament: 'NT', aliases: ['1ti', '1tm', '1tim'] },
+  { id: '2Tim', name: '2 Timoteo', testament: 'NT', aliases: ['2ti', '2tm', '2tim'] },
+  { id: 'Titus', name: 'Tito', testament: 'NT', aliases: ['ti', 'tit', 'tt'] },
+  {
+    id: 'Phlm',
+    name: 'Filemón',
+    testament: 'NT',
+    aliases: ['phm', 'pm', 'philem', 'flm', 'filem'],
+  },
+  { id: 'Heb', name: 'Hebreos', testament: 'NT', aliases: ['he'] },
+  { id: 'Jas', name: 'Santiago', testament: 'NT', aliases: ['jm', 'jam', 'stg', 'sant', 'stgo'] },
+  { id: '1Pet', name: '1 Pedro', testament: 'NT', aliases: ['1pe', '1pt', '1p', '1ped'] },
+  { id: '2Pet', name: '2 Pedro', testament: 'NT', aliases: ['2pe', '2pt', '2p', '2ped'] },
+  { id: '1John', name: '1 Juan', testament: 'NT', aliases: ['1jn', '1jo', '1jhn'] },
+  { id: '2John', name: '2 Juan', testament: 'NT', aliases: ['2jn', '2jo', '2jhn'] },
+  { id: '3John', name: '3 Juan', testament: 'NT', aliases: ['3jn', '3jo', '3jhn'] },
+  { id: 'Jude', name: 'Judas', testament: 'NT', aliases: ['jud', 'jd'] },
+  {
+    id: 'Rev',
+    name: 'Apocalipsis',
+    testament: 'NT',
+    aliases: ['re', 'rv', 'apocalypse', 'ap', 'apoc', 'apo'],
+  },
 ] as const satisfies readonly BookDefinition[];
 
 export type BookId = (typeof BOOK_DEFINITIONS)[number]['id'];
@@ -125,7 +168,7 @@ export function getBook(id: BookId): Book {
   return book;
 }
 
-/** The name to use when citing a passage from the book, e.g. `Psalm` rather than `Psalms`. */
+/** The name to use when citing a passage from the book, e.g. `Salmo` rather than `Salmos`. */
 export function getReferenceName(book: Book): string {
   return book.referenceName ?? book.name;
 }

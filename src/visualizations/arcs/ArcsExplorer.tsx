@@ -108,12 +108,13 @@ export function ArcsExplorer({
         hint={{
           pointer: (
             <>
-              <ScrollIcon /> to zoom · <DragIcon /> to pan · <ClickIcon /> to focus
+              <ScrollIcon /> para acercar · <DragIcon /> para mover · <ClickIcon /> para enfocar
             </>
           ),
           touch: (
             <>
-              <HoldAndSlideIcon /> hold to preview · <TapIcon /> to focus · <PinchIcon /> to zoom
+              <HoldAndSlideIcon /> mantén para ver · <TapIcon /> para enfocar · <PinchIcon /> para
+              acercar
             </>
           ),
         }}

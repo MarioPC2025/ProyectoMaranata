@@ -23,9 +23,9 @@ const DEFAULT_CHAPTER = { book: 'John', chapter: 1 } as const satisfies {
 };
 
 const DIRECTIONS = [
-  { value: 'outgoing', label: 'Points to', icon: OutgoingIcon },
-  { value: 'incoming', label: 'Pointed from', icon: IncomingIcon },
-  { value: 'both', label: 'Both', icon: BothDirectionsIcon },
+  { value: 'outgoing', label: 'Apunta a', icon: OutgoingIcon },
+  { value: 'incoming', label: 'Apuntado desde', icon: IncomingIcon },
+  { value: 'both', label: 'Ambos', icon: BothDirectionsIcon },
 ] as const;
 
 function chapterOf(passage: Passage | null, data: VizData): { book: BookId; chapter: number } {
@@ -81,7 +81,7 @@ export function ThreadsExplorer({
           <ReferenceSearch versification={data.versification} onSelect={onNavigate} />
           {translationMenu}
           <SegmentedControl
-            label="Thread direction"
+            label="Dirección de los hilos"
             options={DIRECTIONS}
             value={direction}
             onChange={setDirection}

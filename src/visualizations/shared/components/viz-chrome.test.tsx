@@ -45,40 +45,43 @@ describe('FiltersMenu', () => {
 
   it('offers every vote threshold once opened', async () => {
     renderMenu();
-    await openMenu(/Filters/);
-    expect(screen.getByRole('option', { name: 'All' })).toBeDefined();
+    await openMenu(/Filtros/);
+    expect(screen.getByRole('option', { name: 'Todos' })).toBeDefined();
     expect(screen.getByRole('option', { name: '≥ 100' })).toBeDefined();
   });
 
   it('reports the threshold a reader picks', async () => {
     const onChange = renderMenu();
-    await openMenu(/Filters/);
+    await openMenu(/Filtros/);
     await userEvent.selectOptions(screen.getByRole('combobox'), '20');
     expect(onChange).toHaveBeenCalledWith(expect.objectContaining({ minVotes: 20 }));
   });
 
   it('says how many links are shown out of the whole dataset', async () => {
     renderMenu();
-    await openMenu(/Filters/);
-    expect(screen.getByText(/Showing 120,000 of 344,799 links/)).toBeDefined();
+    await openMenu(/Filtros/);
+    expect(screen.getByText(/Mostrando 120\.000 de 344\.799 enlaces/)).toBeDefined();
   });
 
   it('counts the hidden genres in the same line', async () => {
     renderMenu({ minVotes: 4, hiddenGenres: new Set(['law', 'gospels']) });
-    await openMenu(/Filters/);
-    expect(screen.getByText(/2 genres hidden/)).toBeDefined();
+    await openMenu(/Filtros/);
+    expect(screen.getByText(/2 géneros ocultos/)).toBeDefined();
   });
 
   it('cannot be reset while nothing has been changed', async () => {
     renderMenu();
-    await openMenu(/Filters/);
-    expect(screen.getByRole('button', { name: /Reset filters/ })).toHaveProperty('disabled', true);
+    await openMenu(/Filtros/);
+    expect(screen.getByRole('button', { name: /Restablecer filtros/ })).toHaveProperty(
+      'disabled',
+      true,
+    );
   });
 
   it('puts the filters back to their defaults', async () => {
     const onChange = renderMenu(createLinkFilter(50));
-    await openMenu(/Filters/);
-    await userEvent.click(screen.getByRole('button', { name: /Reset filters/ }));
+    await openMenu(/Filtros/);
+    await userEvent.click(screen.getByRole('button', { name: /Restablecer filtros/ }));
     expect(onChange).toHaveBeenCalledWith(DEFAULT_LINK_FILTER);
   });
 });
@@ -86,33 +89,33 @@ describe('FiltersMenu', () => {
 describe('TranslationMenu', () => {
   it('names the translation being read', () => {
     render(<TranslationMenu current={BSB} onChange={vi.fn()} />);
-    expect(screen.getByRole('button', { name: /Translation/ }).textContent).toContain('BSB');
+    expect(screen.getByRole('button', { name: /Traducción/ }).textContent).toContain('BSB');
   });
 
   it('switches to another translation', async () => {
     const onChange = vi.fn();
     render(<TranslationMenu current={BSB} onChange={onChange} />);
-    await openMenu(/Translation/);
+    await openMenu(/Traducción/);
     await userEvent.click(screen.getByRole('radio', { name: /King James/ }));
     expect(onChange).toHaveBeenCalledWith('kjv');
   });
 
   it('marks the one in use', async () => {
     render(<TranslationMenu current={BSB} onChange={vi.fn()} />);
-    await openMenu(/Translation/);
+    await openMenu(/Traducción/);
     expect(screen.getByRole('radio', { name: /Berean/ })).toHaveProperty('checked', true);
   });
 
   it('marks itself busy while a translation is still downloading', () => {
     render(<TranslationMenu current={BSB} onChange={vi.fn()} pending />);
-    expect(screen.getByRole('button', { name: /Translation/ }).getAttribute('aria-busy')).toBe(
+    expect(screen.getByRole('button', { name: /Traducción/ }).getAttribute('aria-busy')).toBe(
       'true',
     );
   });
 
   it('shows why a translation could not be loaded', async () => {
     render(<TranslationMenu current={BSB} onChange={vi.fn()} error="Network error" />);
-    await openMenu(/Translation/);
+    await openMenu(/Traducción/);
     expect(screen.getByText(/Network error/)).toBeDefined();
   });
 });
@@ -121,8 +124,8 @@ describe('GenreToggles', () => {
   it('lists every genre of both testaments', () => {
     render(<GenreToggles hiddenGenres={new Set()} onToggle={vi.fn()} />);
     expect(screen.getAllByRole('button')).toHaveLength(GENRES.length);
-    expect(screen.getByText('Old Testament')).toBeDefined();
-    expect(screen.getByText('New Testament')).toBeDefined();
+    expect(screen.getByText('Antiguo Testamento')).toBeDefined();
+    expect(screen.getByText('Nuevo Testamento')).toBeDefined();
   });
 
   it('hides a genre when its key is used', async () => {
@@ -144,7 +147,7 @@ describe('GenreToggles', () => {
     render(<GenreToggles hiddenGenres={new Set([hidden.id])} onToggle={vi.fn()} />);
     const toggle = screen.getByRole('button', { name: hidden.name });
     expect(toggle.getAttribute('aria-pressed')).toBe('false');
-    expect(toggle.getAttribute('title')).toBe(`Show ${hidden.name}`);
+    expect(toggle.getAttribute('title')).toBe(`Mostrar ${hidden.name}`);
   });
 });
 
@@ -156,14 +159,14 @@ describe('GenreLegend and GenreMenu', () => {
 
   it('folds the legend away on a phone, and brings it back', async () => {
     render(<GenreLegend hiddenGenres={new Set()} onToggle={vi.fn()} />);
-    await userEvent.click(screen.getByRole('button', { name: 'Show genres' }));
-    expect(screen.getByRole('button', { name: 'Hide genres' })).toBeDefined();
-    expect(screen.getByLabelText('Genres').getAttribute('data-open')).toBe('true');
+    await userEvent.click(screen.getByRole('button', { name: 'Mostrar géneros' }));
+    expect(screen.getByRole('button', { name: 'Ocultar géneros' })).toBeDefined();
+    expect(screen.getByLabelText('Géneros').getAttribute('data-open')).toBe('true');
   });
 
   it('puts the same genres behind a button on a narrow screen', async () => {
     render(<GenreMenu hiddenGenres={new Set()} onToggle={vi.fn()} />);
-    await openMenu(/Genres/);
+    await openMenu(/Géneros/);
     // The genres, plus the button that opened them.
     expect(screen.getAllByRole('button').length).toBe(GENRES.length + 1);
   });
@@ -172,15 +175,15 @@ describe('GenreLegend and GenreMenu', () => {
 describe('LinkStats', () => {
   it('summarises what is on screen', () => {
     render(<LinkStats summary={SUMMARY} />);
-    const stats = screen.getByLabelText('Summary');
-    expect(stats.textContent).toContain('31,102');
-    expect(stats.textContent).toContain('120,000');
-    expect(stats.textContent).toContain('of 344,799');
+    const stats = screen.getByLabelText('Resumen');
+    expect(stats.textContent).toContain('31.102');
+    expect(stats.textContent).toContain('120.000');
+    expect(stats.textContent).toContain('de 344.799');
   });
 
   it('leaves out the total when nothing is filtered', () => {
     render(<LinkStats summary={{ ...SUMMARY, shownLinks: SUMMARY.totalLinks }} />);
-    expect(screen.getByLabelText('Summary').textContent).not.toContain('of 344,799');
+    expect(screen.getByLabelText('Resumen').textContent).not.toContain('de 344.799');
   });
 
   it('offers a hint for a mouse and one for a touch screen', () => {
@@ -197,7 +200,7 @@ describe('Credits', () => {
     render(<Credits translation={BSB} />);
     expect(screen.getByRole('link', { name: 'OpenBible.info' })).toBeDefined();
     expect(screen.getByRole('link', { name: 'CC BY 4.0' })).toBeDefined();
-    expect(screen.getByText(/re-indexed/)).toBeDefined();
+    expect(screen.getByText(/reindexado/)).toBeDefined();
   });
 
   it('credits the translation being read', () => {
@@ -218,7 +221,7 @@ describe('Credits', () => {
     );
     const link = screen.getByRole('link', { name: 'C. Harrison' });
     // The work's name is this app's name too, so only the tooltip carries it.
-    expect(link.getAttribute('title')).toBe('Bible Cross-References, by C. Harrison');
+    expect(link.getAttribute('title')).toBe('Bible Cross-References, de C. Harrison');
   });
 });
 
@@ -236,7 +239,7 @@ describe('SiteFooter', () => {
 
   it('offers the install guide', () => {
     render(<SiteFooter />);
-    expect(screen.getByRole('button', { name: /Install/ })).toBeDefined();
+    expect(screen.getByRole('button', { name: /Instalar/ })).toBeDefined();
   });
 
   it('shows the credits a page gives it', () => {

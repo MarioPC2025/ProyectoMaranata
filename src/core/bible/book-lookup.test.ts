@@ -11,7 +11,11 @@ describe('normalizeBookName', () => {
     expect(normalizeBookName(' 1 Cor. ')).toBe('1cor');
   });
 
-  it('turns a leading roman numeral into a digit', () => {
+  it('drops accents and turns a leading ordinal into a digit', () => {
+    expect(normalizeBookName('Éxodo')).toBe('exodo');
+    expect(normalizeBookName('Primera de Corintios')).toBe('1corintios');
+    expect(normalizeBookName('2da Pedro')).toBe('2pedro');
+    expect(normalizeBookName('III Juan')).toBe('3juan');
     expect(normalizeBookName('II Kings')).toBe('2kings');
     expect(normalizeBookName('Isaiah')).toBe('isaiah');
   });

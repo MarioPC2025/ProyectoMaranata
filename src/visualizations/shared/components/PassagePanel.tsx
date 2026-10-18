@@ -56,6 +56,10 @@ interface PassagePanelProps {
 }
 
 const INITIAL_ITEMS = 40;
+
+function capitalize(text: string): string {
+  return text.charAt(0).toUpperCase() + text.slice(1);
+}
 /** How long the copy button shows that it copied. */
 const COPIED_FEEDBACK_MS = 1600;
 
@@ -92,8 +96,8 @@ function CopyQuoteButton({
         type="button"
         className={styles.copy}
         data-copied={copied}
-        aria-label={`Copy ${reference} with a link`}
-        title="Copy with a link"
+        aria-label={`Copiar ${reference} con un enlace`}
+        title="Copiar con un enlace"
         onClick={() => {
           void copyQuote(quote()).then(
             () => {
@@ -106,7 +110,7 @@ function CopyQuoteButton({
         {copied ? <CopiedIcon /> : <CopyIcon />}
       </button>
       <span className={styles.visuallyHidden} role="status">
-        {copied ? `${reference} copied` : ''}
+        {copied ? `${reference} copiado` : ''}
       </span>
     </>
   );
@@ -165,7 +169,7 @@ function ConnectionText({
       })}
       {more > 0 && (
         <span className={styles.moreVerses}>
-          + {formatInteger(more)} more {more === 1 ? 'verse' : 'verses'}
+          + {formatInteger(more)} {more === 1 ? 'versículo más' : 'versículos más'}
         </span>
       )}
     </span>
@@ -202,7 +206,7 @@ export function PassagePanel({
   const genre = getBookGenre(book.id);
   const previous = neighbor(passage, -1, versification);
   const next = neighbor(passage, 1, versification);
-  const unit = passage.kind === 'verse' ? 'verse' : 'chapter';
+  const unit = passage.kind === 'verse' ? 'versículo' : 'capítulo';
 
   return (
     <div className={styles.panel}>
@@ -210,7 +214,7 @@ export function PassagePanel({
         <div className={styles.heading}>
           <p className={styles.eyebrow}>
             <span className={styles.key} style={{ background: GENRE_COLORS[genre.id] }} />
-            {genre.name} · {book.testament === 'OT' ? 'Old Testament' : 'New Testament'}
+            {genre.name} · {book.testament === 'OT' ? 'Antiguo Testamento' : 'Nuevo Testamento'}
           </p>
           <h2 className={styles.title}>{formatPassage(passage, versification)}</h2>
         </div>
@@ -218,7 +222,7 @@ export function PassagePanel({
           type="button"
           className={styles.iconButton}
           disabled={!previous}
-          aria-label={`Previous ${unit}`}
+          aria-label={`${capitalize(unit)} anterior`}
           onClick={() => {
             if (previous) onSelect(previous);
           }}
@@ -229,14 +233,14 @@ export function PassagePanel({
           type="button"
           className={styles.iconButton}
           disabled={!next}
-          aria-label={`Next ${unit}`}
+          aria-label={`${capitalize(unit)} siguiente`}
           onClick={() => {
             if (next) onSelect(next);
           }}
         >
           <NextIcon />
         </button>
-        <button type="button" className={styles.iconButton} aria-label="Close" onClick={onClose}>
+        <button type="button" className={styles.iconButton} aria-label="Cerrar" onClick={onClose}>
           <CloseIcon />
         </button>
       </header>
@@ -282,9 +286,9 @@ export function PassagePanel({
         <ConnectionSection
           id="references"
           icon={OutgoingIcon}
-          title="References"
-          description="where this passage points"
-          countLabel="passages"
+          title="Referencias"
+          description="adónde apunta este pasaje"
+          countLabel="pasajes"
           connections={connections.outgoing}
           showSourceVerse={passage.kind === 'chapter'}
           data={data}
@@ -295,9 +299,9 @@ export function PassagePanel({
         <ConnectionSection
           id="referenced-by"
           icon={IncomingIcon}
-          title="Referenced by"
-          description="passages that point here"
-          countLabel="passages"
+          title="Referenciado por"
+          description="pasajes que apuntan aquí"
+          countLabel="pasajes"
           connections={connections.incoming}
           showSourceVerse={passage.kind === 'chapter'}
           data={data}
@@ -336,10 +340,10 @@ function ChapterVerses({
     <PanelSection
       id="verses"
       icon={ReadingIcon}
-      title="Verses"
-      description="tap one to focus it"
+      title="Versículos"
+      description="toca uno para enfocarlo"
       count={verses.length}
-      countLabel="verses"
+      countLabel="versículos"
     >
       {verses.map((verse, offset) => (
         <button
@@ -385,10 +389,10 @@ function GenreBreakdown({
     <PanelSection
       id="connects-to"
       icon={GenresIcon}
-      title="Connects to"
-      description={`${String(present.length)} ${present.length === 1 ? 'genre' : 'genres'}`}
+      title="Se conecta con"
+      description={`${String(present.length)} ${present.length === 1 ? 'género' : 'géneros'}`}
       count={connections.length}
-      countLabel="links"
+      countLabel="enlaces"
       defaultOpen={false}
       trailing={
         <span className={styles.strip} aria-hidden="true">
@@ -465,7 +469,7 @@ function ConnectionSection({
       count={connections.length}
       countLabel={countLabel}
     >
-      {connections.length === 0 && <p className={styles.muted}>None</p>}
+      {connections.length === 0 && <p className={styles.muted}>Ninguno</p>}
       {groupByBook(visible, versification).map((group) => (
         <div
           key={`${group.book}-${String(group.connections[0]?.otherStart)}`}
@@ -546,7 +550,7 @@ function ConnectionSection({
             setLimit(connections.length);
           }}
         >
-          Show all {formatInteger(connections.length)}
+          Mostrar los {formatInteger(connections.length)}
           <ExpandIcon />
         </button>
       )}

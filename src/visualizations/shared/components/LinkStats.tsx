@@ -16,15 +16,15 @@ interface LinkStatsProps {
 export function LinkStats({ summary, hint }: LinkStatsProps) {
   const { verseCount, shownLinks, totalLinks, connectedVerses, crossTestamentLinks } = summary;
   return (
-    <div className={styles.stats} aria-label="Summary">
+    <div className={styles.stats} aria-label="Resumen">
       <span>
-        <strong>{formatInteger(verseCount)}</strong> verses ·{' '}
+        <strong>{formatInteger(verseCount)}</strong> versículos ·{' '}
         <strong>{formatInteger(shownLinks)}</strong>
-        {shownLinks < totalLinks && ` of ${formatInteger(totalLinks)}`} links shown
+        {shownLinks < totalLinks && ` de ${formatInteger(totalLinks)}`} enlaces mostrados
       </span>
       <span className={styles.secondary}>
-        <strong>{formatShare(connectedVerses, verseCount)}</strong> of verses connected ·{' '}
-        <strong>{formatInteger(crossTestamentLinks)}</strong> links between the testaments
+        <strong>{formatShare(connectedVerses, verseCount)}</strong> de los versículos conectados ·{' '}
+        <strong>{formatInteger(crossTestamentLinks)}</strong> enlaces entre los testamentos
       </span>
       {hint !== undefined && (
         <>

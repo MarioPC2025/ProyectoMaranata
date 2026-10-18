@@ -26,7 +26,7 @@ function renderGuide() {
 /** A closed dialog hides its contents from the accessibility tree, so open it before looking. */
 async function openGuide() {
   const result = renderGuide();
-  await userEvent.click(screen.getByRole('button', { name: 'Install the app' }));
+  await userEvent.click(screen.getByRole('button', { name: 'Instalar la app' }));
   return result;
 }
 
@@ -44,20 +44,20 @@ afterEach(() => {
 describe('the footer link', () => {
   it('is named even where only the arrow shows', () => {
     render(<InstallLink />);
-    expect(screen.getByRole('button', { name: 'Install the app' })).toBeDefined();
+    expect(screen.getByRole('button', { name: 'Instalar la app' })).toBeDefined();
   });
 
   it('opens the guide', async () => {
     renderGuide();
     expect(dialog()?.open).toBe(false);
-    await userEvent.click(screen.getByRole('button', { name: 'Install the app' }));
+    await userEvent.click(screen.getByRole('button', { name: 'Instalar la app' }));
     expect(dialog()?.open).toBe(true);
   });
 
   it('does nothing when no guide is mounted, rather than failing', async () => {
     render(<InstallLink />);
     await expect(
-      userEvent.click(screen.getByRole('button', { name: 'Install the app' })),
+      userEvent.click(screen.getByRole('button', { name: 'Instalar la app' })),
     ).resolves.toBeUndefined();
   });
 });
@@ -66,12 +66,12 @@ describe('the guide', () => {
   it('is labelled by its own heading', async () => {
     await openGuide();
     expect(dialog()?.getAttribute('aria-labelledby')).toBe('install-guide-title');
-    expect(screen.getByRole('heading', { name: 'Install the app' }).id).toBe('install-guide-title');
+    expect(screen.getByRole('heading', { name: 'Instalar la app' }).id).toBe('install-guide-title');
   });
 
   it('offers the three devices, with one of them chosen', async () => {
     await openGuide();
-    const devices = screen.getByRole('group', { name: 'Device' });
+    const devices = screen.getByRole('group', { name: 'Dispositivo' });
     const chosen = within(devices)
       .getAllByRole('button')
       .filter((b) => b.getAttribute('aria-pressed') === 'true');
@@ -82,36 +82,36 @@ describe('the guide', () => {
   it('shows the steps for the device chosen, and swaps them', async () => {
     await openGuide();
     await userEvent.click(screen.getByRole('button', { name: /^iPhone$/ }));
-    expect(screen.getByText(/Add to Home Screen/)).toBeDefined();
+    expect(screen.getByText(/Añadir a pantalla de inicio/)).toBeDefined();
     expect(screen.getAllByRole('listitem')).toHaveLength(3);
 
-    await userEvent.click(screen.getByRole('button', { name: /^Desktop$/ }));
+    await userEvent.click(screen.getByRole('button', { name: /^Computador$/ }));
     expect(screen.getAllByRole('listitem')).toHaveLength(2);
-    expect(screen.getByText(/address bar/)).toBeDefined();
+    expect(screen.getByText(/barra de direcciones/)).toBeDefined();
   });
 
   it('says what Safari on a Mac and Firefox do, on the desktop steps', async () => {
     await openGuide();
-    await userEvent.click(screen.getByRole('button', { name: /^Desktop$/ }));
-    expect(screen.getByText(/Add to Dock/)).toBeDefined();
-    expect(screen.getByText(/Firefox installs no web apps/)).toBeDefined();
+    await userEvent.click(screen.getByRole('button', { name: /^Computador$/ }));
+    expect(screen.getByText(/Añadir al Dock/)).toBeDefined();
+    expect(screen.getByText(/Firefox no instala apps web/)).toBeDefined();
   });
 
   it('tells an iPhone reader that other browsers offer it too', async () => {
     await openGuide();
     await userEvent.click(screen.getByRole('button', { name: /^iPhone$/ }));
-    expect(screen.getByText(/Chrome, Edge and Firefox/)).toBeDefined();
+    expect(screen.getByText(/Chrome, Edge y Firefox/)).toBeDefined();
   });
 
   it('closes from its own close button', async () => {
     await openGuide();
-    await userEvent.click(screen.getByRole('button', { name: 'Close' }));
+    await userEvent.click(screen.getByRole('button', { name: 'Cerrar' }));
     expect(dialog()?.open).toBe(false);
   });
 
   it('says to open it once online, which is when it stores what it needs', async () => {
     await openGuide();
-    expect(screen.getByText(/once while you are online/)).toBeDefined();
+    expect(screen.getByText(/una vez con conexión/)).toBeDefined();
   });
 });
 
@@ -139,7 +139,7 @@ describe('the #install address', () => {
   it("takes the fragment back out when closed, keeping the reader's passage", async () => {
     window.history.replaceState(null, '', '/?ref=John.3.16&t=kjv#install');
     renderGuide();
-    await userEvent.click(screen.getByRole('button', { name: 'Close' }));
+    await userEvent.click(screen.getByRole('button', { name: 'Cerrar' }));
     expect(window.location.hash).toBe('');
     expect(window.location.search).toBe('?ref=John.3.16&t=kjv');
   });
@@ -147,8 +147,8 @@ describe('the #install address', () => {
   it('leaves the address alone when the guide was opened from the link', async () => {
     window.history.replaceState(null, '', '/?ref=John.3.16');
     renderGuide();
-    await userEvent.click(screen.getByRole('button', { name: 'Install the app' }));
-    await userEvent.click(screen.getByRole('button', { name: 'Close' }));
+    await userEvent.click(screen.getByRole('button', { name: 'Instalar la app' }));
+    await userEvent.click(screen.getByRole('button', { name: 'Cerrar' }));
     expect(window.location.search).toBe('?ref=John.3.16');
   });
 });
@@ -176,18 +176,18 @@ describe('the browser’s own install offer', () => {
   it('offers to install from the guide once the browser has made the offer', async () => {
     offerInstall();
     await openGuide();
-    expect(screen.getByRole('button', { name: /Install now/ })).toBeDefined();
+    expect(screen.getByRole('button', { name: /Instalar ahora/ })).toBeDefined();
   });
 
   it('does not offer it where the browser has not', async () => {
     await openGuide();
-    expect(screen.queryByRole('button', { name: /Install now/ })).toBeNull();
+    expect(screen.queryByRole('button', { name: /Instalar ahora/ })).toBeNull();
   });
 
   it('asks the browser to install when the offer is taken', async () => {
     const { prompt } = offerInstall();
     await openGuide();
-    await userEvent.click(screen.getByRole('button', { name: /Install now/ }));
+    await userEvent.click(screen.getByRole('button', { name: /Instalar ahora/ }));
     expect(prompt).toHaveBeenCalled();
   });
 
@@ -197,7 +197,7 @@ describe('the browser’s own install offer', () => {
     act(() => {
       window.dispatchEvent(new Event('appinstalled'));
     });
-    expect(screen.queryByRole('button', { name: /Install now/ })).toBeNull();
+    expect(screen.queryByRole('button', { name: /Instalar ahora/ })).toBeNull();
   });
 
   it('closes on a click outside the dialog, but not on one inside it', async () => {

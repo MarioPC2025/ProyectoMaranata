@@ -57,11 +57,11 @@ export function VizPage({
                 setExpanded(false);
               }}
             />
-            <aside ref={sheetRef} className={styles.panel} aria-label="Details">
+            <aside ref={sheetRef} className={styles.panel} aria-label="Detalles">
               <button
                 type="button"
                 className={styles.sheetHandle}
-                aria-label={expanded ? 'Collapse details' : 'Expand details'}
+                aria-label={expanded ? 'Contraer detalles' : 'Expandir detalles'}
                 aria-expanded={expanded}
                 onClick={() => {
                   setExpanded(!expanded);

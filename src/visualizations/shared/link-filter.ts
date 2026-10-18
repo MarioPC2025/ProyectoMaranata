@@ -32,9 +32,9 @@ export function isDefaultFilter(filter: LinkFilter, defaults: LinkFilter): boole
 
 export function describeThreshold(minVotes: number): string {
   if (minVotes === -Infinity) {
-    return 'all links';
+    return 'todos los enlaces';
   }
-  return minVotes === 0 ? 'links voted down are hidden' : `≥ ${minVotes} votes`;
+  return minVotes === 0 ? 'se ocultan los enlaces con votos negativos' : `≥ ${minVotes} votos`;
 }
 
 /**

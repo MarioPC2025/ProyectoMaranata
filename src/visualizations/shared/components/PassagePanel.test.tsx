@@ -45,8 +45,8 @@ function renderPanel(passage: Passage = versePassage(JOHN_3_16), props = {}) {
 describe('PassagePanel', () => {
   it('names the passage, its book and its genre', () => {
     renderPanel();
-    expect(screen.getByRole('heading', { name: 'John 3:16' })).toBeDefined();
-    expect(screen.getByText(/Gospels/)).toBeDefined();
+    expect(screen.getByRole('heading', { name: 'Juan 3:16' })).toBeDefined();
+    expect(screen.getByText(/Evangelios/)).toBeDefined();
   });
 
   it("shows a verse's text", () => {
@@ -56,8 +56,8 @@ describe('PassagePanel', () => {
 
   it('lists where the passage points, and what points at it', () => {
     renderPanel();
-    expect(screen.getByRole('button', { name: /References/ })).toBeDefined();
-    expect(screen.getByRole('button', { name: /Referenced by/ })).toBeDefined();
+    expect(screen.getByRole('button', { name: /Referencias/ })).toBeDefined();
+    expect(screen.getByRole('button', { name: /Referenciado por/ })).toBeDefined();
     expect(screen.getByText(/But God proves His love/)).toBeDefined();
     expect(screen.getByText(/In the beginning/)).toBeDefined();
   });
@@ -72,26 +72,26 @@ describe('PassagePanel', () => {
 
   it('closes', async () => {
     const { onClose } = renderPanel();
-    await userEvent.click(screen.getByRole('button', { name: 'Close' }));
+    await userEvent.click(screen.getByRole('button', { name: 'Cerrar' }));
     expect(onClose).toHaveBeenCalled();
   });
 
   it('steps to the next and previous verse', async () => {
     const { onSelect } = renderPanel();
-    await userEvent.click(screen.getByRole('button', { name: /Next/i }));
+    await userEvent.click(screen.getByRole('button', { name: /siguiente/i }));
     expect(onSelect).toHaveBeenCalledWith(versePassage(JOHN_3_17));
-    await userEvent.click(screen.getByRole('button', { name: /Previous/i }));
+    await userEvent.click(screen.getByRole('button', { name: /anterior/i }));
     expect(onSelect).toHaveBeenCalledWith(versePassage(verseIndex('John', 3, 15)));
   });
 
   it('says so when a passage has no links in a direction', () => {
     renderPanel(versePassage(verseIndex('Rev', 22, 21)));
-    expect(screen.getAllByText('None').length).toBeGreaterThan(0);
+    expect(screen.getAllByText('Ninguno').length).toBeGreaterThan(0);
   });
 
   it('shows a chapter as a list of its verses', () => {
     renderPanel({ kind: 'chapter', book: 'John', chapter: 3 });
-    expect(screen.getByRole('button', { name: /Verses/ })).toBeDefined();
+    expect(screen.getByRole('button', { name: /Versículos/ })).toBeDefined();
     expect(screen.getByText('For God so loved the world…')).toBeDefined();
   });
 
@@ -105,14 +105,14 @@ describe('PassagePanel', () => {
 
   it('shows the genre breakdown of where a passage connects', () => {
     renderPanel();
-    expect(screen.getByRole('button', { name: /Connects to/ })).toBeDefined();
+    expect(screen.getByRole('button', { name: /Se conecta con/ })).toBeDefined();
   });
 
   it('shows actions the host gives it', () => {
     renderPanel(versePassage(JOHN_3_16), {
-      actions: <button type="button">Read in context</button>,
+      actions: <button type="button">Leer en contexto</button>,
     });
-    expect(screen.getByRole('button', { name: 'Read in context' })).toBeDefined();
+    expect(screen.getByRole('button', { name: 'Leer en contexto' })).toBeDefined();
   });
 
   it('previews a connection when one is pointed at, and stops when it is not', async () => {

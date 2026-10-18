@@ -1,4 +1,5 @@
 import type { BookId } from '../core/bible/books.ts';
+import type { TranslationId } from '../core/datasets/ids.ts';
 import type { VerseIndex } from '../core/bible/verse-ref.ts';
 import { CANONICAL_VERSIFICATION } from '../core/bible/versification.ts';
 import type {
@@ -26,6 +27,7 @@ export function verseIndex(book: BookId, chapter: number, verse: number): VerseI
 /** A complete translation file whose verse texts are overridden where given. */
 export function createTranslationFile(
   overrides: ReadonlyMap<VerseIndex, string> = new Map(),
+  translationId: TranslationId = 'bsb',
 ): TranslationTextFile {
   return {
     format: 'translation-text',
@@ -33,7 +35,7 @@ export function createTranslationFile(
     versification: 'kjv',
     provenance: PROVENANCE,
     notices: [],
-    translationId: 'bsb',
+    translationId,
     verses: Array.from(
       { length: CANONICAL_VERSIFICATION.verseCount },
       (_, index) => overrides.get(index) ?? `Verse number ${index}.`,

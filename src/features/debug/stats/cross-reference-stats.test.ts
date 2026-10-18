@@ -42,7 +42,7 @@ describe('computeCrossReferenceStats', () => {
 
   it('finds unconnected verses, expanding target ranges', () => {
     const { stats } = computeStats();
-    // Targets: John 1:1, Gen 1:1–3, Luke 3:23–38 (16 verses), Gen 50:26 and Exod 1:1.
+    // Targets: Juan 1:1, Gen 1:1–3, Lucas 3:23–38 (16 verses), Gen 50:26 and Exod 1:1.
     expect(stats.targetVerseCount).toBe(22);
     // Connected: those 22 plus the sources Matt 1:1 and Ps 1:1.
     expect(stats.unconnectedVerses).toHaveLength(31102 - 24);
