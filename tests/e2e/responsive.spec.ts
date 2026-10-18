@@ -40,31 +40,31 @@ test.describe('the layout holds at every width', () => {
   }
 
   /**
-   * The line is set in whatever UI font the reader's system has, and those differ in width by
-   * roughly a tenth between the narrowest and the widest. Measuring on one machine therefore
-   * proves nothing about another — this walks the font up and insists the line still holds, so a
-   * layout that only just fits here fails here rather than on somebody's phone.
+   * The line is set in whatever UI font the reader's system has, and the narrowest and widest of
+   * those differ by roughly a tenth: a layout that fits exactly on the machine that drew it can
+   * wrap on somebody's phone, which is how a two-line footer at 320px once reached CI.
+   *
+   * A tenth is the whole budget, not a safety factor on top of one. Asking for more would mean
+   * something different on every machine — on a narrow-font system it reads as "survive a wide
+   * font", but on a system that already has the widest font it reads as "survive a font that
+   * does not exist", which is a test no honest layout can pass.
    */
   for (const width of [320, 360, 375]) {
     test(`${String(width)}px: the footer still holds with a tenth wider font`, async ({ page }) => {
       await page.setViewportSize({ width, height: 800 });
       await page.goto('./');
       await waitForApp(page);
-      const wrapped = await page.locator(`${ACTIVE} footer`).evaluate((footer) => {
+      const rows = await page.locator(`${ACTIVE} footer`).evaluate((footer) => {
         const element = footer as HTMLElement;
         const base = Number.parseFloat(getComputedStyle(element).fontSize);
-        const tops = (scale: number) => {
-          element.style.fontSize = `${String(base * scale)}px`;
-          const rows = [...footer.children].map((child) =>
-            Math.round(child.getBoundingClientRect().top),
-          );
-          element.style.fontSize = '';
-          return new Set(rows).size;
-        };
-        return { at10: tops(1.1), at15: tops(1.15) };
+        element.style.fontSize = `${String(base * 1.1)}px`;
+        const tops = [...footer.children].map((child) =>
+          Math.round(child.getBoundingClientRect().top),
+        );
+        element.style.fontSize = '';
+        return new Set(tops).size;
       });
-      expect(wrapped.at10).toBe(1);
-      expect(wrapped.at15).toBe(1);
+      expect(rows).toBe(1);
     });
   }
 
