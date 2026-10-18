@@ -5,6 +5,10 @@ on:
     branches: [main]
   pull_request:
 
+# El CI solo lee el repo: el GITHUB_TOKEN no necesita permisos de escritura.
+permissions:
+  contents: read
+
 jobs:
   web:
     runs-on: ubuntu-latest
