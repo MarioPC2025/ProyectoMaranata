@@ -1,5 +1,6 @@
 <script lang="ts">
   import { tick } from 'svelte'
+  import HilosCapitulo from '../componentes/HilosCapitulo.svelte'
   import ListaReferencias from '../componentes/ListaReferencias.svelte'
   import TextoVersiculo from '../componentes/TextoVersiculo.svelte'
   import type { Indice } from '../lib/biblia/indice'
@@ -81,6 +82,16 @@
         {#if enlaceCapitulo(1)}<a href={enlaceCapitulo(1)} rel="next">Siguiente →</a>{/if}
       </nav>
     </header>
+
+    {#if indice && referencias}
+      <HilosCapitulo
+        {indice}
+        {referencias}
+        libro={referencia.libro}
+        {capitulo}
+        versiculo={referencia.versiculo}
+      />
+    {/if}
 
     {#if indice?.rv1909Desalineado(referencia.libro, capitulo)}
       <p class="aviso">

@@ -8,7 +8,7 @@
   import type { Referencias } from '../lib/datos/xrefs'
   import { navegar } from '../lib/navegacion.svelte'
   import { RendererArcos } from '../lib/viz/arcos'
-  import { temaActual, type Tema } from '../lib/viz/colores'
+  import { alCambiarTema, temaActual, type Tema } from '../lib/viz/colores'
   import {
     VERSICULOS_POR_PIXEL_CAPITULO,
     centrarEn,
@@ -106,13 +106,11 @@
     })
     observador.observe(contenedor)
 
-    const media = matchMedia('(prefers-color-scheme: dark)')
-    const alCambiarTema = () => (tema = temaActual())
-    media.addEventListener('change', alCambiarTema)
+    const dejarDeEscuchar = alCambiarTema((t) => (tema = t))
 
     return () => {
       observador.disconnect()
-      media.removeEventListener('change', alCambiarTema)
+      dejarDeEscuchar()
       renderer?.destruir()
     }
   })

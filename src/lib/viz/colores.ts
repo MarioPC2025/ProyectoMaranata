@@ -51,3 +51,11 @@ export function temaActual(): Tema {
   if (forzado === 'claro' || forzado === 'oscuro') return forzado
   return matchMedia('(prefers-color-scheme: dark)').matches ? 'oscuro' : 'claro'
 }
+
+/** Avisa cuando cambia el tema del sistema. Devuelve la función para dejar de escuchar. */
+export function alCambiarTema(avisar: (tema: Tema) => void): () => void {
+  const media = matchMedia('(prefers-color-scheme: dark)')
+  const escuchar = () => avisar(temaActual())
+  media.addEventListener('change', escuchar)
+  return () => media.removeEventListener('change', escuchar)
+}
