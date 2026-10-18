@@ -4,16 +4,25 @@
 -fore	-tanto
 -lehem	-lehem
 -nego	-nego
+-sheba	-sabé
+<for> itself	<para> sí
 <for> yourself	<para> ti
+<for> yourselves	<para> vosotros
 <from> <to> besides	<de> <a> además de
 <from> above	<de> encima
 <from> because of	<de> a causa de
+<from> beneath	<de> debajo
 <if>	<si>
+<if>?	<si>?
+<in> <the> her	<en> <el> ella
 <in> <the> him	<en> <el> él
 <in> <the> it	<en> <el> ello
+<in> <the> me	<en> <el> mí
 <in> <the> them	<en> <el> ellos
 <in> <the> you	<en> <el> ti
+<in> all	<en> todo
 <in> an inheritance	<en> heredad
+<in> any	<en> todo
 <in> before	<en> delante de
 <in> him	<en> él
 <in> how?	<en> ¿cómo?
@@ -23,9 +32,19 @@
 <in> then	<en> entonces
 <in> you	<en> ti
 <into> God	<a> Dios
+<into> a desolation	<en> desolación
+<into> a father	<por> padre
+<into> a horror	<por> espanto
 <into> a people	<por> pueblo
+<into> a sign	<por> señal
+<into> a snare	<por> lazo
+<into> a statute of	<por> estatuto de
 <into> a waste	<en> desolación
 <into> a wife	<por> mujer
+<into> a witness	<por> testigo
+<into> food	<por> alimento
+<into> forced labor	<por> tributarios
+<into> plunder	<por> botín
 <just> when	<justo> cuando
 <obj.>	<obj.>
 <obj.> her	<obj.> ella
@@ -37,72 +56,121 @@
 <obj.> you	<obj.> ti
 <of> God	<de> Dios
 <of> Yahweh	<de> Jehová
+<of> a person	<de> una persona
+<of> that	<de> ese
 <of> where	<de> dónde
 <of> wickedness	<de> maldad
 <on>	<sobre>
+<the> Abib	<el> Abib
 <the> Ai	<el> Hai
+<the> Anak	<el> Anac
 <the> Baal	<el> Baal
 <the> Bashan	<el> Basán
+<the> Carmel	<el> Carmelo
 <the> Gibeah	<el> Gabaa
 <the> Gilead	<el> Galaad
 <the> Gilgal	<el> Gilgal
+<the> Gilgal towards	hacia <el> Gilgal
 <the> God	<el> Dios
 <the> Lebanon	<el> Líbano
 <the> Manasseh	<el> Manasés
 <the> Mizpah	<el> Mizpa
+<the> Mizpah towards	hacia <el> Mizpa
+<the> Pisgah	<el> Pisga
 <the> Ramah	<el> Ramá
+<the> Ramah towards	hacia <el> Ramá
 <the> Salt	<la> Sal
+<the> [one who] comes	<el> [que] viene
 <the> [one who] touches	<el> [que] toca
+<the> [thing] written	<lo> [que está] escrito
+<the> animal	<el> animal
 <the> animal of	<el> animal de
 <the> anointing	<la> unción
+<the> antiquity	<la> antigüedad
+<the> approaching	<el> que se acerque
+<the> atonement<s>	<la> expiación<es>
+<the> bird of	<el> ave de
 <the> blood	<la> sangre
 <the> bronze	<el> bronce
+<the> burning	<el> ardiente
+<the> burnt offering	<el> holocausto
+<the> clean	<el> limpio
+<the> cloud	<la> nube
 <the> continuity	<el> continuo
+<the> copy of	<la> copia de
+<the> death	<la> muerte
 <the> eighth	<el> octavo
+<the> everyone	<el> todos
 <the> everything	<el> todo
 <the> evil	<el> mal
+<the> famine	<el> hambre
 <the> fifth	<el> quinto
 <the> first	<el> primero
+<the> foreignness	<lo> extranjero
 <the> former	<el> anterior
+<the> fortified	<el> fortificado
 <the> fourth	<el> cuarto
 <the> gold	<el> oro
 <the> good	<el> bueno
 <the> great	<el> grande
 <the> half of	<la> mitad de
+<the> high	<el> alto
 <the> hin	<el> hin
 <the> holiness	<la> santidad
 <the> humankind	<la> humanidad
+<the> incense	<el> incienso
 <the> inner	<el> interior
+<the> installation offering<s>	<la> consagración<es>
+<the> iron	<el> hierro
 <the> life	<la> vida
 <the> living	<el> viviente
+<the> lower	<el> inferior
+<the> man	<el> hombre
 <the> man of	<el> hombre de
+<the> measurement	<la> medida
 <the> mighty	<el> fuerte
 <the> near	<el> cercano
+<the> ninth	<el> noveno
+<the> oil	<el> aceite
 <the> old	<el> viejo
 <the> one	<el> uno
+<the> other	<el> otro
 <the> outer	<el> exterior
+<the> outstretched	<el> extendido
 <the> perpetuity	<la> perpetuidad
 <the> person	<la> persona
+<the> person of	<la> persona de
 <the> right	<la> derecha
 <the> royalty	<la> realeza
 <the> second	<el> segundo
 <the> seventh	<el> séptimo
 <the> silver	<la> plata
 <the> sixth	<el> sexto
+<the> small	<el> pequeño
+<the> south	<el> sur
+<the> strength	<la> fuerza
+<the> swarming thing	<el> reptil
 <the> tenth	<el> décimo
 <the> that	<el> aquel
 <the> these	<los> estos
 <the> third	<el> tercero
 <the> this	<el> este
 <the> those	<los> aquellos
+<the> transgressions of	<las> transgresiones de
+<the> undertaking of	<la> obra de
 <the> upper	<el> superior
 <the> war	<la> guerra
+<the> water	<el> agua
+<the> wicked	<el> impío
 <the> wine	<el> vino
+<the> word	<la> palabra
 <the> young	<el> joven
+<thus>	<así>
 <to>	<a>
 <to> <the> him	<a> <el> él
 <to> <the> it	<a> <el> ello
 <to> <the> me	<a> <el> mí
+<to> <the> them	<a> <el> ellos
 <to> <the> you	<a> <el> ti
 <to> Yahweh	<a> Jehová
 <to> all	<a> todo
@@ -115,66 +183,115 @@
 <to> before them	<a> delante de ellos
 <to> before us	<a> delante de nosotros
 <to> before you	<a> delante de ti
+<to> close to	<a> cerca de
+<to> corresponding to	<a> frente a
+<to> downwards	<a> abajo
 <to> from	<a> de
 <to> him	<a> él
 <to> it	<a> ello
 <to> me	<a> mí
 <to> saying	<a> diciendo
+<to> the place	<a> el lugar
 <to> them	<a> ellos
 <to> therefore	<a> por tanto
 <to> upwards <towards>	<a> arriba <hacia>
 <to> why?	<a> ¿por qué?
 <to> you	<a> ti
 Aaron	Aarón
+Abdon	Abdón
 Abel	Abel
 Abiathar	Abiatar
+Abiezer	Abiezer
 Abijah	Abías
 Abimelech	Abimelec
+Abinadab	Abinadab
 Abishai	Abisai
 Abner	Abner
 Abraham	Abraham
 Abram	Abram
 Absalom	Absalón
+Achan	Acán
+Achbor	Acbor
 Achish	Aquis
+Adah	Ada
+Adam	Adán
+Adar	Adar
 Adonijah	Adonías
+Adullam	Adulam
+Agag	Agag
 Ahab	Acab
 Ahasuerus	Asuero
 Ahaz	Acaz
 Ahaziah	Ocozías
 Ahijah	Ahías
 Ahikam	Ahicam
+Ahimaaz	Ahimaas
+Ahimelech	Ahimelec
 Ahithophel	Ahitofel
 Ahitub	Ahitob
+Aijalon	Ajalón
+Almighty	Todopoderoso
 Amalek	Amalec
 Amariah	Amarías
+Amasa	Amasa
 Amaziah	Amasías
+Ammiel	Amiel
+Ammihud	Amiud
+Amminadab	Aminadab
 Ammon	Amón
 Amnon	Amnón
 Amon	Amón
 Amoz	Amoz
 Amram	Amram
+Anah	Aná
+Anathoth	Anatot
 Aram	Aram
+Araunah	Arauna
+Arba	Arba
 Arnon	Arnón
+Artaxerxes	Artajerjes
 Asa	Asa
+Asahel	Asael
 Asaph	Asaf
+Ashdod	Asdod
 Asher	Aser
+Ashkelon	Ascalón
 Assyria	Asiria
+Ataroth	Atarot
+Athaliah	Atalía
+Aven	Avén
 Azariah	Azarías
+Azekah	Azeca
+Azmaveth	Azmavet
 Baal	Baal
+Baal-	Baal-
 Baasha	Baasa
 Babylon	Babilonia
 Babylon towards	hacia Babilonia
 Balaam	Balaam
 Balak	Balac
 Bani	Bani
+Barak	Barac
+Barnea	Barnea
 Baruch	Baruc
+Barzillai	Barzilai
+Basemath	Basemat
+Bashan	Basán
+Bath-	Bet-
 Beer	Beer
 Bela	Bela
 Ben	Ben
+Ben-	Ben-
 Benaiah	Benaía
 Benjamin	Benjamín
+Beor	Beor
+Berekiah	Berequías
 Beth	Bet
 Beth-	Bet-
+Bethuel	Betuel
+Bezalel	Bezaleel
+Bicri	Bicri
+Bilhah	Bilha
 Boaz	Booz
 Cain	Caín
 Caleb	Caleb
@@ -187,35 +304,64 @@ Dan	Dan
 Daniel	Daniel
 Darius	Darío
 David	David
+Debir	Debir
+Deborah	Débora
+Dedan	Dedán
+Dibon	Dibón
+Dinah	Dina
+Dor	Dor
+Ebal	Ebal
+Ebed	Ebed
 Eber	Heber
 Eden	Edén
 Edom	Edom
+Eglon	Eglón
 Egypt	Egipto
 Egypt towards	hacia Egipto
+Egyptian	egipcio
+Ehud	Aod
 Ekron	Ecrón
+El	El
 Elah	Ela
 Elam	Elam
 Eleazar	Eleazar
 Eli	Elí
 Eliab	Eliab
+Eliakim	Eliaquim
 Eliashib	Eliasib
+Elihu	Eliú
 Elijah	Elías
 Eliphaz	Elifaz
 Elisha	Eliseo
 Elishama	Elisama
 Elkanah	Elcana
 En	En
+Enan	Enán
+Enoch	Enoc
+Enosh	Enós
 Ephraim	Efraín
+Ephron	Efrón
+Er	Er
 Esau	Esaú
+Eshcol	Escol
 Esther	Ester
 Euphrates	Éufrates
+Ezer	Ezer
 Ezra	Esdras
+Gaal	Gaal
 Gad	Gad
 Gath	Gat
 Gaza	Gaza
+Geba	Geba
+Geber	Geber
 Gedaliah	Gedalías
+Gedi	Gadi
+Gehazi	Giezi
+Gera	Gera
 Gershom	Gersón
 Gershon	Gersón
+Geshur	Gesur
+Gezer	Gezer
 Gibeon	Gabaón
 Gideon	Gedeón
 Gilead	Galaad
@@ -226,102 +372,208 @@ God of	Dios de
 God our	nuestro Dios
 God their	su Dios
 God your	tu Dios
+Gog	Gog
+Gomorrah	Gomorra
+Goshen	Gosén
 Hadad	Hadad
 Hadadezer	Hadad-ezer
+Hagar	Agar
+Haggai	Hageo
 Ham	Cam
 Haman	Amán
 Hamath	Hamat
 Hamor	Hamor
 Hanan	Hanán
+Hanani	Hanani
 Hananiah	Ananías
+Hannah	Ana
+Hanun	Hanún
 Haran	Harán
+Harim	Harim
 Hashabiah	Hasabías
 Hazael	Hazael
 Hazor	Hazor
+Heber	Heber
 Hebron	Hebrón
+Hebron towards	hacia Hebrón
+Heman	Hemán
+Hepher	Hefer
+Hermon	Hermón
 Heshbon	Hesbón
 Heth	Het
 Hezekiah	Ezequías
 Hezron	Hezrón
 Hilkiah	Hilcías
+Hinnom	Hinom
 Hiram	Hiram
 Horon	Horón
+Hoshea	Oseas
+Hur	Hur
+Huram	Hiram
 Hushai	Husai
 I	yo
+I am	yo soy
 I am able	puedo
+I appointed	puse
+I beg you	te ruego
 I brought out	saqué
+I brought up	hice subir
+I called	llamé
 I commanded	mandé
+I commanded them	les mandé
+I commanded you	te mandé
+I desire	quiero
+I did	hice
+I found	hallé
 I gave	di
 I give	doy
+I had seen	había visto
 I hate	aborrezco
 I have become	he llegado a ser
+I have borne	he dado a luz
+I have built	he edificado
 I have chosen	he escogido
 I have come	he venido
+I have commanded	he mandado
+I have commanded you	te he mandado
 I have done	he hecho
+I have dreamed	he soñado
+I have eaten	he comido
+I have forgotten	he olvidado
 I have found	he hallado
 I have given	he dado
+I have given it	la he dado
 I have heard	he oído
+I have made	he hecho
+I have put	he puesto
+I have said	he dicho
 I have seen	he visto
+I have set	he puesto
 I have sinned	he pecado
 I have spoken	he hablado
+I have taken	he tomado
 I heard	oí
 I knew	conocí
 I know	sé
+I lift up	alzo
+I lifted up	alcé
 I love	amo
 I made	hice
 I said	dije
 I saw	vi
+I say	digo
+I sent	envié
+I set	puse
 I spoke	hablé
+I swear	juro
 I swore	juré
 I was	fui
+I will answer	responderé
 I will be	seré
+I will be able	podré
 I will become	llegaré a ser
+I will bless	bendeciré
+I will break	quebraré
 I will bring	traeré
+I will come	vendré
+I will command	mandaré
+I will die	moriré
 I will do	haré
+I will eat	comeré
+I will find	hallaré
+I will gather	reuniré
 I will give	daré
+I will give it	la daré
+I will give thanks to	alabaré a
+I will give thanks to you	te alabaré
 I will go	iré
+I will go out	saldré
+I will go up	subiré
+I will increase	multiplicaré
+I will know	sabré
 I will make	haré
+I will make you	te haré
+I will pay	pagaré
+I will pour out	derramaré
+I will praise	alabaré
 I will put	pondré
+I will remember	me acordaré
 I will repeat	volveré a
 I will return	volveré
+I will revoke it	lo revocaré
 I will say	diré
+I will see	veré
 I will seek	buscaré
+I will send	enviaré
+I will set	pondré
+I will sing	cantaré
+I will sing praises	cantaré alabanzas
 I will speak	hablaré
+I will take	tomaré
+I will tell	contaré
+I will turn back	me volveré
+I will wait	esperaré
 Iddo	Iddo
+Immer	Imer
 In-	En-
 Isaac	Isaac
 Isaiah	Isaías
+Ish-	Is-
 Ishmael	Ismael
 Israel	Israel
 Issachar	Isacar
 Ithamar	Itamar
+Ittai	Itai
+Izhar	Izhar
 Jabesh	Jabes
+Jabin	Jabín
 Jacob	Jacob
+Jael	Jael
+Jahath	Jahat
 Jair	Jair
+Jared	Jared
+Jarmuth	Jarmut
+Jazer	Jazer
 Jearim	Jearim
+Jeconiah	Jeconías
+Jedaiah	Jedaías
+Jeduthun	Jedutún
 Jehoahaz	Joacaz
 Jehoash	Joás
+Jehohanan	Johanán
+Jehoiachin	Joaquín
 Jehoiada	Joiada
 Jehoiakim	Joacim
 Jehoram	Joram
 Jehoshaphat	Josafat
+Jehozadak	Josadac
 Jehu	Jehú
+Jeiel	Jeiel
 Jephthah	Jefté
 Jephunneh	Jefone
+Jerahmeel	Jerameel
 Jeremiah	Jeremías
 Jericho	Jericó
 Jeroboam	Jeroboam
+Jeroham	Jeroham
 Jerub-Baal	Jerobaal
 Jerusalem	Jerusalén
 Jeshua	Jesúa
 Jesse	Isaí
+Jether	Jeter
+Jethro	Jetro
+Jeush	Jeús
+Jews the	los judíos
 Jezebel	Jezabel
 Jezreel	Jezreel
+Jezreel towards	hacia Jezreel
 Joab	Joab
 Joash	Joás
 Job	Job
+Jobab	Jobab
 Joel	Joel
 Johanan	Johanán
+Jonadab	Jonadab
 Jonah	Jonás
 Jonathan	Jonatán
 Joram	Joram
@@ -330,38 +582,70 @@ Joshua	Josué
 Josiah	Josías
 Jotham	Jotam
 Judah	Judá
+Kadesh	Cades
 Kareah	Carea
+Kebar	Quebar
+Kedar	Cedar
+Kedesh	Cedes
 Keilah	Keila
+Kenan	Cainán
+Kenaz	Cenaz
+Kidron	Cedrón
 Kiriath	Quiriat
 Kish	Cis
+Kishon	Cisón
 Kohath	Coat
 Korah	Coré
 Laban	Labán
 Lachish	Laquis
+Lachish towards	hacia Laquis
+Lamech	Lamec
 Leah	Lea
 Lebanon	Líbano
+Lebo	Lebo
 Levi	Leví
+Libnah	Libna
 Lot	Lot
+Lotan	Lotán
 Maacah	Maaca
 Maaseiah	Maasías
+Mahalalel	Mahalaleel
+Mahanaim	Mahanaim
+Mahli	Mahli
 Makir	Maquir
+Malkijah	Malquías
+Mamre	Mamre
 Manasseh	Manasés
 Manoah	Manoa
 Mattaniah	Matanías
+Media	Media
+Megiddo	Meguido
+Melech	Melec
+Menahem	Manahem
 Merari	Merari
+Meribah	Meriba
 Meshach	Mesac
 Meshullam	Mesulam
+Methuselah	Matusalén
 Micah	Miqueas
 Micaiah	Micaías
+Michael	Miguel
 Michal	Mical
 Midian	Madián
+Milcah	Milca
+Miriam	María
 Moab	Moab
 Mordecai	Mardoqueo
 Moses	Moisés
+Most High	Altísimo
+Most High the	el Altísimo
+Naaman	Naamán
 Nabal	Nabal
 Naboth	Nabot
 Nadab	Nadab
+Nahash	Nahas
 Nahor	Nacor
+Nahshon	Naasón
 Naomi	Noemí
 Naphtali	Neftalí
 Nathan	Natán
@@ -370,7 +654,11 @@ Nebat	Nabat
 Nebo	Nebo
 Nebuchadnezzar	Nabucodonosor
 Nebuzaradan	Nabuzaradán
+Necho	Necao
+Nehemiah	Nehemías
 Ner	Ner
+Neriah	Nerías
+Nethanel	Natanael
 Nethaniah	Netanías
 Nineveh	Nínive
 Noah	Noé
@@ -378,37 +666,65 @@ Nun	Nun
 O God	oh Dios
 O God my	oh Dios mío
 O God of	oh Dios de
+O God our	oh Dios nuestro
 O Israel	oh Israel
 O Jacob	oh Jacob
 O Jerusalem	oh Jerusalén
+O Judah	oh Judá
 O Lord	oh Señor
 O Yahweh	oh Jehová
 O all	oh todos
+O brother my	oh hermano mío
+O daughter my	oh hija mía
 O daughter of	oh hija de
+O daughters of	oh hijas de
 O father my	oh padre mío
+O friend my	oh amigo mío
 O house of	oh casa de
+O inhabitants of	oh moradores de
+O king	oh rey
 O lord my	oh mi señor
+O man of	oh hombre de
+O mountain of	oh monte de
+O mountains	oh montes
 O people my	oh pueblo mío
 O people of	oh pueblo de
+O self my	oh alma mía
 O son my	oh hijo mío
 O son of	oh hijo de
 Obadiah	Abdías
+Obed-	Obed-
 Og	Og
+Oholibamah	Aholibama
 Omri	Omri
+Ophir	Ofir
+Oreb	Oreb
+Ornan	Ornán
+Othniel	Otoniel
 Paran	Parán
 Pashhur	Pasur
+Pekah	Peka
+Penuel	Peniel
 Peor	Peor
 Perez	Fares
 Persia	Persia
 Pharaoh	Faraón
 Phinehas	Finees
+Rabbah	Rabá
 Rachel	Raquel
+Rahab	Rahab
 Ramoth	Ramot
 Rebekah	Rebeca
+Rechab	Recab
+Rehob	Rehob
 Rehoboam	Roboam
+Rehum	Rehum
 Remaliah	Remalías
 Reuben	Rubén
+Reuel	Reuel
+Rezin	Rezín
 Rimmon	Rimón
+Ruth	Rut
 Samaria	Samaria
 Samson	Sansón
 Samuel	Samuel
@@ -419,161 +735,348 @@ Seir	Seir
 Selah	Selah
 Sennacherib	Senaquerib
 Seraiah	Seraías
+Seth	Set
+Shadrach	Sadrac
 Shallum	Salum
+Shammah	Sama
 Shaphan	Safán
+Shaphat	Safat
+Shealtiel	Salatiel
 Sheba	Seba
+Shecaniah	Secanías
 Shechem	Siquem
+Shechem towards	hacia Siquem
+Shelah	Sela
+Shelemiah	Selemías
 Shem	Sem
 Shemaiah	Semaías
 Shemesh	Semes
 Sheol	Seol
+Sheol towards	hacia el Seol
+Shephatiah	Sefatías
 Shiloh	Silo
 Shimei	Simei
+Shinar	Sinar
+Shishak	Sisac
+Shua	Súa
 Sidon	Sidón
 Sihon	Sehón
 Simeon	Simeón
+Sin	Sin
 Sinai	Sinaí
 Sisera	Sísara
+Socoh	Soco
 Sodom	Sodoma
 Solomon	Salomón
 Succoth	Sucot
+Taanach	Taanac
+Tabor	Tabor
 Tamar	Tamar
 Tarshish	Tarsis
+Teman	Temán
 Terah	Taré
 Tyre	Tiro
+Uri	Uri
 Uriah	Urías
+Uzzah	Uza
+Uzzi	Uzi
 Uzziah	Uzías
+Uzziel	Uziel
+Vashti	Vasti
 Yahweh	Jehová
+Zaccur	Zacur
 Zadok	Sadoc
+Zebah	Zeba
 Zebulun	Zabulón
 Zechariah	Zacarías
 Zedekiah	Sedequías
+Zelophehad	Zelofehad
+Zephaniah	Sofonías
 Zerah	Zera
 Zerubbabel	Zorobabel
 Zeruiah	Sarvia
+Ziba	Siba
+Ziklag	Siclag
+Zikri	Zicri
+Zilpah	Zilpa
+Zimri	Zimri
+Zin	Zin
 Zion	Sion
+Ziph	Zif
+Zippor	Zipor
 Zobah	Soba
+Zur	Zur
+[am] God	[soy] Dios
 [am] I	[soy] yo
 [am] Yahweh	[soy] Jehová
 [am] about to bring	[estoy] por traer
+[am] about to do	[estoy] por hacer
 [am] about to give	[estoy] por dar
 [am] about to send	[estoy] por enviar
+[am] against you	[estoy] contra ti
+[am] commanding	[estoy] mandando
 [am] commanding you	[estoy] mandándote
+[am] dwelling	[estoy] habitando
+[am] going	[voy] yendo
+[am] he	[soy] yo
+[am] holy	[soy] santo
+[am] seeing	[estoy] viendo
+[am] speaking	[estoy] hablando
 [am] with you	[estoy] contigo
+[are] God	[eres] Dios
+[are] God my	[eres] mi Dios
+[are] [the] abomination of	[son] [la] abominación de
+[are] [the] accounts of	[son] [las] generaciones de
 [are] [the] names of	[son] [los] nombres de
+[are] a house of	[son] una casa de
+[are] a people	[son] un pueblo
 [are] about to go	[estáis] por ir
 [are] about to pass over	[estáis] por pasar
+[are] around you	[están] alrededor de ti
 [are] coming	[están] viniendo
 [are] doing	[están] haciendo
 [are] dwelling	[están] habitando
+[are] going	[están] yendo
 [are] good	[son] buenos
+[are] great	[son] grandes
+[are] knowing	[estáis] sabiendo
+[are] many	[son] muchos
+[are] names their	[son] sus nombres
 [are] on	[están] sobre
+[are] on you	[están] sobre ti
+[are] prophesying	[están] profetizando
+[are] righteous	[son] justos
 [are] saying	[están] diciendo
+[are] seeing	[estáis] viendo
+[are] seeking	[están] buscando
+[are] servants your	[son] tus siervos
+[are] there	[están] allí
 [are] these	[son] estos
 [are] they	[son] ellos
+[are] to	[son] para
+[are] unclean	[son] inmundos
+[are] with him	[están] con él
+[are] with me	[están] conmigo
 [are] written	[están] escritos
 [are] you	[eres] tú
 [be] blessed	[sea] bendito
+[be] cursed	[sea] maldito
+[belong] to <the> him	[pertenecen] a <el> él
+[belong] to <the> it	[pertenecen] a <el> ello
+[belong] to <the> me	[pertenecen] a <el> mí
+[belong] to Yahweh	[pertenecen] a Jehová
+[belong] to me	[pertenecen] a mí
+[belong] to them	[pertenecen] a ellos
 [belong] to you	[pertenecen] a ti
 [belonged] to <the> him	[pertenecía] a <el> él
 [belonged] to <the> them	[pertenecía] a <el> ellos
+[belonged] to [the] four of them	[pertenecían] a [los] cuatro
+[belonged] to him	[pertenecía] a él
+[belonged] to it	[pertenecía] a ello
+[belonged] to them	[pertenecía] a ellos
 [belongs] to <the> him	[pertenece] a <el> él
+[belongs] to <the> it	[pertenece] a <el> ello
 [belongs] to <the> me	[pertenece] a <el> mí
 [belongs] to <the> them	[pertenece] a <el> ellos
+[belongs] to <the> us	[pertenece] a <el> nosotros
 [belongs] to <the> you	[pertenece] a <el> ti
 [belongs] to Yahweh	[pertenece] a Jehová
 [belongs] to him	[pertenece] a él
+[belongs] to it	[pertenece] a ello
 [belongs] to me	[pertenece] a mí
 [belongs] to them	[pertenece] a ellos
+[belongs] to us	[pertenece] a nosotros
+[belongs] to whom?	¿a quién [pertenece]?
 [belongs] to you	[pertenece] a ti
 [by] [the] life	[por] [la] vida
 [by] [the] life of	[por] [la] vida de
+[he is] good	[él es] bueno
+[is that] which	[es lo] que
+[is] <the> God	[es] <el> Dios
 [is] God	[es] Dios
+[is] Hebron	[es] Hebrón
 [is] Yahweh	[es] Jehová
+[is] [the] abomination of	[es] [la] abominación de
+[is] [the] legal [procedure] of	[es] [la] ley [ritual] de
+[is] [the] month of	[es] [el] mes de
 [is] a God	[es] un Dios
+[is] a deliverer	[es] un libertador
+[is] a god	[es] un dios
+[is] a holy thing of	[es] una cosa santa de
+[is] a people	[es] un pueblo
+[is] a person	[es] una persona
+[is] a sin offering	[es] una expiación
+[is] a son	[es] un hijo
+[is] a son of	[es] un hijo de
+[is] a witness	[es] testigo
+[is] about to come	[está] por venir
 [is] about to give	[está] por dar
+[is] alive	[está] vivo
+[is] all	[es] todo
+[is] an abomination	[es] abominación
+[is] anyone	[hay] alguno
+[is] at	[está] en
 [is] coming	[está] viniendo
 [is] cursed	[es] maldito
+[is] deep	[es] hondo
+[is] doing	[está] haciendo
 [is] dwelling	[está] habitando
+[is] enduring	[es] firme
 [is] for ever	[es] para siempre
 [is] futility	[es] vanidad
+[is] going	[está] yendo
 [is] good	[es] bueno
 [is] great	[es] grande
 [is] he	[es] él
+[is] holy	[es] santo
+[is] hope	[hay] esperanza
+[is] in <the> him	[está] en <el> él
 [is] in <the> it	[está] en <el> ello
+[is] in <the> them	[está] en <el> ellos
 [is] in Jerusalem	[está] en Jerusalén
+[is] in [the] land of	[está] en [la] tierra de
+[is] in gates your	[está] en tus puertas
+[is] in hand your	[está] en tu mano
+[is] in it	[está] en ello
+[is] in midst your	[está] en medio de ti
+[is] in the heavens	[está] en los cielos
 [is] it	[es] ello
 [is] knowing	[está] sabiendo
+[is] like me	[es] como yo
+[is] like you	[es] como tú
+[is] listening	[está] escuchando
+[is] loving	[está] amando
+[is] making	[está] haciendo
 [is] near	[está] cerca
+[is] not	[no] hay
 [is] on	[está] sobre
+[is] on them	[está] sobre ellos
 [is] on you	[está] sobre ti
+[is] one	[es] uno
 [is] pure	[es] limpio
+[is] righteous	[es] justo
+[is] saying	[está] diciendo
+[is] seeking	[está] buscando
+[is] sister my	[es] mi hermana
+[is] standing	[está] en pie
+[is] strong	[es] fuerte
+[is] sweet	[es] dulce
+[is] the land	[es] la tierra
 [is] the man	[es] el hombre
 [is] the thing	[es] la cosa
+[is] the way	[es] el camino
 [is] the word	[es] la palabra
 [is] there	[hay] allí
 [is] this	[es] esto
+[is] thus	[es] así
 [is] to	[es] para
+[is] to <the> you	[es] para <el> ti
 [is] to you	[es] para ti
 [is] unclean	[es] inmundo
+[is] understanding	[es] entendimiento
+[is] wise	[es] sabio
 [is] with	[está] con
 [is] with him	[está] con él
 [is] with me	[está] conmigo
 [is] with us	[está] con nosotros
 [is] with you	[está] contigo
+[is] yet	[hay] aún
+[it is] coming	[está] viniendo
+[it is] good	[es] bueno
+[it was] good	[era] bueno
+[male] slave his	su siervo [varón]
 [one who] does	[el que] hace
 [one who] goes forth	[el que] sale
+[one who] keeps	[el que] guarda
+[one who] loves	[el que] ama
 [one who] passes by	[el que] pasa
+[one who] walks	[el que] anda
 [one] who	[el] que
+[one] whom	[el] que
 [that] which	[lo] que
 [the one] who	[el] que
 [the one] whom	[el] que
 [the] Almighty	[el] Todopoderoso
 [the] Chaldeans	[los] caldeos
+[the] God	[el] Dios
 [the] God of	[el] Dios de
+[the] Jordan	[el] Jordán
 [the] Lord	[el] Señor
 [the] Most High	[el] Altísimo
 [the] Philistines	[los] filisteos
+[the] Rephaites	[los] refaítas
+[the] River	[el] Río
+[the] Sea of	[el] Mar de
+[the] Sidonians	[los] sidonios
+[the] afflicted	[el] afligido
 [the] altar of	[el] altar de
 [the] angel of	[el] ángel de
 [the] anger of	[la] ira de
 [the] animal[s] of	[el] animal[es] de
 [the] ark of	[el] arca de
+[the] army	[el] ejército
 [the] army of	[el] ejército de
 [the] articles of	[los] utensilios de
 [the] assembly of	[la] asamblea de
+[the] avenger of	[el] vengador de
+[the] bank of	[la] orilla de
+[the] base of	[la] base de
+[the] bearer of	[el] portador de
 [the] bearers of	[los] portadores de
+[the] beginning of	[el] principio de
+[the] best of	[lo] mejor de
+[the] big toe of	[el] dedo pulgar del pie de
 [the] bird[s] of	[el] ave[s] de
+[the] blessing of	[la] bendición de
 [the] blood of	[la] sangre de
+[the] blood<s> of	[la] sangre<s> de
 [the] bodyguards	[la] guardia
 [the] bones of	[los] huesos de
+[the] book of	[el] libro de
 [the] border of	[el] término de
+[the] bread of	[el] pan de
 [the] breadth	[la] anchura
+[the] breadth of	[la] anchura de
 [the] breath of	[el] aliento de
 [the] brother of	[el] hermano de
 [the] brothers of	[los] hermanos de
+[the] bull of	[el] becerro de
 [the] burning of	[la] quema de
 [the] burnt offering of	[el] holocausto de
 [the] camp of	[el] campamento de
 [the] captivity of	[la] cautividad de
+[the] cause of	[la] causa de
+[the] causes of	[las] causas de
+[the] cave of	[la] cueva de
+[the] cedars of	[los] cedros de
+[the] charge of	[el] cargo de
 [the] chief	[el] jefe
 [the] chief of	[el] jefe de
 [the] chiefs of	[los] jefes de
 [the] children of	[los] hijos de
+[the] choicest of	[lo] mejor de
 [the] cities of	[las] ciudades de
 [the] citizens of	[los] señores de
+[the] city	[la] ciudad
 [the] city of	[la] ciudad de
 [the] clan of	[la] familia de
 [the] clans of	[las] familias de
+[the] clothes of	[los] vestidos de
+[the] clouds	[las] nubes
 [the] commander of	[el] jefe de
 [the] commanders of	[los] jefes de
 [the] commandment of	[el] mandamiento de
 [the] commandments of	[los] mandamientos de
+[the] concubine of	[la] concubina de
 [the] congregation of	[la] congregación de
 [the] contribution of	[la] ofrenda de
 [the] corners of	[los] rincones de
+[the] corpses of	[los] cadáveres de
 [the] counsel of	[el] consejo de
 [the] covenant of	[el] pacto de
+[the] crown of	[la] diadema de
+[the] cup of	[la] copa de
+[the] curtains of	[las] cortinas de
 [the] daughter of	[la] hija de
 [the] daughters of	[las] hijas de
 [the] day	[el] día
@@ -581,12 +1084,18 @@ Zobah	Soba
 [the] days of	[los] días de
 [the] death of	[la] muerte de
 [the] deep	[el] abismo
+[the] deeps	[los] abismos
 [the] descendants of	[los] descendientes de
 [the] desire of	[el] deseo de
 [the] direction of	[la] dirección de
+[the] district of	[el] distrito de
+[the] doers of	[los] que hacen
 [the] doors of	[las] puertas de
+[the] dread of	[el] temor de
+[the] dust	[el] polvo
 [the] dust of	[el] polvo de
 [the] duty of	[el] cargo de
+[the] ear of	[la] oreja de
 [the] earth	[la] tierra
 [the] east	[el] oriente
 [the] edge of	[el] borde de
@@ -594,33 +1103,57 @@ Zobah	Soba
 [the] end	[el] fin
 [the] end of	[el] fin de
 [the] ends of	[los] confines de
+[the] enemies of	[los] enemigos de
 [the] enemy	[el] enemigo
 [the] entrance of	[la] entrada de
+[the] evil of	[la] maldad de
+[the] eye of	[el] ojo de
 [the] eyes of	[los] ojos de
 [the] face of	[el] rostro de
+[the] faces of	[los] rostros de
+[the] fat of	[la] grosura de
 [the] father of	[el] padre de
+[the] father-in-law of	[el] suegro de
+[the] fatherless	[el] huérfano
 [the] fear of	[el] temor de
+[the] feet of	[los] pies de
 [the] festival of	[la] fiesta de
 [the] field	[el] campo
 [the] field of	[el] campo de
+[the] fire of	[el] fuego de
+[the] fire offerings of	[las] ofrendas encendidas de
+[the] first of	[las] primicias de
+[the] first-fruits of	[las] primicias de
 [the] firstborn of	[el] primogénito de
+[the] fish of	[los] peces de
 [the] five	[los] cinco
 [the] flesh of	[la] carne de
 [the] flock of	[el] rebaño de
 [the] food of	[la] comida de
+[the] foot of	[el] pie de
+[the] forest	[el] bosque
 [the] foundations of	[los] cimientos de
 [the] four	[los] cuatro
 [the] front of	[el] frente de
 [the] fruit of	[el] fruto de
 [the] fullness of	[la] plenitud de
+[the] furnace of	[el] horno de
 [the] garments of	[las] vestiduras de
+[the] garrison of	[la] guarnición de
 [the] gate	[la] puerta
 [the] gate of	[la] puerta de
 [the] gates of	[las] puertas de
 [the] glory of	[la] gloria de
+[the] god of	[el] dios de
+[the] gods	[los] dioses
 [the] gods of	[los] dioses de
+[the] governor of	[el] gobernador de
+[the] great	[el] grande
+[the] greatness of	[la] grandeza de
 [the] ground	[la] tierra
 [the] ground towards	hacia [la] tierra
+[the] guilt of	[la] culpa de
+[the] half of	[la] mitad de
 [the] hand of	[la] mano de
 [the] hands of	[las] manos de
 [the] harvest of	[la] cosecha de
@@ -634,14 +1167,25 @@ Zobah	Soba
 [the] high places of	[los] lugares altos de
 [the] hill country of	[la] región montañosa de
 [the] holy [one] of	[el] santo [uno] de
+[the] holy place of	[el] santuario de
+[the] holy things of	[las] cosas santas de
+[the] hooks of	[los] capiteles de
 [the] horns of	[los] cuernos de
 [the] host of	[el] ejército de
 [the] house of	[la] casa de
+[the] house of towards	hacia [la] casa de
 [the] household of	[la] casa de
 [the] houses of	[las] casas de
+[the] idols of	[los] ídolos de
+[the] images of	[las] imágenes de
+[the] inhabitant[s] of	[el] morador[es] de
 [the] inhabitants of	[los] habitantes de
 [the] inheritance of	[la] heredad de
 [the] iniquity of	[la] iniquidad de
+[the] joy of	[el] gozo de
+[the] justice of	[el] derecho de
+[the] keepers of	[los] guardas de
+[the] king	[el] rey
 [the] king of	[el] rey de
 [the] kingdom of	[el] reino de
 [the] kingdoms of	[los] reinos de
@@ -649,17 +1193,30 @@ Zobah	Soba
 [the] land	[la] tierra
 [the] land of	[la] tierra de
 [the] land of towards	hacia [la] tierra de
+[the] law	[la] ley
 [the] law of	[la] ley de
+[the] leader	[el] príncipe
+[the] leader of	[el] príncipe de
 [the] leaders of	[los] príncipes de
 [the] length	[la] longitud
 [the] length of	[la] longitud de
 [the] life of	[la] vida de
 [the] light of	[la] luz de
+[the] likeness of	[la] semejanza de
+[the] lips of	[los] labios de
+[the] livestock of	[el] ganado de
+[the] living	[los] vivientes
+[the] lobe of	[la] grosura de
+[the] lord of	[el] señor de
+[the] maidservant of	[la] sierva de
 [the] man of	[el] hombre de
 [the] matter of	[el] asunto de
 [the] matters of	[los] hechos de
 [the] men of	[los] hombres de
 [the] middle of	[el] medio de
+[the] mighty [men] of	[los] valientes [hombres] de
+[the] military group of	[el] ejército de
+[the] money of	[el] dinero de
 [the] mother of	[la] madre de
 [the] mountain of	[el] monte de
 [the] mountains	[los] montes
@@ -672,32 +1229,65 @@ Zobah	Soba
 [the] nations	[las] naciones
 [the] nations of	[las] naciones de
 [the] needy	[el] necesitado
+[the] night	[la] noche
 [the] north	[el] norte
 [the] number of	[el] número de
+[the] offering of	[la] ofrenda de
 [the] official of	[el] oficial de
 [the] officials of	[los] oficiales de
 [the] offspring of	[la] descendencia de
 [the] oil of	[el] aceite de
 [the] opening of	[la] entrada de
 [the] oracle of	[la] profecía de
+[the] other side of	[el] otro lado de
+[the] outside towards	hacia [el] exterior
+[the] ox of	[el] buey de
+[the] palm of	[la] palma de
+[the] pastures of	[los] pastos de
+[the] paths of	[las] sendas de
 [the] people	[el] pueblo
 [the] people of	[el] pueblo de
 [the] peoples of	[los] pueblos de
+[the] pillar of	[la] columna de
+[the] pillars of	[las] columnas de
 [the] pit	[la] fosa
+[the] place	[el] lugar
 [the] place of	[el] lugar de
+[the] plan of	[el] plan de
+[the] plans of	[los] planes de
 [the] poor	[el] pobre
+[the] porch of	[el] pórtico de
 [the] portion of	[la] porción de
+[the] possession of	[la] posesión de
+[the] prayer of	[la] oración de
 [the] presence of	[la] presencia de
 [the] pride of	[la] soberbia de
 [the] priest of	[el] sacerdote de
+[the] priests of	[los] sacerdotes de
+[the] prince of	[el] príncipe de
+[the] princes of	[los] príncipes de
+[the] produce of	[el] fruto de
+[the] prophets of	[los] profetas de
+[the] provinces of	[las] provincias de
+[the] region beyond	[la] región del otro lado
 [the] region of	[la] región de
 [the] remainder of	[el] resto de
 [the] remnant of	[el] remanente de
+[the] remotest parts of	[los] confines de
+[the] reproach of	[el] oprobio de
 [the] rest of	[el] resto de
 [the] righteous	[el] justo
+[the] rising of	[la] salida de
 [the] river of	[el] río de
+[the] road	[el] camino
+[the] road of	[el] camino de
+[the] rock of	[la] roca de
+[the] rod of	[la] vara de
 [the] rulers of	[los] gobernantes de
 [the] sacrifice of	[el] sacrificio de
+[the] sanctuary of	[el] santuario de
+[the] scepter of	[el] cetro de
+[the] screen of	[la] cortina de
 [the] scroll of	[el] libro de
 [the] sea	[el] mar
 [the] sea of	[el] mar de
@@ -705,140 +1295,297 @@ Zobah	Soba
 [the] servant of	[el] siervo de
 [the] servants of	[los] siervos de
 [the] service of	[el] servicio de
+[the] seven	[los] siete
+[the] shield of	[el] escudo de
+[the] shore of	[la] orilla de
+[the] shoulder-pieces of	[las] hombreras de
 [the] side of	[el] lado de
+[the] sides of	[los] lados de
+[the] silver of	[la] plata de
+[the] sin of	[el] pecado de
 [the] sins of	[los] pecados de
 [the] sister of	[la] hermana de
+[the] six	[las] seis
+[the] slain	[los] muertos
+[the] slope of	[la] ladera de
+[the] soles of	[las] plantas de
+[the] son	[el] hijo
 [the] son of	[el] hijo de
 [the] song of	[el] cántico de
 [the] sons of	[los] hijos de
 [the] sound of	[el] sonido de
 [the] south	[el] sur
+[the] south towards	hacia [el] sur
 [the] spirit of	[el] espíritu de
 [the] splendor of	[el] esplendor de
+[the] spring of	[la] fuente de
+[the] springs of	[las] fuentes de
+[the] staff of	[la] vara de
+[the] standard of	[la] bandera de
+[the] stone of	[la] piedra de
+[the] stones of	[las] piedras de
 [the] streets	[las] calles
+[the] strength of	[la] fuerza de
 [the] sun	[el] sol
 [the] surface of	[la] faz de
 [the] sword	[la] espada
 [the] sword of	[la] espada de
 [the] tabernacle of	[el] tabernáculo de
+[the] table of	[la] mesa de
+[the] tablets of	[las] tablas de
 [the] temple of	[el] templo de
 [the] ten	[los] diez
 [the] tent of	[el] tabernáculo de
+[the] tents of	[las] tiendas de
 [the] territory of	[el] territorio de
 [the] thigh of	[el] muslo de
 [the] three	[los] tres
+[the] threshing floor of	[la] era de
+[the] threshold of	[el] umbral de
 [the] throne of	[el] trono de
+[the] thumb of	[el] pulgar de
 [the] time of	[el] tiempo de
+[the] tithe of	[el] diezmo de
+[the] tongue of	[la] lengua de
 [the] top of	[la] cumbre de
+[the] tops of	[las] cumbres de
+[the] tower of	[la] torre de
+[the] town	[la] aldea
+[the] treasures of	[los] tesoros de
+[the] tree[s] of	[el] árbol[es] de
 [the] trees of	[los] árboles de
 [the] tribe of	[la] tribu de
 [the] tribes of	[las] tribus de
 [the] two	[los] dos
 [the] two of them	[los] dos
+[the] uncle of	[el] tío de
+[the] utensils of	[los] utensilios de
 [the] utterance of	[el] oráculo de
 [the] valley of	[el] valle de
+[the] vegetation of	[la] hierba de
+[the] vengeance of	[la] venganza de
 [the] vessels of	[los] utensilios de
+[the] vineyard of	[la] viña de
+[the] virgin of	[la] virgen de
 [the] voice of	[la] voz de
 [the] wadi of	[el] torrente de
 [the] wall of	[el] muro de
 [the] walls of	[los] muros de
+[the] water of	[el] agua de
 [the] waters	[las] aguas
 [the] waters of	[las] aguas de
+[the] way	[el] camino
 [the] way of	[el] camino de
+[the] ways of	[los] caminos de
 [the] wealth of	[la] riqueza de
+[the] weapons of	[las] armas de
+[the] weight of	[el] peso de
+[the] welfare of	[el] bienestar de
 [the] west	[el] occidente
 [the] wicked	[el] impío
+[the] wickedness of	[la] maldad de
 [the] wife of	[la] mujer de
 [the] wilderness	[el] desierto
 [the] wilderness of	[el] desierto de
+[the] wind	[el] viento
+[the] wings of	[las] alas de
+[the] wisdom of	[la] sabiduría de
+[the] wives of	[las] mujeres de
 [the] word of	[la] palabra de
 [the] words of	[las] palabras de
 [the] work of	[la] obra de
+[the] works of	[las] obras de
 [the] world	[el] mundo
 [the] year of	[el] año de
 [the] years of	[los] años de
+[the] young men of	[los] jóvenes de
+[the] young of	[las] crías de
 [those who] do	[los que] hacen
+[those who] dwell	[los que] habitan
+[those who] go down of	[los que] descienden a
+[those who] hate me	[los que] me aborrecen
+[those who] hate you	[los que] te aborrecen
 [those who] seek	[los que] buscan
+[those] fearing	[los] que temen
+[those] fearing him	[los] que le temen
+[those] slain	[los] muertos
 [those] slain of	[los] muertos de
 [those] who	[los] que
 [those] whom	[los] que
+[was one who] answered	[hubo quien] respondiera
 [was] <to> before	[estaba] <a> delante de
+[was] [the] father of	[fue] [el] padre de
 [was] [the] inheritance of	[fue] [la] heredad de
 [was] [the] offering of	[fue] [la] ofrenda de
+[was] a cubit	[era] un codo
+[was] a dish of	[era] un plato de
+[was] a man	[era] un hombre
 [was] a son of	[era] hijo de
+[was] at	[estaba] en
+[was] between	[estaba] entre
 [was] coming	[estaba] viniendo
+[was] coming out	[estaba] saliendo
+[was] cubits	[era] de codos
+[was] doing	[estaba] haciendo
 [was] dwelling	[estaba] habitando
+[was] fifty	[era] cincuenta
 [was] five	[era] cinco
+[was] four	[era] cuatro
 [was] going	[estaba] yendo
+[was] good	[era] bueno
+[was] good of	[era] de buen
 [was] great	[era] grande
 [was] in <the> it	[estaba] en <el> ello
 [was] in hand his	[estaba] en su mano
+[was] like [the] appearance of	[era] como [el] aspecto de
+[was] lying	[estaba] acostado
 [was] on	[estaba] sobre
+[was] on it	[estaba] sobre ello
+[was] on them	[estaba] sobre ellos
 [was] over	[estaba] sobre
 [was] replying	[estaba] respondiendo
 [was] sitting	[estaba] sentado
+[was] six	[era] seis
 [was] speaking	[estaba] hablando
 [was] standing	[estaba] en pie
+[was] ten	[era] diez
 [was] there	[estaba] allí
 [was] thirty	[era] treinta
 [was] to	[era] para
 [was] twenty	[era] veinte
+[was] under	[estaba] debajo de
+[was] walking	[estaba] andando
+[was] with	[estaba] con
 [was] with him	[estaba] con él
 [were] [the] chiefs of	[eran] [los] jefes de
 [were] [the] clans of	[eran] [las] familias de
+[were] [the] descendants of	[eran] [los] descendientes de
+[were] [the] enrolled [men] of	[eran] [los] contados [hombres] de
 [were] [the] sons of	[eran] [los] hijos de
+[were] all around	[estaban] alrededor
+[were] at	[estaban] en
+[were] bringing	[estaban] trayendo
+[were] bronze	[eran] de bronce
+[were] coming	[estaban] viniendo
+[were] coming up	[estaban] subiendo
+[were] dwelling	[estaban] habitando
+[were] five	[eran] cinco
+[were] four	[eran] cuatro
 [were] full	[estaban] llenos
+[were] gold	[eran] de oro
 [were] on	[estaban] sobre
+[were] on [the] other side of	[estaban] al [otro] lado de
+[were] one hundred	[eran] cien
 [were] over	[estaban] sobre
+[were] sacrificing	[estaban] sacrificando
+[were] seven	[eran] siete
+[were] silver	[eran] de plata
+[were] sitting	[estaban] sentados
+[were] six	[eran] seis
 [were] standing	[estaban] en pie
+[were] to	[eran] para
+[were] turning	[estaban] mirando
+[were] two	[eran] dos
+[were] under	[estaban] debajo de
+[were] with	[estaban] con
 [were] with him	[estaban] con él
 [which] not	[que] no
+[who] does	[que] hace
+[who] drew	[que] sacaban
+[who] dwelt	[que] habitaba
+[who] keeps	[que] guarda
+[who] knows	[que] sabe
+[who] not	[que] no
+[who] sits	[que] se sienta
+[will be one who] terrifies	[habrá quien] espante
 [will be] five	[serán] cinco
 [will be] on	[estará] sobre
+[will be] ten	[serán] diez
+[will be] the sign	[será] la señal
+[will be] with you	[estará] contigo
+a God	un Dios
+a bird	un ave
 a blemish	un defecto
 a blessing	una bendición
 a bow	un arco
 a bowl	un tazón
+a breach	una brecha
 a bribe	un soborno
+a brother	un hermano
+a burial site	una sepultura
 a burnt offering	un holocausto
+a certain one	fulano
 a city	una ciudad
 a city of	una ciudad de
+a cloud	una nube
+a comforter	un consolador
+a company	una compañía
 a contribution	una ofrenda
 a convocation of	una convocación de
 a covenant	un pacto
 a covenant of	un pacto de
+a covering of	una cubierta de
+a craftsman	un artífice
+a cry of distress	un clamor
 a curse	una maldición
+a daughter	una hija
+a daughter of	una hija de
 a day	un día
 a day of	un día de
 a decree	un decreto
+a defeat	una derrota
+a deliverer	un libertador
 a desolation	una desolación
+a destroyer	un destructor
+a dog	un perro
 a donkey	un asno
+a dove	una paloma
 a dream	un sueño
+a famine	un hambre
+a fast	un ayuno
 a father	un padre
+a fatherless one	un huérfano
 a feast	un banquete
+a female	una hembra
+a festival	una fiesta
 a field	un campo
 a fire	un fuego
 a fire offering	una ofrenda encendida
 a fire offering of	una ofrenda encendida de
 a fool	un necio
+a foot	un pie
+a freewill offering	una ofrenda voluntaria
 a generation	una generación
 a gift	un presente
 a god	un dios
 a grain offering	una ofrenda
+a guilt offering	una expiación por la culpa
 a hand	una mano
+a heap	un montón
 a heart	un corazón
+a helper	una ayuda
+a high place	un lugar alto
+a hired laborer	un jornalero
 a holy thing	una cosa santa
+a hoof	una pezuña
 a horn	un cuerno
 a house	una casa
 a house of	una casa de
 a human	un hombre
 a hundred	cien
+a husband	un marido
 a journey of	un camino de
 a king	un rey
+a kingdom	un reino
 a lamb	un cordero
+a lamentation	una lamentación
+a lamp	una lámpara
 a land	una tierra
 a land of	una tierra de
+a laying of	un derramamiento de
 a leader	un príncipe
+a life	una vida
+a likeness of	una semejanza de
 a lion	un león
 a little	un poco
 a little of	un poco de
@@ -847,91 +1594,175 @@ a male	un varón
 a male goat of	un macho cabrío de
 a man	un hombre
 a man of	un hombre de
+a marauding band	un ejército
 a matter	un asunto
+a matter of	un asunto de
+a measured portion	un tramo
+a mighty [man] of	un poderoso [hombre] de
+a mocker	un escarnecedor
+a molding of	una moldura de
 a moment	un momento
 a month	un mes
+a mound	un montón
+a mountain	un monte
+a mouth	una boca
+a multitude	una multitud
+a multitude of	una multitud de
 a name	un nombre
 a nation	una nación
 a pan	una cuchara
 a passover	una pascua
+a path	una senda
 a people	un pueblo
 a person	una persona
 a person of	una persona de
+a piece of	un bocado de
+a pillar	una columna
+a pit	un hoyo
 a place	un lugar
+a plague	una plaga
+a plan	un plan
 a poem	un poema
 a poor [person]	un [hombre] pobre
 a portion	una porción
 a possession	una posesión
+a prayer	una oración
 a priest	un sacerdote
+a proclamation	un pregón
 a prophet	un profeta
 a prostitute	una ramera
 a psalm	un salmo
 a ram	un carnero
+a ram's horn	una bocina
+a ransom	un rescate
+a reed	una caña
+a refuge	un refugio
+a remnant	un remanente
+a report	una noticia
+a reproach	un oprobio
+a resting place	un lugar de reposo
 a righteous [person]	un [hombre] justo
+a river	un río
+a rock	una roca
+a rod	una vara
+a ruin	una ruina
 a ruler	un príncipe
 a sacrifice	un sacrificio
+a sacrifice of	un sacrificio de
+a scepter	un cetro
 a scroll	un libro
+a seal	un sello
 a second [time]	otra [vez]
+a serious skin disease	una llaga de lepra
 a sheep	una oveja
+a shepherd	un pastor
+a shield	un escudo
+a shoulder	un hombro
 a shout of joy	un grito de júbilo
 a sign	una señal
 a sin offering	una expiación
+a skillful worker	un artífice
+a slanderer	un chismoso
+a slaughter	una matanza
 a slave	un siervo
+a sluggard	un perezoso
+a snake	una serpiente
+a snare	un lazo
 a sojourner	un extranjero
 a son	un hijo
 a son of	hijo de
 a song	un cántico
+a sound	un sonido
 a sound of	un sonido de
+a spear	una lanza
 a spirit	un espíritu
 a spirit of	un espíritu de
+a spring	una fuente
 a standard	una bandera
 a statute of	un estatuto de
 a stone	una piedra
+a storm-wind	un torbellino
+a stranger	un extraño
 a survivor	un sobreviviente
 a sword	una espada
+a tenth	un diezmo
+a thing	una cosa
 a thousand	mil
 a time	un tiempo
+a tongue of	una lengua de
+a tooth	un diente
 a town	una aldea
 a tree	un árbol
+a tribe	una tribu
 a trumpet	una trompeta
 a vineyard	una viña
+a viper	una víbora
+a virgin	una virgen
 a voice	una voz
 a vow	un voto
 a wall	un muro
+a warrior	un guerrero
+a waste	una desolación
 a wave-offering	una ofrenda mecida
 a way	un camino
+a well	un pozo
 a wicked [person]	un [hombre] impío
 a widow	una viuda
 a wife	una mujer
+a wilderness	un desierto
 a wind	un viento
 a wise [person]	un [hombre] sabio
 a witness of	un testigo de
 a woman	una mujer
+a womb	un vientre
 a word	una palabra
+a word of	una palabra de
+a work of	una obra de
+a worker in colors	un recamador
 a year	un año
+a yoke	un yugo
 a young bull	un becerro
 a young man	un joven
 a young one of	una cría de
+a young woman	una joven
 ability	posibilidad
+abominations their	sus abominaciones
 abominations your	tus abominaciones
+about <the> this time	por <el> este tiempo
+about the time	según el tiempo
 above	encima
 acacia	acacia
 according to <the> [what] is written	conforme a <lo> [que] está escrito
+according to [the] greatness of	conforme a [la] grandeza de
+according to [the] hand of	conforme a [la] mano de
+according to [the] mouth of	conforme a [la] boca de
 according to [the] word of	conforme a [la] palabra de
 according to all	conforme a todo
+according to covenant loyalty your	conforme a tu misericordia
+according to every	conforme a todo
 according to the manner	conforme a la costumbre
 according to the ordinance	conforme al rito
+according to the words	conforme a las palabras
 according to word your	conforme a tu palabra
+affliction	aflicción
+affliction my	mi aflicción
 after	después de
+after her	tras ella
 after him	después de él
 after me	después de mí
 after them	tras ellos
 after you	después de ti
 again	otra vez
 against	contra
+against <the> him	contra <el> él
+against <the> me	contra <el> mí
+against <the> them	contra <el> ellos
+against Israel	contra Israel
 against Yahweh	contra Jehová
 against him	contra él
+against it	contra ello
 against me	contra mí
+against them	contra ellos
 against you	contra ti
 aha!	¡ea!
 alas!	¡ah!
@@ -939,199 +1770,419 @@ alike	igualmente
 alive	vivo
 all	todo
 all around	alrededor
+all of him	todo él
 all of it	todo ello
 all of them	todos ellos
 all of us	todos nosotros
 all of you	todos vosotros
+alone	solo
 also	también
+altar my	mi altar
 altars	altares
+altars their	sus altares
+altars your	tus altares
+altogether	juntamente
 amen	amén
+among <the> humankind	entre <la> humanidad
 among <the> them	entre <el> ellos
 among <the> you	entre <el> vosotros
 among [the] people of	entre [el] pueblo de
 among all	entre todos
+among the lands	entre las tierras
 among the nations	entre las naciones
 among the people	entre el pueblo
 among the peoples	entre los pueblos
 among them	entre ellos
 among you	entre vosotros
 an altar	un altar
+an angel	un ángel
 an animal	un animal
+an army	un ejército
 an assembly	una asamblea
+an ear	un oído
+an east wind	un viento solano
 an enemy	un enemigo
 an eye	un ojo
 an inheritance	una heredad
+an oath	un juramento
 an odor of	un olor de
+an offering	una ofrenda
 an ox	un buey
 ancestor his	su padre
+ancestor their	su padre
 ancestor your	tu padre
 ancestors his	sus padres
+ancestors my	mis padres
 ancestors our	nuestros padres
 ancestors their	sus padres
 ancestors your	tus padres
 and <obj.>	y <obj.>
+and <obj.> him	y <obj.> él
 and <obj.> me	y <obj.> mí
+and <obj.> you	y <obj.> ti
+and <the> God	y <el> Dios
+and <the> awesome	y <el> temible
+and <the> latter	y <el> postrero
 and <to>	y <a>
 and <to> before	y <a> delante de
 and <to> why?	y <a> ¿por qué?
 and Aaron	y Aarón
 and Abed-	y Abed-
+and Abihu	y Abiú
+and Abiram	y Abiram
+and Abishai	y Abisai
+and Abner	y Abner
+and Abraham	y Abraham
+and Absalom	y Absalón
+and Amalek	y Amalec
+and Aram	y Aram
 and Azariah	y Azarías
 and Benaiah	y Benaía
 and Benjamin	y Benjamín
 and Beth	y Bet
+and Beth-	y Bet-
 and David	y David
+and Egypt	y Egipto
 and Eleazar	y Eleazar
+and Elisha	y Eliseo
 and Ephraim	y Efraín
 and God	y Dios
+and Gomorrah	y Gomorra
+and Haman	y Amán
 and I	y yo
+and I brought	y traje
+and I gave	y di
+and I gave !	¡y di!
+and I have become	y he llegado a ser
+and I heard	y oí
 and I lifted up	y alcé
 and I said	y dije
 and I said !	¡y dije!
 and I saw	y vi
+and I sent	y envié
+and I smash	y quebranto
 and I took	y tomé
+and I was	y fui
+and I went	y fui
 and I will be	y seré
+and I will become	y llegaré a ser
+and I will break	y quebraré
 and I will bring	y traeré
+and I will bring about	y haré venir
+and I will bring back them	y los haré volver
+and I will bring out	y sacaré
+and I will cause to cease	y haré cesar
 and I will cut off	y cortaré
+and I will deliver	y libraré
 and I will destroy	y destruiré
+and I will dwell	y habitaré
 and I will establish	y estableceré
 and I will gather	y reuniré
 and I will give	y daré
+and I will go	e iré
 and I will make	y haré
+and I will make them	y los haré
 and I will make you	y te haré
+and I will multiply	y multiplicaré
+and I will pour out	y derramaré
 and I will put	y pondré
+and I will put an end to	y haré cesar
+and I will remove	y quitaré
+and I will say	y diré
 and I will send	y enviaré
+and I will send forth	y enviaré
 and I will set	y pondré
+and I will show myself holy	y me santificaré
+and I will speak	y hablaré
+and I will stretch out	y extenderé
+and I will take	y tomaré
+and I will turn	y me volveré
+and I will turn back	y haré volver
+and I will visit	y visitaré
+and I will visit [judgment]	y visitaré [con juicio]
+and Ishmael	e Ismael
 and Israel	e Israel
+and Ithamar	e Itamar
 and Jacob	y Jacob
+and Jehiel	y Jehiel
+and Jehoshaphat	y Josafat
+and Jehu	y Jehú
+and Jeremiah	y Jeremías
+and Jeroboam	y Jeroboam
 and Jerusalem	y Jerusalén
+and Jeshua	y Jesúa
 and Joab	y Joab
+and Joel	y Joel
+and Johanan	y Johanán
 and Jonathan	y Jonatán
+and Joseph	y José
 and Joshua	y Josué
+and Jozabad	y Jozabad
 and Judah	y Judá
+and Manasseh	y Manasés
+and Merari	y Merari
+and Meshullam	y Mesulam
+and Mordecai	y Mardoqueo
 and Moses	y Moisés
+and Nathan	y Natán
+and Noah	y Noé
+and Obadiah	y Abdías
+and Phinehas	y Finees
 and Samuel	y Samuel
 and Saul	y Saúl
+and Seraiah	y Seraías
+and Shebna	y Sebna
+and Shemaiah	y Semaías
 and Shimei	y Simei
+and Solomon	y Salomón
+and Uzziel	y Uziel
 and Yahweh	y Jehová
 and Zadok	y Sadoc
+and Zalmunna	y Zalmuna
+and Zebadiah	y Zebadías
+and Zechariah	y Zacarías
+and [be] blessed	y [sea] bendito
+and [belonged] to <the> him	y [pertenecía] a <el> él
+and [by] [the] life of	y [por] [la] vida de
 and [that] which	y [lo] que
+and [the one] who	y [el que]
+and [the] Almighty	y [el] Todopoderoso
 and [the] God of	y [el] Dios de
 and [the] Philistines	y [los] filisteos
+and [the] angel of	y [el] ángel de
+and [the] appearance of	y [el] aspecto de
+and [the] ark of	y [el] arca de
 and [the] breadth	y [la] anchura
+and [the] breadth of	y [la] anchura de
+and [the] children of	y [los] hijos de
+and [the] cities of	y [las] ciudades de
 and [the] commanders of	y [los] jefes de
 and [the] descendants of	y [los] descendientes de
+and [the] elders of	y [los] ancianos de
+and [the] eyes of	y [los] ojos de
 and [the] face of	y [el] rostro de
+and [the] fruit of	y [el] fruto de
+and [the] glory of	y [la] gloria de
 and [the] half of	y [la] mitad de
 and [the] hand of	y [la] mano de
+and [the] heads of	y [las] cabezas de
 and [the] heart of	y [el] corazón de
 and [the] house of	y [la] casa de
+and [the] houses of	y [las] casas de
 and [the] inhabitants of	y [los] habitantes de
 and [the] king of	y [el] rey de
+and [the] land of	y [la] tierra de
 and [the] leader	y [el] príncipe
 and [the] leaders of	y [los] príncipes de
+and [the] life of	y [la] vida de
 and [the] man of	y [el] hombre de
+and [the] men of	y [los] hombres de
+and [the] mountain of	y [el] monte de
+and [the] mouth of	y [la] boca de
 and [the] name of	y [el] nombre de
 and [the] needy	y [el] necesitado
 and [the] people of	y [el] pueblo de
 and [the] rest of	y [los] demás de
+and [the] servants of	y [los] siervos de
+and [the] side of	y [el] lado de
 and [the] son of	y [el] hijo de
 and [the] sons of	y [los] hijos de
 and [the] sound of	y [el] sonido de
+and [the] spirit of	y [el] espíritu de
 and [the] two	y [los] dos
+and [the] way of	y [el] camino de
 and [the] word of	y [la] palabra de
+and [the] work of	y [la] obra de
+and [those] who	y [los] que
+and [was] a cubit	y [era] un codo
+and [was] five	y [era] cinco
 and [was] over	y [estaba] sobre
 and [was] saying	y [estaba] diciendo
+and [was] there	y [estaba] allí
 and [were] with	y [estaban] con
+and [were] with him	y [estaban] con él
+and [will be] a cubit	y [será] un codo
+and a bulb	y una manzana
+and a fool	y un necio
 and a generation	y generación
+and a grain offering	y una ofrenda
 and a half	y medio
 and a male goat of	y un macho cabrío de
 and a man	y un hombre
+and a people	y un pueblo
+and a person	y una persona
 and a person of	y una persona de
 and a ram	y un carnero
+and a righteous [person]	y un [hombre] justo
+and a sheep	y una oveja
+and a spirit	y un espíritu
+and a sword	y una espada
 and a time	y un tiempo
 and a woman	y una mujer
+and abundance of	y abundancia de
+and act	y obra
 and after	y después de
+and after him	y tras él
+and after it	y después de ello
+and again	y otra vez
 and against	y contra
 and all	y todo
 and also	y también
+and among all	y entre todo
+and among the livestock	y entre el ganado
+and an inheritance	y heredad
+and ancestors your	y tus padres
+and animal[s]	y animal[es]
 and any	y cualquier
 and anyone	y cualquiera
+and arise	y levántate
 and articles of	y utensilios de
+and as follows	y así
+and ash[es]	y ceniza[s]
 and at	y en
+and at the time	y en el tiempo
+and bands their	y sus molduras
+and bars its	y sus barras
 and bases their	y sus basas
+and be	y sé
+and be bold	y sé valiente
+and before	y antes
+and behind	y detrás
 and between	y entre
 and between you	y entre ti
+and beyond	y más allá
 and blood	y sangre
+and bronze	y bronce
 and brothers his	y sus hermanos
+and brothers their	y sus hermanos
 and but	pero
+and by <the> famine	y por <el> hambre
+and by <the> pestilence	y por <la> pestilencia
+and by all	y por todo
+and by an arm	y con brazo
+and camels	y camellos
 and cattle	y ganado
 and children their	y sus hijos
+and children your	y tus hijos
+and cities	y ciudades
+and cities its	y sus ciudades
 and come	y ven
+and commandments my	y mis mandamientos
+and compassionate	y misericordioso
+and concerning	y acerca de
+and cry out	y clamad
 and daughters	e hijas
+and daughters her	y sus hijas
 and daughters its	y sus aldeas
+and daughters their	y sus hijas
 and daughters your	y tus hijas
+and day	y día
+and destruction	y destrucción
 and do	y haz
+and donkeys	y asnos
+and drink	y bebe
 and drink offering its	y su libación
 and drink offerings their	y sus libaciones
+and dwell	y habitad
 and each	y cada
 and earth	y tierra
 and eat	y come
 and eight	y ocho
 and eighty	y ochenta
+and end its	y su fin
 and enrolled [men] their	y sus contados [hombres]
 and ever	y eternamente
 and every	y todo
 and everyone	y todos
+and evil	y mal
+and eyes his	y sus ojos
+and eyes your	y tus ojos
+and faces their	y sus rostros
 and faithfulness	y fidelidad
+and father his	y su padre
+and female	y hembra
+and female servant your	y tu sierva
 and fifty	y cincuenta
 and fine linen	y lino fino
 and fire	y fuego
 and five	y cinco
+and flesh my	y mi carne
+and food	y comida
 and for	y para
+and for [the] sake of	y por [causa] de
 and for [those] who	y para [los] que
 and for all	y para todo
+and for the lambs	y por los corderos
 and forty	y cuarenta
 and four	y cuatro
 and from	y de
+and from [the] half of	y de [la] mitad de
 and from [the] hand of	y de [la] mano de
+and from [the] land of	y de [la] tierra de
 and from [the] tribe of	y de [la] tribu de
 and from all	y de todo
+and from there	y de allí
 and from this	y de esto
+and from with	y de junto a
+and garments his	y sus vestiduras
 and go	y ve
+and goats	y cabras
 and gold	y oro
 and good	y bueno
+and grain offering its	y su ofrenda
 and grain offering their	y su ofrenda
+and great	y grande
 and great of	y grande de
 and he	y él
+and he anointed	y ungió
 and he answered	y respondió
 and he appeared	y apareció
 and he appointed	y puso
 and he arose	y se levantó
 and he asked	y preguntó
 and he ate	y comió
+and he awoke	y despertó
 and he became	y llegó a ser
 and he became king	y reinó
 and he blessed	y bendijo
+and he blessed him	y lo bendijo
 and he bowed down	y se postró
+and he bowed low	y se inclinó
 and he brought	y trajo
 and he brought back	y trajo de vuelta
 and he brought him	y lo trajo
+and he brought me	y me llevó
 and he brought near	y acercó
 and he brought out	y sacó
+and he brought them	y los trajo
 and he built	y edificó
+and he burned	y quemó
 and he called	y llamó
 and he called out	y clamó
+and he called together	y convocó
 and he came	y vino
+and he came down	y descendió
 and he came out	y salió
 and he captured	y tomó
+and he captured it	y la tomó
+and he caused to dwell	e hizo habitar
+and he changed	y cambió
 and he chose	y escogió
+and he clothed	y vistió
 and he commanded	y mandó
+and he consulted	y consultó
+and he cried out	y clamó
+and he cut off	y cortó
+and he defeated	y deshizo
+and he delivered	y libró
 and he did	e hizo
 and he died	y murió
+and he drank	y bebió
 and he drew near	y se acercó
 and he dwelt	y habitó
+and he encamped	y acampó
 and he enquired	y consultó
+and he escaped	y escapó
 and he fathered	y engendró
 and he fell	y cayó
 and he finished	y acabó
@@ -1140,30 +2191,61 @@ and he fought	y peleó
 and he found	y halló
 and he gathered	y juntó
 and he gave	y dio
+and he gave [them]	y [les] dio
+and he gave a blast	y tocó
+and he gave it	y la dio
 and he gave them	y les dio
+and he grew up	y creció
+and he has become	y ha llegado a ser
+and he has given	y ha dado
 and he heard	y oyó
+and he hurried	y se apresuró
+and he increased	y se enriqueció
 and he judged	y juzgó
 and he killed	y mató
 and he killed him	y lo mató
 and he kissed	y besó
 and he knew	y conoció
+and he lay	y se acostó
 and he lay down	y se acostó
+and he led them	y los guió
 and he left	y dejó
 and he lifted up	y alzó
 and he listened	y escuchó
 and he lived	y vivió
+and he looked	y miró
+and he loved	y amó
 and he made	y hizo
+and he made it	y lo hizo
+and he made smoke	y quemó
 and he measured	y midió
+and he mustered	y pasó revista
 and he offered up	y ofreció
 and he opened	y abrió
 and he overlaid	y cubrió
+and he overlaid it	y lo cubrió
+and he passed	y pasó
+and he passed on	y pasó
 and he passed over	y pasó
+and he placed	y puso
+and he poured out	y derramó
 and he prayed	y oró
+and he prepared	y preparó
+and he presented	y presentó
+and he proclaimed	y proclamó
+and he prophesied	y profetizó
+and he pursued	y persiguió
 and he put	y puso
 and he put [it]	y [lo] puso
+and he raised	y alzó
 and he ran	y corrió
+and he read aloud	y leyó
+and he rebelled	y se rebeló
+and he recounted	y contó
+and he refused	y rehusó
 and he reigned	y reinó
 and he remained	y se quedó
+and he remembered	y se acordó
 and he removed	y quitó
 and he repeated	y volvió a
 and he returned	y volvió
@@ -1173,213 +2255,454 @@ and he said	y dijo
 and he sat	y se sentó
 and he saw	y vio
 and he sent	y envió
+and he sent [them]	y [los] envió
+and he sent away	y despidió
+and he sent out	y envió
+and he served	y sirvió
 and he set	y puso
+and he set out	y partió
 and he set up	y levantó
+and he sought	y buscó
 and he spoke	y habló
+and he spread out	y extendió
 and he stood	y se puso en pie
+and he strengthened himself	y se esforzó
 and he stretched out	y extendió
 and he struck	e hirió
 and he struck down	e hirió
+and he struck down him	y lo hirió
+and he struck down them	y los hirió
+and he struck him	y lo hirió
 and he summoned	y convocó
+and he swore	y juró
 and he swore an oath	y juró
 and he threw	y arrojó
 and he told	y contó
 and he took	y tomó
+and he took him	y lo tomó
 and he took hold	y asió
 and he tore	y rasgó
+and he touched	y tocó
 and he turned	y se volvió
+and he turned aside	y se apartó
+and he turned back	y se volvió
+and he urged	e insistió
 and he walked	y anduvo
 and he was	y era
+and he was afraid	y tuvo miedo
 and he was angry	y se enojó
 and he was buried	y fue sepultado
+and he was entreated	y fue aceptado
 and he went	y fue
+and he went back	y volvió
 and he went down	y descendió
 and he went out	y salió
 and he went up	y subió
 and he wept	y lloró
 and he will be	y será
+and he will be cut off	y será cortado
+and he will be guilty	y será culpable
+and he will be pure	y será limpio
 and he will be unclean	y será inmundo
+and he will bear	y llevará
 and he will become	y llegará a ser
+and he will bless you	y te bendecirá
 and he will bring	y traerá
 and he will come	y vendrá
 and he will cut [the] throat of	y degollará [la] garganta de
 and he will die	y morirá
 and he will do	y hará
 and he will give	y dará
+and he will give [it]	y [lo] dará
 and he will go	e irá
 and he will go out	y saldrá
+and he will hear	y oirá
+and he will lean	y apoyará
+and he will let go	y dejará ir
 and he will live	y vivirá
+and he will make [it] smoke	y [lo] hará arder
 and he will make atonement	y hará expiación
+and he will make smoke	y hará arder
+and he will offer	y ofrecerá
 and he will present	y presentará
+and he will put	y pondrá
+and he will put [it]	y [lo] pondrá
 and he will return	y volverá
 and he will say	y dirá
 and he will see	y verá
+and he will shut up	y encerrará
+and he will spatter	y rociará
+and he will spatter [it]	y [la] rociará
+and he will speak	y hablará
+and he will strike	y herirá
 and he will take	y tomará
+and he will turn back	y se volverá
 and he will wash	y lavará
+and he will wave	y mecerá
 and he wrote	y escribió
 and hear	y oye
+and heart my	y mi corazón
+and heart your	y tu corazón
 and here!	y ¡he aquí!
+and hides of	y pieles de
 and honey	y miel
 and honor	y honra
+and horsemen	y jinetes
+and household your	y tu casa
 and how?	¿y cómo?
 and if	y si
 and in Jerusalem	y en Jerusalén
+and in [the] cities of	y en [las] ciudades de
+and in [the] days of	y en [los] días de
+and in [the] eyes of	y en [los] ojos de
 and in [the] hand of	y en [la] mano de
+and in [the] streets of	y en [las] calles de
 and in all	y en todo
+and in among	y en medio de
+and in every	y en todo
+and in place of	y en lugar de
+and in the morning	y por la mañana
 and in the year	y en el año
+and in year	y en el año
 and interpretation its	y su interpretación
 and into	y dentro de
+and iron	y hierro
 and it	y ello
+and it ate	y comió
 and it became	y llegó a ser
 and it belonged	y pertenecía
 and it burned	y se encendió
 and it came	y vino
 and it came out	y salió
 and it consumed	y consumió
+and it covered	y cubrió
+and it dwelt	y habitó
 and it fell	y cayó
+and it fled	y huyó
+and it goes down	y desciende
 and it goes out	y sale
+and it goes up	y sube
 and it passes on	y pasa
+and it remained	y quedó
+and it returned	y volvió
+and it rushed	y vino con poder
 and it said	y dijo
 and it saw	y vio
+and it stood	y se detuvo
+and it struck	e hirió
+and it took	y tomó
+and it touches	y llega
+and it trembled	y se estremeció
+and it turns	y gira
 and it was	y fue
+and it was at peace	y reposó
+and it was displeasing	y pareció mal
+and it was found	y fue hallado
 and it was good	y fue bueno
+and it was restrained	y fue detenida
 and it was told	y fue dicho
 and it went	y fue
 and it went out	y salió
 and it went up	y subió
 and it will be	y será
+and it will be called	y será llamado
 and it will be cut off	y será cortado
 and it will be forgiven	y será perdonado
 and it will become	y llegará a ser
 and it will belong	y pertenecerá
+and it will burn	y arderá
+and it will come	y vendrá
 and it will consume	y consumirá
 and it will fall	y caerá
+and it will go	e irá
+and it will go out	y saldrá
+and it will return	y volverá
 and it will say	y dirá
+and it will turn	y girará
+and joy	y alegría
+and judgments	y juicios
+and judgments his	y sus juicios
+and judgments my	y mis juicios
 and just as	y como
 and justice	y juicio
+and kings	y reyes
 and know	y sabe
 and knowledge	y conocimiento
+and law your	y tu ley
+and left [hand]	y [mano] izquierda
+and let it be	y sea
+and life his	y su vida
+and like this	y así
+and listen	y escucha
 and live	y vive
+and livestock	y ganado
+and lo!	y ¡he aquí!
+and look	y mira
+and lord my	y mi señor
+and make	y haz
+and may it be	y sea
 and may not	y no
+and men	y hombres
 and men his	y sus hombres
+and might his	y su poder
 and mighty	y fuerte
 and military group his	y su ejército
 and mother his	y su madre
+and multiply	y multiplicaos
+and name her	y su nombre
 and name his	y su nombre
+and needy	y necesitado
 and new wine	y mosto
 and night	y noche
 and nine	y nueve
+and ninety	y noventa
 and not	y no
 and now	y ahora
 and of	y de
 and of [the] descendants of	y de [los] descendientes de
+and of [the] sons of	y de [los] hijos de
+and of [the] tribe of	y de [la] tribu de
+and officials	y oficiales
+and officials his	y sus oficiales
+and offspring his	y su descendencia
 and oil	y aceite
 and on	y sobre
+and on [the] day of	y en [el] día de
 and on all	y sobre todo
 and on the day	y en el día
+and on the earth	y sobre la tierra
 and one	y uno
+and one [plus]	y uno [más]
 and one hundred	y cien
+and one thousand	y mil
+and or	o
 and or?	¿o acaso?
 and over	y sobre
+and palm trees	y palmeras
+and pasture lands their	y sus ejidos
+and peace offerings	y sacrificios de paz
+and people	y pueblo
+and people buried	y sepultaron
+and people buried him	y lo sepultaron
+and people my	y mi pueblo
 and people told	y dijeron
 and people your	y tu pueblo
+and peoples	y pueblos
+and pillars its	y sus columnas
+and porches its	y sus pórticos
+and prepare	y prepara
+and prophesy	y profetiza
+and province	y provincia
 and purple	y púrpura
+and put	y pon
+and rain	y lluvia
+and rams	y carneros
 and relatives his	y sus parientes
+and relatives their	y sus hermanos
 and return	y vuelve
 and righteousness	y justicia
+and say	y di
 and scarlet stuff of	y carmesí de
 and see	y mira
+and sending	y enviando
 and servants his	y sus siervos
+and serve	y servid
 and seven	y siete
 and seventy	y setenta
 and she	y ella
 and she arose	y se levantó
+and she became	y llegó a ser
 and she bore	y dio a luz
+and she bowed down	y se postró
 and she called	y llamó
 and she came	y vino
 and she conceived	y concibió
+and she died	y murió
+and she fell	y cayó
+and she gave	y dio
 and she said	y dijo
 and she saw	y vio
+and she sent	y envió
+and she spoke	y habló
+and she stood	y se puso en pie
 and she told	y contó
 and she took	y tomó
 and she went	y fue
+and she went down	y descendió
+and she went out	y salió
+and she wept	y lloró
+and she will say	y dirá
 and sheep	y ovejas
 and silver	y plata
+and sin their	y su pecado
 and six	y seis
 and sixty	y sesenta
+and so that	y para que
 and some of	y algunos de
+and someone called	y llamó
+and someone said	y dijeron
+and son your	y tu hijo
+and sons	e hijos
 and sons his	y sus hijos
+and sons their	y sus hijos
 and sons your	y tus hijos
+and south -ward	y al sur
 and statutes his	y sus estatutos
+and statutes my	y mis estatutos
+and still	y aún
+and stone	y piedra
+and stones of	y piedras de
 and strength	y fuerza
+and striving of	y aflicción de
+and strong drink	y sidra
+and stronghold my	y mi fortaleza
 and take	y toma
 and ten	y diez
 and that	y que
 and the Amorite[s]	y el amorreo[s]
 and the Canaanite[s]	y el cananeo[s]
+and the Hittite[s]	y el heteo[s]
+and the Hivite[s]	y el heveo[s]
 and the Jebusite[s]	y el jebuseo[s]
+and the Levite	y el levita
 and the Levites	y los levitas
 and the Perizzite[s]	y el ferezeo[s]
+and the cattle	y el ganado
+and the cities	y las ciudades
 and the city	y la ciudad
+and the days	y los días
 and the earth	y la tierra
+and the famine	y el hambre
+and the gatekeepers	y los porteros
+and the gold	y el oro
 and the house	y la casa
+and the hundreds	y las centenas
+and the judgments	y los juicios
 and the king	y el rey
+and the lad	y el joven
 and the land	y la tierra
+and the little one[s]	y el niño[s]
 and the man	y el hombre
 and the men	y los hombres
 and the officials	y los oficiales
 and the people	y el pueblo
+and the person	y la persona
+and the priest	y el sacerdote
 and the priests	y los sacerdotes
+and the prophets	y los profetas
+and the remainder	y el resto
+and the row	y la hilera
+and the sea	y el mar
+and the silver	y la plata
 and the singers	y los cantores
+and the sojourner	y el extranjero
+and the temple servants	y los sirvientes del templo
+and the women	y las mujeres
 and there	y allí
 and there not	y no hay
+and there they	y allí ellos
 and there was	y hubo
 and there!	y ¡he ahí!
 and therefore	y por tanto
 and these	y estos
 and they	y ellos
 and they answered	y respondieron
+and they appointed	y pusieron
+and they approached	y se acercaron
+and they are	y son
 and they arose	y se levantaron
+and they asked	y preguntaron
+and they assembled	y se reunieron
 and they ate	y comieron
 and they became	y llegaron a ser
+and they belonged	y pertenecían
+and they blessed	y bendijeron
 and they bowed down	y se postraron
 and they brought	y trajeron
+and they brought back	y trajeron
+and they brought near	y acercaron
 and they brought out	y sacaron
 and they brought up	e hicieron subir
+and they built	y edificaron
+and they buried	y sepultaron
 and they called	y llamaron
+and they called out	y clamaron
 and they came	y vinieron
+and they came out	y salieron
+and they came up	y subieron
+and they captured	y tomaron
+and they carried	y llevaron
+and they carried off	y se llevaron
 and they cried out	y clamaron
+and they defeated	y derrotaron
+and they deployed	y ordenaron
+and they destroyed	y destruyeron
 and they did	e hicieron
+and they died	y murieron
 and they drank	y bebieron
 and they drew near	y se acercaron
 and they dwelt	y habitaron
 and they encamped	y acamparon
 and they fell	y cayeron
 and they fled	y huyeron
+and they fought	y pelearon
 and they found	y hallaron
 and they gathered	y juntaron
+and they gathered together	y se juntaron
 and they gave	y dieron
+and they gave a blast	y tocaron
+and they have said	y han dicho
 and they heard	y oyeron
+and they increased	y se multiplicaron
+and they killed	y mataron
+and they knew	y conocieron
 and they lifted up	y alzaron
 and they made	e hicieron
 and they made king	y pusieron por rey
+and they mourned	e hicieron duelo
+and they observed	y guardaron
+and they offered up	y ofrecieron
+and they passed	y pasaron
+and they passed over	y pasaron
+and they plundered	y saquearon
+and they praised	y alabaron
+and they prophesied	y profetizaron
 and they pursued	y persiguieron
 and they put	y pusieron
+and they rejoiced	y se alegraron
+and they remained	y se quedaron
+and they repeated	y volvieron a
 and they returned	y volvieron
 and they rose early	y se levantaron temprano
 and they sacrificed	y sacrificaron
 and they said	y dijeron
+and they sat	y se sentaron
+and they sat down	y se sentaron
 and they saw	y vieron
+and they seized	y tomaron
 and they sent	y enviaron
 and they served	y sirvieron
+and they set	y pusieron
 and they set out	y partieron
+and they set up	y levantaron
+and they slaughtered	y degollaron
 and they spoke	y hablaron
+and they stoned	y apedrearon
 and they stood	y se pusieron en pie
+and they struck	e hirieron
 and they struck down	e hirieron
+and they struck down them	y los hirieron
+and they threw	y echaron
 and they told	y contaron
 and they took	y tomaron
+and they took captive	y llevaron cautivos
+and they took hold	y asieron
+and they took possession of	y poseyeron
+and they took their stand	y se pusieron
 and they turned	y se volvieron
+and they turned aside	y se apartaron
 and they turned back	y se volvieron
+and they walked	y anduvieron
 and they went	y fueron
 and they went down	y descendieron
 and they went out	y salieron
@@ -1388,23 +2711,61 @@ and they wept	y lloraron
 and they were	y fueron
 and they were afraid	y tuvieron miedo
 and they will be	y serán
+and they will bear	y llevarán
 and they will become	y llegarán a ser
+and they will belong	y pertenecerán
 and they will come	y vendrán
+and they will cover	y cubrirán
+and they will die	y morirán
 and they will dwell	y habitarán
+and they will eat	y comerán
 and they will fall	y caerán
+and they will gather	y reunirán
+and they will go	e irán
+and they will keep	y guardarán
 and they will know	y sabrán
+and they will make	y harán
+and they will pray	y orarán
+and they will put	y pondrán
 and they will return	y volverán
 and they will say	y dirán
+and they will see	y verán
+and they will serve	y servirán
+and they will stand	y estarán en pie
+and they will stumble	y tropezarán
+and they will take	y tomarán
+and they will take possession of	y poseerán
+and they will wash	y lavarán
+and thick darkness	y oscuridad
 and thirty	y treinta
 and this	y este
+and this [one]	y este [uno]
 and three	y tres
 and thus	y así
 and to	y a
+and to <the> you	y a <el> ti
+and to Jacob	y a Jacob
+and to Jerusalem	y a Jerusalén
 and to [the] descendants of	y a [los] descendientes de
+and to [the] half of	y a [la] mitad de
+and to [the] house of	y a [la] casa de
 and to [the] sacrifice of	y para [el] sacrificio de
 and to all	y a todo
+and to destroy	y destruir
+and to do	y hacer
+and to drink	y beber
 and to every	y a todo
+and to him	y a él
+and to keep	y guardar
+and to king its	y a su rey
+and to not	y para no
+and to offspring your	y a tu descendencia
 and to sons his	y a sus hijos
+and to the Gadite[s]	y al gadita[s]
+and to the sojourner	y al extranjero
+and to you	y a ti
+and tomorrow	y mañana
+and towards	y hacia
 and twenty	y veinte
 and two	y dos
 and two [plus]	y dos [más]
@@ -1414,125 +2775,247 @@ and understanding	y entendimiento
 and until	y hasta
 and unto	y hasta
 and up -wards	y arriba
+and upright	y recto
 and villages their	y sus aldeas
+and war	y guerra
 and water	y agua
 and we	y nosotros
+and we said	y dijimos
+and west -ward	y al occidente
 and what fills it	y su plenitud
 and what?	¿y qué?
 and where?	¿y dónde?
 and which	y que
 and who	y quien
 and who?	¿y quién?
+and whom	y a quien
 and why?	¿y por qué?
+and wicked [people]	y [los] impíos
 and wife his	y su mujer
+and windows	y ventanas
 and wine	y vino
 and with	y con
 and with all	y con todo
 and with him	y con él
+and with them	y con ellos
+and with you	y contigo
+and wives their	y sus mujeres
+and woman	y mujer
+and women	y mujeres
+and wonders	y prodigios
+and wonders his	y sus maravillas
 and you	y tú
+and you came	y viniste
+and you have spoken	y has hablado
+and you made	e hiciste
 and you said	y dijiste
 and you say	y dices
+and you will anoint	y ungirás
 and you will be	y serás
+and you will be satisfied	y te saciarás
+and you will bear	y darás a luz
 and you will become	y llegarás a ser
+and you will bow down	y te postrarás
 and you will bring	y traerás
+and you will bring near	y acercarás
+and you will bring out	y sacarás
+and you will build	y edificarás
+and you will call	y llamarás
+and you will come	y vendrás
+and you will consecrate	y consagrarás
 and you will do	y harás
+and you will drink	y beberás
 and you will dwell	y habitarás
 and you will eat	y comerás
+and you will forgive	y perdonarás
+and you will gather	y reunirás
 and you will give	y darás
 and you will go	e irás
 and you will hear	y oirás
 and you will keep	y guardarás
 and you will know	y sabrás
+and you will lie down	y dormiréis
+and you will listen	y escucharás
+and you will live	y vivirás
+and you will love	y amarás
 and you will make	y harás
+and you will observe	y guardarás
+and you will overlay	y cubrirás
+and you will present	y presentarás
+and you will proclaim	y pregonarás
 and you will put	y pondrás
+and you will put [it]	y [lo] pondrás
+and you will rejoice	y te alegrarás
 and you will remember	y te acordarás
+and you will remove	y quitarás
+and you will return	y volverás
 and you will say	y dirás
 and you will see	y verás
 and you will serve	y servirás
 and you will speak	y hablarás
+and you will strike down	y herirás
 and you will take	y tomarás
+and you will take care	y os guardaréis
+and you will take possession of	y poseerás
+and you will walk	y andarás
+and you will wash	y lavarás
 anger	ira
 anger his	su ira
 anger my	mi ira
 anger your	tu ira
 anger<s>	ira<s>
+anguish	angustia
 animal	animal
+animal[s]	animal[es]
+anointed his	su ungido
 another	otro
 answer me	respóndeme
 antiquity	antigüedad
 any	cualquier
+any of	ninguno de
+any of <the> them	de <el> ellos
 any of all	ninguno de todos
 any of it	nada de ello
 anyone	cualquiera
 anything	cosa alguna
 appearance	aspecto
+appearance its	su aspecto
+appetite your	tu deseo
 arise	levántate
 arise !	¡levántate!
+armor<s> his	su armadura<s>
 army his	su ejército
 around	alrededor de
+around it	alrededor de ello
+arrogant [people]	[los] soberbios
 article of	utensilio de
 articles its	sus utensilios
 articles of	utensilios de
 as often as	cada vez que
+as one	como uno
 as the day	como el día
+as time	como tiempo
 as to	en cuanto a
 as well as	como también
+as yesterday	como ayer
 ascribe	dad
 ask	pregunta
+assemble	juntaos
 at	en
+at <the> Mizpah	en <el> Mizpa
+at <the> noon<s>	a <el> mediodía<s>
+at Gibeon	en Gabaón
+at Horeb	en Horeb
+at Shiloh	en Silo
+at [the] beginning of	al [principio] de
 at [the] end of	al [cabo] de
 at [the] gate of	a [la] puerta de
+at [the] head of	a [la] cabeza de
+at [the] time	en [el] tiempo
+at [the] time of	en [el] tiempo de
+at appointed time its	a su tiempo señalado
 at appropriate time its	a su tiempo
 at every	en todo
 at it	en ello
+at the beginning	al principio
 at the first	al principio
+at the former [time]	al [principio]
+at the high places	en los lugares altos
+at the last	al final
 at the time	en el tiempo
 awake	despierta
+awake !	¡despierta!
 backwards	atrás
 bad	malo
+baldness	calvicie
 barley<s>	cebada<s>
+bars its	sus barras
+base its	su base
 bases	basas
+bases of	basas de
 battle	batalla
+be	sé
+be silent	calla
 be strong	esfuérzate
+beaten	batido
+beautiful	hermoso
+beautiful of	hermosa de
+beauty	hermosura
+beauty your	tu hermosura
 because	porque
 because not	porque no
 because of	a causa de
 bed his	su cama
+bed my	mi cama
+bed your	tu cama
 before	antes
 before him	delante de él
+before me	delante de mí
+before you	delante de ti
 behind	detrás de
 behind him	detrás de él
+behind them	detrás de ellos
 behind you	detrás de ti
 being my	mi alma
 being your	tu alma
 beside	junto a
 between	entre
 between me	entre mí
+between us	entre nosotros
+between you	entre ti
+beyond	más allá
 bitter	amargo
 blameless	perfecto
 bless	bendice
+blessed	bendito
+blessing	bendición
 blood	sangre
+blood his	su sangre
 blood its	su sangre
+blood their	su sangre
 blood<s>	sangre<s>
+blood<s> their	su sangre<s>
 body his	su cuerpo
+bones his	sus huesos
 bones my	mis huesos
+border of	término de
+bosheth	boset
 both	tanto
+both hands	ambas manos
 both of them	ambos
+bow his	su arco
+branches	sarmientos
 branches its	sus ramas
 bread	pan
 bread of	pan de
+bread your	tu pan
+breadth	anchura
 breadth its	su anchura
+breath	aliento
+bring	trae
+bring near	acerca
+bring out	saca
 bronze	bronce
 brother his	su hermano
 brother my	mi hermano
 brother your	tu hermano
 brothers	hermanos
 brothers his	sus hermanos
+brothers my	mis hermanos
 brothers their	sus hermanos
 brothers your	tus hermanos
+build	edifica
+bulls	becerros
 burning	ardiente
+burnt offering	holocausto
+burnt offering his	su holocausto
 burnt offerings	holocaustos
+burnt offerings your	tus holocaustos
 but	pero
+buy	comprad
+by <the> famine	por <el> hambre
+by <the> fire	por <el> fuego
+by <the> him	por <el> él
 by <the> it	por <el> ello
 by <the> them	por <el> ellos
 by <the> you	por <el> ti
@@ -1542,82 +3025,179 @@ by [the] hand of	por [la] mano de
 by [the] number of	conforme a [el] número de
 by [the] shekel of	según [el] siclo de
 by [the] word of	por [la] palabra de
+by [the] work of	por [la] obra de
 by a hand	por mano
+by all	por todo
 by day	de día
 by doing	haciendo
+by hand their	por su mano
 by inadvertence	por yerro
 by it	por ello
+by lot	por suerte
+by name	por nombre
+by names	por nombres
+by number	por número
+by number their	conforme a su número
+by strength your	con tu fuerza
 by the cubit	por el codo
+by the lot	por la suerte
 by the sword	a espada
 by the way	por el camino
 by them	por ellos
+by this	en esto
+by valuation your	según tu estimación
+by walking	andando
+by weight	por peso
 by you	por ti
 calamity	calamidad
 call	llama
+came	vino
+camels	camellos
+captivity their	su cautividad
+captors their	los que los cautivaron
+carrying	cargando
+case my	mi causa
 cattle	ganado
+cease	cesa
 cedar<s>	cedro<s>
+cedars	cedros
+censer his	su incensario
+certainly	ciertamente
+certainly <live>	ciertamente <vivir>
 certainly <to die>	ciertamente <morir>
+certainly <to know>	ciertamente <saber>
+changes of	mudas de
+chariot his	su carro
 chariot[s]	carro[s]
+chariotry	carros
+chariotry his	sus carros
 cherubim	querubines
 chief	jefe
+chiefs	jefes
 children	niños
+children her	sus hijos
 children his	sus hijos
+children my	mis hijos
 children their	sus hijos
 children your	tus hijos
 chosen	escogido
+citi[es]	ciudad[es]
 cities	ciudades
+cities its	sus ciudades
+cities of	ciudades de
 cities their	sus ciudades
 cities your	tus ciudades
+city	ciudad
 city his	su ciudad
+clay	barro
+clean	limpio
+clothes	vestidos
 clothes his	sus vestidos
+clothes their	sus vestidos
+clothes your	tus vestidos
+clothing	vestido
+clothing his	su vestido
 cloud	nube
 clouds	nubes
 come	ven
 come !	¡ven!
 come up	sube
+comes	viene
 coming	viniendo
+coming you	al venir tú
 command	manda
 commander	jefe
+commanders	jefes
+commanders of	jefes de
 commandments his	sus mandamientos
 commandments my	mis mandamientos
 commandments your	tus mandamientos
+companies	compañías
+companion his	su compañero
+company your	tu compañía
+compassion<s> his	su misericordia<s>
+compassion<s> your	tu misericordia<s>
 complete	completo
 complete destruction	destrucción completa
 concerning	acerca de
+conduct their	su conducta
+consecrate	santifica
+consequence	recompensa
 consider	considera
+consuming	consumidor
+contempt	menosprecio
+contentions	contiendas
 continually	continuamente
+continuity	continuo
+continuously <to go>	continuamente <ir>
+corpse his	su cadáver
 correction	corrección
 counsel	consejo
+countryman your	tu hermano
+countrymen your	tus hermanos
 covenant his	su pacto
 covenant loyalty	misericordia
 covenant loyalty his	su misericordia
 covenant loyalty your	tu misericordia
 covenant my	mi pacto
+covenant of my	mi pacto
+covenant your	tu pacto
+covering	cubriendo
+cows	vacas
+creature	ser viviente
 cubit[s]	codo[s]
 cubits	codos
+cups	copas
 curtains	cortinas
 darkness	tinieblas
 daughter his	su hija
+daughter my	mi hija
+daughter your	tu hija
 daughters	hijas
 daughters his	sus hijas
 daughters its	sus aldeas
+daughters our	nuestras hijas
+daughters their	sus hijas
 daughters your	tus hijas
 day	día
+day his	su día
 day[s]	día[s]
 days	días
 days his	sus días
 days my	mis días
+days our	nuestros días
 days your	tus días
+dead	muerto
 death	muerte
+death his	su muerte
+death my	mi muerte
 deceit	engaño
+declare	declara
 decrees your	tus estatutos
 deed	hecho
+deeds	hechos
 deeds his	sus obras
 deeds their	sus obras
 deeds your	tus obras
+deep	hondo
+deep darkness	sombra de muerte
+delight	deleite
 deliver me	líbrame
+depart	apártate
+descendants your	tus descendientes
 desire	deseo
+desire my	mi deseo
+desolate	desolado
+desolation	desolación
 destruction	destrucción
+destruction<s>	destrucción<es>
+detestable things their	sus abominaciones
+devastation	asolamiento
+dew	rocío
+did I say	¿dije?
+did he say	¿dijo?
+diligently	con diligencia
+disaster their	su calamidad
 discipline	disciplina
 distant	lejano
 distress	angustia
@@ -1625,28 +3205,53 @@ division his	su turno
 do	haz
 do you know	¿sabes?
 doing	haciendo
+dolphin	tejón
+dominion his	su señorío
+donkey his	su asno
+donkeys	asnos
+doors its	sus puertas
+double	doble
 draw near	acércate
 dream the	el sueño
+drink	bebe
+drink offerings	libaciones
 dry	seco
 dust	polvo
+dwell	habita
+dwelling	morada
 dwelling places your	tus moradas
+dwelling you	tu morada
 each	cada uno
 each man	cada uno
 each one	cada uno
+ear his	su oreja
+ear my	mi oído
+ear their	su oreja
 ear your	tu oído
+ears	oídos
+ears of grain	espigas
 earth	tierra
 earth the	la tierra
+earthenware	de barro
+east	oriente
 east -ward	al oriente
 eat	come
 eight	ocho
 eight-	ocho-
 eighty	ochenta
+emptiness	vacío
 empty	vacío
 enemies his	sus enemigos
+enemies its	sus enemigos
 enemies my	mis enemigos
+enemies our	nuestros enemigos
 enemies their	sus enemigos
 enemies your	tus enemigos
+enemy my	mi enemigo
+enemy your	tu enemigo
+enough	basta
 enrolled [men] their	sus contados [hombres]
+escape	escapa
 evening	tarde
 every	todo
 everyone	todos
@@ -1655,11 +3260,16 @@ evil	mal
 evil-doers	malhechores
 exceedingly	en gran manera
 except	excepto
+exile	cautividad
 extremities its	sus extremos
+eye	ojo
+eye his	su ojo
 eye my	mi ojo
+eye your	tu ojo
 eyes	ojos
 eyes his	sus ojos
 eyes my	mis ojos
+eyes our	nuestros ojos
 eyes their	sus ojos
 eyes your	tus ojos
 face	rostro
@@ -1669,76 +3279,140 @@ face my	mi rostro
 face your	tu rostro
 faces	rostros
 faces their	sus rostros
+faces your	tus rostros
+faithful	fiel
+faithful [people] his	sus fieles [santos]
 faithfulness	fidelidad
 faithfulness your	tu fidelidad
 falsehood	mentira
 famine	hambre
 far be it	lejos esté
 fat	grosura
+fat its	su grosura
 father her	su padre
 father his	su padre
 father my	mi padre
 father our	nuestro padre
 father their	su padre
 father your	tu padre
+father-in-law his	su suegro
 fathered he	engendró
+fatherless ones	huérfanos
 fathers	padres
+fathers my	mis padres
+fathers our	nuestros padres
+fathers their	sus padres
+fathers your	tus padres
 favor	gracia
 fear	temor
+fearing	temeroso
+feet	pies
+feet her	sus pies
 feet his	sus pies
+feet its	sus pies
 feet my	mis pies
 feet their	sus pies
 feet your	tus pies
+female donkeys	asnas
+female slave his	su sierva
+field his	su campo
+field the	el campo
 fif-	quin-
 fifty	cincuenta
+fill	llena
 fine flour	flor de harina
 fine linen	lino fino
 fire	fuego
 fire the	el fuego
+first	primero
 firstborn	primogénito
 firstborn his	su primogénito
+firstborn of	primogénito de
 five	cinco
+flame	llama
+flee	huye
 flesh	carne
 flesh his	su carne
+flesh its	su carne
+flesh my	mi carne
+flesh your	tu carne
+flock his	su rebaño
 flock my	mi rebaño
+flock your	tu rebaño
+flock[s]	rebaño[s]
+flour	harina
 flowing of	que fluye
 food	comida
+food his	su comida
+food my	mi pan
+food of	alimento de
+food their	su comida
+food your	tu pan
+foolishness	necedad
 fools	necios
 foot his	su pie
+foot soldier[s]	soldado[s] de a pie
 foot your	tu pie
 for	porque
 for <the> battle	para <la> batalla
+for <the> her	para <el> ella
 for <the> him	para <el> él
 for <the> himself	para <el> sí mismo
 for <the> it	para <el> ello
+for <the> judgment	para <el> juicio
 for <the> me	para <el> mí
 for <the> myself	para <el> mí mismo
+for <the> ourselves	para <el> nosotros mismos
+for <the> silver	por <la> plata
 for <the> them	para <el> ellos
 for <the> themselves	para <el> sí mismos
 for <the> us	para <el> nosotros
+for <the> war	para <la> guerra
 for <the> you	para <el> ti
 for <the> yourself	para <el> ti mismo
 for <the> yourselves	para <el> vosotros mismos
+for Aaron	para Aarón
+for David	para David
 for Israel	para Israel
 for Yahweh	para Jehová
+for [the] descendants of	para [los] descendientes de
+for [the] frames of	para [las] tablas de
 for [the] house of	para [la] casa de
 for [the] name of	por [el] nombre de
 for [the] people of	para [el] pueblo de
 for [the] sake of	por [causa] de
+for [the] side of	para [el] lado de
+for [the] sons of	para [los] hijos de
 for [the] tribe of	para [la] tribu de
+for [the] two	por [las] dos
 for all	para todo
 for ever	para siempre
 for every	para todo
+for food	para comer
 for good	para bien
 for harm	para mal
 for him	para él
 for himself	para sí
 for it	para ello
+for light	para el alumbrado
 for me	para mí
 for multitude	en multitud
 for myself	para mí
+for name my	por mi nombre
+for name your	por tu nombre
+for nothing	de balde
+for ourselves	para nosotros
 for sake of	por causa de
+for son my	para mi hijo
+for the day	para el día
+for the king	para el rey
+for the lamb	por el cordero
+for the month	del mes
+for the people	para el pueblo
 for the ram	por el carnero
+for the rams	por los carneros
+for the young bull	por el becerro
+for the young bulls	por los becerros
 for them	para ellos
 for themselves	para sí
 for us	para nosotros
@@ -1748,23 +3422,50 @@ for yourselves	para vosotros
 foreign	extranjero
 foreignness	extranjero
 forever	para siempre
+forgive	perdona
+form	forma
+former	anterior
 fortification	fortaleza
 fortified	fortificado
 forty	cuarenta
 four	cuatro
 four-	cuatro-
+frames	tablas
+frankincense	incienso
+free	libre
+fresh	fresco
+friend his	su amigo
+friend your	tu amigo
 from	de
 from <the> them	de <el> ellos
+from <the> you	de <el> ti
+from Aroer	desde Aroer
 from Babylon	de Babilonia
+from Beer	de Beer
 from Beth-	de Bet-
+from Dan	desde Dan
 from Egypt	de Egipto
 from Israel	de Israel
 from Jerusalem	de Jerusalén
+from Judah	de Judá
+from Kadesh	desde Cades
 from Yahweh	de Jehová
+from Zion	desde Sion
+from [the] abundance of	por [la] abundancia de
+from [the] burning of	de [la] quema de
+from [the] cities of	de [las] ciudades de
+from [the] city of	de [la] ciudad de
+from [the] daughters of	de [las] hijas de
 from [the] day	desde [el] día
+from [the] descendants of	de [los] descendientes de
+from [the] earth	de [la] tierra
 from [the] east	desde [el] oriente
+from [the] elders of	de [los] ancianos de
 from [the] end of	desde [el] fin de
+from [the] fire offerings of	de [las] ofrendas encendidas de
+from [the] fruit of	de [el] fruto de
 from [the] hand of	de [la] mano de
+from [the] hill country of	de [la] región montañosa de
 from [the] house of	de [la] casa de
 from [the] land of	de [la] tierra de
 from [the] middle of	de [en] medio de
@@ -1772,271 +3473,512 @@ from [the] midst of	de [en] medio de
 from [the] mountain of	desde [el] monte de
 from [the] mouth of	de [la] boca de
 from [the] next day	desde [el] día siguiente
+from [the] next day of	desde [el] día siguiente de
 from [the] north	desde [el] norte
 from [the] other side	desde [el] otro lado
 from [the] outside	desde [el] exterior
 from [the] people of	de [el] pueblo de
+from [the] rising of	desde [la] salida de
 from [the] side of	de [el] lado de
+from [the] sons of	de [los] hijos de
 from [the] sound of	desde [el] sonido de
 from [the] south	desde [el] sur
+from [the] top of	desde [la] cumbre de
 from [the] tribe of	de [la] tribu de
+from [the] two	de [los] dos
+from [the] west	desde [el] occidente
+from [the] wilderness of	de [el] desierto de
 from [the] womb	desde [el] vientre
+from [the] womb of	desde [el] vientre de
 from a distance	de lejos
+from a high place	desde lo alto
 from a house of	de una casa de
+from a land	de una tierra
+from a land of	de una tierra de
 from a son of	desde edad de
 from above	de arriba
 from after	de tras
+from after him	tras él
+from after me	tras de mí
 from all	de todo
 from among	de entre
+from antiquity	desde la antigüedad
+from at	de junto a
 from before	de delante de
 from before him	de delante de él
+from before me	de delante de mí
 from before them	de delante de ellos
 from before you	de delante de ti
+from being	de ser
 from between	de entre
+from day	de día
+from days	desde días
+from death	de la muerte
+from doing	de hacer
 from every	de todo
 from evil	del mal
 from hand his	de su mano
 from hand my	de mi mano
 from hand their	de su mano
 from hand your	de tu mano
+from hearing	de oír
 from heaven	desde el cielo
 from here	de aquí
 from him	de él
 from humankind	desde el hombre
+from in front of	de enfrente de
 from inside	de dentro
 from it	de ello
+from kinspeople<s> its	de su pueblo<s>
+from long ago	desde antiguo
 from me	de mí
 from midst your	de en medio de ti
+from mouth his	de su boca
+from mouth your	de tu boca
 from not	por no
 from now	desde ahora
 from on	de sobre
+from on <the> him	de sobre <el> él
 from on <the> me	de sobre <el> mí
+from on <the> us	de sobre <el> nosotros
 from on <the> you	de sobre <el> ti
 from over	de sobre
+from place his	de su lugar
+from place its	de su lugar
 from round about	de alrededor
+from sin his	de su pecado
 from them	de ellos
 from then	desde entonces
 from there	de allí
 from this	de esto
 from to above <towards>	de arriba <hacia>
 from to before	de delante de
+from to before him	de delante de él
 from to before me	de delante de mí
 from to before you	de delante de ti
+from to downwards	de abajo
 from under	de debajo de
 from us	de nosotros
 from way his	de su camino
+from where?	¿de dónde?
 from with	de junto a
 from with <the> him	de junto a <el> él
 from with <the> me	de junto a <el> mí
+from with <the> them	de junto a <el> ellos
 from with <the> you	de junto a <el> ti
+from yesterday	desde ayer
 from you	de ti
 fruit	fruto
 fruit its	su fruto
 full	lleno
+garment his	su vestidura
 garments	vestiduras
 garments his	sus vestidos
+garments of	vestiduras de
+gates its	sus puertas
 gates your	tus puertas
 gather	juntad
 genealogies their	sus genealogías
+generation	generación
+get	tomad
 give	da
 give !	¡da!
+give ear	escuchad
+give ear !	¡escucha!
+give ear to !	¡escucha!
 give thanks	alabad
 gladness	alegría
 glory	gloria
+glory his	su gloria
+glory my	mi gloria
+glory your	tu gloria
 go	ve
+go around	rodead
+go back	vuelve
 go down	desciende
 go out	sal
 go up	sube
 goats	cabras
 gods	dioses
 gods their	sus dioses
+gods your	tus dioses
 going	yendo
+going you	al ir tú
 gold	oro
 good	bueno
+good thing[s]	cosa[s] buena
+grace	gracia
 grain	grano
+grain your	tu grano
+grapes	uvas
 grass	hierba
 great	grande
+great [things]	grandes [cosas]
+ground your	tu tierra
+guard	guardia
+guilt	culpa
 hail	granizo
+hair	pelo
+hammered work	obra labrada a martillo
 hand	mano
+hand her	su mano
 hand his	su mano
 hand my	mi mano
 hand their	su mano
 hand your	tu mano
 hands	manos
+hands her	sus manos
 hands his	sus manos
 hands its	sus espigas
 hands my	mis manos
+hands our	nuestras manos
 hands their	sus manos
 hands your	tus manos
 hard	duro
 harm	mal
+harp	arpa
+harvest	cosecha
+harvest your	tu cosecha
+has he done	¿ha hecho?
+has it happened	¿ha sucedido?
+hatred	odio
+have I done	¿he hecho?
 have you done	has hecho
 he	él
+he appeared	apareció
+he appointed	señaló
+he arose	se levantó
+he asked	preguntó
+he ate	comió
 he became king	reinó
+he began	comenzó
+he blessed	bendijo
+he bowed down	se inclinó
+he brought	trajo
 he brought out	sacó
+he brought up	hizo subir
 he built	edificó
+he burned	quemó
 he called	llamó
 he came	vino
+he came out	salió
 he came up	subió
 he caused to sin	hizo pecar
 he commanded	mandó
+he commanded you	te mandó
+he delighted	se agradó
 he delights	se complace
 he did	hizo
+he died	murió
+he does	hace
+he drew near	se acercó
+he dwelt	habitó
+he enrolled	contó
 he fathered	engendró
+he fell	cayó
+he filled	llenó
+he finds	halla
+he fled	huyó
+he found	halló
 he gave	dio
 he gives	da
 he had appointed	había señalado
 he had built	había edificado
 he had come	había venido
 he had commanded	había mandado
+he had commanded him	le había mandado
 he had died	había muerto
 he had done	había hecho
+he had fled	había huido
 he had given	había dado
 he had gone	había ido
+he had left	había dejado
 he had made	había hecho
+he had prepared	había preparado
 he had said	había dicho
+he had sent	había enviado
+he had sent him	le había enviado
 he had spoken	había hablado
+he had sworn	había jurado
 he had taken	había tomado
+he has appointed	ha señalado
 he has been	ha sido
+he has brought	ha traído
 he has chosen	ha escogido
+he has come	ha venido
 he has commanded	ha mandado
 he has died	ha muerto
 he has done	ha hecho
+he has found	ha hallado
 he has given	ha dado
 he has heard	ha oído
 he has made	ha hecho
+he has put	ha puesto
 he has said	ha dicho
+he has seen	ha visto
+he has sent	ha enviado
 he has sent me	me ha enviado
 he has sinned	ha pecado
 he has spoken	ha hablado
+he has taken	ha tomado
+he has turned back	se ha vuelto
 he heard	oyó
+he is able	puede
+he killed	mató
 he knew	conoció
 he knows	sabe
 he left	dejó
+he lifted up	alzó
+he lifts up	alza
 he listened	escuchó
+he loved	amó
+he loves	ama
 he made	hizo
+he makes	hace
+he opened	abrió
+he overlaid	cubrió
 he put	puso
 he reigned	reinó
+he reigns	reina
+he remained	se quedó
+he remembered	se acordó
+he removed	quitó
 he repaired	reparó
+he repeated	volvió a
 he returned	volvió
 he said	dijo
 he saw	vio
 he says	dice
+he seeks	busca
 he sees	ve
 he sent	envió
+he set	puso
+he sinned	pecó
+he sought	buscó
+he speaks	habla
 he spoke	habló
+he stood	se puso en pie
+he stretched out	extendió
+he struck	hirió
 he struck down	hirió
 he swore	juró
+he told	contó
 he took	tomó
+he took into exile	llevó cautivo
+he turned	se volvió
 he turned aside	se apartó
 he walked	anduvo
 he was	era
 he was able	pudo
+he was afraid	tuvo miedo
+he was angry	se enojó
+he was born	nació
 he was old	era viejo
 he was willing	quiso
 he went	fue
+he went down	descendió
+he went out	salió
 he went up	subió
+he will answer	responderá
+he will arise	se levantará
 he will be	será
 he will be able	podrá
+he will be found	será hallado
 he will be put to death	morirá
+he will be satisfied	será saciado
 he will be unclean	será inmundo
+he will bear	llevará
 he will become	llegará a ser
+he will belong	pertenecerá
+he will bless you	te bendecirá
+he will bring	traerá
+he will bring you	te traerá
 he will build	edificará
 he will choose	escogerá
 he will come	vendrá
+he will deliver	librará
+he will destroy	destruirá
 he will die	morirá
 he will do	hará
+he will draw near	se acercará
 he will dwell	habitará
 he will eat	comerá
+he will eat it	la comerá
 he will fall	caerá
+he will find	hallará
+he will flee	huirá
 he will give	dará
 he will go	irá
 he will go out	saldrá
+he will go unpunished	quedará impune
+he will go up	subirá
+he will hear	oirá
+he will increase	multiplicará
 he will judge	juzgará
+he will lie with	se acostará con
 he will lift up	alzará
 he will live	vivirá
 he will make	hará
+he will make atonement	hará expiación
+he will make restitution	restituirá
+he will pour out	derramará
+he will present	presentará
+he will provide	proveerá
 he will put	pondrá
+he will put to death	matará
+he will redeem	rescatará
 he will reign	reinará
+he will rejoice	se alegrará
+he will remove it	la quitará
 he will repay	pagará
+he will repeat	volverá a
 he will return	volverá
+he will rule	se enseñoreará
+he will save	salvará
 he will say	dirá
 he will see	verá
+he will send	enviará
+he will set apart as holy	santificará
+he will sin	pecará
+he will sit	se sentará
+he will sojourn	morará
 he will speak	hablará
 he will stand	estará en pie
+he will strike	herirá
 he will take	tomará
+he will touch	tocará
+he will visit	visitará
 he will wash	lavará
+he wrote	escribió
+head	cabeza
 head his	su cabeza
+head its	su cabeza
 head my	mi cabeza
 head their	su cabeza
 head your	tu cabeza
+heads their	sus cabezas
+healing	sanidad
+heaps	montones
 hear	oye
+hear !	¡oye!
 heart	corazón
+heart her	su corazón
 heart his	su corazón
 heart my	mi corazón
+heart our	nuestro corazón
 heart their	su corazón
 heart your	tu corazón
+heat	calor
 heaven	cielo
 heavens the	los cielos
+heavy	pesado
+height	altura
 height its	su altura
 here	aquí
 here I	heme aquí
 here [am] I	aquí [estoy] yo
 here you	he aquí tú
 here!	¡he aquí!
+hewn [stone]	[piedra] labrada
+hide	esconde
 high	alto
+high places	lugares altos
+high places your	tus lugares altos
+hill	collado
 hither	acá
 holiness	santidad
 holiness his	su santidad
 holiness my	mi santidad
 holiness your	tu santidad
+holiness<es>	santidad<es>
 holy	santo
 holy things	cosas santas
 honey	miel
 honor	honra
+honor my	mi honra
+hooks their	sus capiteles
+hope	esperanza
+horns its	sus cuernos
+horse	caballo
+horse[s]	caballo[s]
 horsemen	jinetes
 horses	caballos
+host their	su ejército
 hosts	ejércitos
 house her	su casa
 house his	su casa
 house my	mi casa
 house your	tu casa
 household his	su casa
+household your	tu casa
 houses	casas
+houses their	sus casas
 how blessed!	¡bienaventurado!
+how many?	¿cuántos?
 how!	¡cómo!
 how?	¿cómo?
+human being	hombre
 human[s]	hombre[s]
 humankind	humanidad
 humble [people]	[los] humildes
 hundred<s>	cien<tos>
+hundreds	centenas
+hurry	date prisa
 husband her	su marido
+husband my	mi marido
+husband your	tu marido
+hush!	¡silencio!
+idols	ídolos
 idols their	sus ídolos
+idols your	tus ídolos
 if	si
 if not	si no
+in	en
 in <the> Bashan	en <el> Basán
+in <the> Gilead	en <el> Galaad
+in <the> Ramah	en <el> Ramá
 in <the> battle	en <la> batalla
 in <the> captivity	en <la> cautividad
+in <the> days	en <los> días
+in <the> fire	en <el> fuego
 in <the> him	en <el> él
 in <the> it	en <el> ello
+in <the> judgment	en <el> juicio
+in <the> me	en <el> mí
 in <the> secrecy	en <el> secreto
 in <the> them	en <el> ellos
+in <the> you	en <el> ti
+in Beth-	en Bet-
+in David	en David
+in Edom	en Edom
 in Egypt	en Egipto
+in Gath	en Gat
 in God	en Dios
 in Hebron	en Hebrón
+in Heshbon	en Hesbón
 in Israel	en Israel
+in Jacob	en Jacob
 in Jerusalem	en Jerusalén
+in Jezreel	en Jezreel
 in Judah	en Judá
 in Samaria	en Samaria
+in Susa	en Susa
+in Tirzah	en Tirsa
 in Yahweh	en Jehová
 in Zion	en Sion
 in [the] assembly of	en [la] asamblea de
 in [the] book of	en [el] libro de
+in [the] camp of	en [el] campamento de
 in [the] cities of	en [las] ciudades de
 in [the] city of	en [la] ciudad de
+in [the] courtyard of	en [el] atrio de
+in [the] day of	en [el] día de
 in [the] days of	en [los] días de
 in [the] ears of	en [los] oídos de
 in [the] eyes of	en [los] ojos de
+in [the] garden of	en [el] huerto de
+in [the] gate of	en [la] puerta de
+in [the] gates of	en [las] puertas de
 in [the] hand of	en [la] mano de
 in [the] heart of	en [el] corazón de
 in [the] hill country of	en [la] región montañosa de
@@ -2044,80 +3986,142 @@ in [the] house of	en [la] casa de
 in [the] land of	en [la] tierra de
 in [the] law of	en [la] ley de
 in [the] middle of	en [el] medio de
+in [the] middle of it	en [el] medio de ello
 in [the] midst of	en [el] medio de
 in [the] midst of it	en [el] medio de ello
+in [the] midst of you	en [el] medio de ti
+in [the] month of	en [el] mes de
 in [the] mouth of	en [la] boca de
 in [the] name of	en [el] nombre de
+in [the] place	en [el] lugar
+in [the] place of	en [el] lugar de
 in [the] plains of	en [los] llanos de
+in [the] region of	en [la] región de
+in [the] shadow of	a [la] sombra de
+in [the] stubbornness of	en [la] dureza de
 in [the] tent of	en [la] tienda de
+in [the] territory of	en [el] territorio de
+in [the] tomb of	en [el] sepulcro de
 in [the] valley of	en [el] valle de
+in [the] wadi of	en [el] valle de
 in [the] way of	en [el] camino de
+in [the] ways of	en [los] caminos de
 in [the] wilderness of	en [el] desierto de
+in [the] year	en [el] año
+in [the] year of	en [el] año de
 in a day	en un día
 in a day of	en un día de
+in a dream	en sueños
 in a land	en una tierra
+in a land of	en una tierra de
+in a pillar of	en una columna de
 in a place	en un lugar
 in a year	en un año
 in all	en todo
 in among	en medio de
+in anger	con ira
+in anger his	en su ira
 in anger my	en mi ira
+in cities their	en sus ciudades
 in day its	en su día
 in days his	en sus días
 in ears my	en mis oídos
+in ears their	en sus oídos
 in every	en todo
 in faithfulness	en fidelidad
+in gates your	en tus puertas
+in hand her	en su mano
 in hand his	en su mano
 in hand my	en mi mano
+in hand our	en nuestra mano
 in hand their	en su mano
 in hand your	en tu mano
+in haste	apresuradamente
 in heart his	en su corazón
 in heart my	en mi corazón
+in heart their	en su corazón
 in heart your	en tu corazón
 in him	en él
 in house his	en su casa
+in house my	en mi casa
+in house your	en tu casa
+in inner being my	en mis entrañas
 in it	en ello
+in land their	en su tierra
 in land your	en tu tierra
 in me	en mí
 in midst its	en medio de ella
 in midst of them	en medio de ellos
 in midst of you	en medio de ti
 in midst your	en medio de ti
+in mouth his	en su boca
+in mouth their	en su boca
+in mouth your	en tu boca
+in name my	en mi nombre
 in one of	en uno de
+in order that	para que
 in own eyes his	en sus propios ojos
+in own house his	en su propia casa
 in peace	en paz
+in place his	en su lugar
 in place its	en su lugar
 in place of	en lugar de
 in place of him	en su lugar
 in place of them	en lugar de ellos
+in rage	con furor
 in righteousness	en justicia
+in righteousness your	en tu justicia
+in statutes my	en mis estatutos
+in tent his	en su tienda
+in the Jordan	en el Jordán
 in the battle	en la batalla
+in the book	en el libro
 in the camp	en el campamento
+in the cave	en la cueva
 in the city	en la ciudad
+in the cloud[s]	en la nube[s]
 in the darkness	en las tinieblas
 in the day	en el día
 in the days	en los días
+in the desert plain	en el Arabá
 in the evening	por la tarde
 in the field	en el campo
 in the fire	en el fuego
+in the first [month]	en el primer [mes]
+in the forest	en el bosque
 in the gate	en la puerta
+in the gates	en las puertas
+in the ground	en la tierra
 in the heavens	en los cielos
 in the hill country	en la región montañosa
 in the holy place	en el santuario
 in the house	en la casa
+in the joined set	en el enlace
 in the land	en la tierra
 in the month	en el mes
 in the morning	por la mañana
 in the night	en la noche
 in the open country	en el campo
 in the place	en el lugar
+in the road	en el camino
+in the sea	en el mar
+in the skin	en la piel
+in the street	en la calle
 in the valley	en el valle
+in the vision	en la visión
+in the wadi	en el valle
+in the wall	en el muro
+in the waters	en las aguas
 in the wilderness	en el desierto
 in the year	en el año
 in them	en ellos
 in this [place]	en este [lugar]
+in truth	en verdad
 in view his	delante de él
 in view my	delante de mí
+in view their	delante de ellos
 in view your	delante de ti
+in ways his	en sus caminos
 in year	en el año
 in you	en ti
 incense	incienso
@@ -2126,53 +4130,136 @@ indeed?	¿acaso?
 inhabitant	morador
 inhabitants its	sus habitantes
 inheritance his	su heredad
+inheritance its	su heredad
 inheritance their	su heredad
+inheritance your	tu heredad
+iniquities your	tus iniquidades
 iniquity	iniquidad
+iniquity his	su iniquidad
 iniquity their	su iniquidad
 iniquity your	tu iniquidad
 injustice	injusticia
 innocent	inocente
+insight	entendimiento
+instruction	instrucción
 into	dentro de
+into a nation	en una nación
+into a waste	en desolación
 into her	a ella
+inward parts my	mis entrañas
 iron	hierro
+iron the	el hierro
+islands	costas
 it	ello
 it belonged	pertenecía
+it belongs	pertenece
+it burn	arda
+it burned	ardió
 it came	vino
+it came out	salió
+it came up	subió
 it comes	viene
+it comes forth	sale
+it consumed	consumió
+it dwells	habita
+it fell	cayó
+it filled	llenó
+it goes	va
+it had been	había sido
+it had come	había venido
+it had fallen	había caído
 it has become	ha llegado a ser
 it has been	ha sido
+it has been devastated	ha sido asolada
+it has been done	se ha hecho
+it has been given	ha sido dado
 it has come	ha venido
+it has come up	ha subido
+it has consumed	ha consumido
+it has done	ha hecho
+it has dried up	se ha secado
 it has fallen	ha caído
+it has gone out	ha salido
+it has happened	ha sucedido
+it has occurred	ha sucedido
+it has perished	ha perecido
+it has reached	ha alcanzado
 it has spread	se ha extendido
+it has turned	se ha vuelto
+it has turned back	se ha vuelto
 it is	es
+it is able	puede
 it is called	es llamado
+it is done	se hace
+it is established	está firme
+it is found	es hallado
 it is full	está lleno
+it is made	se hace
+it may go well	vaya bien
+it remained	quedó
 it was	fue
+it was at peace	reposó
+it was born	nació
 it was found	fue hallado
 it was given	fue dado
+it was good	era bueno
+it was heard	se oyó
 it went up	subió
 it will be	será
+it will be broken	será quebrado
+it will be burned	será quemado
 it will be called	será llamado
 it will be cut off	será cortado
 it will be done	será hecho
 it will be eaten	será comido
+it will be extinguished	se apagará
 it will be found	será hallado
 it will be given	será dado
+it will be heard	se oirá
+it will be lost	se pierda
+it will be made	se hará
+it will be redeemed	será rescatado
 it will be said	será dicho
+it will be shaken	será conmovido
 it will be unclean	será inmundo
+it will be[long]	será [suyo]
 it will become	llegará a ser
 it will belong	será
+it will burn	arderá
+it will cease	cesará
 it will come	vendrá
+it will depart	se apartará
+it will devour	devorará
+it will die	morirá
+it will draw near	se acercará
+it will eat	comerá
 it will fall	caerá
+it will find	hallará
+it will give	dará
 it will go	irá
+it will go forth	saldrá
 it will go out	saldrá
 it will go up	subirá
 it will happen	sucederá
+it will look with pity	tendrá piedad
+it will pass	pasará
+it will pass away	pasará
 it will reach	alcanzará
 it will remain	quedará
+it will remain overnight	quedará hasta la mañana
 it will return	volverá
+it will sin	pecare
 it will stand	estará en pie
+it will touch	tocará
+it will turn back	se apartará
+it withers	se marchita
+ivory	marfil
+jackals	chacales
+jealous	celoso
+jealousy	celos
 joy	alegría
+joyful	alegre
+judges	jueces
 judgment	juicio
 judgments	juicios
 judgments my	mis juicios
@@ -2181,30 +4268,48 @@ just as	como
 just when	cuando
 justice	juicio
 keep	guarda
+kill	matad
 king	rey
 king O	oh rey
+king its	su rey
 king the	el rey
+king your	tu rey
 kingdom his	su reino
 kingdom the	el reino
+kingdom your	tu reino
 kingdoms	reinos
 kings	reyes
 kings their	sus reyes
+knees his	sus rodillas
 know	sabe
 knowledge	conocimiento
 lambs	corderos
+lamps its	sus lámparas
 land his	su tierra
 land its	su tierra
 land my	mi tierra
 land their	su tierra
 land your	tu tierra
 large	grande
+law my	mi ley
 law your	tu ley
+leaders their	sus príncipes
 leaven	levadura
+length	longitud
 length its	su longitud
 lest	no sea que
+let go	deja ir
+let him come	venga
+let him go	déjalo ir
 let it be	sea
+let it be done	hágase
+let it be given	sea dada
+let me go	déjame ir
+let them be	sean
 let us go	vamos
 letters	cartas
+liberty	libertad
+lie down	acuéstate
 lies	mentiras
 life	vida
 life his	su vida
@@ -2214,66 +4319,122 @@ life your	tu vida
 lift up	alza
 light	luz
 like	como
+like <the> [woman] giving birth	como <la> [mujer] que da a luz
+like <the> dust	como <el> polvo
+like <the> eagle	como <el> águila
+like <the> fire	como <el> fuego
+like <the> flock	como <el> rebaño
 like <the> water	como <el> agua
+like David	como David
 like [the] appearance of	como [el] aspecto de
 like [the] days of	como [los] días de
+like [the] house of	como [la] casa de
+like [the] sound of	como [el] sonido de
+like [the] stars of	como [las] estrellas de
 like a lion	como león
 like a little	por poco
 like a man	como un hombre
+like a person	como una persona
+like all	como todo
+like chaff	como paja
 like it	como ello
+like one	como uno
+like one of	como uno de
+like the sand	como la arena
+like them	como ellos
 like this	como esto
 like you	como tú
+linen	lino
+linen<s>	lino<s>
 lions	leones
+lions the	los leones
 lips	labios
 lips his	sus labios
 lips my	mis labios
+lips your	tus labios
 listen	escucha
 listen to	escucha
+listen to me	escúchame
+little	poco
+little one[s] their	sus niño[s]
 livestock	ganado
+livestock his	su ganado
 livestock their	su ganado
 livestock your	tu ganado
 living	viviente
+locust[s]	langosta[s]
+loins	lomos
+loins your	vuestros lomos
+long of	tardo para
 look	mira
+loops	lazadas
 lord my	mi señor
+lots	suertes
 love	amor
 lover my	mi amado
+lower	de abajo
 loyalty	misericordia
 luxuriant	frondoso
+lying	acostado
 maidservant your	tu sierva
+majestic	glorioso
+majesty his	su majestad
 make	haz
+make haste !	¡apresúrate!
 male	varón
 man	hombre
+man of	hombre de
 many	muchos
 many [people]	muchos [pueblos]
 master my	mi señor
 master<s> his	su señor<es>
 master<s> your	tu señor<es>
+matter	asunto
 may he add	añada
 may he be	sea
 may he do	haga
+may he live	viva
 may it be	sea
 may not	no
+may not [it be]	no [sea]
+may they be	sean
+may they be ashamed	sean avergonzados
 meat	carne
 meeting	reunión
+memorial offering its	su memorial
 men	hombres
 men his	sus hombres
 men of	hombres de
+men the	los hombres
+menstruous impurity her	su impureza menstrual
+merchandise your	tu mercadería
 messengers	mensajeros
 mighty	valiente
 mighty [men] of	valientes [hombres] de
+mighty of	poderoso de
 milk	leche
+mischief	maldad
 mixed	amasada
+mockery	burla
+molten metal	fundición
 money	dinero
+month	mes
 months	meses
 more than	más que
 more than all	más que todos
+more than him	más que él
+more than me	más que yo
+more than them	más que ellos
 more than you	más que tú
 morning	mañana
 mother his	su madre
+mother its	su madre
 mother my	mi madre
 mother your	tu madre
+mother-in-law her	su suegra
 mountains	montes
 mourning	luto
+mouth	boca
 mouth his	su boca
 mouth its	su boca
 mouth my	mi boca
@@ -2281,45 +4442,76 @@ mouth their	su boca
 mouth your	tu boca
 much	mucho
 muchness	abundancia
+multitude his	su multitud
+multitude its	su multitud
 naked	desnudo
+nakedness	desnudez
 nakedness her	su desnudez
+nakedness your	tu desnudez
 name his	su nombre
 name its	su nombre
 name my	mi nombre
+name their	su nombre
 name your	tu nombre
 names	nombres
+names their	sus nombres
 nation	nación
 nations	naciones
 near	cerca
+neck	cerviz
+neck his	su cuello
+neck their	su cerviz
 neck your	tu cuello
+needy [people]	[los] necesitados
 neighbor his	su prójimo
 neighbor your	tu prójimo
+neither	ni
 nevertheless	sin embargo
 new	nuevo
+new wine	mosto
 night	noche
+night[s]	noche[s]
 nine	nueve
+nine-	nueve-
 ninety	noventa
 no	no
+noble [people]	[los] nobles
 nor	ni
 north -ward	al norte
 not	no
+not I	no yo
+not [is] he	no [está] él
 not he	no él
+not it	no ello
+not they	no ellos
+not yet	aún no
 not you	no vosotros
 now	ahora
 number	número
+number their	su número
 numerous	numeroso
 of	de
+of <before> them	de <delante de> ellos
 of <the face of>	de <la faz de>
+of <the> him	de <el> él
 of <the> them	de <el> ellos
+of <the> you	de <el> ti
+of Asa	de Asa
 of Asaph	de Asaf
+of Benjamin	de Benjamín
+of Cyrus	de Ciro
+of Darius	de Darío
 of David	de David
 of Israel	de Israel
 of Jericho	de Jericó
+of Jerusalem	de Jerusalén
+of Judah	de Judá
 of Yahweh	de Jehová
 of [the] descendants of	de [los] descendientes de
 of [the] house of	de [la] casa de
 of [the] kings of	de [los] reyes de
 of [the] people of	de [el] pueblo de
+of [the] reign of	de [el] reinado de
 of [the] sons of	de [los] hijos de
 of [the] tribe of	de [la] tribu de
 of all	de todo
@@ -2328,40 +4520,69 @@ of hosts	de los ejércitos
 of it	de ello
 of me	de mí
 of reigning his	de su reinado
+of the Jordan	del Jordán
 of the camp	del campamento
 of the city	de la ciudad
 of the king	del rey
 of the month	del mes
 of them	de ellos
+of these [things]	de estas [cosas]
 of us	de nosotros
 of you	de ti
 offering his	su ofrenda
+offering their	su ofrenda
+officials his	sus oficiales
+officials its	sus oficiales
+officials of	oficiales de
+offspring	descendencia
+offspring his	su descendencia
 offspring your	tu descendencia
 oil	aceite
+oil of	aceite de
+old	viejo
+olive	olivo
 on	sobre
 on <the> him	sobre <el> él
 on <the> it	sobre <el> ello
+on <the> me	sobre <el> mí
 on <the> them	sobre <el> ellos
 on <the> you	sobre <el> ti
+on Egypt	sobre Egipto
+on Israel	sobre Israel
+on Judah	sobre Judá
 on [day] one	el [día] primero
+on [day] twenty	el [día] veinte
 on [the] day	en [el] día
 on [the] day of	en [el] día de
+on [the] four-	el [catorce]
 on [the] mountain of	en [el] monte de
 on [the] name of	sobre [el] nombre de
 on [the] other side of	al [otro] lado de
 on [the] substance of	sobre [la] faz de
+on a day of	en un día de
 on account of	a causa de
 on all	sobre todo
+on day	en el día
 on her	sobre ella
 on him	sobre él
 on it	sobre ello
 on me	sobre mí
 on the day	en el día
+on the dry ground	en seco
 on the earth	sobre la tierra
 on the journey	en el camino
 on the mountain	en el monte
+on the outside	por fuera
+on the ram's horn	con la bocina
+on the road	en el camino
+on the sea	en el mar
+on the ten	el diez
+on the trumpet	con la trompeta
+on the trumpets	con las trompetas
 on the way	en el camino
 on them	sobre ellos
+on time	a tiempo
+on trumpets	con trompetas
 on us	sobre nosotros
 on you	sobre ti
 one	uno
@@ -2370,14 +4591,22 @@ one [portion]	una [porción]
 one [time]	una [vez]
 one hundred	cien
 one of	uno de
+one of [the] daughters of	una de [las] hijas de
 one thousand	mil
 only	solamente
 open	abre
+opponents my	mis adversarios
+opponents their	sus adversarios
+opponents your	tus enemigos
 opposite to	frente a
+oppression	opresión
 or	o
 or?	¿o?
+oracle his	su profecía
 other	otro
+outstretched	extendido
 over	sobre
+over <the> you	sobre <el> ti
 over all	sobre todo
 over him	sobre él
 over it	sobre ello
@@ -2385,270 +4614,539 @@ over me	sobre mí
 over them	sobre ellos
 over us	sobre nosotros
 over you	sobre ti
+overflowing	desbordante
+overseers	gobernadores
+own house his	su propia casa
+own land their	su propia tierra
+owner<s> its	su dueño<s>
 ox[en]	buey[es]
+palm trees	palmeras
+pardon me	perdóname
+parents	padres
+pass	pasa
+pass over	pasa
+pasture	pasto
 pasture lands its	sus ejidos
+pasture lands their	sus ejidos
+pay attention	atiende
 peace	paz
+peace offering<s>	sacrificio<s> de paz
 peace offerings	sacrificios de paz
 people	pueblo
+people her	su pueblo
 people his	su pueblo
+people its	su pueblo
 people my	mi pueblo
+people of	pueblo de
 people your	tu pueblo
 peoples	pueblos
 perhaps	quizás
 perpetuity	perpetuidad
 person	persona
 person[s]	persona[s]
+pestilence	pestilencia
 pillars its	sus columnas
+pillars their	sus columnas
 place	lugar
 place his	su lugar
 place its	su lugar
+place their	su lugar
+plans	planes
 please	te ruego
+pleasure	deleite
 plunder	botín
+poison	veneno
 poles its	sus varas
+poor	pobre
 poor [people]	[los] pobres
+portions	porciones
+possession his	su posesión
+pour out	derrama
 power	poder
 praise	alabanza
 praise him	alabadle
+praise his	su alabanza
+pray	ora
+prayer	oración
 prayer my	mi oración
 precepts your	tus mandamientos
 precious	precioso
+presence your	tu presencia
 present his	su ofrenda
+preserve alive me	vivifícame
+prey	presa
 pride	soberbia
+priest	sacerdote
 priests	sacerdotes
 princes	príncipes
+proclaim	proclama
 produce its	su fruto
 prophesy	profetiza
+prophets	profetas
 prophets your	tus profetas
+prostitution<s> her	su prostitución<es>
+province	provincia
+provision[s]	provisión[es]
+punishment their	su castigo
 pure	puro
+pure gold	oro puro
+pursue	sigue
 put	pon
+put on	vístete
 quickly	pronto
 rage	furor
 rage my	mi furor
 rain	lluvia
 rams	carneros
 rebellion	rebelión
+red	rojo
+reddish	rojizo
 reed[s]	caña[s]
+refrain	detente
+refuge his	su refugio
+refuge my	mi refugio
+rejoice	alegraos
+relatives his	sus hermanos
 relatives their	sus hermanos
+relatives your	tus hermanos
 remain	quédate
 remember	acuérdate
+remember !	¡acuérdate!
+remembrance	memoria
 remove	quita
+reproach	oprobio
+rest	descanso
 return	vuelve
+return !	¡vuelve!
 right	recto
+right [hand]	[mano] derecha
 right [hand] his	su [mano] derecha
 right [hand] your	tu [mano] derecha
 righteous	justo
 righteous [people]	[los] justos
 righteousness	justicia
+righteousness his	su justicia
+righteousness my	mi justicia
 righteousness your	tu justicia
 rings of	anillos de
 rising early	madrugando
 river the	el río
 rivers	ríos
+rock	roca
+rock my	mi roca
+roots its	sus raíces
+round about	alrededor
+rows	hileras
+royalty	realeza
+ruler	príncipe
+rulers	gobernantes
+ruthless [people]	[los] violentos
+sabbath observance	reposo
 sabbaths my	mis sábados
+sack his	su saco
 sackcloth	cilicio
+sackcloth<s>	cilicio<s>
+sacrifice	sacrificio
 sacrifices	sacrificios
 sacrifices of	sacrificios de
+sacrifices your	tus sacrificios
 salt	sal
 salvation	salvación
+salvation his	su salvación
 salvation my	mi salvación
+salvation our	nuestra salvación
+salvation your	tu salvación
 sanctuary my	mi santuario
+save !	¡salva!
 save me	sálvame
 say	di
+saying	diciendo
 scarlet	carmesí
 second	segundo
+security	seguridad
 see	mira
 seed	semilla
+seed your	tu semilla
 seeing	viendo
 seek	buscad
 self her	su alma
 self his	su alma
 self my	mi alma
+self our	nuestra alma
+self their	su alma
 self your	tu alma
 selves your	vuestras almas
 send	envía
 servant his	su siervo
 servant my	mi siervo
 servant your	tu siervo
+servants	siervos
 servants his	sus siervos
 servants my	mis siervos
 servants your	tus siervos
+serve	servid
+service	servicio
+service its	su servicio
 service their	su servicio
+serving	sirviendo
 servitude	servidumbre
 set	pon
 seven	siete
+seven-	siete-
+sevenfold	siete veces
 seventy	setenta
 shame	vergüenza
+shaped like almond blossoms	en forma de flor de almendro
 she	ella
 she bore	dio a luz
+she had borne	había dado a luz
+she has bound	ha ligado
 she said	dijo
+she was	era
+she will be	será
 sheep	ovejas
+sheep his	sus ovejas
+sheep your	tus ovejas
 shekel[s]	siclo[s]
 shekels	siclos
+shepherds	pastores
+shield	escudo
+ships	naves
+shoulder his	su hombro
 shout for joy	cantad con júbilo
+shouting	gritería
 show favor to me	ten misericordia de mí
+sickness	enfermedad
+sides its	sus lados
+signs	señales
+silence	silencio
 silver	plata
+silver your	tu plata
 sin	pecado
 sin his	su pecado
+sin my	mi pecado
 since	ya que
+since [the] days of	desde [los] días de
+since youth<s> my	desde mi juventud<es>
 sing	cantad
+sing praises	cantad alabanzas
+sinners	pecadores
+sins their	sus pecados
 sins your	tus pecados
+sister her	su hermana
 sister his	su hermana
+sister its	su compañera
+sister their	su hermana
+sister your	tu hermana
+sit	siéntate
+sitting	sentado
 six	seis
 six-	seis-
 sixty	sesenta
+skin	piel
+skin of	piel de
 slaves	siervos
 small	pequeño
 smoke	humo
+snow	nieve
 so	así
 so as	para
+so let me give	y daré
+so let me go	déjame ir
+so may it be	así sea
 so that	para que
+so they may go	para que vayan
+so they may know	para que sepan
+so they may serve me	para que me sirvan
+so we may go up	para que subamos
+sojourners	extranjeros
 some of	algunos de
+some of [the] blood of	de [la] sangre de
+some of all	de todo
+some of blood its	de su sangre
+some of it	de ello
+some of them	algunos de ellos
+someone	alguien
+someone called	llamó
 son her	su hijo
 son his	su hijo
 son my	mi hijo
+son of	hijo de
 son your	tu hijo
 sons	hijos
+sons her	sus hijos
 sons his	sus hijos
 sons of	hijos de
 sons their	sus hijos
 sons your	tus hijos
 soothing	grato
+sorrow	dolor
 south -ward	al sur
 speak	habla
+speaking	hablando
+spear his	su lanza
+speech my	mi dicho
+spices	especias
 spirit	espíritu
+spirit his	su espíritu
 spirit my	mi espíritu
 splendor	esplendor
+splendor your	tu esplendor
+springs	fuentes
+square	cuadrado
+staff his	su vara
 stand	ponte en pie
 standing	en pie
+statutes	estatutos
+statutes his	sus estatutos
 statutes my	mis estatutos
 steps	pasos
+steps my	mis pasos
+stiff of	duro de
 still	todavía
+still he	aún él
 stone	piedra
+stone<s>	piedra<s>
+stone[s]	piedra[s]
 stones	piedras
+stones its	sus piedras
 stones of	piedras de
 strange	extraño
 strangers	extraños
+straw	paja
 strength	fuerza
 strength his	su fuerza
+strength its	su fuerza
 strength my	mi fuerza
 strength your	tu fuerza
+strength<s>	fuerza<s>
+stretch out	extiende
 strife	contienda
 strong	fuerte
+strong drink	sidra
+stubborn	contumaz
 suddenly	de repente
 summon	llama
+supplications my	mis súplicas
 surely	ciertamente
 sword his	su espada
+sword my	mi espada
+sword your	tu espada
+swords their	sus espadas
+table my	mi mesa
+tables	mesas
+tablets of	tablas de
 take	toma
+take care	guárdate
 take heed	guárdate
+take up	toma
 talent[s] of	talento[s] de
+talents	talentos
 teach me	enséñame
+tear[s]	lágrima[s]
 teen	diez
 tell	di
 tell !	¡di!
 ten	diez
+ten thousand	diez mil
 tent his	su tienda
 tenths [of an ephah]	décimas [de efa]
+tents their	sus tiendas
+territory its	su territorio
+territory their	su territorio
 territory your	tu territorio
 terror	terror
 testimonies your	tus testimonios
+thanksgiving	acción de gracias
 that	que
+the Ammonite	el amonita
 the Amorite[s]	el amorreo[s]
 the Arabah	el Arabá
+the Aramean	el arameo
+the Asherah pole	la imagen de Asera
+the Asherah poles	las imágenes de Asera
 the Baals	los baales
 the Canaanite[s]	el cananeo[s]
 the Chaldeans	los caldeos
+the Cushite	el etíope
 the Egyptian	el egipcio
+the Gershonite[s]	el gersonita[s]
+the Geshurite[s]	el gesureo[s]
+the Gileadite	el galaadita
+the Gittite	el geteo
 the Hebrews	los hebreos
 the Hittite	el heteo
 the Hittite[s]	el heteo[s]
 the Hivite[s]	el heveo[s]
 the Jebusite[s]	el jebuseo[s]
 the Jews	los judíos
+the Jezreelite	el jezreelita
 the Jordan	el Jordán
 the Kohathite[s]	el coatita[s]
 the Levite	el levita
 the Levite[s]	el levita[s]
 the Levites	los levitas
+the Moabite [woman]	la moabita [mujer]
 the Negev	el Neguev
+the Netophathite	el netofatita
+the Perizzite[s]	el ferezeo[s]
 the Philistine	el filisteo
+the Philistines	los filisteos
 the River	el Río
+the [one] discharging	el [que] tiene flujo
+the [one] purifying himself	el [que] se purifica
 the abominations	las abominaciones
 the adversary	el adversario
 the altar	el altar
 the altar towards	hacia el altar
+the altars	los altares
 the angel	el ángel
 the animal[s]	el animal[es]
 the ark	el arca
 the armies	los ejércitos
 the army	el ejército
+the arrows	las saetas
 the articles	los utensilios
 the ascents	las gradas
 the assembly	la asamblea
 the atonement cover	el propiciatorio
+the bakers	los panaderos
 the battle	la batalla
 the bed	la cama
+the bird	el ave
+the bird[s]	el ave[s]
+the blessing	la bendición
 the blood	la sangre
+the bodyguards	la guardia
+the booty	el despojo
 the border	el término
+the bowls	los tazones
 the branches	los brazos
+the bread	el pan
 the breastpiece	el pectoral
 the bull	el becerro
 the burnt offering	el holocausto
 the calamity	la calamidad
+the calf	el becerro
+the camels	los camellos
 the camp	el campamento
+the camps	los campamentos
+the capital	el capitel
 the cattle	el ganado
+the cave	la cueva
+the chariot	el carro
 the chariotry	los carros
 the cherub	el querubín
 the cherubim	los querubines
 the chief	el jefe
 the child	el niño
 the children	los niños
+the cistern	la cisterna
 the citadel	la fortaleza
 the cities	las ciudades
 the city	la ciudad
+the city towards	hacia la ciudad
+the city wall	el muro
 the cloud	la nube
 the commandment	el mandamiento
 the congregation	la congregación
 the contribution	la ofrenda
+the corner	la esquina
+the corners	las esquinas
+the corpse	el cadáver
+the court	el atrio
 the courtyard	el atrio
 the covenant	el pacto
+the cows	las vacas
+the cup	la copa
+the cup bearers	los coperos
+the curse	la maldición
 the curtain	la cortina
+the curtains	las cortinas
+the dawn	el alba
 the day	el día
 the days	los días
+the dead	el muerto
+the devoted thing[s]	el anatema[s]
+the dogs	los perros
 the donkey	el asno
+the donkeys	los asnos
 the door	la puerta
+the dove	la paloma
+the dream	el sueño
+the dust	el polvo
+the ears of grain	las espigas
 the earth	la tierra
 the east	el oriente
 the elders	los ancianos
+the end	el extremo
 the entrails	los intestinos
 the entrance	la entrada
+the ephah	el efa
 the ephod	el efod
 the evening	la tarde
+the evenings	las tardes
 the evil	el mal
+the exile	la cautividad
 the exile[s]	el cautivo[s]
 the famine	el hambre
 the fat	la grosura
+the fat<s>	la grosura<s>
 the fathers	los padres
+the fatty ash	la ceniza
+the feast	el banquete
 the field	el campo
+the fifth	el quinto
+the fifty	el cincuenta
 the fire	el fuego
 the firstborn	el primogénito
+the fish	el pescado
+the flesh	la carne
 the flock	el rebaño
+the flood	el diluvio
+the food	el alimento
+the fool	el necio
+the forced labor	el tributo
 the forest	el bosque
 the fourth	el cuarto
 the frame	la tabla
+the frames	las tablas
+the frogs	las ranas
+the gallows	la horca
+the garden	el huerto
 the gate	la puerta
 the gatekeepers	los porteros
+the gates	las puertas
+the generation	la generación
+the goats	las cabras
+the gods	los dioses
 the gold	el oro
 the good	el bien
+the governor	el gobernador
+the grain	el grano
 the grain offering	la ofrenda
 the ground	el suelo
 the guard	la guardia
 the guilt offering	la expiación por la culpa
+the hail	el granizo
+the hands	las manos
+the harm	el mal
+the harvesters	los segadores
 the head	la cabeza
+the heap	el majano
 the heavens	los cielos
 the heavens towards	hacia los cielos
+the heifer	la vaca
+the herd	la vacada
+the high place	el lugar alto
 the high places	los lugares altos
+the hill	el collado
 the hill country	la región montañosa
+the hill country towards	hacia la región montañosa
+the hills	los collados
 the holy place	el santuario
+the holy places	los santuarios
+the holy thing	la cosa santa
 the holy things	las cosas santas
 the horses	los caballos
 the house	la casa
@@ -2656,51 +5154,82 @@ the house towards	hacia la casa
 the houses	las casas
 the hundreds	las centenas
 the idols	los ídolos
+the innermost room	el lugar santísimo
+the iron	el hierro
+the journey	el camino
 the jubilee	el jubileo
+the judge	el juez
+the judges	los jueces
+the judgments	los juicios
 the kidneys	los riñones
 the killer	el homicida
 the king	el rey
 the kingdom	el reino
+the kingdoms	los reinos
 the kings	los reyes
 the kingship	el reino
+the labor	el trabajo
 the lad	el joven
+the lamb	el cordero
+the lambs	los corderos
+the lamps	las lámparas
 the lampstand	el candelero
 the land	la tierra
 the lands	las tierras
 the laver	la fuente
 the law	la ley
+the leader	el príncipe
 the leaders	los príncipes
+the letter	la carta
 the light	la luz
 the lion	el león
+the liver	el hígado
 the livestock	el ganado
 the living	los vivos
+the living creature	el animal
+the living creatures	los seres vivientes
+the lobe	la grosura
 the locust[s]	la langosta[s]
+the lord	el señor
 the lot	la suerte
+the male goat	el macho cabrío
 the males	los varones
 the man	el hombre
+the manna	el maná
 the matter	el asunto
 the meat	la carne
 the men	los hombres
+the messenger	el mensajero
 the messengers	los mensajeros
+the mighty [men]	los valientes [hombres]
 the money	el dinero
+the month	el mes
 the morning	la mañana
 the mountain	el monte
 the mountains	los montes
 the multitude	la multitud
 the nation	la nación
 the nations	las naciones
+the necromancers	los encantadores
+the new moon	la luna nueva
 the night	la noche
+the nobles	los nobles
 the north	el norte
+the oak	la encina
+the oath	el juramento
 the officials	los oficiales
 the oil	el aceite
 the one	el uno
+the outside	el exterior
 the outside towards	hacia afuera
 the ox	el buey
 the ox[en]	el buey[es]
 the passover	la pascua
+the peace offering<s>	el sacrificio<s> de paz
 the peace offerings	los sacrificios de paz
 the people	el pueblo
 the peoples	los pueblos
+the perfume<s>	el aroma<s>
 the person	la persona
 the pillar	la columna
 the pillars	las columnas
@@ -2708,34 +5237,71 @@ the pit	la cisterna
 the place	el lugar
 the places	los lugares
 the plague	la plaga
+the plain	la llanura
+the plunder	el botín
 the poles	las varas
+the pomegranates	las granadas
+the pool	el estanque
+the porch	el pórtico
+the pots	los calderos
+the potter	el alfarero
+the presence	la proposición
 the priest	el sacerdote
 the priests	los sacerdotes
+the prince	el príncipe
+the prison	la cárcel
 the prophet	el profeta
 the prophets	los profetas
+the provinces	las provincias
 the queen	la reina
+the rain	la lluvia
 the ram	el carnero
+the ram's horn	la bocina
 the right	la derecha
+the rings	los anillos
 the river	el río
+the road	el camino
+the robe	el manto
 the rock	la roca
+the roof	el terrado
+the rooms	las cámaras
+the row	la hilera
 the runners	los de la guardia
 the sabbath	el sábado
 the sanctuary	el santuario
 the scall	la tiña
+the scarlet	el carmesí
 the scribe	el escriba
 the scroll	el libro
 the sea	el mar
+the sea towards	hacia el mar
 the second	el segundo
 the seer	el vidente
 the servant	el siervo
+the service	el servicio
+the she-asses	las asnas
 the sheep	las ovejas
+the shekel	el siclo
 the shepherds	los pastores
+the shovels	las paletas
+the signs	las señales
 the silver	la plata
 the sin offering	la expiación
 the singers	los cantores
+the sixth	el sexto
 the skin	la piel
+the snake	la serpiente
+the sojourner	el extranjero
+the sojourner[s]	el extranjero[s]
+the song	el cántico
+the soothsayers	los adivinos
 the south	el sur
+the spear	la lanza
+the spirit	el espíritu
+the spring	la fuente
+the stand	la basa
 the stands	las basas
+the stars	las estrellas
 the statutes	los estatutos
 the stone	la piedra
 the stones	las piedras
@@ -2745,27 +5311,48 @@ the tabernacle	el tabernáculo
 the table	la mesa
 the tablets	las tablas
 the temple	el templo
+the temple servants	los sirvientes del templo
 the tent	la tienda
+the tent towards	hacia la tienda
+the teraphim	los ídolos
+the territory	el territorio
 the testimony	el testimonio
 the thing	la cosa
 the things	las cosas
 the third	el tercero
+the thirty	los treinta
 the thousands	los millares
+the three	los tres
+the threshing floor	la era
 the threshold	el umbral
+the time	el tiempo
+the tithe	el diezmo
+the tower	la torre
 the tree	el árbol
+the trees	los árboles
+the tribe	la tribu
 the tribes	las tribus
+the turban	la mitra
 the unleavened bread<s>	el pan<es> sin levadura
 the valley	el valle
+the vessels	los utensilios
+the vine	la vid
 the vision	la visión
 the wadi	el torrente
 the wall	el muro
 the warriors	los guerreros
+the watchman	el atalaya
 the water	el agua
 the waters	las aguas
+the wave-offering	la ofrenda mecida
 the way	el camino
 the well	el pozo
+the wheel	la rueda
+the wheels	las ruedas
 the wilderness	el desierto
 the wilderness towards	hacia el desierto
+the window	la ventana
+the wine	el vino
 the woman	la mujer
 the women	las mujeres
 the wood<s>	la madera<s>
@@ -2773,6 +5360,7 @@ the word	la palabra
 the words	las palabras
 the work	la obra
 the year	el año
+the years	los años
 the young bull	el becerro
 the young man	el joven
 the young men	los jóvenes
@@ -2790,50 +5378,142 @@ these	estos
 these [things]	estas [cosas]
 they	ellos
 they are	son
+they are full	están llenos
+they are many	son muchos
+they are numerous	son muchos
+they ate	comieron
 they belonged	pertenecían
 they brought	trajeron
+they burned	quemaron
+they called	llamaron
 they came	vinieron
+they came out	salieron
 they did	hicieron
+they died	murieron
 they dwelt	habitaron
+they eat	comen
+they encamped	acamparon
+they exchanged	cambiaron
+they fell	cayeron
+they fled	huyeron
+they forsook	dejaron
+they fought	pelearon
+they found	hallaron
+they gathered	recogieron
 they gave	dieron
+they go	van
+they had been designated	habían sido designados
+they had come	habían venido
 they had done	habían hecho
+they had finished	habían acabado
+they had gone	habían ido
+they had made	habían hecho
+they had taken	habían tomado
 they have become	han llegado a ser
 they have been	han sido
 they have come	han venido
 they have done	han hecho
 they have fallen	han caído
+they have forsaken me	me han dejado
+they have gone	se han ido
+they have heard	han oído
+they have known	han conocido
+they have listened	han escuchado
+they have made	han hecho
+they have said	han dicho
 they have seen	han visto
+they have sinned	han pecado
+they have sought	han buscado
 they have spoken	han hablado
+they have taken	han tomado
+they have transgressed	han traspasado
+they heard	oyeron
+they kept	guardaron
 they killed	mataron
 they knew	conocieron
 they know	saben
 they listened	escucharon
 they made	hicieron
+they moved	se movían
+they passed over	pasaron
+they remained	quedaron
+they repaired	repararon
+they repeated	volvieron a
+they rose	se levantaron
 they said	dijeron
 they saw	vieron
+they say	dicen
+they see	ven
+they sent	enviaron
 they set out	partieron
+they sinned	pecaron
 they speak	hablan
+they spoke	hablaron
+they stood	se pusieron en pie
+they surrounded me	me rodearon
+they took	tomaron
+they trusted	confiaron
+they turned	se volvieron
+they turned aside	se apartaron
+they walk	andan
 they walked	anduvieron
 they went	fueron
+they went down	descendieron
 they went out	salieron
 they went up	subieron
 they were	fueron
 they were able	pudieron
+they were born	nacieron
+they were found	fueron hallados
+they were removed	fueron quitados
+they were willing	quisieron
+they will arise	se levantarán
 they will be	serán
 they will be ashamed	serán avergonzados
+they will be done	se harán
+they will be eaten	se comerán
+they will be put to death	morirán
+they will be remembered	serán recordados
+they will bear	llevarán
 they will become	llegarán a ser
 they will belong	pertenecerán
+they will bring	traerán
+they will carry	llevarán
 they will come	vendrán
+they will come out	saldrán
+they will come to an end	se acabarán
+they will deliver	librarán
+they will devour	devorarán
 they will die	morirán
+they will do	harán
+they will draw near	se acercarán
+they will drink	beberán
 they will dwell	habitarán
 they will eat	comerán
+they will encamp	acamparán
 they will fall	caerán
+they will flee	huirán
+they will give	darán
 they will go	irán
+they will go out	saldrán
+they will go up	subirán
+they will graze	pacerán
 they will hear	oirán
+they will inherit	heredarán
+they will listen	escucharán
+they will perish	perecerán
+they will remain	quedarán
 they will return	volverán
 they will say	dirán
 they will see	verán
+they will serve	servirán
+they will shout for joy	cantarán con júbilo
+they will speak	hablarán
 they will stand	estarán en pie
+they will stumble	tropezarán
+they will take	tomarán
+they will walk	andarán
+thigh his	su muslo
 thing	cosa
 thir-	tre-
 thirty	treinta
@@ -2844,175 +5524,315 @@ this night	esta noche
 this one	este
 this time	esta vez
 this:	esto:
+thorn[s]	espino[s]
+those enrolled	los contados
 though	aunque
 thousand	mil
 thousand [cubits]	mil [codos]
 thousand<s>	mil<es>
+thousands	millares
 three	tres
+three [things]	tres [cosas]
 three days ago	anteayer
 throne his	su trono
+throne my	mi trono
+throne your	tu trono
 through	por
+thunder claps	truenos
 thus	así
 time	tiempo
 times	veces
 to	a
+to <the> Baal	a <el> Baal
+to <the> Molech	a <el> Moloc
+to <the> falsehood	a <la> mentira
 to <the> her	a <el> ella
 to <the> him	a <el> él
 to <the> it	a <el> ello
 to <the> me	a <el> mí
 to <the> them	a <el> ellos
 to <the> us	a <el> nosotros
+to <the> war	a <la> guerra
 to <the> you	a <el> ti
+to <the> yourself	a <el> ti mismo
 to Aaron	a Aarón
 to Abraham	a Abraham
+to Absalom	a Absalón
+to Babylon	a Babilonia
 to Daniel	a Daniel
 to David	a David
+to Egypt	a Egipto
+to Esau	a Esaú
+to Esther	a Ester
 to God	a Dios
+to God our	a nuestro Dios
 to Isaac	a Isaac
 to Israel	a Israel
 to Jacob	a Jacob
 to Jerusalem	a Jerusalén
 to Judah	a Judá
+to Moses	a Moisés
 to Pharaoh	a Faraón
 to Saul	a Saúl
+to Sihon	a Sehón
 to Solomon	a Salomón
 to Yahweh	a Jehová
 to [the] God of	a [el] Dios de
+to [the] children of	a [los] hijos de
 to [the] descendants of	a [los] descendientes de
+to [the] entrance of	a [la] entrada de
 to [the] eyes of	a [los] ojos de
 to [the] house of	a [la] casa de
 to [the] king of	a [el] rey de
+to [the] man of	a [el] hombre de
 to [the] mouth of	a [la] boca de
+to [the] name of	a [el] nombre de
+to [the] number of	conforme a [el] número de
 to [the] people of	a [el] pueblo de
+to [the] side of	a [el] lado de
 to [the] sound of	a [el] sonido de
 to [the] time of	a [el] tiempo de
+to [the] tribe of	a [la] tribu de
+to [the] two	a [los] dos
 to [the] voice of	a [la] voz de
 to a burnt offering	en holocausto
 to a generation	por generación
 to a grain offering	en ofrenda
+to a husband	a un marido
 to a man	a un hombre
 to a people	por pueblo
 to a possession	en posesión
+to a prescribed portion of	por estatuto de
 to a sin offering	para expiación
 to a wife	por mujer
 to abundance	en abundancia
+to add	añadir
 to all	a todo
 to alone me	a mí solo
 to alone them	a ellos solos
 to alone you	a ti solo
+to an inheritance	en heredad
 to an odor of	en olor de
+to ancestors our	a nuestros padres
 to ancestors their	a sus padres
 to ancestors your	a tus padres
+to any	a ninguno
+to anyone	a nadie
+to ask	preguntar
 to be	ser
 to become	llegar a ser
 to before	a delante de
+to bless	bendecir
 to bow down	inclinarse
+to break	quebrantar
 to bring	traer
 to bring back	hacer volver
+to bring near	acercar
+to bring out	sacar
+to bring up	hacer subir
 to build	edificar
+to buy	comprar
 to carry	llevar
+to cause to dwell	hacer habitar
 to clans their	por sus familias
 to come	venir
+to comfort him	para consolarlo
 to consult	consultar
+to count	contar
 to cover	cubrir
 to cut off	cortar
+to days	por días
 to declare	declarar
 to deliver	librar
+to deliver you	para librarte
 to destroy	destruir
+to destroy it	para destruirla
+to destroy them	para destruirlos
+to devour	devorar
 to die	morir
 to do	hacer
+to do battle	pelear
+to do it	para hacerlo
 to drink	beber
 to dwell	habitar
+to dwell in	para habitar
 to eat	comer
+to enrolled [men] their	por sus contados [hombres]
+to establish	establecer
 to every	a todo
 to eyes their	a sus ojos
 to eyes your	a tus ojos
+to father his	a su padre
 to fear	temer
 to fight	pelear
+to fill	llenar
+to find	hallar
 to flee	huir
+to food	para comida
+to fulfill	cumplir
+to gather	recoger
 to generations their	por sus generaciones
 to generations your	por vuestras generaciones
 to give	dar
+to give thanks	alabar
 to go	ir
+to go down	descender
+to go out	salir
 to go up	subir
 to gods	a dioses
+to gods their	a sus dioses
 to hear	oír
 to help	ayudar
 to her	a ella
 to him	a él
 to himself	para sí
 to house his	a su casa
+to house your	a tu casa
 to it	a ello
+to judge	juzgar
 to keep	guardar
 to kill	matar
+to kill him	para matarlo
 to kind its	según su especie
 to king	por rey
 to king the	al rey
 to know	saber
+to lift up	alzar
 to listen	escuchar
+to look	mirar
 to lord my	a mi señor
+to love	amar
 to make	hacer
 to make atonement	para hacer expiación
 to make smoke	quemar
 to me	a mí
 to meet	al encuentro de
 to meet him	a su encuentro
+to meet me	a mi encuentro
 to meet them	a su encuentro
+to meet us	a nuestro encuentro
+to meet you	a tu encuentro
 to military groups their	por sus ejércitos
+to mother his	a su madre
+to myself	a mí
 to neighbor his	a su prójimo
 to not	para no
 to observe	guardar
 to offer up	ofrecer
+to offspring your	a tu descendencia
+to one	a uno
 to only him	a él solo
+to own house his	a su propia casa
+to pass over	pasar
+to peace	en paz
+to people his	a su pueblo
+to people your	a tu pueblo
 to perpetuity	a perpetuidad
+to play	regocijarse
 to plunder	saquear
+to praise	alabar
+to pray	orar
+to present	presentar
+to provoke to anger him	para provocarle a ira
 to provoke to anger me	para provocarme a ira
 to put	poner
+to put to death	matar
+to repair	reparar
 to return	volver
+to rise	levantarse
+to ruler	por príncipe
 to sacrifice	sacrificar
 to say	decir
 to security	con seguridad
 to see	ver
 to seek	buscar
+to servant his	a su siervo
 to servant your	a tu siervo
+to servants your	a tus siervos
 to serve	servir
+to serve as priests	para ser sacerdotes
+to serve him	para servirle
+to serve them	para servirles
+to sin	pecar
+to slaughter	degollar
 to sojourn	morar
 to speak	hablar
 to spy out	reconocer
 to stand	estar en pie
+to stretch out	extender
+to strike	herir
+to strike down	herir
+to summon	convocar
 to take	tomar
+to take care	guardar
 to take possession of	para poseer
 to take possession of it	para poseerla
+to teach	enseñar
 to tell	contar
+to tents his	a sus tiendas
 to the Levites	a los levitas
+to the appointed time	al tiempo señalado
+to the battle	a la batalla
 to the choirmaster	al músico principal
+to the day	al día
+to the earth	a la tierra
 to the ground	a tierra
 to the king	al rey
+to the land	a la tierra
+to the man	al hombre
+to the morning	hasta la mañana
+to the nations	a las naciones
 to the people	al pueblo
+to the person	a la persona
 to the priest	al sacerdote
 to the priests	a los sacerdotes
+to the sojourner	al extranjero
+to the sword	a la espada
+to the tribe	a la tribu
 to them	a ellos
 to turn aside	apartarse
+to turn back	volverse
 to us	a nosotros
 to voice his	a su voz
 to voice my	a mi voz
+to voice their	a su voz
+to voice your	a tu voz
+to wage war	hacer guerra
 to walk	andar
+to way his	a su camino
 to welfare	por la paz
+to wives	por mujeres
+to work	trabajar
 to you	a ti
 to yourself	para ti
 together	juntamente
 tomorrow	mañana
+tongue	lengua
+tongue my	mi lengua
 tongue their	su lengua
+top its	su cumbre
+torrents of	arroyos de
 towards	hacia
+towards him	hacia él
+towards me	hacia mí
+towards you	hacia ti
 transgression	rebelión
+transgressions my	mis rebeliones
+transgressions their	sus rebeliones
+transgressions your	tus rebeliones
 tree	árbol
 trembling	temblor
+tribes your	tus tribus
 tribute	tributo
 trouble	angustia
 truly	verdaderamente
+trust	confianza
 truth	verdad
 turn	vuélvete
+turn aside	apártate
+turn away	apartaos
 turn back	vuélvete
+turtle-doves	tórtolas
 twenty	veinte
 twisted	torcido
 two	dos
@@ -3020,114 +5840,209 @@ two [plus]	dos [más]
 two hundred	doscientos
 two of	dos de
 two thousand	dos mil
+two times	dos veces
 two years	dos años
 unblemished	sin defecto
+uncle his	su tío
 unclean	inmundo
 under	debajo de
+under it	debajo de ello
+under me	debajo de mí
 understanding	entendimiento
 unfaithfulness	infidelidad
+unjust gain	ganancia deshonesta
 unleavened bread<s>	pan<es> sin levadura
+unrighteousness	injusticia
 until	hasta
 unto	hasta
 up to	hasta
 upright [people]	[los] rectos
+uprightness	rectitud
+uprightness<es>	rectitud<es>
+valuation your	tu estimación
 vanity	vanidad
 vegetation	hierba
 vengeance	venganza
+vengeance<s>	venganza<s>
 very	muy
+vineyard your	tu viña
 vineyards	viñas
 violence	violencia
 violet stuff	azul
+vision	visión
 voice his	su voz
 voice my	mi voz
 voice their	su voz
 voice your	tu voz
+vows my	mis votos
+vows your	tus votos
+wage[s] my	mi salario[s]
 wail	gemid
+wait	espera
+walls your	tus muros
 war	guerra
 warfare	guerra
+warriors	guerreros
+was finished	se acabó
+watchmen	atalayas
 water	agua
+water of	agua de
 waters	aguas
+way	camino
 way his	su camino
+way their	su camino
 way your	tu camino
 ways his	sus caminos
 ways my	mis caminos
 ways your	tus caminos
 we	nosotros
+we are able	podemos
+we have found	hemos hallado
 we have heard	hemos oído
+we have seen	hemos visto
 we have sinned	hemos pecado
+we know	sabemos
+we saw	vimos
+we were	éramos
+we will die	moriremos
 we will do	haremos
+we will give	daremos
 we will go	iremos
 wealth	riqueza
+wealth his	su riqueza
+wealth their	su riqueza
+weapons his	sus armas
 weeping	llanto
+weight	peso
 weight its	su peso
 west -ward	al occidente
+what	lo que
 what?	¿qué?
 whatever	todo lo que
 wheat<s>	trigo<s>
 when	cuando
+when <the> it was distress	cuando <la> angustia
 when became king he	cuando comenzó a reinar
+when came	cuando vino
+when came they	cuando ellos vinieron
+when comes	cuando venga
+when finished he	cuando acabó
 when heard	cuando oyó
+when moved they	cuando ellos se movían
 when saw	cuando vio
+when there not	cuando no hay
+when was	cuando era
+when went he	cuando él iba
+when went out	cuando salió
 when?	¿cuándo?
 where	donde
 where?	¿dónde?
 whether	si
 which	que
+which bring a curse	que traen maldición
+which covers	que cubre
+which creeps	que se arrastra
+which dwells	que habita
+which faces	que está frente a
+which remain	que quedan
 which remained	que quedaba
+which remains	que queda
+which swarms	que se arrastra
+which was found	que se halló
 white	blanco
 who	quien
+who came	que vino
+who dwell	que habitan
 who dwelt	que habitaba
+who remained	que quedó
 who sojourns	que mora
 who was speaking	que hablaba
+who went	que fue
 who were dwelling	que habitaban
+who were found	que se hallaban
 who?	¿quién?
 whom	a quien
 whom?	¿a quién?
 why?	¿por qué?
+wicked	impío
 wicked [people]	impíos [hombres]
 wickedness	maldad
+wickedness their	su maldad
+wickedness your	tu maldad
 wife his	su mujer
+wife my	mi mujer
+wife your	tu mujer
+wild	salvaje
 will I do	¿haré?
+will he do	¿hará?
 will he give	¿dará?
+will he stand	¿estará en pie?
+will it be	¿será?
+will we do	¿haremos?
+will you do	¿harás?
+will you say	¿dirás?
 wind	viento
 wine	vino
+wing	ala
+wings	alas
+wings its	sus alas
+wings their	sus alas
 wisdom	sabiduría
+wisdom your	tu sabiduría
 wise	sabio
 wise [people]	[los] sabios
 with	con
+with <the> bronze fetters	con <los> grillos de bronce
 with <the> fire	con <el> fuego
+with <the> her	con <el> ella
 with <the> it	con <el> ello
+with <the> me	con <el> mí
 with <the> oil	con <el> aceite
 with <the> stones	con <las> piedras
 with <the> them	con <el> ellos
 with <the> water	con <el> agua
+with <the> you	con <el> ti
+with a harp	con arpa
 with a shout of joy	con júbilo
 with a voice	a voz
 with all	con todo
+with an army	con un ejército
+with finger his	con su dedo
 with her	con ella
 with him	con él
 with it	con ello
 with joy	con alegría
 with me	conmigo
+with muchness	en gran manera
 with not	sin
+with own eyes your	con tus propios ojos
+with stringed instruments	con instrumentos de cuerda
 with the sword	con la espada
 with them	con ellos
 with us	con nosotros
 with you	contigo
+within	dentro
 without cause	sin causa
+witnesses	testigos
 wives	mujeres
 wives his	sus mujeres
+wives their	sus mujeres
 wives your	tus mujeres
 woe to!	¡ay de!
 woe!	¡ay!
 woman	mujer
+womb your	tu vientre
 women	mujeres
+wonders	maravillas
+wonders his	sus maravillas
+wonders your	tus maravillas
 wood	madera
 wood<s>	madera<s>
 wood<s> of	madera<s> de
 word	palabra
 word his	su palabra
 word my	mi palabra
+word the	la palabra
 word your	tu palabra
 words	palabras
 words his	sus palabras
@@ -3137,66 +6052,151 @@ words your	tus palabras
 work	obra
 work his	su obra
 work of	obra de
+work your	tu obra
+works his	sus obras
+works your	tus obras
 worthlessness	vanidad
 wrath	ira
+writing the	la escritura
 written	escrito
 year	año
 year its	de un año
 year[s]	año[s]
 years	años
+years of	años de
+yesterday	ayer
 yet	aún
+yoke your	tu yugo
 you	tú
+you be	seas
 you be afraid	temas
 you be dismayed	desmayes
+you brought out	sacaste
+you came out	saliste
+you delay	tardes
+you did	hiciste
+you do	haces
+you draw near	te acerques
+you drink	bebáis
+you eat	comes
 you fear	temes
+you forget	olvides
 you gave	diste
+you give	das
 you go	vas
+you have acted	has obrado
+you have been	has sido
+you have brought	has traído
+you have chosen	has escogido
+you have come	has venido
+you have delivered	has librado
 you have done	has hecho
+you have given	has dado
+you have gone up	has subido
 you have heard	has oído
+you have kept	has guardado
+you have known	has conocido
 you have listened	has escuchado
 you have made	has hecho
+you have rejected	has desechado
 you have said	has dicho
 you have seen	has visto
 you have spoken	has hablado
+you heard	oíste
+you hide	escondes
+you knew	conociste
 you know	sabes
+you listen	escuchas
 you listened	escuchaste
+you love	amas
+you made	hiciste
+you may know	sepas
+you must bow down	te inclinarás
+you must do	harás
 you must eat	comeréis
+you must fear	temeréis
 you must make	haréis
+you must take	tomarás
+you put	pusiste
 you said	dijiste
 you saw	viste
+you say	dices
+you sent	enviaste
+you set	pusiste
 you spoke	hablaste
+you trust	confías
+you turn	os volváis
+you went	fuiste
 you were	fuiste
 you will be	serás
 you will be able	podrás
 you will bear	darás a luz
+you will become	llegarás a ser
 you will bring	traerás
+you will bring near	acercarás
+you will build	edificarás
+you will buy	comprarás
+you will call	llamarás
+you will come	vendrás
+you will destroy	destruirás
 you will die	morirás
 you will do	harás
 you will do !	¡harás!
+you will drink	beberás
+you will dwell	habitarás
 you will eat	comerás
+you will eat it	lo comerás
+you will fall	caerás
 you will fear	temerás
+you will find	hallarás
+you will gather	recogerás
 you will give	darás
 you will go	irás
 you will go out	saldrás
 you will hear	oirás
 you will keep	guardarás
 you will know	sabrás
+you will labor	trabajarás
 you will listen	escucharás
+you will live	vivirás
 you will make	harás
+you will observe	guardarás
 you will offer	ofrecerás
+you will offer up	ofrecerás
+you will pass over	pasarás
 you will present	presentarás
 you will put	pondrás
+you will redeem	redimirás
+you will remove	quitarás
+you will repeat	volverás a
 you will return	volverás
+you will sacrifice	sacrificarás
 you will say	dirás
+you will say !	¡dirás!
 you will see	verás
+you will seek	buscarás
+you will serve	servirás
+you will set	pondrás
+you will sow	sembrarás
 you will speak	hablarás
 you will take	tomarás
+you will take care	cuidaréis
 you will uncover	descubrirás
+you will vow	harás voto
 you will walk	andarás
+young	joven
 young bulls	becerros
+young lions	leoncillos
 young men	jóvenes
 young ones of	crías de
+young women	jóvenes
 youth<s> your	tu juventud<es>
+¿ [are] you	¿ [eres] tú
 ¿ [is] there	¿ [hay] allí
+¿ [is] there not	¿ no [hay] allí
 ¿ also	¿ también
+¿ do you know	¿ sabes
 ¿ not	¿ no
+¿ on	¿ sobre
+¿ peace	¿ paz
+¿ still	¿ aún
