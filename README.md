@@ -146,15 +146,18 @@ npm run dev
 Then open <http://localhost:5173/> for the app, or <http://localhost:5173/debug/> for an internal
 page that shows the datasets behind it.
 
-| Script               | Purpose                                                         |
-| -------------------- | --------------------------------------------------------------- |
-| `npm run dev`        | Build the datasets and start the Vite dev server                |
-| `npm run build`      | Build the datasets, type-check, and build the site into `dist/` |
-| `npm run preview`    | Serve the built site locally, at its deployed path (see below)  |
-| `npm run data`       | Verify the raw files, or fetch missing ones, and build datasets |
-| `npm run check`      | Everything CI runs: type check, lint, format check, unit tests  |
-| `npm run test:watch` | Run the unit tests in watch mode                                |
-| `npm run format`     | Format all files with Prettier                                  |
+| Script                  | Purpose                                                         |
+| ----------------------- | --------------------------------------------------------------- |
+| `npm run dev`           | Build the datasets and start the Vite dev server                |
+| `npm run build`         | Build the datasets, type-check, and build the site into `dist/` |
+| `npm run preview`       | Serve the built site locally, at its deployed path (see below)  |
+| `npm run data`          | Verify the raw files, or fetch missing ones, and build datasets |
+| `npm run check`         | The gate: type check, lint, format check, unit tests + coverage |
+| `npm run test`          | Run the unit tests                                              |
+| `npm run test:watch`    | Run the unit tests in watch mode                                |
+| `npm run test:coverage` | Run the unit tests and check the coverage thresholds            |
+| `npm run test:e2e`      | Run the end-to-end tests against the built site                 |
+| `npm run format`        | Format all files with Prettier                                  |
 
 ### Project structure
 
@@ -176,10 +179,50 @@ src/app/                 The app: its views, the URL state and the view switch
 src/visualizations/      One folder per visualization (Arcs, Threads), plus shared blocks
 src/features/debug/      The /debug/ page
 src/shared/              Reusable UI (footer, icons, tables), styles, formatting and loading
-tests/                   Repository-level tests (e.g. visualizations never import each other)
+tests/                   Repository-level tests, and tests/e2e/ the end-to-end suite
 ```
 
 Visualizations never import each other; `src/app/views.ts` lists them, and the app connects them.
+
+### Tests
+
+Two suites, and a pull request has to pass both.
+
+```sh
+npm run check      # types, lint, formatting, unit tests, coverage thresholds
+npm run test:e2e   # the flows, in a real browser against the built site
+```
+
+**Unit tests** (`*.test.ts` beside the code, Vitest with happy-dom) cover the domain code, the
+data pipeline, the build plugins and the components. They are the gate on coverage: `npm run
+check` fails below **98% of statements, lines and functions** (`test.coverage.thresholds` in
+`vite.config.ts`). Branches are held at 88% instead, because `noUncheckedIndexedAccess` makes
+TypeScript demand a fallback on every array read and most of those cannot happen.
+
+Three kinds of file are left out of that measurement, each for a reason, and all three are
+covered by the end-to-end suite instead:
+
+- **Entry points** (`src/app/main.tsx`, `scripts/data/build.ts`, …), which run on import, so
+  importing them is running them.
+- **GPU drawing** (shaders, the WebGL scenes, the canvas painters): a fake DOM cannot give them a
+  context, and a mock of one would only test the mock.
+- **Touch choreography and the views that host a canvas** (`use-bottom-sheet.ts`,
+  `ArcsExplorer.tsx`, …): a fake DOM can be made to report any pointer path and any transform.
+
+**End-to-end tests** (`tests/e2e/`, Playwright against `npm run preview`) cover what only a real
+browser can answer: that a reader can read a chapter, open a verse, follow a cross-reference, see
+the Hebrew and Greek, filter and switch translation; that the layout holds from 320px to 1920px;
+and that the offline cache stores the app, serves it with the network gone, and — the one failure
+that could strand an audience on a stale version — **replaces itself when a new release ships**.
+They run in three projects: `desktop`, `phone` (Pixel 7), and `offline`, which runs last on its
+own because it rewrites the built worker to stand in for a new release.
+
+**The gallery** (`npm run test:visual`) photographs every major screen at desktop and phone size
+into `tests/e2e/visual.spec.ts-snapshots/` — open that folder to see what the app looks like. It
+is deliberately outside CI and outside `npm run test:e2e`, because a pixel baseline belongs to the
+machine that drew it; `tests/e2e/README.md` explains how to regenerate them.
+
+To run any of them locally you need the browser once: `npx playwright install --with-deps chromium`.
 
 ### Deployment
 
