@@ -1,6 +1,6 @@
 import { act, render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { afterEach, describe, expect, it, vi } from 'vitest';
+import { afterEach, beforeAll, describe, expect, it, vi } from 'vitest';
 import { DebugPage } from '../features/debug/DebugPage.tsx';
 import { debugDataLoader } from '../features/debug/debug-data.ts';
 import type { TranslationId } from '../core/datasets/ids.ts';
@@ -60,6 +60,15 @@ function serve({ failing = false } = {}) {
   vi.stubGlobal('fetch', fetch);
   return fetch;
 }
+
+// views.ts starts loading each view's code as soon as it is imported; waiting for it here keeps the
+// last of those downloads from landing after the environment has been torn down.
+beforeAll(async () => {
+  await Promise.all([
+    import('../visualizations/arcs/ArcsExplorer.tsx'),
+    import('../visualizations/threads/ThreadsExplorer.tsx'),
+  ]);
+});
 
 afterEach(() => {
   vi.unstubAllGlobals();
@@ -242,7 +251,7 @@ describe('DebugPage', () => {
     serve();
     debugDataLoader.reset();
     await renderSuspending(<DebugPage />);
-    expect(screen.getByText('Dataset files')).toBeDefined();
+    expect(await screen.findByText('Dataset files')).toBeDefined();
   });
 
   it('explains a failed load and offers to retry', async () => {

@@ -505,3 +505,36 @@
     display: none;
   }
 }
+
+/* El HTML de un capítulo que entrega una API (NTV, NVI-S, RVES): se muestra tal cual llega. */
+.apiText {
+  font-family: var(--font-serif);
+  font-size: 0.9375rem;
+  line-height: 1.6;
+}
+
+.apiText p {
+  margin: 0 0 var(--space-3);
+}
+
+/* Números de versículo de API.Bible (span.v) y de YouVersion. */
+.apiText .v,
+.apiText sup {
+  margin-inline-end: 0.2em;
+  color: var(--color-text-muted);
+  font-family: var(--font-sans);
+  font-size: 0.65em;
+  font-weight: 600;
+  vertical-align: super;
+}
+
+.apiText .s1,
+.apiText .s,
+.apiText h1,
+.apiText h2,
+.apiText h3 {
+  margin: var(--space-3) 0 var(--space-2);
+  font-family: var(--font-sans);
+  font-size: 0.8125rem;
+  font-weight: 600;
+}

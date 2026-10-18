@@ -1,6 +1,6 @@
 import { render, screen, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { describe, expect, it, vi } from 'vitest';
+import { afterEach, describe, expect, it, vi } from 'vitest';
 import { GENRES } from '../../../core/bible/genres.ts';
 import { SiteFooter } from '../../../shared/ui/SiteFooter.tsx';
 import { getTranslationManifest } from '../../../translations/registry.ts';
@@ -14,6 +14,11 @@ import { LinkStats } from './LinkStats.tsx';
 import { TranslationMenu } from './TranslationMenu.tsx';
 
 const BSB = getTranslationManifest('bsb');
+
+afterEach(() => {
+  vi.unstubAllEnvs();
+  localStorage.clear();
+});
 
 const SUMMARY = {
   verseCount: 31_102,
@@ -98,6 +103,29 @@ describe('TranslationMenu', () => {
     await openMenu(/Traducción/);
     await userEvent.click(screen.getByRole('radio', { name: /King James/ }));
     expect(onChange).toHaveBeenCalledWith('kjv');
+  });
+
+  it('offers to read a chapter in a version from an API, and remembers the choice', async () => {
+    localStorage.clear();
+    vi.stubEnv('VITE_YVP_APP_KEY', '');
+    render(<TranslationMenu current={BSB} onChange={vi.fn()} />);
+    await openMenu(/Traducción/);
+    const group = screen.getByRole('radiogroup', { name: 'Leer también en' });
+    // Sin la app key de YouVersion solo se ofrece la NTV.
+    expect(within(group).getAllByRole('radio')).toHaveLength(2);
+    expect(within(group).getByRole('radio', { name: 'Ninguna' })).toHaveProperty('checked', true);
+    await userEvent.click(within(group).getByRole('radio', { name: /Nueva Traducción Viviente/ }));
+    expect(localStorage.getItem('bible-cross-references:api-version')).toBe('ntv');
+    await userEvent.click(within(group).getByRole('radio', { name: 'Ninguna' }));
+    expect(localStorage.getItem('bible-cross-references:api-version')).toBe('');
+  });
+
+  it('also offers the YouVersion ones when their app key is there', async () => {
+    vi.stubEnv('VITE_YVP_APP_KEY', 'clave');
+    render(<TranslationMenu current={BSB} onChange={vi.fn()} />);
+    await openMenu(/Traducción/);
+    const group = screen.getByRole('radiogroup', { name: 'Leer también en' });
+    expect(within(group).getAllByRole('radio')).toHaveLength(4);
   });
 
   it('marks the one in use', async () => {

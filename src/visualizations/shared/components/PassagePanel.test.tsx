@@ -1,8 +1,9 @@
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { describe, expect, it, vi } from 'vitest';
+import { afterEach, describe, expect, it, vi } from 'vitest';
 import { versePassage, type Passage } from '../../../core/bible/passage.ts';
 import { verseIndex } from '../../../test-utils/fixtures.ts';
+import { ntv } from '../../../translations/api/api-bible.ts';
 import { createVizData } from '../../../test-utils/viz-data.ts';
 import { DEFAULT_LINK_FILTER } from '../link-filter.ts';
 import { PassagePanel } from './PassagePanel.tsx';
@@ -42,7 +43,39 @@ function renderPanel(passage: Passage = versePassage(JOHN_3_16), props = {}) {
   return { ...result, onSelect, onClose };
 }
 
+afterEach(() => {
+  localStorage.clear();
+  vi.restoreAllMocks();
+});
+
 describe('PassagePanel', () => {
+  it('offers the chapter on BibleGateway, in the versions that have no licence here', () => {
+    renderPanel();
+    const link = screen.getByRole('link', { name: 'RVR1960' });
+    expect(link.getAttribute('href')).toContain('search=Juan%203&version=RVR1960');
+  });
+
+  it('reads the chapter in the version from an API that the reader chose', async () => {
+    localStorage.setItem('bible-cross-references:api-version', 'ntv');
+    const fetchChapter = vi.spyOn(ntv, 'fetchChapter').mockResolvedValue({
+      html: '<p>Texto de la NTV</p>',
+      attribution: '© Tyndale',
+      stylesheets: [],
+      containerAttributes: {},
+      link: null,
+      onShown: null,
+    });
+    renderPanel();
+    expect(await screen.findByText('Texto de la NTV')).toBeDefined();
+    expect(fetchChapter).toHaveBeenCalledWith('JHN', 3);
+    expect(screen.getByText('© Tyndale')).toBeDefined();
+  });
+
+  it('shows no API text until the reader chooses a version', () => {
+    const fetchChapter = vi.spyOn(ntv, 'fetchChapter');
+    renderPanel();
+    expect(fetchChapter).not.toHaveBeenCalled();
+  });
   it('names the passage, its book and its genre', () => {
     renderPanel();
     expect(screen.getByRole('heading', { name: 'Juan 3:16' })).toBeDefined();

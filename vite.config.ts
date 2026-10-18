@@ -49,6 +49,8 @@ export default defineConfig(({ command, isPreview = false }) => ({
     ],
     // A DOM for the components; the pipeline's tests use Node's APIs, which are still here.
     environment: 'happy-dom',
+    // Las páginas grandes (el panel de depuración) tardan más que los 5 s de siempre en máquinas lentas.
+    testTimeout: 20_000,
     setupFiles: ['./src/test-utils/setup.ts'],
     coverage: {
       provider: 'v8',

@@ -1,5 +1,7 @@
 import { useId } from 'react';
 import type { TranslationId } from '../../../core/datasets/ids.ts';
+import { API_VERSIONS } from '../../../translations/api/registry.ts';
+import { useApiVersionChoice } from '../../../translations/api/use-api-version-choice.ts';
 import { TRANSLATION_MANIFESTS } from '../../../translations/registry.ts';
 import type { TranslationManifest } from '../../../translations/translation-manifest.ts';
 import styles from './controls.module.css';
@@ -27,6 +29,10 @@ export function TranslationMenu({
 }: TranslationMenuProps) {
   // Both visualizations stay mounted, so each one's radios need a group name of their own.
   const group = useId();
+  const apiGroup = useId();
+  const [apiVersion, chooseApiVersion] = useApiVersionChoice();
+  // Solo las que se pueden usar: las de YouVersion necesitan su app key.
+  const apiVersions = API_VERSIONS.filter((version) => version.configured());
   return (
     <MenuButton label="Traducción" value={current.abbreviation} busy={pending}>
       <div className={styles.field} role="radiogroup" aria-label="Traducción">
@@ -46,6 +52,42 @@ export function TranslationMenu({
           </label>
         ))}
       </div>
+      {apiVersions.length > 0 && (
+        <>
+          <p className={styles.hint}>
+            Leer también en el panel de detalles, tal como la entrega su proveedor:
+          </p>
+          <div className={styles.field} role="radiogroup" aria-label="Leer también en">
+            <label className={styles.choice}>
+              <input
+                type="radio"
+                name={apiGroup}
+                value=""
+                checked={apiVersion === null}
+                onChange={() => {
+                  chooseApiVersion(null);
+                }}
+              />
+              Ninguna
+            </label>
+            {apiVersions.map((version) => (
+              <label key={version.id} className={styles.choice}>
+                <input
+                  type="radio"
+                  name={apiGroup}
+                  value={version.id}
+                  checked={version.id === apiVersion?.id}
+                  onChange={() => {
+                    chooseApiVersion(version.id);
+                  }}
+                />
+                {version.name}
+                <span className={styles.choiceAbbreviation}>{version.abbreviation}</span>
+              </label>
+            ))}
+          </div>
+        </>
+      )}
       {error !== null && (
         <p role="alert" className={styles.menuError}>
           {error} Revisa tu conexión e inténtalo de nuevo.

@@ -33,6 +33,10 @@ import { collectConnections, groupByBook, landingNote, type Connection } from '.
 import type { LinkFilter } from '../link-filter.ts';
 import { canCopy, copyQuote, quotePassage, type PassageQuote } from '../passage-quote.ts';
 import { GENRE_COLORS, GENRE_HEX } from '../palette.ts';
+import { useApiVersionChoice } from '../../../translations/api/use-api-version-choice.ts';
+import { USFM_CODES } from '../../../core/bible/usfm.ts';
+import { EXTERNAL_VERSIONS } from '../../../translations/api/registry.ts';
+import { ApiChapterSection } from './ApiChapterSection.tsx';
 import { OriginalWordsSection } from './OriginalWordsSection.tsx';
 import { PanelSection } from './PanelSection.tsx';
 import type { VizData } from '../viz-data.ts';
@@ -207,6 +211,7 @@ export function PassagePanel({
   const previous = neighbor(passage, -1, versification);
   const next = neighbor(passage, 1, versification);
   const unit = passage.kind === 'verse' ? 'versículo' : 'capítulo';
+  const [apiVersion] = useApiVersionChoice();
 
   return (
     <div className={styles.panel}>
@@ -278,6 +283,30 @@ export function PassagePanel({
               onSelect={onSelect}
             />
           </>
+        )}
+        <p className={styles.credit}>
+          Capítulo completo en BibleGateway:{' '}
+          {EXTERNAL_VERSIONS.map((version, index) => (
+            <Fragment key={version.abbreviation}>
+              {index > 0 && ' · '}
+              <a
+                href={version.url(book.name, versification.refAt(range.start).chapter)}
+                target="_blank"
+                rel="noreferrer"
+                title={version.name}
+              >
+                {version.abbreviation}
+              </a>
+            </Fragment>
+          ))}
+        </p>
+        {apiVersion && (
+          <ApiChapterSection
+            version={apiVersion}
+            usfmBook={USFM_CODES[book.ordinal] ?? ''}
+            bookName={book.name}
+            chapter={versification.refAt(range.start).chapter}
+          />
         )}
         <GenreBreakdown
           connections={[...connections.outgoing, ...connections.incoming]}
