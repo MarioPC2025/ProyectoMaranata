@@ -146,9 +146,10 @@
 </script>
 
 <figure class="hilos">
-  <!-- svelte-ignore a11y_click_events_have_key_events, a11y_no_static_element_interactions -->
+  <!-- Solo para mouse; la alternativa accesible es la lista de referencias de cada versículo -->
   <div
     class="lienzo"
+    aria-hidden="true"
     bind:this={contenedor}
     onpointermove={(e) => (bajoPuntero = capituloEn(e))}
     onpointerleave={() => (bajoPuntero = null)}

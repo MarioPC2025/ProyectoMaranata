@@ -52,10 +52,18 @@ export function temaActual(): Tema {
   return matchMedia('(prefers-color-scheme: dark)').matches ? 'oscuro' : 'claro'
 }
 
-/** Avisa cuando cambia el tema del sistema. Devuelve la función para dejar de escuchar. */
+/**
+ * Avisa cuando cambia el tema efectivo: por el sistema o por el selector de tema
+ * (que cambia data-tema en <html>). Devuelve la función para dejar de escuchar.
+ */
 export function alCambiarTema(avisar: (tema: Tema) => void): () => void {
   const media = matchMedia('(prefers-color-scheme: dark)')
   const escuchar = () => avisar(temaActual())
   media.addEventListener('change', escuchar)
-  return () => media.removeEventListener('change', escuchar)
+  const observador = new MutationObserver(escuchar)
+  observador.observe(document.documentElement, { attributes: true, attributeFilter: ['data-tema'] })
+  return () => {
+    media.removeEventListener('change', escuchar)
+    observador.disconnect()
+  }
 }

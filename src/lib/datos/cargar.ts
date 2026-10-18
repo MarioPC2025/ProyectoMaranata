@@ -15,6 +15,13 @@ async function pedir(url: string): Promise<Response> {
   return resp
 }
 
+export async function descomprimirSiHaceFalta(datos: ArrayBuffer): Promise<ArrayBuffer> {
+  const b = new Uint8Array(datos, 0, Math.min(2, datos.byteLength))
+  if (b[0] !== 0x1f || b[1] !== 0x8b) return datos
+  const flujo = new Blob([datos]).stream().pipeThrough(new DecompressionStream('gzip'))
+  return new Response(flujo).arrayBuffer()
+}
+
 export function cargarIndice(): Promise<Indice> {
   indice ??= pedir(`${BASE}/indice.json`)
     .then((r) => r.json() as Promise<DatosIndice>)
@@ -23,8 +30,12 @@ export function cargarIndice(): Promise<Indice> {
 }
 
 export function cargarReferencias(): Promise<Referencias> {
-  referencias ??= pedir(`${BASE}/xrefs.bin`)
+  // El archivo está comprimido con gzip, así no depende de que el hosting comprima. Algunos
+  // servidores lo mandan con Content-Encoding: gzip y el navegador ya lo descomprime; por
+  // eso se miran los primeros bytes antes de descomprimir.
+  referencias ??= pedir(`${BASE}/xrefs.bin.gz`)
     .then((r) => r.arrayBuffer())
+    .then(descomprimirSiHaceFalta)
     .then(leerReferencias)
   return referencias
 }

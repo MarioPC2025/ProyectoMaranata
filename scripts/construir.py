@@ -5,19 +5,23 @@ Uso: python scripts/construir.py   (antes: python scripts/descargar.py)
 Genera:
 - indice.json      versículos por capítulo de cada libro (versificación KJV/OpenBible)
                    y los capítulos cuya RV1909 no está alineada con esa versificación
-- xrefs.bin        referencias cruzadas en binario (formato abajo)
+- xrefs.bin.gz     referencias cruzadas en binario, comprimido con gzip (formato abajo)
 - rv1909/<id>.json texto RV1909 de cada libro: lista de capítulos, cada uno lista de versículos
 
-Formato de xrefs.bin (little endian). Cada versículo se identifica con un
-entero 0..N-1 en orden canónico (Gn 1:1 = 0, Ap 22:21 = 31101).
+Formato de xrefs.bin.gz, versión 2 (little endian, todo dentro de gzip). Cada versículo
+se identifica con un entero 0..N-1 en orden canónico (Gn 1:1 = 0, Ap 22:21 = 31101).
   cabecera  4 bytes "MBXR", u32 versión, u32 N (versículos), u32 R (referencias)
-  u32[N+1]  desplazamientos: las referencias del versículo i son [desp[i], desp[i+1])
-  u16[R]    versículo destino inicial
-  u16[R]    versículo destino final (igual al inicial si no es un rango)
+  u16[N]    cantidad de referencias de cada versículo origen
+  i16[R]    destino inicial, como diferencia: la primera referencia de cada origen respecto
+            del origen y las siguientes respecto de la anterior
+  u16[R]    largo del rango (destino final - destino inicial; 0 si es un solo versículo)
   i16[R]    votos de OpenBible.info
-Dentro de cada versículo origen, las referencias van ordenadas por votos (de mayor a menor).
+Dentro de cada origen, las referencias van ordenadas por destino. Cada arreglo se guarda
+"en planos": primero los bytes bajos de todos sus valores y después los altos. Las
+diferencias y los planos hacen que gzip lo comprima a menos de la mitad.
 """
 
+import gzip
 import json
 import struct
 import sys
@@ -30,7 +34,7 @@ RAIZ = Path(__file__).resolve().parent.parent
 RAW = RAIZ / "data" / "raw"
 SALIDA = RAIZ / "public" / "data"
 
-VERSION_XREFS = 1
+VERSION_XREFS = 2
 
 # Versículos que OpenBible cita con otra versificación. 3 Jn 1:15 de algunas
 # ediciones es la segunda mitad de 3 Jn 1:14 en la versificación KJV.
@@ -123,27 +127,73 @@ def leer_referencias(ruta: Path, indice: Indice):
             d1, d2 = d2, d1
         por_origen[o].append((d1, d2, int(votos)))
     for refs in por_origen:
-        refs.sort(key=lambda r: (-r[2], r[0]))
+        refs.sort()
     return por_origen, descartadas
 
 
-def escribir_xrefs(ruta: Path, por_origen) -> int:
-    desp = array("I", [0])
-    ini, fin, votos = array("H"), array("H"), array("h")
-    for refs in por_origen:
-        for d1, d2, v in refs:
-            ini.append(d1)
-            fin.append(d2)
-            votos.append(max(-32768, min(32767, v)))
-        desp.append(len(ini))
+def _en_planos(a: array) -> bytes:
+    """Bytes bajos de todos los valores (u16/i16, little endian) y después los altos."""
     if sys.byteorder != "little":
-        for a in (desp, ini, fin, votos):
-            a.byteswap()
-    with ruta.open("wb") as f:
-        f.write(b"MBXR" + struct.pack("<III", VERSION_XREFS, len(por_origen), len(ini)))
-        for a in (desp, ini, fin, votos):
-            a.tofile(f)
-    return len(ini)
+        a = array(a.typecode, a)
+        a.byteswap()
+    crudo = a.tobytes()
+    return crudo[0::2] + crudo[1::2]
+
+
+def _de_planos(crudo: bytes, typecode: str) -> array:
+    mitad = len(crudo) // 2
+    intercalado = bytearray(len(crudo))
+    intercalado[0::2] = crudo[:mitad]
+    intercalado[1::2] = crudo[mitad:]
+    a = array(typecode, bytes(intercalado))
+    if sys.byteorder != "little":
+        a.byteswap()
+    return a
+
+
+def escribir_xrefs(ruta: Path, por_origen) -> int:
+    conteos, deltas, largos, votos = array("H"), array("h"), array("H"), array("h")
+    for origen, refs in enumerate(por_origen):
+        conteos.append(len(refs))
+        anterior = origen
+        for d1, d2, v in refs:
+            deltas.append(d1 - anterior)
+            anterior = d1
+            largos.append(d2 - d1)
+            votos.append(max(-32768, min(32767, v)))
+    cuerpo = b"MBXR" + struct.pack("<III", VERSION_XREFS, len(por_origen), len(deltas))
+    cuerpo += b"".join(_en_planos(a) for a in (conteos, deltas, largos, votos))
+    # mtime=0: el mismo contenido da siempre el mismo archivo (no ensucia git)
+    ruta.write_bytes(gzip.compress(cuerpo, compresslevel=9, mtime=0))
+    return len(deltas)
+
+
+def leer_xrefs(ruta: Path):
+    """Decodifica xrefs.bin.gz. Devuelve (N, desp, inicio, fin, votos) con valores absolutos."""
+    crudo = gzip.decompress(ruta.read_bytes())
+    magia, version, n, r = struct.unpack_from("<4sIII", crudo)
+    if magia != b"MBXR" or version != VERSION_XREFS:
+        raise ValueError("xrefs.bin.gz inválido")
+    pos = 16
+    partes = []
+    for largo, tipo in ((n, "H"), (r, "h"), (r, "H"), (r, "h")):
+        partes.append(_de_planos(crudo[pos : pos + 2 * largo], tipo))
+        pos += 2 * largo
+    if pos != len(crudo):
+        raise ValueError("xrefs.bin.gz con tamaño inesperado")
+    conteos, deltas, largos, votos = partes
+    desp = array("I", [0])
+    inicio, fin = array("H"), array("H")
+    i = 0
+    for origen, cant in enumerate(conteos):
+        anterior = origen
+        for _ in range(cant):
+            anterior += deltas[i]
+            inicio.append(anterior)
+            fin.append(anterior + largos[i])
+            i += 1
+        desp.append(i)
+    return n, desp, inicio, fin, votos
 
 
 def main() -> None:
@@ -172,7 +222,10 @@ def main() -> None:
         )
 
     por_origen, descartadas = leer_referencias(RAW / "openbible" / "cross_references.txt", indice)
-    total = escribir_xrefs(SALIDA / "xrefs.bin", por_origen)
+    viejo = SALIDA / "xrefs.bin"  # formato 1, reemplazado por xrefs.bin.gz
+    if viejo.exists():
+        viejo.unlink()
+    total = escribir_xrefs(SALIDA / "xrefs.bin.gz", por_origen)
 
     print(f"Versículos: {indice.total}")
     print(f"Referencias: {total} (descartadas: {len(descartadas)})")

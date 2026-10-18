@@ -2,6 +2,7 @@ import { readFileSync } from 'node:fs'
 import { describe, expect, it } from 'vitest'
 import { Indice } from '../biblia/indice'
 import { leerReferencias, type Referencias } from '../datos/xrefs'
+import { bufferXrefs } from '../datos/datos-prueba'
 import { paletaRGB } from './colores'
 import {
   ZOOM_MAX,
@@ -70,9 +71,7 @@ describe('arcos', () => {
   })
 
   it('con los datos reales', () => {
-    const archivo = readFileSync('public/data/xrefs.bin')
-    const buffer = archivo.buffer.slice(archivo.byteOffset, archivo.byteOffset + archivo.byteLength)
-    const arcos = construirArcos(leerReferencias(buffer as ArrayBuffer), indice)
+    const arcos = construirArcos(leerReferencias(bufferXrefs()), indice)
     expect(arcos.cantidad).toBeGreaterThan(150000)
     expect(arcos.cantidad).toBeLessThan(344799)
     for (let i = 1; i < arcos.cantidad; i += 997) {

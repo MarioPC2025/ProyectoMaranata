@@ -5,12 +5,11 @@ Requieren haber corrido descargar.py y construir.py; si no hay datos, se omiten.
 """
 
 import json
-import struct
+import tempfile
 import unittest
-from array import array
 from pathlib import Path
 
-from construir import CORRECCIONES, HUECOS_RV1909, Indice
+from construir import CORRECCIONES, HUECOS_RV1909, Indice, escribir_xrefs, leer_xrefs
 from libros import LIBROS
 
 DATOS = Path(__file__).resolve().parent.parent / "public" / "data"
@@ -43,25 +42,29 @@ class TestIndice(unittest.TestCase):
             self.assertIn(libro, {l[1] for l in LIBROS})
 
 
-@unittest.skipUnless((DATOS / "xrefs.bin").exists(), "sin datos generados")
+class TestFormato(unittest.TestCase):
+    def test_ida_y_vuelta(self):
+        # 3 versículos: 0 → [2, 1-2], 1 → nada, 2 → [0]
+        por_origen = [[(1, 2, 7), (2, 2, -3)], [], [(0, 0, 40000)]]
+        with tempfile.TemporaryDirectory() as carpeta:
+            ruta = Path(carpeta) / "x.bin.gz"
+            self.assertEqual(escribir_xrefs(ruta, por_origen), 3)
+            n, desp, inicio, fin, votos = leer_xrefs(ruta)
+        self.assertEqual(n, 3)
+        self.assertEqual(list(desp), [0, 2, 2, 3])
+        self.assertEqual(list(inicio), [1, 2, 0])
+        self.assertEqual(list(fin), [2, 2, 0])
+        self.assertEqual(list(votos), [7, -3, 32767])
+
+
+@unittest.skipUnless((DATOS / "xrefs.bin.gz").exists(), "sin datos generados")
 class TestDatosGenerados(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         cls.meta = json.loads((DATOS / "indice.json").read_text(encoding="utf-8"))
         cls.indice = Indice(cls.meta["libros"])
-        crudo = (DATOS / "xrefs.bin").read_bytes()
-        magia, cls.version, cls.n, cls.r = struct.unpack_from("<4sIII", crudo)
-        assert magia == b"MBXR"
-        pos = 16
-        cls.desp = array("I", crudo[pos : pos + 4 * (cls.n + 1)])
-        pos += 4 * (cls.n + 1)
-        cls.ini = array("H", crudo[pos : pos + 2 * cls.r])
-        pos += 2 * cls.r
-        cls.fin = array("H", crudo[pos : pos + 2 * cls.r])
-        pos += 2 * cls.r
-        cls.votos = array("h", crudo[pos : pos + 2 * cls.r])
-        pos += 2 * cls.r
-        cls.largo_sobrante = len(crudo) - pos
+        cls.n, cls.desp, cls.ini, cls.fin, cls.votos = leer_xrefs(DATOS / "xrefs.bin.gz")
+        cls.r = len(cls.ini)
 
     def test_cantidades(self):
         self.assertEqual(self.meta["versiculos"], 31102)
@@ -70,7 +73,6 @@ class TestDatosGenerados(unittest.TestCase):
         self.assertEqual(sum(len(c) for c in self.meta["libros"]), 1189)
         # El archivo de OpenBible tiene 344.799 referencias; ninguna se descarta.
         self.assertEqual(self.r, 344799)
-        self.assertEqual(self.largo_sobrante, 0)
 
     def test_desplazamientos_y_rangos(self):
         self.assertEqual(self.desp[0], 0)
@@ -78,10 +80,10 @@ class TestDatosGenerados(unittest.TestCase):
         self.assertTrue(all(a <= b for a, b in zip(self.desp, self.desp[1:])))
         self.assertTrue(all(0 <= i <= f < self.n for i, f in zip(self.ini, self.fin)))
 
-    def test_ordenadas_por_votos(self):
+    def test_ordenadas_por_destino(self):
         for v in range(0, self.n, 997):
-            votos = self.votos[self.desp[v] : self.desp[v + 1]]
-            self.assertEqual(list(votos), sorted(votos, reverse=True))
+            destinos = list(self.ini[self.desp[v] : self.desp[v + 1]])
+            self.assertEqual(destinos, sorted(destinos))
 
     def destinos(self, libro, cap, vers):
         v = self.indice.numero(libro, cap, vers)

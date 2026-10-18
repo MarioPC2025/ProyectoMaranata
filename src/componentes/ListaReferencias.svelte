@@ -31,7 +31,7 @@
   {#if lista.length === 0}
     <p class="vacio">Este versículo no tiene referencias cruzadas.</p>
   {:else}
-    <h3>{lista.length} {lista.length === 1 ? 'referencia' : 'referencias'}</h3>
+    <h2>{lista.length} {lista.length === 1 ? 'referencia' : 'referencias'}</h2>
     <ol>
       {#each lista.slice(0, mostrar) as r (r.inicio * 65536 + r.fin)}
         <li>
@@ -66,7 +66,7 @@
     font-family: var(--fuente-interfaz);
     font-size: 0.9375rem;
   }
-  h3 {
+  h2 {
     margin: 0 0 0.5rem;
     font-size: 0.8125rem;
     text-transform: uppercase;

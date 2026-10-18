@@ -24,7 +24,7 @@ El código de Proyecto Maranata está bajo licencia MIT. Los datos tienen licenc
 ### Cambios realizados sobre datos CC BY
 (Registrar acá cada transformación: formato convertido, traducción al español del léxico, correcciones, etc.)
 
-- **OpenBible.info cross_references.txt** (versión del 2026-10-12): convertido al binario `public/data/xrefs.bin` (`scripts/construir.py`). Los versículos se numeran en orden canónico, las referencias de cada versículo se ordenan por votos y los rangos se guardan como inicio y fin. Las 5 referencias a 3 Jn 1:15 (versificación no KJV) se asignan a 3 Jn 1:14. No se descarta ninguna referencia.
+- **OpenBible.info cross_references.txt** (versión del 2026-10-12): convertido al binario comprimido `public/data/xrefs.bin.gz` (`scripts/construir.py`). Los versículos se numeran en orden canónico, las referencias de cada versículo se ordenan por destino, los destinos se guardan como diferencias y los rangos como largo; los votos se conservan sin cambios. Las 5 referencias a 3 Jn 1:15 (versificación no KJV) se asignan a 3 Jn 1:14. No se descarta ninguna referencia.
 
 ## Texto bíblico con copyright (servido por API, nunca almacenado en el repo)
 - **NTV** — © Tyndale House Publishers, vía API.Bible (American Bible Society), plan Starter (5.000 llamadas por mes). Uso no comercial.

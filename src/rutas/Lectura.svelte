@@ -40,9 +40,12 @@
   // Lleva a la vista el versículo elegido
   $effect(() => {
     const v = referencia.versiculo
-    if (!texto || !indice || !referencias || !v) return
+    if (!texto || !indice || !v) return
     tick().then(() => {
-      document.getElementById(`v${v}`)?.scrollIntoView({ block: 'start', behavior: 'smooth' })
+      const quieto = matchMedia('(prefers-reduced-motion: reduce)').matches
+      document
+        .getElementById(`v${v}`)
+        ?.scrollIntoView({ block: 'start', behavior: quieto ? 'auto' : 'smooth' })
     })
   })
 
@@ -95,6 +98,9 @@
         {capitulo}
         versiculo={referencia.versiculo}
       />
+    {:else}
+      <!-- Mismo alto que la franja de hilos, para que el texto no salte cuando aparece -->
+      <div class="hilos-espacio" aria-hidden="true"></div>
     {/if}
 
     <div class="ver-en">
@@ -135,7 +141,8 @@
         </aside>
       {/if}
       <div class="principal">
-        {#if !texto || !indice || !referencias}
+        <!-- El texto se muestra apenas llega el libro; las referencias (más pesadas) después -->
+        {#if !texto || !indice}
           <p class="cargando">Cargando…</p>
         {:else}
           {#if paralela}<h2 class="titulo-rv">
@@ -156,7 +163,9 @@
                   >{v}</a
                 >
                 <span class="texto"><TextoVersiculo texto={t} /></span>
-                {#if seleccionado}
+                {#if seleccionado && !referencias}
+                  <p class="cargando">Cargando referencias…</p>
+                {:else if seleccionado && referencias}
                   <ListaReferencias
                     versiculo={indice.numero(referencia.libro, capitulo, v)}
                     {indice}
@@ -226,6 +235,10 @@
   .fuente {
     color: var(--texto-suave);
     font-size: 0.875rem;
+  }
+  /* Alto de HilosCapitulo (120 px de franja + leyenda + márgenes) */
+  .hilos-espacio {
+    height: calc(120px + 1.2rem + 2rem);
   }
   .ver-en {
     display: flex;

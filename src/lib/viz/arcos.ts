@@ -254,7 +254,7 @@ export class RendererArcos {
       gl.activeTexture(gl.TEXTURE0)
       gl.bindTexture(gl.TEXTURE_2D, this.acumulado!.textura)
       gl.uniform1i(this.u.u_acumulado, 0)
-      gl.uniform1f(this.u.u_ganancia, p.tema === 'oscuro' ? 0.015 : 0.02)
+      gl.uniform1f(this.u.u_ganancia, p.tema === 'oscuro' ? 0.015 : 0.01)
       gl.blendFunc(gl.ONE, gl.ONE_MINUS_SRC_ALPHA)
       gl.drawArrays(gl.TRIANGLES, 0, 3)
     }
