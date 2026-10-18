@@ -1,18 +1,16 @@
 """Datos de los idiomas originales (STEPBible-Data, CC BY 4.0) para el panel de estudio.
 
-Uso: python scripts/construir_original.py   (antes: descargar.py y construir.py)
+Uso: python scripts/construir_original.py   (antes: descargar.py)
 
 Genera en public/data/:
 - original/<id>.json.gz      por libro: capítulos → versículos → palabras (versificación KJV)
 - lexico/H.json.gz, G.json.gz {Strong extendido: [lema, transliteración, categoría, glosa en inglés]}
-- concordancia/<H|G><n>.json.gz  {Strong extendido: versículos donde aparece}, en bloques de
-                             500 números Strong (n = número // 500); versículos como diferencias
 - morfologia.json            {código de morfología: descripción en español}
 
 Cada palabra es [texto, transliteración, glosa en español, glosa en inglés, Strongs, morfología, marca]:
 - Strongs: todos los de la palabra separados por "/" (prefijos, palabra, sufijos). Si hay
-  más de uno, el principal va entre llaves como en STEP ("H9003/{H7225G}"); es el que va
-  a la concordancia y al que corresponde la morfología.
+  más de uno, el principal va entre llaves como en STEP ("H9003/{H7225G}"); es con el que se
+  compara una palabra con otra y al que corresponde la morfología.
 - morfología: código de la parte principal (con el prefijo de idioma H, A o el de TEGMC).
 - marca: 0 = normal; en griego, 1 = solo en el Textus Receptus (del que se tradujo la
   RV1909) y 2 = solo en Nestle-Aland; 3 = parte del título de un salmo (STEP lo numera como
@@ -29,14 +27,14 @@ import unicodedata
 from collections import defaultdict
 from pathlib import Path
 
-from construir import Indice
 from libros import POR_USFM
 from morfologia import describir, leer_codigos
 
 RAIZ = Path(__file__).resolve().parent.parent
 STEP = RAIZ / "data" / "raw" / "step"
 SALIDA = RAIZ / "public" / "data"
-BLOQUE_CONCORDANCIA = 500
+# Capítulos y versículos de cada libro en la versificación KJV (de src/core/bible/kjv-versification.ts)
+CONTEOS = Path(__file__).resolve().parent / "kjv_conteos.json"
 TITULO = 3  # marca de las palabras del título de un salmo
 
 # Versículos de la versificación inglesa moderna (NRSV) que en la KJV son parte de otro.
@@ -133,18 +131,14 @@ def leer_lexico(ruta: Path) -> dict[str, list[str]]:
     return lexico
 
 
-def bloque(strong: str) -> str:
-    numero = int(re.match(r"^[HG](\d+)", strong).group(1))
-    return f"{strong[0]}{numero // BLOQUE_CONCORDANCIA}"
+def existe(conteos: list[list[int]], libro: int, cap: int, vers: int) -> bool:
+    caps = conteos[libro - 1]
+    return 1 <= cap <= len(caps) and 1 <= vers <= caps[cap - 1]
 
 
 def main() -> None:
-    meta = json.loads((SALIDA / "indice.json").read_text(encoding="utf-8"))
-    indice = Indice(meta["libros"])
-    libros = {
-        id_: [[[] for _ in range(cant)] for cant in caps] for id_, caps in enumerate(meta["libros"], 1)
-    }
-    concordancia: dict[str, set[int]] = defaultdict(set)
+    conteos = json.loads(CONTEOS.read_text(encoding="utf-8"))["libros"]
+    libros = {id_: [[[] for _ in range(cant)] for cant in caps] for id_, caps in enumerate(conteos, 1)}
     morfologias: set[str] = set()
     fuera = defaultdict(int)
     omitidas = defaultdict(int)
@@ -169,24 +163,14 @@ def main() -> None:
                 palabra[6] = TITULO
                 vers = 1
             libro, cap, vers = REASIGNAR.get((libro, cap, vers), (libro, cap, vers))
-            if not indice.existe(libro, cap, vers):
+            if not existe(conteos, libro, cap, vers):
                 fuera[f"{libro}.{cap}.{vers}"] += 1
                 continue
             libros[libro][cap - 1][vers - 1].append(palabra)
             morfologias.add(morf)
-            if re.match(r"^[HG]\d", strong):
-                concordancia[strong].add(indice.numero(libro, cap, vers))
 
     for id_, capitulos in libros.items():
         escribir_gz(SALIDA / "original" / f"{id_}.json.gz", capitulos)
-
-    bloques: dict[str, dict[str, list[int]]] = defaultdict(dict)
-    for strong, versiculos in concordancia.items():
-        ordenados = sorted(versiculos)
-        deltas = [ordenados[0]] + [b - a for a, b in zip(ordenados, ordenados[1:])]
-        bloques[bloque(strong)][strong] = deltas
-    for nombre, contenido in bloques.items():
-        escribir_gz(SALIDA / "concordancia" / f"{nombre}.json.gz", contenido)
 
     for letra, entradas in lexicos.items():
         escribir_gz(SALIDA / "lexico" / f"{letra}.json.gz", entradas)
@@ -206,7 +190,6 @@ def main() -> None:
     print(f"Fuera de la versificación KJV: {sum(fuera.values())} palabras en {len(fuera)} versículos")
     for ref, n in fuera.items():
         print(f"  {ref}: {n}")
-    print(f"Strongs en la concordancia: {len(concordancia)} en {len(bloques)} bloques")
     print(f"Códigos de morfología: {len(tabla)} (sin descripción: {len(sin_descripcion)})")
     for m in sin_descripcion[:15]:
         print(f"  sin descripción: {m}")

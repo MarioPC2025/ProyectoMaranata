@@ -13,6 +13,7 @@ from construir_original import REF, palabra_griega, palabra_hebrea, principal, r
 from morfologia import VALORES, describir
 
 DATOS = Path(__file__).resolve().parent.parent / "public" / "data"
+CONTEOS = Path(__file__).resolve().parent / "kjv_conteos.json"
 
 
 def leer_gz(ruta: Path):
@@ -65,7 +66,7 @@ class TestParseo(unittest.TestCase):
 class TestDatosOriginales(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        cls.meta = json.loads((DATOS / "indice.json").read_text(encoding="utf-8"))
+        cls.meta = json.loads(CONTEOS.read_text(encoding="utf-8"))
         cls.libros = {i: leer_gz(DATOS / "original" / f"{i}.json.gz") for i in range(1, 67)}
         cls.morfologia = json.loads((DATOS / "morfologia.json").read_text(encoding="utf-8"))
 
@@ -111,14 +112,6 @@ class TestDatosOriginales(unittest.TestCase):
                         if not any(s in lexico for s in partes):
                             sin_lexico.add(p[4])
         self.assertLess(len(sin_lexico), 50, sorted(sin_lexico)[:20])
-
-    def test_concordancia(self):
-        bloque = leer_gz(DATOS / "concordancia" / "G6.json.gz")  # G3000-G3499
-        deltas = bloque["G3056"]
-        versiculos = [sum(deltas[: i + 1]) for i in range(len(deltas))]
-        jn11 = sum(self.meta["libros"][i][j] for i in range(42) for j in range(len(self.meta["libros"][i])))
-        self.assertIn(jn11, versiculos)
-        self.assertEqual(versiculos, sorted(set(versiculos)))
 
 
 if __name__ == "__main__":

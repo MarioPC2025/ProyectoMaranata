@@ -1,3 +1,4 @@
+import type * as WordModule from '../../../words/word-by-word.ts';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { afterEach, describe, expect, it, vi } from 'vitest';
@@ -7,6 +8,15 @@ import { ntv } from '../../../translations/api/api-bible.ts';
 import { createVizData } from '../../../test-utils/viz-data.ts';
 import { DEFAULT_LINK_FILTER } from '../link-filter.ts';
 import { PassagePanel } from './PassagePanel.tsx';
+
+// The Hebrew and Greek are not what these tests are about: their download stays pending.
+vi.mock('../../../words/word-by-word.ts', async (importOriginal) => ({
+  ...(await importOriginal<typeof WordModule>()),
+  wordByWordLoader: () => ({
+    load: () => new Promise<never>(() => undefined),
+    reset: () => undefined,
+  }),
+}));
 
 const JOHN_3_16 = verseIndex('John', 3, 16);
 const JOHN_3_17 = verseIndex('John', 3, 17);

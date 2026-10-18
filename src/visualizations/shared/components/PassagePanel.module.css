@@ -538,3 +538,151 @@
   font-size: 0.8125rem;
   font-weight: 600;
 }
+
+/* El hebreo y el griego palabra por palabra. */
+.wordChips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.wordChip {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-inline-size: 3rem;
+  padding: var(--space-1) var(--space-2);
+  border: 1px solid var(--color-border);
+  border-radius: calc(var(--radius) - 2px);
+  background: none;
+  color: inherit;
+  cursor: pointer;
+  font: inherit;
+}
+
+.wordChip:hover,
+.wordChip:focus-visible {
+  border-color: var(--color-accent);
+}
+
+.wordChip[aria-pressed='true'],
+.wordChip[data-match='true'] {
+  border-color: var(--color-accent);
+  background: var(--color-accent-soft);
+}
+
+/* Una variante: solo está en el Textus Receptus o en Nestle-Aland. */
+.wordChip[data-variant='true'] {
+  border-style: dashed;
+}
+
+.wordOriginal {
+  font-family: 'Noto Serif Hebrew', 'Noto Serif', 'SBL Hebrew', 'Times New Roman', serif;
+  font-size: 1.375rem;
+  line-height: 1.6;
+}
+
+.wordTranslit {
+  color: var(--color-text-muted);
+  font-size: 0.75rem;
+  font-style: italic;
+}
+
+.wordGloss {
+  font-size: 0.8125rem;
+}
+
+.wordGloss[data-english='true'] {
+  color: var(--color-text-muted);
+}
+
+.wordLabel {
+  margin: var(--space-2) 0 var(--space-1);
+  color: var(--color-text-muted);
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.wordCard {
+  margin-block-start: var(--space-3);
+  padding: var(--space-3);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  background: var(--color-surface);
+}
+
+.wordCardHead {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--space-1) var(--space-3);
+}
+
+.wordCardLemma {
+  font-family: 'Noto Serif Hebrew', 'Noto Serif', 'SBL Hebrew', 'Times New Roman', serif;
+  font-size: 1.75rem;
+}
+
+.wordCardStrong {
+  margin-inline-start: auto;
+  color: var(--color-text-muted);
+  font-size: 0.75rem;
+}
+
+.wordCardList {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: var(--space-1) var(--space-3);
+  margin: var(--space-2) 0 0;
+  font-size: 0.875rem;
+}
+
+.wordCardList dt {
+  color: var(--color-text-muted);
+  font-size: 0.8125rem;
+}
+
+.wordCardList dd {
+  margin: 0;
+}
+
+.wordCardList [data-main='true'] {
+  font-weight: 600;
+}
+
+@media (max-width: 480px) {
+  .wordCardList {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* El hebreo o el griego de todo el capítulo: una fila por versículo. */
+.chapterWords {
+  display: grid;
+  gap: var(--space-2);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.chapterWordVerse {
+  display: grid;
+  grid-template-columns: 2rem minmax(0, 1fr);
+  align-items: start;
+  gap: var(--space-2);
+}
+
+.wordMatches {
+  margin: 0 0 var(--space-3);
+  color: var(--color-text-muted);
+  font-size: 0.8125rem;
+}
+
+/* Un versículo del capítulo que tiene la palabra elegida en el texto original. */
+.verseRow[data-match='true'] {
+  background: var(--color-accent-soft);
+}

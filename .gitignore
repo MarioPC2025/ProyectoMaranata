@@ -8,7 +8,12 @@ coverage/
 
 # Data: the upstream files (data/raw/) are committed; the datasets built from them are not, since
 # `npm run dev` and `npm run build` rebuild them (see README.md → "Data").
-public/data/
+public/data/*
+# Except the Hebrew and Greek word by word (scripts/construir_original.py, which needs the STEPBible
+# files that scripts/descargar.py downloads): the build does not make them, so they are kept.
+!public/data/original/
+!public/data/lexico/
+!public/data/morfologia.json
 # Except this one: 4.4 MB of archive for one translation is not worth keeping in the repository,
 # so the build downloads it on demand and checks it against its pin in data/sources.json.
 data/raw/eng-kjv2006_vpl.zip

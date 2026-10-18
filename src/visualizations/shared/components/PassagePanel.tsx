@@ -38,6 +38,11 @@ import { USFM_CODES } from '../../../core/bible/usfm.ts';
 import { EXTERNAL_VERSIONS } from '../../../translations/api/registry.ts';
 import { ApiChapterSection } from './ApiChapterSection.tsx';
 import { OriginalWordsSection } from './OriginalWordsSection.tsx';
+import {
+  ChapterWordsSection,
+  WordByWordSection,
+  type ChapterWordSelection,
+} from './WordByWordSection.tsx';
 import { PanelSection } from './PanelSection.tsx';
 import type { VizData } from '../viz-data.ts';
 import styles from './PassagePanel.module.css';
@@ -212,6 +217,13 @@ export function PassagePanel({
   const next = neighbor(passage, 1, versification);
   const unit = passage.kind === 'verse' ? 'versículo' : 'capítulo';
   const [apiVersion] = useApiVersionChoice();
+  // La palabra elegida en el hebreo o el griego del capítulo; vale solo para el pasaje en que se eligió.
+  const passageKey = toPassageOsisId(passage, versification);
+  const [chosenWord, setChosenWord] = useState<{
+    readonly key: string;
+    readonly selection: ChapterWordSelection;
+  } | null>(null);
+  const wordSelection = chosenWord?.key === passageKey ? chosenWord.selection : null;
 
   return (
     <div className={styles.panel}>
@@ -271,6 +283,7 @@ export function PassagePanel({
               />
             </div>
             {actions && <div className={styles.actions}>{actions}</div>}
+            <WordByWordSection verse={passage.verse} versification={versification} />
           </>
         ) : (
           <>
@@ -280,7 +293,16 @@ export function PassagePanel({
               end={range.end}
               translation={translation}
               connections={[...connections.outgoing, ...connections.incoming]}
+              highlighted={wordSelection ? new Set(wordSelection.verses) : null}
               onSelect={onSelect}
+            />
+            <ChapterWordsSection
+              start={range.start}
+              versification={versification}
+              selection={wordSelection}
+              onSelect={(selection) => {
+                setChosenWord(selection && { key: passageKey, selection });
+              }}
             />
           </>
         )}
@@ -352,12 +374,15 @@ function ChapterVerses({
   end,
   translation,
   connections,
+  highlighted,
   onSelect,
 }: {
   readonly start: VerseIndex;
   readonly end: VerseIndex;
   readonly translation: Translation;
   readonly connections: readonly Connection[];
+  /** Los versículos que tienen la palabra elegida en el texto original, si hay una. */
+  readonly highlighted: ReadonlySet<VerseIndex> | null;
   readonly onSelect: (passage: Passage) => void;
 }) {
   const counts = new Map<VerseIndex, number>();
@@ -379,6 +404,7 @@ function ChapterVerses({
           key={verse}
           type="button"
           className={styles.verseRow}
+          data-match={highlighted?.has(verse) ?? false}
           onClick={() => {
             onSelect(versePassage(verse));
           }}

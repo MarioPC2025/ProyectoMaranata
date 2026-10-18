@@ -11,7 +11,6 @@ export default defineConfig([
     'coverage/',
     'data/raw/',
     'public/data/',
-    'legado/',
     '.wrangler/',
     'test-results/',
     'playwright-report/',

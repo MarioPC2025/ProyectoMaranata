@@ -4,7 +4,6 @@ test-results/
 playwright-report/
 public/data/
 package-lock.json
-legado/
 .wrangler/
 .claude/
 graphify-out/
