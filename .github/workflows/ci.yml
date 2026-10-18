@@ -4,31 +4,103 @@ on:
   push:
     branches: [main]
   pull_request:
+  # Redeploy by hand, e.g. after changing the Pages settings.
+  workflow_dispatch:
 
-# El CI solo lee el repo: el GITHUB_TOKEN no necesita permisos de escritura.
 permissions:
   contents: read
 
 jobs:
-  web:
+  check:
+    name: Type check, lint, format, test, build
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
         with:
-          node-version: 24
+          node-version-file: .nvmrc
           cache: npm
       - run: npm ci
+      # The sources too large to keep in the repository (see data/raw/README.md) are downloaded by
+      # the build: the KJV archive and the tagged Hebrew and Greek, about 110 MB in all. The key
+      # is the whole pin file, so any re-pin fetches all of them again — which is the safe way
+      # round, since the build refuses a local file that does not match its pin rather than
+      # replacing it. Between re-pins nothing is downloaded, so a day when an upstream host is
+      # down does not stop a deployment.
+      - name: Cache the downloaded sources
+        uses: actions/cache@v6
+        with:
+          path: data/raw
+          key: raw-data-${{ hashFiles('data/sources.json') }}
+      # Types, lint, formatting and the unit tests with their coverage thresholds (98% of
+      # statements, lines and functions — see vite.config.ts). Any one of them failing fails
+      # the job, and with it the pull request.
       - run: npm run check
-      - run: npm run lint
-      - run: npm test
       - run: npm run build
+      - name: Keep the built site for the end-to-end tests
+        uses: actions/upload-artifact@v7
+        with:
+          name: site
+          path: dist
+          retention-days: 1
+      - name: Keep the built site for deployment
+        if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+        uses: actions/upload-pages-artifact@v5
+        with:
+          path: dist
 
-  datos:
+  # The flows a reader actually goes through, in a real browser against the built site: reading a
+  # chapter, following a cross-reference, the original-language words, switching translation, the
+  # layout at twelve widths, and the offline cache — including that a new release replaces an old
+  # one, which is the one failure that could strand an audience on a stale version.
+  e2e:
+    name: End-to-end tests
+    needs: check
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
         with:
-          python-version: '3.13'
-      - run: python -m unittest discover -s scripts -v
+          node-version-file: .nvmrc
+          cache: npm
+      - run: npm ci
+      - name: Take the site the check job built
+        uses: actions/download-artifact@v8
+        with:
+          name: site
+          path: dist
+      # Only Chromium: the suite tests this app's behaviour, not browser differences, and the
+      # service worker and WebGL both need a real engine rather than three of them.
+      - name: Install the browser
+        run: npx playwright install --with-deps chromium
+      - run: npm run test:e2e
+      - name: Keep the report when something failed
+        if: failure()
+        uses: actions/upload-artifact@v7
+        with:
+          name: playwright-report
+          path: |
+            playwright-report
+            test-results
+          retention-days: 7
+
+  # Publishes main to trekhleb.dev/bible-cross-references/, once every check has passed. The domain
+  # comes from the owner's user site; builds already use the /bible-cross-references/ base path.
+  deploy:
+    name: Deploy to GitHub Pages
+    if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+    needs: [check, e2e]
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    # One deployment at a time; a running one always finishes.
+    concurrency:
+      group: pages
+      cancel-in-progress: false
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v5

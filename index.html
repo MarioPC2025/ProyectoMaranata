@@ -1,36 +1,22 @@
 <!doctype html>
-<html lang="es">
+<html lang="en" data-theme="dark">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Proyecto Maranata</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <!-- Title and description only: the build plugins in vite/ add the rest of the head (icons,
+         canonical URL, Open Graph and Twitter cards, structured data). -->
     <meta
       name="description"
-      content="Explorá las más de 340.000 referencias cruzadas de la Biblia, de Génesis a Apocalipsis, en español."
+      content="Explore all 344,799 Bible cross-references: every verse on one line with its links as arcs, and every chapter with threads to where its verses connect."
     />
-    <meta name="color-scheme" content="light dark" />
-    <meta name="theme-color" content="#fbfaf7" media="(prefers-color-scheme: light)" />
-    <meta name="theme-color" content="#121417" media="(prefers-color-scheme: dark)" />
-    <meta property="og:title" content="Proyecto Maranata — Referencias cruzadas de la Biblia" />
-    <meta
-      property="og:description"
-      content="Más de 340.000 conexiones entre versículos, de Génesis a Apocalipsis."
-    />
-    <meta property="og:type" content="website" />
-    <meta property="og:locale" content="es_AR" />
-    <link rel="icon" href="/icono.svg" type="image/svg+xml" />
-    <link rel="apple-touch-icon" href="/icono-192.png" />
-    <link rel="manifest" href="/manifest.webmanifest" />
-    <script>
-      // Aplica el tema elegido antes de pintar (ver src/lib/tema.ts)
-      try {
-        var tema = localStorage.getItem('tema')
-        if (tema === 'claro' || tema === 'oscuro') document.documentElement.dataset.tema = tema
-      } catch (e) {}
-    </script>
+    <title>%SITE_NAME%</title>
   </head>
   <body>
-    <div id="app"></div>
-    <script type="module" src="/src/main.ts"></script>
+    <div id="root"></div>
+    <noscript>
+      %SITE_NAME% draws the 344,799 cross-references between the verses of the Bible. It needs
+      JavaScript to run.
+    </noscript>
+    <script type="module" src="/src/app/main.tsx"></script>
   </body>
 </html>

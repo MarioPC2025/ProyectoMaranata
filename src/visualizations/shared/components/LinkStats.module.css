@@ -1,0 +1,64 @@
+.stats {
+  position: absolute;
+  inset-block-start: var(--space-3);
+  inset-inline-end: var(--space-3);
+  z-index: 1;
+  display: grid;
+  gap: 2px;
+  justify-items: end;
+  margin: 0;
+  color: var(--color-text-muted);
+  font-size: 0.75rem;
+  line-height: 1.45;
+  text-align: end;
+  pointer-events: none;
+  /* A soft halo in the background's color keeps it readable over dense arcs. */
+  text-shadow:
+    0 0 3px var(--color-background),
+    0 0 8px var(--color-background);
+}
+
+.stats strong {
+  color: var(--color-text);
+  font-weight: 600;
+}
+
+/* Words and gesture icons, as in the arcs' tooltip. */
+.hint {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+  margin-block-start: var(--space-1);
+  white-space: nowrap;
+}
+
+.touchHint {
+  display: none;
+}
+
+/* A touch screen: its own gestures, and shown on phones too. */
+@media (hover: none) and (pointer: coarse) {
+  .pointerHint {
+    display: none;
+  }
+
+  .touchHint {
+    display: flex;
+  }
+}
+
+@media (max-width: 47.99rem) {
+  .stats {
+    inset-inline-end: var(--space-6);
+    font-size: 0.6875rem;
+  }
+
+  .secondary,
+  .pointerHint {
+    display: none;
+  }
+
+  .hint {
+    margin-block-start: 0;
+  }
+}

@@ -1,0 +1,92 @@
+.footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--space-1) var(--space-4);
+  padding: var(--space-2) var(--space-4) calc(var(--space-2) + env(safe-area-inset-bottom, 0px));
+  color: var(--color-text-muted);
+  font-size: 0.75rem;
+  line-height: 1.4;
+}
+
+.footer a {
+  color: inherit;
+}
+
+.footer a:hover,
+.footer a:focus-visible {
+  color: var(--color-text);
+}
+
+.owner {
+  white-space: nowrap;
+}
+
+/* The source link. The underline the footer's other links carry sits on its word alone: drawn
+   through the mark, it reads as a smudge. The padding gives a finger more than the mark itself to
+   hit; on an inline box it leaves the line's height alone, and the negative margins hand the
+   width back, so the line is no wider for it. */
+.source {
+  margin-inline: calc(var(--space-1) * -1);
+  padding: var(--space-1);
+  text-decoration: none;
+}
+
+.sourceLabel {
+  margin-inline-start: 0.3em;
+  text-decoration: underline;
+}
+
+.credits {
+  flex: 1 1 20rem;
+  text-align: end;
+}
+
+/* Phones: one line, owner on the left and the (shortened) credits on the right, when it fits;
+   otherwise the credits wrap below rather than lose anything. Each row is spaced on its own, so
+   the credits sit at the far end while they share the owner's row, and start at the same edge as
+   the owner once they have a row to themselves. */
+@media (max-width: 47.99rem) {
+  .footer {
+    justify-content: space-between;
+    /* The two halves nearly fill a 360px phone between them, and the credit cannot be shortened
+       (it is the licence), so they are set as close as two separate sentences can be. */
+    column-gap: var(--space-1);
+    padding-inline: var(--space-3);
+    font-size: 0.6875rem;
+  }
+
+  .credits {
+    flex: 0 1 auto;
+  }
+
+  /* The mark says GitHub on its own. */
+  .sourceLabel {
+    display: none;
+  }
+
+  /* The install arrow stands right after it: the mark keeps the width of its own padding on
+     that side, so the two hit areas meet rather than overlap. */
+  .source {
+    margin-inline-end: 0;
+  }
+}
+
+/* Narrow phones. The line is set in the reader's own UI font, which is a different width on
+   every system — between the narrowest and widest of them there is about a tenth of the line in
+   it, and at these widths a tenth is the difference between one line and two. So rather than fit
+   exactly and hope, the year goes: the licence credit cannot be shortened, the name is still
+   there in the link beside it, and what is left has room to spare on any font. */
+@media (max-width: 23.99rem) {
+  .copyright {
+    display: none;
+  }
+}
+
+/* The narrowest phones still in use: the last few pixels come off the page's edges too. */
+@media (max-width: 22.49rem) {
+  .footer {
+    column-gap: var(--space-1);
+    padding-inline: var(--space-2);
+  }
+}
