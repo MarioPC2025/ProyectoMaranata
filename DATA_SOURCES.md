@@ -21,6 +21,15 @@ El código de Proyecto Maranata está bajo licencia MIT. Los datos tienen licenc
 - Datasets usados: TAHOT, TAGNT, TBESH, TBESG, TIPNR, TVTMS.
 - Según https://stepbibleguide.blogspot.com/p/copyrights-licences.html, los datasets "may be freely used in other free projects" con atribución. Las definiciones de TBESH/TBESG parten del *Abridged Brown-Driver-Briggs* y el *Abridged Thayer*, que STEP usa "with permission" (Larry Pierce, OnlineBible.net): confirmar con STEPBible antes de traducirlas y publicarlas.
 
+- Versión usada: commit `ed476a8` de STEPBible-Data (fijado en `scripts/descargar.py`).
+
+### Cambios realizados sobre los datos de STEP (`scripts/construir_original.py`)
+- **TAHOT / TAGNT** → `public/data/original/<libro>.json.gz`: palabras agrupadas por versículo en versificación KJV. Los títulos de los Salmos (versículo 0 en STEP) van al comienzo del versículo 1 con una marca; 3 Jn 1:15 y Ap 12:18 se unen a 3 Jn 1:14 y Ap 13:1. Se omiten 14 lecturas *qere* sin texto y, en griego, las palabras que no están en Nestle-Aland ni en el Textus Receptus; las que están solo en uno se marcan. El griego se normaliza a Unicode NFC. Cada número Strong se ajusta a la forma en que figura en el léxico (por ejemplo G2453 → G2453G).
+- La glosa en español del griego es la columna "Spanish translation" de TAGNT, sin cambios.
+- **TBESH / TBESG** → `public/data/lexico/`: solo lema, transliteración, categoría y glosa breve. Las definiciones no se publican todavía (ver abajo).
+- **TEHMC / TEGMC** → `public/data/morfologia.json`: descripción de cada código traducida al español a partir de sus rasgos (`scripts/morfologia.py`).
+- Concordancia (`public/data/concordancia/`): para cada Strong, los versículos donde aparece, calculada a partir de TAHOT/TAGNT.
+
 ### Cambios realizados sobre datos CC BY
 (Registrar acá cada transformación: formato convertido, traducción al español del léxico, correcciones, etc.)
 

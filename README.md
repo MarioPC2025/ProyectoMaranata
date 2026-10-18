@@ -24,6 +24,7 @@ Los datos de origen se descargan a `data/raw/` (no se versiona) y los scripts de
 ```bash
 python scripts/descargar.py
 python scripts/construir.py
+python scripts/construir_original.py   # hebreo y griego (STEPBible-Data)
 ```
 
 ### Secretos

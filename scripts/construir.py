@@ -96,6 +96,10 @@ class Indice:
                 n += cant
         self.total = n
 
+    def existe(self, libro: int, cap: int, vers: int) -> bool:
+        caps = self.conteos[libro - 1]
+        return 1 <= cap <= len(caps) and 1 <= vers <= caps[cap - 1]
+
     def numero(self, libro: int, cap: int, vers: int) -> int:
         if not 1 <= vers <= self.conteos[libro - 1][cap - 1]:
             raise KeyError((libro, cap, vers))
