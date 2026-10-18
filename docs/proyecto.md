@@ -40,7 +40,7 @@ La base es el repositorio de trekhleb (arcos y hilos); lo propio de Maranata se 
 - Hecho: "Misma palabra hebrea/griega" (dataset de trekhleb, `words/stepbible.json`).
 - Pendiente: la RV1909 no lleva Strong (regla legal 6), así que no se puede marcar la palabra dentro del texto en español.
 - En curso: glosas del hebreo en español (`data/glosas-hebreo.tsv`, `python scripts/glosas.py pendientes|agregar|aplicar`; traducción automática por lotes, de las más frecuentes a las menos, pendiente de revisión humana).
-- En curso: fichas de nombres propios (TIPNR) en la ficha de la palabra (`scripts/nombres.py`, `data/nombres-es.tsv`, `python scripts/nombres.py pendientes|agregar`; traducidas las 750 más frecuentes de 4.238).
+- En curso: fichas de nombres propios (TIPNR) en la ficha de la palabra (`scripts/nombres.py`, `data/nombres-es.tsv`, `python scripts/nombres.py pendientes|agregar`; traducidas las 1.250 más frecuentes de 4.238).
 - Pendiente: léxico TBESH/TBESG traducido (IA + revisión humana).
 
 ### Fase 3 — App Android
