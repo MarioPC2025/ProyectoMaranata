@@ -1,4 +1,5 @@
 <script lang="ts">
+  import VistaGeneral from '../componentes/VistaGeneral.svelte'
   import { LIBROS, NOMBRES_GENERO, type Genero, type Libro } from '../lib/biblia/libros'
 
   const grupos = Object.entries(
@@ -12,12 +13,15 @@
 <section>
   <h1>Referencias cruzadas de la Biblia</h1>
   <p class="intro">
-    Más de 340.000 conexiones entre versículos. Elegí un libro o buscá un pasaje para ver con qué
-    otros textos se relaciona.
+    Más de 340.000 conexiones entre versículos, de Génesis a Apocalipsis. Cada arco une dos textos
+    que se relacionan.
   </p>
 
+  <VistaGeneral />
+
+  <h2 class="titulo-libros">Libros</h2>
   {#each grupos as [genero, libros] (genero)}
-    <h2>{NOMBRES_GENERO[genero]}</h2>
+    <h3>{NOMBRES_GENERO[genero]}</h3>
     <ul class="libros">
       {#each libros as l (l.id)}
         <li><a href={`/${l.slug}/1`} data-genero={l.genero}>{l.nombre}</a></li>
@@ -30,7 +34,11 @@
   .intro {
     color: var(--texto-suave);
   }
-  h2 {
+  .titulo-libros {
+    margin: 2rem 0 0;
+    font-size: 1.25rem;
+  }
+  h3 {
     margin: 1.5rem 0 0.5rem;
     font-size: 0.875rem;
     text-transform: uppercase;

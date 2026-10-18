@@ -22,7 +22,7 @@
   <Buscador />
 </header>
 
-<main>
+<main class:ancho={ubicacion.ruta === '/'}>
   {#if ubicacion.ruta === '/'}
     <Inicio />
   {:else if referencia?.capitulo}
@@ -67,6 +67,10 @@
     max-width: 44rem;
     margin: 0 auto;
     padding: 1.5rem 1rem 3rem;
+  }
+  /* El inicio usa todo el ancho para la vista general */
+  main.ancho {
+    max-width: 80rem;
   }
   footer {
     max-width: 44rem;

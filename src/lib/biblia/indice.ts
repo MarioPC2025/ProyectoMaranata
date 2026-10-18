@@ -69,9 +69,9 @@ export class Indice {
     return this.inicioCapitulo[this.capituloGlobal(libro, capitulo)] + versiculo - 1
   }
 
-  posicion(numero: number): Posicion {
+  /** Índice global (0-1188) del capítulo que contiene el versículo `numero` */
+  capituloDe(numero: number): number {
     if (numero < 0 || numero >= this.total) throw new RangeError(`Fuera de rango: ${numero}`)
-    // Búsqueda binaria del capítulo
     let lo = 0
     let hi = this.inicioCapitulo.length - 2
     while (lo < hi) {
@@ -79,6 +79,18 @@ export class Indice {
       if (this.inicioCapitulo[mid] <= numero) lo = mid
       else hi = mid - 1
     }
+    return lo
+  }
+
+  /** Libro y capítulo de un capítulo global (0-1188) */
+  capituloEnLibro(global: number): { libro: number; capitulo: number } {
+    let libro = 1
+    while (this.primerCapitulo[libro] <= global) libro++
+    return { libro, capitulo: global - this.primerCapitulo[libro - 1] + 1 }
+  }
+
+  posicion(numero: number): Posicion {
+    const lo = this.capituloDe(numero)
     let libro = 1
     while (this.primerCapitulo[libro] <= lo) libro++
     return {

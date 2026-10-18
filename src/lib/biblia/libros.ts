@@ -37,7 +37,10 @@ export const NOMBRES_GENERO: Record<Genero, string> = {
   apocalipsis: 'Apocalipsis',
 }
 
-type Fila = [nombre: string, abreviatura: string, genero: Genero, variantes?: string[]]
+/** Los géneros en orden canónico; el índice de cada uno es el que usa la visualización. */
+export const GENEROS = Object.keys(NOMBRES_GENERO) as Genero[]
+
+type Fila =[nombre: string, abreviatura: string, genero: Genero, variantes?: string[]]
 
 const FILAS: Fila[] = [
   ['Génesis', 'Gn', 'ley', ['gen', 'ge']],
