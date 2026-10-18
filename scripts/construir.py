@@ -4,7 +4,6 @@ Uso: python scripts/construir.py   (antes: python scripts/descargar.py)
 
 Genera:
 - indice.json      versículos por capítulo de cada libro (versificación KJV/OpenBible)
-                   y los capítulos cuya RV1909 no está alineada con esa versificación
 - xrefs.bin.gz     referencias cruzadas en binario, comprimido con gzip (formato abajo)
 - rv1909/<id>.json texto RV1909 de cada libro: lista de capítulos, cada uno lista de versículos
 
@@ -29,6 +28,7 @@ from array import array
 from pathlib import Path
 
 from libros import LIBROS, POR_BW, POR_OSIS
+from realinear import realinear
 
 RAIZ = Path(__file__).resolve().parent.parent
 RAW = RAIZ / "data" / "raw"
@@ -41,20 +41,15 @@ VERSION_XREFS = 2
 CORRECCIONES = {"3John.1.15": "3John.1.14"}
 
 # El VPL de eBible acomoda la versificación propia de la RV1909 en la grilla KJV:
-# deja estos huecos vacíos y fusiona versículos en otro lugar del capítulo, así que
-# el texto de los capítulos marcados no coincide versículo a versículo con la KJV.
-# Pendiente para la fase 2: realinearlos con TVTMS. Mientras tanto la interfaz avisa.
+# deja estos huecos vacíos y fusiona versículos en otro lugar del capítulo.
+# realinear.py reparte el texto en la versificación KJV; acá solo se verifica que la
+# fuente siga teniendo exactamente estos huecos (si cambia, hay que revisar las reglas).
 HUECOS_RV1909 = {
     (4, 12, 16), (4, 29, 40), (9, 23, 29), (10, 20, 26), (14, 33, 25),
     (18, 35, 16), (18, 38, 39), (18, 38, 40), (18, 38, 41), (18, 40, 20),
     (18, 40, 21), (18, 40, 22), (18, 40, 23), (18, 40, 24), (28, 11, 12),
     (32, 1, 17), (44, 19, 41), (47, 13, 14),
 }
-CAPITULOS_DESALINEADOS = [
-    (4, 12), (4, 13), (4, 29), (4, 30), (9, 23), (9, 24), (10, 20), (14, 33),
-    (18, 35), (18, 38), (18, 39), (18, 40), (18, 41), (28, 11), (28, 12),
-    (32, 1), (32, 2), (44, 19), (47, 13),
-]
 
 
 def leer_rv1909(ruta: Path) -> dict[int, list[list[str]]]:
@@ -201,20 +196,22 @@ def leer_xrefs(ruta: Path):
 
 
 def main() -> None:
-    libros = leer_rv1909(RAW / "rv1909" / "spaRV1909_vpl.txt")
+    libros = realinear(leer_rv1909(RAW / "rv1909" / "spaRV1909_vpl.txt"))
+    vacios = [
+        (id_, c, v)
+        for id_, caps in libros.items()
+        for c, versiculos in enumerate(caps, 1)
+        for v, t in enumerate(versiculos, 1)
+        if not t
+    ]
+    if vacios:
+        raise ValueError(f"Quedaron versículos vacíos después de realinear: {vacios}")
     conteos = [[len(c) for c in libros[id_]] for id_, _, _ in LIBROS]
     indice = Indice(conteos)
 
     SALIDA.mkdir(parents=True, exist_ok=True)
     (SALIDA / "indice.json").write_text(
-        json.dumps(
-            {
-                "versiculos": indice.total,
-                "libros": conteos,
-                "rv1909Desalineados": CAPITULOS_DESALINEADOS,
-            },
-            separators=(",", ":"),
-        ),
+        json.dumps({"versiculos": indice.total, "libros": conteos}, separators=(",", ":")),
         encoding="utf-8",
     )
 

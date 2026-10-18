@@ -96,4 +96,4 @@ Pendiente de decidir: oscuro y minimalista como el original de trekhleb, o una i
 - [ ] Conseguir un revisor con formación bíblica para la traducción del léxico.
 - [ ] Decidir el diseño visual.
 - [ ] Cuenta de desarrollador de Google Play (fase 3).
-- [ ] Realinear con TVTMS los 19 capítulos de la RV1909 que no coinciden con la versificación KJV (ver `DATA_SOURCES.md` y `HUECOS_RV1909` en `scripts/construir.py`).
+- [x] Realinear los capítulos de la RV1909 que no coincidían con la versificación KJV (`scripts/realinear.py`).

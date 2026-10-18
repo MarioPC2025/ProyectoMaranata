@@ -127,13 +127,6 @@
       </span>
     </div>
 
-    {#if indice?.rv1909Desalineado(referencia.libro, capitulo)}
-      <p class="aviso">
-        En este capítulo la numeración de la Reina-Valera 1909 difiere de la que usan las
-        referencias cruzadas, así que algunos versículos pueden aparecer corridos o vacíos.
-      </p>
-    {/if}
-
     <div class="columnas" class:con-paralela={!!paralela}>
       {#if paralela}
         <aside class="paralela">
@@ -197,13 +190,6 @@
   nav {
     display: flex;
     gap: 1rem;
-  }
-  .aviso {
-    padding: 0.5rem 0.75rem;
-    border: 1px solid var(--borde);
-    border-radius: 0.5rem;
-    color: var(--texto-suave);
-    font-size: 0.875rem;
   }
   .versiculos {
     margin: 1rem 0;

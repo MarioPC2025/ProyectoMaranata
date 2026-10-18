@@ -9,7 +9,8 @@ import tempfile
 import unittest
 from pathlib import Path
 
-from construir import CORRECCIONES, HUECOS_RV1909, Indice, escribir_xrefs, leer_xrefs
+from construir import CORRECCIONES, Indice, escribir_xrefs, leer_xrefs
+from realinear import REGLAS, _tramo
 from libros import LIBROS
 
 DATOS = Path(__file__).resolve().parent.parent / "public" / "data"
@@ -40,6 +41,22 @@ class TestIndice(unittest.TestCase):
         for destino in CORRECCIONES.values():
             libro, _, _ = destino.split(".")
             self.assertIn(libro, {l[1] for l in LIBROS})
+
+
+class TestRealinear(unittest.TestCase):
+    def test_tramos(self):
+        texto = "Uno dos. Tres cuatro. Cinco."
+        self.assertEqual(_tramo(texto, None, "Tres", "x"), "Uno dos.")
+        self.assertEqual(_tramo(texto, "Tres", "Cinco", "x"), "Tres cuatro.")
+        self.assertEqual(_tramo(texto, "Cinco", None, "x"), "Cinco.")
+        with self.assertRaises(ValueError):
+            _tramo(texto, "Seis", None, "x")
+
+    def test_reglas_cubren_los_huecos_de_la_fuente(self):
+        from construir import HUECOS_RV1909
+
+        for hueco in HUECOS_RV1909:
+            self.assertIn(hueco, REGLAS)
 
 
 class TestFormato(unittest.TestCase):
@@ -104,11 +121,21 @@ class TestDatosGenerados(unittest.TestCase):
         for id_, _, _ in LIBROS:
             caps = json.loads((DATOS / "rv1909" / f"{id_}.json").read_text(encoding="utf-8"))
             self.assertEqual([len(c) for c in caps], self.meta["libros"][id_ - 1])
-            for c, versiculos in enumerate(caps, 1):
-                for v, texto in enumerate(versiculos, 1):
-                    if not texto.strip():
-                        self.assertIn((id_, c, v), HUECOS_RV1909)
-                        self.assertIn([id_, c], self.meta["rv1909Desalineados"])
+            self.assertTrue(all(t.strip() for c in caps for t in c), f"versículo vacío en {id_}")
+
+    def test_realineacion_rv1909(self):
+        jonas = json.loads((DATOS / "rv1909" / "32.json").read_text(encoding="utf-8"))
+        self.assertTrue(jonas[0][16].startswith("Mas Jehová había prevenido un gran pez"))  # 1:17
+        self.assertTrue(jonas[1][0].startswith("Y oró Jonás"))  # 2:1
+        self.assertTrue(jonas[1][9].startswith("Y mandó Jehová al pez"))  # 2:10
+        job = json.loads((DATOS / "rv1909" / "18.json").read_text(encoding="utf-8"))
+        self.assertTrue(job[37][38].startswith("¿Cazarás tú la presa para el león?"))  # 38:39
+        self.assertTrue(job[38][26].startswith("¿Se remonta el águila"))  # 39:27
+        self.assertTrue(job[39][0].startswith("A más de eso respondió Jehová"))  # 40:1
+        self.assertTrue(job[39][5].startswith("Entonces respondió Jehová á Job"))  # 40:6
+        self.assertTrue(job[40][0].startswith("¿SACARÁS tú al leviathán"))  # 41:1, ya alineado
+        corintios = json.loads((DATOS / "rv1909" / "47.json").read_text(encoding="utf-8"))
+        self.assertEqual(corintios[12][12], "Todos los santos os saludan.")  # 2 Co 13:13
 
 
 if __name__ == "__main__":

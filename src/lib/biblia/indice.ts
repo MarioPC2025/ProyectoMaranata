@@ -5,8 +5,6 @@ export interface DatosIndice {
   versiculos: number
   /** Por libro (id - 1), cantidad de versículos de cada capítulo */
   libros: number[][]
-  /** Capítulos [libro, capítulo] cuya RV1909 no coincide versículo a versículo */
-  rv1909Desalineados: [number, number][]
 }
 
 export interface Posicion {
@@ -22,7 +20,6 @@ export class Indice {
   readonly inicioCapitulo: Int32Array
   /** Índice en inicioCapitulo del primer capítulo de cada libro (más un final) */
   readonly primerCapitulo: Int32Array
-  private readonly desalineados: Set<string>
 
   constructor(datos: DatosIndice) {
     this.total = datos.versiculos
@@ -42,7 +39,6 @@ export class Indice {
     this.primerCapitulo[datos.libros.length] = c
     this.inicioCapitulo[c] = n
     if (n !== this.total) throw new Error(`Índice inconsistente: ${n} != ${this.total}`)
-    this.desalineados = new Set(datos.rv1909Desalineados.map(([l, c]) => `${l}.${c}`))
   }
 
   capitulos(libro: number): number {
@@ -98,9 +94,5 @@ export class Indice {
       capitulo: lo - this.primerCapitulo[libro - 1] + 1,
       versiculo: numero - this.inicioCapitulo[lo] + 1,
     }
-  }
-
-  rv1909Desalineado(libro: number, capitulo: number): boolean {
-    return this.desalineados.has(`${libro}.${capitulo}`)
   }
 }

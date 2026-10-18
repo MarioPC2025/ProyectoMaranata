@@ -10,7 +10,7 @@ El código de Proyecto Maranata está bajo licencia MIT. Los datos tienen licenc
 
 ## Texto bíblico de dominio público
 - **Reina-Valera 1909** — dominio público. Fuente: VPL de eBible.org, https://ebible.org/Scriptures/details.php?id=spaRV1909 (marcado "Public Domain / Dominio Público").
-  - Ese archivo acomoda la versificación propia de la RV1909 en la grilla KJV: deja 18 versículos vacíos y fusiona otros en 19 capítulos (Nm 12–13 y 29–30, 1 S 23–24, 2 S 20, 2 Cr 33, Job 35 y 38–41, Os 11–12, Jon 1–2, Hch 19, 2 Co 13). Esos capítulos se marcan en `indice.json` (`rv1909Desalineados`) y se realinean en la fase 2 con TVTMS.
+  - Ese archivo acomoda la versificación propia de la RV1909 en la grilla KJV: deja 18 versículos vacíos y fusiona otros en 18 capítulos (Nm 12–13 y 29–30, 1 S 23–24, 2 S 20, 2 Cr 33, Job 35 y 38–40, Os 11–12, Jon 1–2, Hch 19, 2 Co 13). `scripts/realinear.py` reparte ese texto en la versificación KJV: mueve los versículos corridos y parte los casilleros que juntan varios versículos en la frase donde empieza cada uno (cotejado versículo por versículo con el hebreo y el griego de STEP). El texto no se cambia, salvo la primera palabra en mayúsculas de 7 comienzos de capítulo que quedaron en medio de otro (por ejemplo "MAS Jehová" → "Mas Jehová" en Jon 1:17).
   - El USFM de esa misma página trae números Strong: es el etiquetado de Rubén Gómez, que CrossWire publica en el módulo `SpaRV1909` como "Copyrighted; Permission to distribute granted to CrossWire". **No se usa** hasta tener su permiso por escrito.
 - **Etiquetado Strong de la RV1909** — Rubén Gómez. Licencia pendiente de confirmar; no se incluye hasta tenerla.
 

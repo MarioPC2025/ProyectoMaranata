@@ -61,7 +61,7 @@ describe('arcos', () => {
       fin: new Uint16Array([2, 3, 0, 3]),
       votos: new Int16Array([5, 3, 9, 1]),
     }
-    const mini = new Indice({ versiculos: 4, libros: [[4]], rv1909Desalineados: [] })
+    const mini = new Indice({ versiculos: 4, libros: [[4]] })
     const arcos = construirArcos(refs, mini)
     expect(arcos.cantidad).toBe(2)
     expect(Array.from(arcos.datos.slice(0, FLOATS_POR_ARCO))).toEqual([0, 2, 0, 9])

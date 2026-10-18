@@ -104,9 +104,4 @@ describe('índice', () => {
     }
     expect(indice.posicion(1533)).toEqual({ libro: 2, capitulo: 1, versiculo: 1 })
   })
-
-  it('marca los capítulos desalineados de la RV1909', () => {
-    expect(indice.rv1909Desalineado(32, 1)).toBe(true)
-    expect(indice.rv1909Desalineado(43, 3)).toBe(false)
-  })
 })
