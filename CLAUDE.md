@@ -86,7 +86,7 @@ Pendiente de decidir: oscuro y minimalista como el original de trekhleb, o una i
 ## Pendientes
 
 - [ ] Comprar el dominio.
-- [ ] Crear la cuenta de Cloudflare dedicada (mail del proyecto) y conectar Pages al repo.
+- [ ] Crear la cuenta de Cloudflare dedicada (mail del proyecto) y conectar Pages al repo. Al publicar: crear el KV `CACHE_BIBLIA` y poner su id en `wrangler.toml`, cargar `APIBIBLE_KEY` como secreto y `VITE_YVP_APP_KEY` como variable de build.
 - [ ] Mail a YouVersion: ¿se permite un link de donación discreto en un proyecto sin fines de lucro?
 - [ ] Mail a Rubén Gómez (rubeng{at}infotelecom{dot}es, según la ficha de CrossWire): permiso para usar su etiquetado Strong de la RV1909 fuera de CrossWire.
 - [ ] Confirmar con support@api.bible el modelo (sin fines de lucro, sin donaciones al lanzar) y guardar la respuesta.

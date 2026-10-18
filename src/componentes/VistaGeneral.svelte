@@ -86,13 +86,16 @@
       sinWebGL = true
     }
 
-    Promise.all([cargarIndice(), cargarReferencias()]).then(([i, r]) => {
-      indice = i
-      referencias = r
-      escala = conAncho(crearEscala(i.total, ancho || 1), ancho || 1)
-      arcos = construirArcos(r, i)
-      renderer?.cargar(arcos)
-    }, (e) => (error = e instanceof Error ? e.message : String(e)))
+    Promise.all([cargarIndice(), cargarReferencias()]).then(
+      ([i, r]) => {
+        indice = i
+        referencias = r
+        escala = conAncho(crearEscala(i.total, ancho || 1), ancho || 1)
+        arcos = construirArcos(r, i)
+        renderer?.cargar(arcos)
+      },
+      (e) => (error = e instanceof Error ? e.message : String(e)),
+    )
 
     const observador = new ResizeObserver(([entrada]) => {
       ancho = entrada.contentRect.width
@@ -142,10 +145,17 @@
     if (!indice) return
     const ctx = prepararCanvas(canvas2D, ancho)
     if (sinWebGL && arcos) {
-      dibujarArcos2D(ctx, escala, recorrerArcos(arcos, Math.min(cantidad, MAX_ARCOS_2D)), lienzo, tema, {
-        alfa: 0.08,
-        grosor: 1,
-      })
+      dibujarArcos2D(
+        ctx,
+        escala,
+        recorrerArcos(arcos, Math.min(cantidad, MAX_ARCOS_2D)),
+        lienzo,
+        tema,
+        {
+          alfa: 0.08,
+          grosor: 1,
+        },
+      )
     }
     dibujarBase(ctx, escala, indice, lienzo, tema)
     if (foco) {
@@ -348,7 +358,9 @@
       const visible1 = Math.min(ancho, x1)
       const espacio = visible1 - visible0
       if (espacio < 22) return []
-      return [{ id: l.id, texto: espacio > 90 ? l.nombre : l.abreviatura, x: (visible0 + visible1) / 2 }]
+      return [
+        { id: l.id, texto: espacio > 90 ? l.nombre : l.abreviatura, x: (visible0 + visible1) / 2 },
+      ]
     })
   })
 

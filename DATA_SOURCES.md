@@ -30,3 +30,6 @@ El código de Proyecto Maranata está bajo licencia MIT. Los datos tienen licenc
 - **NTV** — © Tyndale House Publishers, vía API.Bible (American Bible Society), plan Starter (5.000 llamadas por mes). Uso no comercial.
 - **NVI-S** (Nueva Versión Internacional 2025) y **RVES** (Reina Valera Antigua) — vía YouVersion Platform. Uso no comercial.
 - El copyright de cada versión se muestra junto al texto, tal como lo devuelve cada API.
+- IDs: NTV en API.Bible `826f63861180e056-01`; en YouVersion, NVI-S `128` y RVES `147`.
+- La NTV se cachea por capítulo hasta 29 días (Workers KV) junto con su `fumsToken`, que el navegador reporta con FUMS v3 cada vez que muestra el capítulo.
+- La RVES no trae texto de atribución en YouVersion: se muestra "Reina-Valera Antigua (RVES), vía YouVersion" con link a la versión.

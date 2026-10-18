@@ -1,0 +1,11 @@
+# Configuración de Cloudflare Pages (sitio + Pages Functions en functions/).
+name = "proyectomaranata"
+pages_build_output_dir = "dist"
+compatibility_date = "2026-10-01"
+
+# Caché de la NTV (ver servidor/ntv.ts). En local, wrangler la simula.
+# PENDIENTE al publicar: crear el namespace en la cuenta de Cloudflare del proyecto
+# (npx wrangler kv namespace create CACHE_BIBLIA) y poner acá su id.
+[[kv_namespaces]]
+binding = "CACHE_BIBLIA"
+id = "00000000000000000000000000000000"

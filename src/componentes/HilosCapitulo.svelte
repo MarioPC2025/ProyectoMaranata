@@ -108,7 +108,10 @@
     if (bajoPuntero !== null) {
       const c0 = versiculoAX(escala, indice.inicioCapitulo[bajoPuntero]) - 1
       const c1 = versiculoAX(escala, indice.inicioCapitulo[bajoPuntero + 1] - 1) + 1
-      ctx.fillStyle = colorGenero(LIBROS[libros[indice.inicioCapitulo[bajoPuntero]] - 1].genero, tema)
+      ctx.fillStyle = colorGenero(
+        LIBROS[libros[indice.inicioCapitulo[bajoPuntero]] - 1].genero,
+        tema,
+      )
       ctx.fillRect(c0, lienzo.base - 4, Math.max(3, c1 - c0), 14)
     }
   })

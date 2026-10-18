@@ -1,0 +1,16 @@
+{
+  // Código que corre en Cloudflare (Pages Functions)
+  "compilerOptions": {
+    "target": "es2023",
+    "lib": ["ES2023"],
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "types": ["@cloudflare/workers-types"],
+    "strict": true,
+    "noEmit": true,
+    "skipLibCheck": true,
+    "isolatedModules": true
+  },
+  "include": ["functions/**/*.ts", "servidor/**/*.ts"],
+  "exclude": ["servidor/**/*.test.ts"]
+}

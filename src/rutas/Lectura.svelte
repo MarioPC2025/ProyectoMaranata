@@ -8,17 +8,21 @@
   import { esValida, formatear, ruta, type Referencia } from '../lib/biblia/referencia'
   import { cargarIndice, cargarLibroRV1909, cargarReferencias } from '../lib/datos/cargar'
   import type { Referencias } from '../lib/datos/xrefs'
+  import OtraVersion from '../componentes/OtraVersion.svelte'
+  import { EXTERNAS } from '../lib/versiones'
+  import { disponibles, elegirVersion, versiones } from '../lib/versiones/estado.svelte'
 
   let { referencia }: { referencia: Referencia } = $props()
 
-  let indice = $state<Indice>()
-  let referencias = $state<Referencias>()
+  let indice = $state.raw<Indice>()
+  let referencias = $state.raw<Referencias>()
   let texto = $state<string[][]>()
   let error = $state('')
 
   const libro = $derived(datosLibro(referencia.libro))
   const capitulo = $derived(referencia.capitulo ?? 1)
   const valida = $derived(indice ? esValida({ ...referencia, capitulo }, indice) : true)
+  const paralela = $derived(disponibles().find((p) => p.id === versiones.elegida))
 
   $effect(() => {
     cargarIndice().then((i) => (indice = i), mostrarError)
@@ -93,6 +97,30 @@
       />
     {/if}
 
+    <div class="ver-en">
+      <label>
+        Ver también en
+        <select value={versiones.elegida} onchange={(e) => elegirVersion(e.currentTarget.value)}>
+          <option value="">— solo RV1909 —</option>
+          {#each disponibles() as p (p.id)}
+            <option value={p.id}>{p.abreviatura} · {p.nombre}</option>
+          {/each}
+        </select>
+      </label>
+      <span class="externas">
+        En otros sitios:
+        {#each EXTERNAS as ext, i (ext.abreviatura)}
+          {#if i > 0}<span class="separador" aria-hidden="true">·</span>{/if}
+          <a
+            href={ext.enlace(libro.nombre, capitulo)}
+            target="_blank"
+            rel="noopener"
+            title={ext.nombre}>{ext.abreviatura}</a
+          >
+        {/each}
+      </span>
+    </div>
+
     {#if indice?.rv1909Desalineado(referencia.libro, capitulo)}
       <p class="aviso">
         En este capítulo la numeración de la Reina-Valera 1909 difiere de la que usan las
@@ -100,36 +128,48 @@
       </p>
     {/if}
 
-    {#if !texto || !indice || !referencias}
-      <p class="cargando">Cargando…</p>
-    {:else}
-      <ol class="versiculos">
-        {#each texto[capitulo - 1] as t, i (i)}
-          {@const v = i + 1}
-          {@const seleccionado = v === referencia.versiculo}
-          <li id={`v${v}`} class:seleccionado>
-            <a
-              class="numero"
-              href={seleccionado
-                ? ruta({ libro: referencia.libro, capitulo })
-                : ruta({ libro: referencia.libro, capitulo, versiculo: v })}
-              aria-current={seleccionado ? 'true' : undefined}
-              aria-label={`Versículo ${v}${seleccionado ? ', ocultar referencias' : ', ver referencias'}`}
-              >{v}</a
-            >
-            <span class="texto"><TextoVersiculo texto={t} /></span>
-            {#if seleccionado}
-              <ListaReferencias
-                versiculo={indice.numero(referencia.libro, capitulo, v)}
-                {indice}
-                {referencias}
-              />
-            {/if}
-          </li>
-        {/each}
-      </ol>
-      <p class="fuente">Texto: Reina-Valera 1909 (dominio público).</p>
-    {/if}
+    <div class="columnas" class:con-paralela={!!paralela}>
+      {#if paralela}
+        <aside class="paralela">
+          <OtraVersion proveedor={paralela} {libro} {capitulo} />
+        </aside>
+      {/if}
+      <div class="principal">
+        {#if !texto || !indice || !referencias}
+          <p class="cargando">Cargando…</p>
+        {:else}
+          {#if paralela}<h2 class="titulo-rv">
+              RV1909 <span>· {libro.nombre} {capitulo}</span>
+            </h2>{/if}
+          <ol class="versiculos">
+            {#each texto[capitulo - 1] as t, i (i)}
+              {@const v = i + 1}
+              {@const seleccionado = v === referencia.versiculo}
+              <li id={`v${v}`} class:seleccionado>
+                <a
+                  class="numero"
+                  href={seleccionado
+                    ? ruta({ libro: referencia.libro, capitulo })
+                    : ruta({ libro: referencia.libro, capitulo, versiculo: v })}
+                  aria-current={seleccionado ? 'true' : undefined}
+                  aria-label={`Versículo ${v}${seleccionado ? ', ocultar referencias' : ', ver referencias'}`}
+                  >{v}</a
+                >
+                <span class="texto"><TextoVersiculo texto={t} /></span>
+                {#if seleccionado}
+                  <ListaReferencias
+                    versiculo={indice.numero(referencia.libro, capitulo, v)}
+                    {indice}
+                    {referencias}
+                  />
+                {/if}
+              </li>
+            {/each}
+          </ol>
+          <p class="fuente">Texto: Reina-Valera 1909 (dominio público).</p>
+        {/if}
+      </div>
+    </div>
   </article>
 {/if}
 
@@ -186,5 +226,71 @@
   .fuente {
     color: var(--texto-suave);
     font-size: 0.875rem;
+  }
+  .ver-en {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem 1rem;
+    margin: 0.5rem 0 1rem;
+    font-size: 0.875rem;
+  }
+  .ver-en select {
+    margin-left: 0.25rem;
+    font: inherit;
+    color: inherit;
+    background: var(--fondo);
+    border: 1px solid var(--borde);
+    border-radius: 0.375rem;
+    padding: 0.25rem 0.5rem;
+    max-width: 100%;
+  }
+  .externas {
+    color: var(--texto-suave);
+  }
+  .separador {
+    margin: 0 0.375rem;
+  }
+  .titulo-rv {
+    margin: 0 0 0.75rem;
+    font-family: var(--fuente-lectura);
+    font-size: 1.125rem;
+  }
+  .titulo-rv span {
+    font-weight: normal;
+    color: var(--texto-suave);
+  }
+  /* En celular, la otra versión va arriba en un bloque con su propio scroll */
+  .paralela {
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    max-height: 60vh;
+    overflow-y: auto;
+    border: 1px solid var(--borde);
+    border-radius: 0.5rem;
+  }
+  /* En pantallas anchas, dos columnas: RV1909 a la izquierda y la otra versión a la derecha */
+  @media (min-width: 1100px) {
+    .columnas.con-paralela {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2.5rem;
+      width: min(88rem, calc(100vw - 2rem));
+      position: relative;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    .paralela {
+      order: 2;
+      position: sticky;
+      top: 5rem;
+      align-self: start;
+      max-height: calc(100vh - 6rem);
+      margin: 0;
+      padding: 0 0 0 2.5rem;
+      border: 0;
+      border-left: 1px solid var(--borde);
+      border-radius: 0;
+    }
   }
 </style>

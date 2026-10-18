@@ -22,7 +22,16 @@ export interface Libro {
   genero: Genero
   /** Otras formas de escribirlo (además del nombre y la abreviatura) */
   variantes: string[]
+  /** Código USFM ("JHN"), el que usan API.Bible y YouVersion */
+  usfm: string
 }
+
+/** Códigos USFM de los 66 libros, en orden canónico */
+export const CODIGOS_USFM = (
+  'GEN EXO LEV NUM DEU JOS JDG RUT 1SA 2SA 1KI 2KI 1CH 2CH EZR NEH EST JOB PSA PRO ECC SNG ' +
+  'ISA JER LAM EZK DAN HOS JOL AMO OBA JON MIC NAM HAB ZEP HAG ZEC MAL MAT MRK LUK JHN ACT ' +
+  'ROM 1CO 2CO GAL EPH PHP COL 1TH 2TH 1TI 2TI TIT PHM HEB JAS 1PE 2PE 1JN 2JN 3JN JUD REV'
+).split(' ')
 
 export const NOMBRES_GENERO: Record<Genero, string> = {
   ley: 'Ley',
@@ -40,7 +49,7 @@ export const NOMBRES_GENERO: Record<Genero, string> = {
 /** Los géneros en orden canónico; el índice de cada uno es el que usa la visualización. */
 export const GENEROS = Object.keys(NOMBRES_GENERO) as Genero[]
 
-type Fila =[nombre: string, abreviatura: string, genero: Genero, variantes?: string[]]
+type Fila = [nombre: string, abreviatura: string, genero: Genero, variantes?: string[]]
 
 const FILAS: Fila[] = [
   ['Génesis', 'Gn', 'ley', ['gen', 'ge']],
@@ -113,11 +122,7 @@ const FILAS: Fila[] = [
 
 /** Minúsculas y sin tildes. Conserva la ñ. */
 export function sinTildes(texto: string): string {
-  return texto
-    .toLowerCase()
-    .normalize('NFD')
-    .replace(/ñ/g, 'ñ')
-    .replace(/[̀-ͯ]/g, '')
+  return texto.toLowerCase().normalize('NFD').replace(/ñ/g, 'ñ').replace(/[̀-ͯ]/g, '')
 }
 
 /** Minúsculas, sin tildes y sin espacios ni puntos. Conserva la ñ. */
@@ -132,6 +137,7 @@ export const LIBROS: Libro[] = FILAS.map(([nombre, abreviatura, genero, variante
   slug: normalizar(nombre.replace(' ', '-')),
   genero,
   variantes,
+  usfm: CODIGOS_USFM[i],
 }))
 
 export function libro(id: number): Libro {

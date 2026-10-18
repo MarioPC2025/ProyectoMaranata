@@ -29,3 +29,14 @@ python scripts/construir.py
 ### Secretos
 
 Copiá `.dev.vars.example` como `.dev.vars` y `.env.local.example` como `.env.local`. Ninguno de los dos se sube al repo.
+
+### Versiones por API (NTV, NVI-S, RVES)
+
+La NTV pasa por un proxy (`functions/api/ntv/`, lógica en `servidor/ntv.ts`) que corre en Cloudflare. En local hacen falta dos terminales:
+
+```bash
+npm run dev:api    # wrangler: Pages Functions en :8788, con la clave de .dev.vars y un KV simulado
+npm run dev        # Vite en :5173; /api se redirige a wrangler
+```
+
+La NVI-S y la RVES se piden desde el navegador con el SDK de YouVersion y la app key de `.env.local`.
