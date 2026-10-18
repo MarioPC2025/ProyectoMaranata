@@ -15,19 +15,22 @@ describe("the pipeline's paths", () => {
     }
   });
 
+  // Windows writes its paths with backslashes; the places are the same.
+  const slashes = (path: string) => path.replaceAll('\\', '/');
+
   it('point at the places the README documents', () => {
-    expect(SOURCES_FILE.endsWith('/data/sources.json')).toBe(true);
-    expect(RAW_DATA_DIR.endsWith('/data/raw')).toBe(true);
-    expect(PUBLIC_DIR.endsWith('/public')).toBe(true);
+    expect(slashes(SOURCES_FILE).endsWith('/data/sources.json')).toBe(true);
+    expect(slashes(RAW_DATA_DIR).endsWith('/data/raw')).toBe(true);
+    expect(slashes(PUBLIC_DIR).endsWith('/public')).toBe(true);
   });
 
   it('resolve a raw file under data/raw', () => {
-    expect(rawFilePath('bsb.txt')).toBe(`${RAW_DATA_DIR}/bsb.txt`);
+    expect(slashes(rawFilePath('bsb.txt'))).toBe(`${slashes(RAW_DATA_DIR)}/bsb.txt`);
   });
 
   it('resolve a generated dataset under public', () => {
-    expect(publicFilePath('data/translations/bsb.json')).toBe(
-      `${PUBLIC_DIR}/data/translations/bsb.json`,
+    expect(slashes(publicFilePath('data/translations/bsb.json'))).toBe(
+      `${slashes(PUBLIC_DIR)}/data/translations/bsb.json`,
     );
   });
 });

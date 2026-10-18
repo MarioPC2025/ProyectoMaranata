@@ -10,25 +10,25 @@ import type { HtmlTagDescriptor } from 'vite';
 export const ROOT_DIR = resolve(import.meta.dirname, '..');
 
 /** The site's name: `import.meta.env.SITE_NAME` in code, `%SITE_NAME%` in the HTML entries. */
-export const SITE_NAME = 'Bible Cross-References';
+export const SITE_NAME = 'Maranata';
 
 /**
- * Where the built site is served. GitHub Pages serves this repository (bible-cross-references) at
- * trekhleb.dev/bible-cross-references/, under the owner's custom domain. Set `BASE_PATH` and
- * `SITE_ORIGIN` to build for another location, e.g. `BASE_PATH=/` for the root of a domain.
+ * Where the built site is served: the root of a Cloudflare Pages project (the proxy of the API
+ * versions lives in the same project, under /api). Set `BASE_PATH` and `SITE_ORIGIN` to build for
+ * another location, e.g. a custom domain.
  */
-export const DEPLOY_BASE = '/bible-cross-references/';
-export const SITE_ORIGIN = process.env['SITE_ORIGIN'] ?? 'https://trekhleb.dev';
+export const DEPLOY_BASE = '/';
+export const SITE_ORIGIN = process.env['SITE_ORIGIN'] ?? 'https://proyectomaranata.pages.dev';
 /**
- * The published site, e.g. `https://trekhleb.dev/bible-cross-references/`. Links meant for others
- * (copied quotes) point here even from the dev server, which runs at the root.
+ * The published site, e.g. `https://proyectomaranata.pages.dev/`. Links meant for others (copied
+ * quotes) point here even from the dev server.
  */
 export const SITE_URL = new URL(process.env['BASE_PATH'] ?? DEPLOY_BASE, SITE_ORIGIN).href;
 
 export const AUTHOR = {
-  name: 'Oleksii Trekhleb',
-  url: 'https://trekhleb.dev',
-  twitter: '@Trekhleb',
+  name: 'Mario Baldovino',
+  url: 'https://github.com/MarioPC2025',
+  twitter: '',
 };
 
 /**
@@ -39,7 +39,7 @@ export const SOCIAL_IMAGE = {
   file: 'social-preview.jpg',
   width: 2400,
   height: 1260,
-  alt: 'Arcs connecting the verses of the Bible, from Genesis to Revelation, colored by genre',
+  alt: 'Arcos que conectan los versículos de la Biblia, de Génesis a Apocalipsis, coloreados por género',
 };
 
 /**

@@ -11,6 +11,8 @@ export default defineConfig([
     'coverage/',
     'data/raw/',
     'public/data/',
+    'legado/',
+    '.wrangler/',
     'test-results/',
     'playwright-report/',
   ]),
@@ -44,6 +46,11 @@ export default defineConfig([
     files: ['scripts/**/*.ts', 'tests/**/*.ts', 'vite/**/*.ts', '*.config.{js,ts}'],
     languageOptions: { globals: globals.node },
     rules: { 'no-console': 'off' },
+  },
+  {
+    // The proxy of the API versions, which runs on Cloudflare Workers.
+    files: ['servidor/**/*.ts', 'functions/**/*.ts'],
+    languageOptions: { globals: globals.serviceworker },
   },
   {
     files: ['**/*.js'],

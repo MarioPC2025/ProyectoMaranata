@@ -2,7 +2,6 @@
 import { resolve } from 'node:path';
 import react from '@vitejs/plugin-react';
 import { defineConfig } from 'vite';
-import { analytics } from './vite/analytics.ts';
 import { firstFrame } from './vite/first-frame.ts';
 import { offline } from './vite/offline.ts';
 import { DEPLOY_BASE, PAGES, ROOT_DIR, SITE_NAME, SITE_URL } from './vite/site.ts';
@@ -10,15 +9,18 @@ import { siteHead } from './vite/site-head.ts';
 
 // https://vite.dev/config/
 export default defineConfig(({ command, isPreview = false }) => ({
-  // The dev server runs at the root; builds, and their preview, at the deployed sub-path, so a
-  // path that ignores the base breaks in `npm run preview` rather than in production. Runtime code
+  // The dev server runs at the root; builds, and their preview, at the deployed base. Runtime code
   // builds every URL from `import.meta.env.BASE_URL`.
   base: process.env['BASE_PATH'] ?? (command === 'build' || isPreview ? DEPLOY_BASE : '/'),
+  server: {
+    // The API versions (NTV) are served by the Pages Function: `npm run dev:api` in another terminal.
+    proxy: { '/api': 'http://localhost:8788' },
+  },
   define: {
     'import.meta.env.SITE_NAME': JSON.stringify(SITE_NAME),
     'import.meta.env.SITE_URL': JSON.stringify(SITE_URL),
   },
-  plugins: [react(), siteHead(), firstFrame(), offline(), analytics()],
+  plugins: [react(), siteHead(), firstFrame(), offline()],
   build: {
     // Three.js alone is ~550 kB minified (~140 kB gzipped); only the WebGL pages load it.
     chunkSizeWarningLimit: 600,
@@ -43,6 +45,7 @@ export default defineConfig(({ command, isPreview = false }) => ({
       'scripts/**/*.test.ts',
       'vite/**/*.test.ts',
       'tests/**/*.test.ts',
+      'servidor/**/*.test.ts',
     ],
     // A DOM for the components; the pipeline's tests use Node's APIs, which are still here.
     environment: 'happy-dom',

@@ -6,7 +6,7 @@ import styles from './SiteFooter.module.css';
 const YEAR = new Date().getFullYear();
 
 /** Where the code lives. The project is open source, so every page points at it. */
-const REPOSITORY_URL = 'https://github.com/trekhleb/bible-cross-references';
+const REPOSITORY_URL = 'https://github.com/MarioPC2025/MaranathaBible';
 
 interface SiteFooterProps {
   /** Page-specific credits, such as data attribution. */
@@ -24,14 +24,17 @@ export function SiteFooter({ children, className }: SiteFooterProps) {
     <footer className={className ? `${styles.footer} ${className}` : styles.footer}>
       <span className={styles.owner}>
         <span className={styles.copyright}>© {YEAR} · </span>
-        <a href="https://trekhleb.dev">trekhleb.dev</a> ·{' '}
+        <a href="https://github.com/MarioPC2025" target="_blank" rel="noreferrer">
+          Mario Baldovino
+        </a>{' '}
+        ·{' '}
         <a
           className={styles.source}
           href={REPOSITORY_URL}
           target="_blank"
           rel="noreferrer"
-          title="Source code on GitHub"
-          aria-label="Source code on GitHub"
+          title="Código fuente en GitHub"
+          aria-label="Código fuente en GitHub"
         >
           <SourceCodeIcon />
           <span className={styles.sourceLabel}>GitHub</span>

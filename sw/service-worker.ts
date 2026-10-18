@@ -115,7 +115,10 @@ self.addEventListener('fetch', (event) => {
   if (
     request.method !== 'GET' ||
     url.origin !== scope.origin ||
-    !url.pathname.startsWith(scope.pathname)
+    !url.pathname.startsWith(scope.pathname) ||
+    // The proxy of the API versions: their license limits how long their text may be kept, and the
+    // proxy keeps it itself (30 days at most), so the device never does.
+    url.pathname.startsWith(`${scope.pathname}api/`)
   ) {
     return;
   }

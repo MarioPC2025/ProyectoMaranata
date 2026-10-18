@@ -63,7 +63,7 @@ export function siteHead(): Plugin {
         meta('name', 'author', AUTHOR.name),
         meta('property', 'og:type', 'website'),
         meta('property', 'og:site_name', SITE_NAME),
-        meta('property', 'og:locale', 'en_US'),
+        meta('property', 'og:locale', 'es_ES'),
         meta('property', 'og:title', title),
         meta('property', 'og:description', description),
         meta('property', 'og:url', url),
@@ -72,7 +72,6 @@ export function siteHead(): Plugin {
         meta('property', 'og:image:height', String(SOCIAL_IMAGE.height)),
         meta('property', 'og:image:alt', SOCIAL_IMAGE.alt),
         meta('name', 'twitter:card', 'summary_large_image'),
-        meta('name', 'twitter:creator', AUTHOR.twitter),
         meta('name', 'twitter:title', title),
         meta('name', 'twitter:description', description),
         meta('name', 'twitter:image', image),
@@ -88,9 +87,9 @@ export function siteHead(): Plugin {
           image,
           applicationCategory: 'ReferenceApplication',
           operatingSystem: 'Any',
-          browserRequirements: 'Requires JavaScript and WebGL 2',
+          browserRequirements: 'Requiere JavaScript y WebGL 2',
           isAccessibleForFree: true,
-          inLanguage: 'en',
+          inLanguage: 'es',
           author: { '@type': 'Person', name: AUTHOR.name, url: AUTHOR.url },
         };
         tags.push({

@@ -15,8 +15,8 @@
       "description": "King James Version, eBible.org edition, verse-per-line text in a ZIP archive",
       "url": "https://ebible.org/Scriptures/eng-kjv2006_vpl.zip",
       "fileName": "eng-kjv2006_vpl.zip",
-      "sha256": "0058f0cca3a9609f14e435ebbb3c3165c84571de8fbd3d6d7181da8d2d0700ea",
-      "retrievedAt": "2026-10-17",
+      "sha256": "e76e03b6a644d7cdb33c22b90a55211376fae8cc7b6d8c74b8963a430eb85b77",
+      "retrievedAt": "2026-10-18",
       "license": "Public domain (United Kingdom: Crown copyright)",
       "homepage": "https://ebible.org/Scriptures/details.php?id=eng-kjv2006"
     },

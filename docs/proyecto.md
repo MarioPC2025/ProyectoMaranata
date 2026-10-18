@@ -4,17 +4,17 @@ Contexto que no hace falta en cada sesión de Claude Code (por eso no está en `
 
 ## Fuentes de datos
 
-| Dato | Fuente | Licencia / condición | Uso |
-|---|---|---|---|
-| Referencias cruzadas (~345k) | OpenBible.info (basado en el Treasury of Scripture Knowledge) | CC BY | Arcos de la visualización y lista de referencias por versículo |
-| RV1909 (texto) | Dominio público | Libre | Texto por defecto, incluido en el sitio, offline |
-| RV1909 con números Strong | Etiquetado de Rubén Gómez (módulo SWORD `SpaRV1909`; el USFM de eBible trae las mismas etiquetas) | **"Copyrighted; Permission to distribute granted to CrossWire"**: no se usa sin permiso escrito | Texto de estudio interactivo (fase 2) |
-| NTV | API.Bible, plan Starter | No comercial, FUMS, caché limitada, revocable, **5.000 llamadas por mes** | Columna paralela de solo lectura |
-| NVI-S (Nueva Versión Internacional 2025) + RVES (Reina Valera Antigua) | YouVersion Platform | No comercial, gratuito para el usuario final | Columna paralela de solo lectura |
-| TAHOT / TAGNT | STEPBible-Data (Tyndale House Cambridge) | CC BY 4.0 | Hebreo/arameo y griego palabra por palabra, morfología, Strong |
-| TBESH / TBESG | STEPBible-Data | CC BY 4.0 para proyectos gratuitos; las definiciones parten del *Abridged BDB* y el *Abridged Thayer* ("used with permission", Larry Pierce): verificar | Léxico breve, a traducir al español |
-| TIPNR | STEPBible-Data | CC BY 4.0 | Fichas de personas y lugares |
-| TVTMS | STEPBible-Data | CC BY 4.0 | Mapeo de versificación entre tradiciones |
+| Dato                                                                   | Fuente                                                                                            | Licencia / condición                                                                                                                                    | Uso                                                            |
+| ---------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------- |
+| Referencias cruzadas (~345k)                                           | OpenBible.info (basado en el Treasury of Scripture Knowledge)                                     | CC BY                                                                                                                                                   | Arcos de la visualización y lista de referencias por versículo |
+| RV1909 (texto)                                                         | Dominio público                                                                                   | Libre                                                                                                                                                   | Texto por defecto, incluido en el sitio, offline               |
+| RV1909 con números Strong                                              | Etiquetado de Rubén Gómez (módulo SWORD `SpaRV1909`; el USFM de eBible trae las mismas etiquetas) | **"Copyrighted; Permission to distribute granted to CrossWire"**: no se usa sin permiso escrito                                                         | Texto de estudio interactivo (fase 2)                          |
+| NTV                                                                    | API.Bible, plan Starter                                                                           | No comercial, FUMS, caché limitada, revocable, **5.000 llamadas por mes**                                                                               | Columna paralela de solo lectura                               |
+| NVI-S (Nueva Versión Internacional 2025) + RVES (Reina Valera Antigua) | YouVersion Platform                                                                               | No comercial, gratuito para el usuario final                                                                                                            | Columna paralela de solo lectura                               |
+| TAHOT / TAGNT                                                          | STEPBible-Data (Tyndale House Cambridge)                                                          | CC BY 4.0                                                                                                                                               | Hebreo/arameo y griego palabra por palabra, morfología, Strong |
+| TBESH / TBESG                                                          | STEPBible-Data                                                                                    | CC BY 4.0 para proyectos gratuitos; las definiciones parten del _Abridged BDB_ y el _Abridged Thayer_ ("used with permission", Larry Pierce): verificar | Léxico breve, a traducir al español                            |
+| TIPNR                                                                  | STEPBible-Data                                                                                    | CC BY 4.0                                                                                                                                               | Fichas de personas y lugares                                   |
+| TVTMS                                                                  | STEPBible-Data                                                                                    | CC BY 4.0                                                                                                                                               | Mapeo de versificación entre tradiciones                       |
 
 Versiones deseadas pero **sin licencia todavía**: RVR1960 y TLA (Sociedades Bíblicas Unidas), NRV2000 (Nueva Reina-Valera 2000, Sociedad Bíblica Emanuel, la adventista). Mientras tanto: link externo a YouVersion / Bible Gateway.
 
@@ -23,6 +23,7 @@ Atribuciones completas en `DATA_SOURCES.md`. Todo cambio a datos CC BY (por ejem
 ## Funcionalidades por fase
 
 ### Fase 1 — Visualizador de referencias cruzadas
+
 - Todos los versículos en una línea (Génesis → Apocalipsis) con las referencias como arcos, coloreados por género literario; vista por capítulo con hilos hacia donde conecta.
 - Al pasar el mouse o tocar: texto del versículo (RV1909 local) y sus referencias.
 - Selector "Ver en...": NTV (API.Bible), NVI-S y RVES (YouVersion); lo no licenciado, como link externo.
@@ -33,6 +34,7 @@ Atribuciones completas en `DATA_SOURCES.md`. Todo cambio a datos CC BY (por ejem
 - Si una API revoca el acceso, la versión desaparece del selector y el sitio sigue andando con RV1909.
 
 ### Fase 2 — Lector con modo estudio (estilo STEP)
+
 - RV1909 con palabras clickeables vía Strong: resalta todas las apariciones de la misma palabra original (concordancia).
 - Panel de hebreo/arameo y griego (TAHOT/TAGNT): palabra original, transliteración (pronunciación), análisis morfológico y definición breve en español.
 - NTV/NVI-S como columnas paralelas de solo lectura (sin resaltado).
@@ -40,6 +42,7 @@ Atribuciones completas en `DATA_SOURCES.md`. Todo cambio a datos CC BY (por ejem
 - Léxico TBESH/TBESG traducido al español en lote con IA + revisión humana de términos teológicos.
 
 ### Fase 3 — App Android
+
 - La misma base de código como PWA empaquetada con Capacitor y publicada en Google Play.
 - Offline: RV1909, léxicos y referencias. Las versiones por API requieren conexión.
 

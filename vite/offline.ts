@@ -24,9 +24,10 @@ const MANIFEST_FILE_NAME = 'manifest.webmanifest';
 const WEB_APP_MANIFEST = {
   id: './',
   name: SITE_NAME,
-  short_name: 'Cross-Refs',
+  short_name: 'Maranata',
+  lang: 'es',
   description:
-    'Every cross-reference in the Bible, drawn as arcs, and every chapter with its threads.',
+    'Todas las referencias cruzadas de la Biblia dibujadas como arcos, y cada capítulo con sus hilos.',
   start_url: './',
   scope: './',
   display: 'standalone',

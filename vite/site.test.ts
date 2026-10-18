@@ -12,14 +12,14 @@ import {
 } from './site.ts';
 
 describe('the site', () => {
-  it('is published under its own path of a shared domain', () => {
-    expect(DEPLOY_BASE).toBe('/bible-cross-references/');
+  it('is published at the root of its own domain', () => {
+    expect(DEPLOY_BASE).toBe('/');
     expect(SITE_URL.endsWith(DEPLOY_BASE)).toBe(true);
     expect(SITE_URL.startsWith('https://')).toBe(true);
   });
 
   it('names itself and its author', () => {
-    expect(SITE_NAME).toBe('Bible Cross-References');
+    expect(SITE_NAME).toBe('Maranata');
     expect(AUTHOR.name).toBeTruthy();
     expect(AUTHOR.url.startsWith('https://')).toBe(true);
     expect(SOCIAL_IMAGE.file).toMatch(/\.(png|jpe?g)$/);
