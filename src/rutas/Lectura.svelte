@@ -1,7 +1,7 @@
 <script lang="ts">
   import { tick } from 'svelte'
   import HilosCapitulo from '../componentes/HilosCapitulo.svelte'
-  import ListaReferencias from '../componentes/ListaReferencias.svelte'
+  import PanelVersiculo from '../componentes/PanelVersiculo.svelte'
   import TextoVersiculo from '../componentes/TextoVersiculo.svelte'
   import type { Indice } from '../lib/biblia/indice'
   import { libro as datosLibro } from '../lib/biblia/libros'
@@ -163,13 +163,13 @@
                   >{v}</a
                 >
                 <span class="texto"><TextoVersiculo texto={t} /></span>
-                {#if seleccionado && !referencias}
-                  <p class="cargando">Cargando referencias…</p>
-                {:else if seleccionado && referencias}
-                  <ListaReferencias
-                    versiculo={indice.numero(referencia.libro, capitulo, v)}
+                {#if seleccionado}
+                  <PanelVersiculo
                     {indice}
                     {referencias}
+                    libro={referencia.libro}
+                    {capitulo}
+                    versiculo={v}
                   />
                 {/if}
               </li>

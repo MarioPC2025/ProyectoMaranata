@@ -26,6 +26,17 @@
     compacto y las referencias a 3 Juan 1:15 se asignaron a 3 Juan 1:14.
   </p>
 
+  <h3>Hebreo y griego</h3>
+  <p>
+    Texto hebreo y griego, transliteración, morfología, glosas y números Strong de
+    <a href="https://github.com/STEPBible/STEPBible-Data">STEPBible-Data</a> (Tyndale House,
+    Cambridge), bajo licencia
+    <a href="https://creativecommons.org/licenses/by/4.0/deed.es">CC BY 4.0</a>: crédito a
+    <a href="https://www.stepbible.org">STEP Bible</a>. Las descripciones de la morfología se
+    tradujeron al español para este sitio. Tipografías Noto Serif y Noto Serif Hebrew (licencia SIL
+    Open Font).
+  </p>
+
   <h3>Texto bíblico</h3>
   <ul>
     <li>

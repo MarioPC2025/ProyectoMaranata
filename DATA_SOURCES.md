@@ -30,6 +30,9 @@ El código de Proyecto Maranata está bajo licencia MIT. Los datos tienen licenc
 - **TEHMC / TEGMC** → `public/data/morfologia.json`: descripción de cada código traducida al español a partir de sus rasgos (`scripts/morfologia.py`).
 - Concordancia (`public/data/concordancia/`): para cada Strong, los versículos donde aparece, calculada a partir de TAHOT/TAGNT.
 
+## Tipografías
+- **Noto Serif** y **Noto Serif Hebrew** (Google), licencia SIL Open Font 1.1, servidas desde el sitio vía `@fontsource` para el panel de hebreo y griego.
+
 ### Cambios realizados sobre datos CC BY
 (Registrar acá cada transformación: formato convertido, traducción al español del léxico, correcciones, etc.)
 

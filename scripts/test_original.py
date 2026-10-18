@@ -91,7 +91,8 @@ class TestDatosOriginales(unittest.TestCase):
 
     def test_casos_puntuales(self):
         gn = self.libros[1][0][0]
-        self.assertEqual(gn[0][4], "H9003/H7225G")
+        self.assertEqual(gn[0][4], "H9003/{H7225G}")
+        self.assertEqual(gn[1][4], "H1254A")  # una sola parte: sin llaves
         jn = self.libros[43][0][0]
         self.assertEqual(jn[4][0], "λόγος,")  # normalizado a NFC (tonos, no oxia)
         self.assertEqual(jn[4][2], "Palabra")
@@ -106,8 +107,8 @@ class TestDatosOriginales(unittest.TestCase):
                 for v in c:
                     for p in v:
                         self.assertIn(p[5], self.morfologia)
-                        principal_ = p[4].split("/")
-                        if not any(s in lexico for s in principal_):
+                        partes = [s.strip("{}") for s in p[4].split("/")]
+                        if not any(s in lexico for s in partes):
                             sin_lexico.add(p[4])
         self.assertLess(len(sin_lexico), 50, sorted(sin_lexico)[:20])
 

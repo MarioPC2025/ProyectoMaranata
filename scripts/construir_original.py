@@ -10,8 +10,9 @@ Genera en public/data/:
 - morfologia.json            {código de morfología: descripción en español}
 
 Cada palabra es [texto, transliteración, glosa en español, glosa en inglés, Strongs, morfología, marca]:
-- Strongs: todos los de la palabra separados por "/" (prefijos, palabra, sufijos), sin llaves;
-  el principal es el que STEP marca entre llaves y es el que va a la concordancia.
+- Strongs: todos los de la palabra separados por "/" (prefijos, palabra, sufijos). Si hay
+  más de uno, el principal va entre llaves como en STEP ("H9003/{H7225G}"); es el que va
+  a la concordancia y al que corresponde la morfología.
 - morfología: código de la parte principal (con el prefijo de idioma H, A o el de TEGMC).
 - marca: 0 = normal; en griego, 1 = solo en el Textus Receptus (del que se tradujo la
   RV1909) y 2 = solo en Nestle-Aland; 3 = parte del título de un salmo (STEP lo numera como
@@ -97,7 +98,8 @@ def palabra_hebrea(c: list[str]) -> tuple[list, str, str] | None:
     morf = gramatica[j] if j == 0 else idioma + gramatica[j]
     texto = c[1].replace("/", "").replace("\\", "")
     glosa = re.sub(r"/\s*", " ", c[3]).strip()
-    return [texto, c[2].replace("/", ""), "", glosa, "/".join(partes), morf, 0], partes[i], morf
+    strongs = "/".join(f"{{{p}}}" if k == i and len(partes) > 1 else p for k, p in enumerate(partes))
+    return [texto, c[2].replace("/", ""), "", glosa, strongs, morf, 0], partes[i], morf
 
 
 def palabra_griega(c: list[str], tipo: str) -> tuple[list, str, str] | None:
@@ -124,7 +126,10 @@ def leer_lexico(ruta: Path) -> dict[str, list[str]]:
             continue
         clave = c[1].split(" ")[0].strip()
         if clave and clave not in lexico:
-            lexico[clave] = [c[3].strip(), c[4].strip(), c[5].strip(), c[6].strip()]
+            lema = c[3].strip()
+            if clave.startswith("G"):
+                lema = unicodedata.normalize("NFC", lema)  # igual que las palabras griegas
+            lexico[clave] = [lema, c[4].strip(), c[5].strip(), c[6].strip()]
     return lexico
 
 
@@ -154,7 +159,10 @@ def main() -> None:
                 continue
             palabra, strong, morf = resultado
             # Cada Strong como figura en el léxico, para poder buscarlo directamente
-            palabra[4] = "/".join(resolver(s, lexico) for s in palabra[4].split("/"))
+            palabra[4] = "/".join(
+                f"{{{resolver(s[1:-1], lexico)}}}" if s.startswith("{") else resolver(s, lexico)
+                for s in palabra[4].split("/")
+            )
             strong = resolver(strong, lexico)
             if vers == 0:
                 # Título de un salmo: la KJV no lo numera aparte, va con el versículo 1

@@ -1,6 +1,7 @@
 // Carga perezosa (y con caché en memoria) de los datos de public/data.
 
 import { Indice, type DatosIndice } from '../biblia/indice'
+import { bloqueConcordancia, deltasAVersiculos, type Lexico, type Palabra } from './original'
 import { leerReferencias, type Referencias } from './xrefs'
 
 const BASE = `${import.meta.env.BASE_URL}data`
@@ -38,6 +39,44 @@ export function cargarReferencias(): Promise<Referencias> {
     .then(descomprimirSiHaceFalta)
     .then(leerReferencias)
   return referencias
+}
+
+// Archivos JSON comprimidos con gzip (datos de idiomas originales), con caché por URL
+const jsonGz = new Map<string, Promise<unknown>>()
+
+function pedirJsonGz<T>(ruta: string): Promise<T> {
+  let p = jsonGz.get(ruta)
+  if (!p) {
+    p = pedir(`${BASE}/${ruta}`)
+      .then((r) => r.arrayBuffer())
+      .then(descomprimirSiHaceFalta)
+      .then((b) => JSON.parse(new TextDecoder().decode(b)))
+    p.catch(() => jsonGz.delete(ruta))
+    jsonGz.set(ruta, p)
+  }
+  return p as Promise<T>
+}
+
+/** Hebreo o griego de un libro: capítulos → versículos → palabras (ver original.ts). */
+export function cargarOriginal(libro: number): Promise<Palabra[][][]> {
+  return pedirJsonGz(`original/${libro}.json.gz`)
+}
+
+/** Léxico breve de un idioma ("H" hebreo/arameo, "G" griego) */
+export function cargarLexico(letra: 'H' | 'G'): Promise<Lexico> {
+  return pedirJsonGz(`lexico/${letra}.json.gz`)
+}
+
+export function cargarMorfologia(): Promise<Record<string, string>> {
+  return pedirJsonGz('morfologia.json')
+}
+
+/** Versículos (índice global, ordenados) donde aparece un Strong */
+export async function cargarConcordancia(strong: string): Promise<number[]> {
+  const bloque = await pedirJsonGz<Record<string, number[]>>(
+    `concordancia/${bloqueConcordancia(strong)}.json.gz`,
+  )
+  return deltasAVersiculos(bloque[strong] ?? [])
 }
 
 /** Texto RV1909 de un libro: lista de capítulos, cada uno lista de versículos. */
