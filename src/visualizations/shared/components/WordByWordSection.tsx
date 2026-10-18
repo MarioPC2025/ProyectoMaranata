@@ -209,7 +209,7 @@ function WordsCredit({ hebrew }: { readonly hebrew: boolean }) {
       <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noreferrer">
         CC BY 4.0
       </a>
-      .
+      .{hebrew && ' Glosas en español: traducción automática de las de STEP, en revisión.'}
     </p>
   );
 }
@@ -298,7 +298,7 @@ export function WordByWordSection({
             />
             {body.some((word) => wordGloss(word).inEnglish) && (
               <p className={styles.muted}>
-                Por ahora las glosas del hebreo están en inglés: la traducción al español está en
+                Algunas glosas del hebreo todavía están en inglés: la traducción al español está en
                 curso.
               </p>
             )}

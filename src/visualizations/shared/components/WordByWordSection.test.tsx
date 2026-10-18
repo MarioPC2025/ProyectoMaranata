@@ -113,7 +113,8 @@ describe('WordByWordSection', () => {
   it('avisa cuando la glosa está en inglés', async () => {
     serve(DATA);
     renderVerse();
-    expect(await screen.findByText(/glosas del hebreo están en inglés/)).toBeDefined();
+    expect(await screen.findByText(/glosas del hebreo todavía están en inglés/)).toBeDefined();
+    expect(screen.getByText(/traducción automática de las de STEP/)).toBeDefined();
     await userEvent.click(screen.getByRole('button', { name: /בְּרֵאשִׁית/ }));
     expect(screen.getAllByText('(en inglés)').length).toBeGreaterThan(0);
   });

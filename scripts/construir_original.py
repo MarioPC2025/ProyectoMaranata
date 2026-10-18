@@ -15,6 +15,8 @@ Cada palabra es [texto, transliteración, glosa en español, glosa en inglés, S
 - marca: 0 = normal; en griego, 1 = solo en el Textus Receptus (del que se tradujo la
   RV1909) y 2 = solo en Nestle-Aland; 3 = parte del título de un salmo (STEP lo numera como
   versículo 0 y acá va al comienzo del versículo 1).
+- glosa en español: en griego, la de TAGNT; en hebreo, la traducción de data/glosas-hebreo.tsv
+  (glosas.py), vacía si todavía no está.
 
 Por ahora no se publican las definiciones de TBESH/TBESG: parten del Abridged BDB y del
 Abridged Thayer, que STEP usa con permiso; falta confirmar con STEPBible (ver CLAUDE.md).
@@ -27,6 +29,7 @@ import unicodedata
 from collections import defaultdict
 from pathlib import Path
 
+from glosas import leer as leer_glosas
 from libros import POR_USFM
 from morfologia import describir, leer_codigos
 
@@ -86,7 +89,7 @@ def resolver(strong: str, lexico: dict) -> str:
     return next((k for k in (f"{base}{l}" for l in "ABCDEFGHIJKLMNOPQRSTUVWXYZ") if k in lexico), strong)
 
 
-def palabra_hebrea(c: list[str]) -> tuple[list, str, str] | None:
+def palabra_hebrea(c: list[str], glosas: dict[str, str] | None = None) -> tuple[list, str, str] | None:
     if not c[1].strip():
         return None  # qere sin texto: lo escrito no se lee (Is 44:24, Jer 38:16, etc.)
     partes, i = principal(c[4])
@@ -97,7 +100,8 @@ def palabra_hebrea(c: list[str]) -> tuple[list, str, str] | None:
     texto = c[1].replace("/", "").replace("\\", "")
     glosa = re.sub(r"/\s*", " ", c[3]).strip()
     strongs = "/".join(f"{{{p}}}" if k == i and len(partes) > 1 else p for k, p in enumerate(partes))
-    return [texto, c[2].replace("/", ""), "", glosa, strongs, morf, 0], partes[i], morf
+    glosa_es = (glosas or {}).get(glosa, "")
+    return [texto, c[2].replace("/", ""), glosa_es, glosa, strongs, morf, 0], partes[i], morf
 
 
 def palabra_griega(c: list[str], tipo: str) -> tuple[list, str, str] | None:
@@ -144,10 +148,11 @@ def main() -> None:
     omitidas = defaultdict(int)
     lexicos = {"H": leer_lexico(STEP / "TBESH.txt"), "G": leer_lexico(STEP / "TBESG.txt")}
     lexico = {**lexicos["H"], **lexicos["G"]}
+    glosas = leer_glosas()
 
     for prefijo in ("TAHOT", "TAGNT"):
         for libro, cap, vers, tipo, c in filas(prefijo):
-            resultado = palabra_hebrea(c) if prefijo == "TAHOT" else palabra_griega(c, tipo)
+            resultado = palabra_hebrea(c, glosas) if prefijo == "TAHOT" else palabra_griega(c, tipo)
             if resultado is None:
                 omitidas[prefijo] += 1
                 continue

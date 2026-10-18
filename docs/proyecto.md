@@ -39,7 +39,8 @@ La base es el repositorio de trekhleb (arcos y hilos); lo propio de Maranata se 
 - Hecho: en un capítulo, tocar una palabra del texto original resalta las que comparten su Strong y marca los versículos que la contienen.
 - Hecho: "Misma palabra hebrea/griega" (dataset de trekhleb, `words/stepbible.json`).
 - Pendiente: la RV1909 no lleva Strong (regla legal 6), así que no se puede marcar la palabra dentro del texto en español.
-- Pendiente: glosas del hebreo en español; fichas de nombres propios (TIPNR); léxico TBESH/TBESG traducido (IA + revisión humana).
+- En curso: glosas del hebreo en español (`data/glosas-hebreo.tsv`, `python scripts/glosas.py pendientes|agregar|aplicar`; traducción automática por lotes, de las más frecuentes a las menos, pendiente de revisión humana).
+- Pendiente: fichas de nombres propios (TIPNR); léxico TBESH/TBESG traducido (IA + revisión humana).
 
 ### Fase 3 — App Android
 
@@ -54,7 +55,8 @@ El de trekhleb, sin cambios: oscuro y minimalista. Lo propio: el logo (`public/i
 
 - [ ] Comprar el dominio.
 - [ ] Crear la cuenta de Cloudflare dedicada (mail del proyecto) y conectar Pages al repo. Al publicar: crear el KV `CACHE_BIBLIA` y poner su id en `wrangler.toml`, cargar `APIBIBLE_KEY` como secreto y `VITE_YVP_APP_KEY` como variable de build.
-- [ ] Mail a YouVersion: ¿se permite un link de donación discreto en un proyecto sin fines de lucro?
+- [x] Mail a YouVersion: ¿se permite un link de donación discreto en un proyecto sin fines de lucro? (respondido, ver abajo)
+- [ ] Si se quieren donaciones: preguntar a las editoriales qué consideran "comercial" (Biblica por la NVI-S; el titular de la RVES).
 - [ ] Mail a Rubén Gómez (rubeng{at}infotelecom{dot}es, según la ficha de CrossWire): permiso para usar su etiquetado Strong de la RV1909 fuera de CrossWire.
 - [ ] Confirmar con support@api.bible el modelo (sin fines de lucro, sin donaciones al lanzar) y guardar la respuesta.
 - [ ] Gestionar licencias de RVR1960 y TLA (SBU / Sociedad Bíblica Argentina) y NRV2000 (Sociedad Bíblica Emanuel).
@@ -64,3 +66,7 @@ El de trekhleb, sin cambios: oscuro y minimalista. Lo propio: el logo (`public/i
 - [x] Decidir el diseño visual (el de trekhleb).
 - [ ] Cuenta de desarrollador de Google Play (fase 3).
 - [x] Realinear los capítulos de la RV1909 que no coincidían con la versificación KJV (`scripts/data/importers/rv1909.ts`).
+
+## Respuestas recibidas
+
+- **YouVersion Platform Support** (platform-support@youversion.com, 18/10/2026): la Platform se puede usar en apps o sitios con funciones pagas, siempre que el acceso a la app y a la Escritura que da la Platform nunca quede detrás de un paywall. Si se monetiza otra parte, hay que revisar la licencia de cada traducción, porque cada editorial define qué es uso "comercial"; ante la duda, consultar a la editorial. Consecuencia: un link de donación no choca con YouVersion, pero falta la opinión de Biblica (NVI-S) y del titular de la RVES. La regla 4 de `CLAUDE.md` (sin donaciones al lanzar) no cambia.

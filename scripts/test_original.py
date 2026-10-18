@@ -10,6 +10,7 @@ import unittest
 from pathlib import Path
 
 from construir_original import REF, palabra_griega, palabra_hebrea, principal, resolver
+from glosas import leer, problema
 from morfologia import VALORES, describir
 
 DATOS = Path(__file__).resolve().parent.parent / "public" / "data"
@@ -46,6 +47,22 @@ class TestParseo(unittest.TestCase):
         # En arameo el prefijo de idioma es A
         fila_aramea = ["Dan.2.4#05=L", "x", "x", "x", "H9001/{H0001}", "AR/Aabsa"]
         self.assertEqual(palabra_hebrea(fila_aramea)[2], "AAabsa")
+
+    def test_palabra_hebrea_con_glosa_en_espanol(self):
+        fila = ["Gen.1.1#01=L", "בְּ/רֵאשִׁ֖ית", "be./re.Shit", "in/ beginning", "H9003/{H7225G}", "HR/Ncfsa"]
+        self.assertEqual(palabra_hebrea(fila)[0][2], "")
+        self.assertEqual(palabra_hebrea(fila, {"in beginning": "en principio"})[0][2], "en principio")
+
+    def test_traducciones_de_glosas(self):
+        self.assertIsNone(problema("[the] son of", "[el] hijo de"))
+        self.assertIsNone(problema("and <obj.>", "y <obj.>"))
+        self.assertIsNotNone(problema("[the] son of", "el hijo de"))
+        self.assertIsNotNone(problema("<to> saying", "diciendo"))
+        self.assertIsNotNone(problema("you", ""))
+        self.assertIsNotNone(problema("you", "tú\tvos"))
+        # Todas las guardadas pasan la misma revisión
+        for ingles, espanol in leer().items():
+            self.assertIsNone(problema(ingles, espanol), ingles)
 
     def test_palabra_griega_y_marcas(self):
         fila = ["Jhn.1.1#05=NKO", "λόγος, (logos)", "Word,", "G3056=N-NSM", "λόγος=word", "", "", "", "Palabra"]
