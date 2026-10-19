@@ -58,11 +58,11 @@ El de trekhleb, sin cambios: oscuro y minimalista. Lo propio: el logo (`public/i
 - [ ] Crear la cuenta de Cloudflare dedicada (mail del proyecto) y conectar Pages al repo. Al publicar: crear el KV `CACHE_BIBLIA` y poner su id en `wrangler.toml`, cargar `APIBIBLE_KEY` como secreto y `VITE_YVP_APP_KEY` como variable de build.
 - [x] Mail a YouVersion: ¿se permite un link de donación discreto en un proyecto sin fines de lucro? (respondido, ver abajo)
 - [ ] Si se quieren donaciones: preguntar a las editoriales qué consideran "comercial" (Biblica por la NVI-S; el titular de la RVES).
-- [ ] Mail a Rubén Gómez (rubeng{at}infotelecom{dot}es, según la ficha de CrossWire): permiso para usar su etiquetado Strong de la RV1909 fuera de CrossWire.
-- [ ] Confirmar con support@api.bible el modelo (sin fines de lucro, sin donaciones al lanzar) y guardar la respuesta.
-- [ ] Gestionar licencias de RVR1960 y TLA (SBU / Sociedad Bíblica Argentina) y NRV2000 (Sociedad Bíblica Emanuel).
+- [ ] Mail a Rubén Gómez (rubeng{at}infotelecom{dot}es, según la ficha de CrossWire): permiso para usar su etiquetado Strong de la RV1909 fuera de CrossWire. (Enviado el 18/10/2026; esperando respuesta.)
+- [ ] Confirmar con support@api.bible el modelo (sin fines de lucro, sin donaciones al lanzar) y guardar la respuesta. (Enviado el 18/10/2026; esperando respuesta.)
+- [ ] Gestionar licencias de RVR1960 y TLA (SBU / Sociedad Bíblica Argentina) y NRV2000 (Sociedad Bíblica Emanuel). (Pedidos enviados el 18/10/2026; esperando respuesta.)
 - [x] Verificar la licencia del repo de trekhleb (MIT, © Oleksii Trekhleb; se conserva su nota en `LICENSE`).
-- [ ] Verificar con STEPBible los términos de las definiciones de TBESH y TBESG (basadas en el Abridged BDB y el Abridged Thayer).
+- [ ] Verificar con STEPBible los términos de las definiciones de TBESH y TBESG (basadas en el Abridged BDB y el Abridged Thayer). (Enviado el 18/10/2026; esperando respuesta.)
 - [ ] Conseguir un revisor con formación bíblica para la traducción del léxico.
 - [x] Decidir el diseño visual (el de trekhleb).
 - [ ] Cuenta de desarrollador de Google Play (fase 3).
