@@ -1,7 +1,8 @@
 import { useEffect, useEffectEvent, useLayoutEffect, useMemo, useRef, useState } from 'react';
 import { formatPassage, passageRange, type Passage } from '../../core/bible/passage.ts';
 import { formatInteger } from '../../shared/lib/format.ts';
-import { ClickIcon, PinchIcon, TapIcon } from '../../shared/ui/icons.tsx';
+import { ClickIcon, PinchIcon, RetryIcon, TapIcon } from '../../shared/ui/icons.tsx';
+import controls from '../shared/components/controls.module.css';
 import { collectConnections, connectionLinkIds, type Connection } from '../shared/connections.ts';
 import type { LinkFilter } from '../shared/link-filter.ts';
 import { useElementSize } from '../shared/use-element-size.ts';
@@ -39,6 +40,10 @@ export function ArcsStage({
   const controllerRef = useRef<ArcsController | null>(null);
   const size = useElementSize(containerRef);
   const [hover, setHover] = useState<ArcHover | null>(null);
+  /** El sistema le quitó el contexto WebGL y no lo devolvió (todavía). */
+  const [contextLost, setContextLost] = useState(false);
+  /** Cada reintento crea otro lienzo: uno que perdió su contexto no puede pedir otro. */
+  const [attempt, setAttempt] = useState(0);
   const select = useEffectEvent((passage: Passage | null) => {
     onSelect(passage);
   });
@@ -62,27 +67,30 @@ export function ArcsStage({
       onClear: () => {
         select(null);
       },
+      onContextChange: (state) => {
+        setContextLost(state === 'lost');
+      },
     });
     controllerRef.current = controller;
     return () => {
       controller.dispose();
       controllerRef.current = null;
     };
-  }, [data.versification]);
+  }, [data.versification, attempt]);
 
   useEffect(() => {
     controllerRef.current?.setActive(active);
-  }, [active]);
+  }, [active, attempt]);
 
   useEffect(() => {
     controllerRef.current?.setSize(size.width, size.height);
-  }, [size]);
+  }, [size, attempt]);
 
   useEffect(() => {
     controllerRef.current?.setLinks(
       buildArcInstances(data.crossReferences.index, linkIds, data.verseGenres),
     );
-  }, [data, linkIds]);
+  }, [data, linkIds, attempt]);
 
   useEffect(() => {
     const { index } = data.crossReferences;
@@ -93,11 +101,11 @@ export function ArcsStage({
         data.verseGenres,
       ),
     );
-  }, [data, filter]);
+  }, [data, filter, attempt]);
 
   useEffect(() => {
     controllerRef.current?.setFocus(focus && passageRange(focus, data.versification));
-  }, [focus, data.versification]);
+  }, [focus, data.versification, attempt]);
 
   useEffect(() => {
     const link = preview?.link;
@@ -113,20 +121,39 @@ export function ArcsStage({
           }
         : null,
     );
-  }, [preview, data]);
+  }, [preview, data, attempt]);
 
   return (
-    <div
-      ref={containerRef}
-      className={styles.stage}
-      tabIndex={0}
-      role="application"
-      aria-label="Diagrama de arcos de las referencias cruzadas. Arrastra o usa las flechas para mover, desplaza o usa +/- para acercar, haz clic para enfocar un pasaje y Escape para quitar el foco. En una pantalla táctil, mantén el dedo para ver un pasaje."
-    >
-      <canvas ref={glCanvasRef} className={styles.canvas} />
-      <canvas ref={overlayCanvasRef} className={styles.canvas} aria-hidden="true" />
-      {hover && <HoverTooltip hover={hover} data={data} filter={filter} size={size} />}
-    </div>
+    <>
+      <div
+        ref={containerRef}
+        className={styles.stage}
+        tabIndex={0}
+        role="application"
+        aria-label="Diagrama de arcos de las referencias cruzadas. Arrastra o usa las flechas para mover, desplaza o usa +/- para acercar, haz clic para enfocar un pasaje y Escape para quitar el foco. En una pantalla táctil, mantén el dedo para ver un pasaje."
+      >
+        <canvas key={attempt} ref={glCanvasRef} className={styles.canvas} />
+        <canvas ref={overlayCanvasRef} className={styles.canvas} aria-hidden="true" />
+        {hover && <HoverTooltip hover={hover} data={data} filter={filter} size={size} />}
+      </div>
+      {/* Fuera del diagrama: sus gestos se quedan con los toques y el botón no los recibiría. */}
+      {contextLost && (
+        <div role="alert" className={styles.notice}>
+          <p>El dispositivo interrumpió el dibujo de los arcos.</p>
+          <button
+            type="button"
+            className={controls.button}
+            onClick={() => {
+              setContextLost(false);
+              setAttempt((previous) => previous + 1);
+            }}
+          >
+            <RetryIcon />
+            Volver a dibujar
+          </button>
+        </div>
+      )}
+    </>
   );
 }
 

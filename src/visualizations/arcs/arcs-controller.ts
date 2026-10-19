@@ -2,6 +2,7 @@ import { chapterPassageOf, versePassage, type Passage } from '../../core/bible/p
 import type { VerseIndexRange, Versification } from '../../core/bible/versification.ts';
 import { attachGestures, type GesturePoint, type PreviewInput } from '../shared/gestures.ts';
 import { animate, FrameScheduler, MAX_PIXEL_RATIO } from '../shared/frames.ts';
+import { renderProfile, type RenderProfile } from '../shared/render-profile.ts';
 import type { ArcInstances } from './arc-instances.ts';
 import {
   alongOfPoint,
@@ -47,6 +48,11 @@ export interface ArcsControllerOptions {
   readonly onHover: (hover: ArcHover | null) => void;
   readonly onSelect: (passage: Passage) => void;
   readonly onClear: () => void;
+  /**
+   * El sistema le quitó el contexto WebGL (la placa de video se reinició): los arcos no se ven
+   * hasta que lo devuelva (`restored`) o se vuelvan a crear.
+   */
+  readonly onContextChange?: (state: 'lost' | 'restored') => void;
 }
 
 /** Below this many pixels per verse, pointing picks whole chapters instead of single verses. */
@@ -85,6 +91,8 @@ const EDGE_PAN_MAX_SPEED = 900;
 export class ArcsController {
   readonly #options: ArcsControllerOptions;
   readonly #scene: ArcScene;
+  readonly #profile: RenderProfile = renderProfile();
+  #contextLost = false;
   readonly #overlay: CanvasRenderingContext2D;
   readonly #scheduler: FrameScheduler;
   readonly #detachGestures: () => void;
@@ -108,7 +116,9 @@ export class ArcsController {
 
   constructor(options: ArcsControllerOptions) {
     this.#options = options;
-    this.#scene = new ArcScene(options.glCanvas);
+    this.#scene = new ArcScene(options.glCanvas, this.#profile);
+    options.glCanvas.addEventListener('webglcontextlost', this.#onContextLost);
+    options.glCanvas.addEventListener('webglcontextrestored', this.#onContextRestored);
     const overlay = options.overlayCanvas.getContext('2d');
     if (!overlay) {
       throw new Error('Canvas 2D is not available.');
@@ -206,16 +216,18 @@ export class ArcsController {
     this.#scheduler.dispose();
     this.#detachGestures();
     this.#options.container.removeEventListener('keydown', this.#onKeyDown);
+    this.#options.glCanvas.removeEventListener('webglcontextlost', this.#onContextLost);
+    this.#options.glCanvas.removeEventListener('webglcontextrestored', this.#onContextRestored);
     this.#scene.dispose();
   }
 
   /**
    * Every arc grows from its source verse to its target while the glow fades in: the whole Bible's
    * connections unfold at once, continuing the loading screen's arcs of light. Skipped for readers
-   * who prefer reduced motion.
+   * who prefer reduced motion, and on phones (see `renderProfile`).
    */
   #playIntro(): void {
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    if (!this.#profile.intro || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
       this.#intro = 'done';
       return;
     }
@@ -243,7 +255,12 @@ export class ArcsController {
   }
 
   #draw(): void {
-    if (!this.#active || this.#layout.width === 0 || this.#layout.height === 0) {
+    if (
+      this.#contextLost ||
+      !this.#active ||
+      this.#layout.width === 0 ||
+      this.#layout.height === 0
+    ) {
       return;
     }
     this.#scene.setView(this.#view);
@@ -404,6 +421,22 @@ export class ArcsController {
       this.#scheduler.request();
     });
   }
+
+  readonly #onContextLost = (event: Event): void => {
+    event.preventDefault(); // Pide que el contexto se pueda devolver.
+    this.#contextLost = true;
+    this.#cancelIntro?.();
+    this.#intro = 'done';
+    this.#scene.setReveal(1);
+    this.#options.onContextChange?.('lost');
+  };
+
+  readonly #onContextRestored = (): void => {
+    this.#contextLost = false;
+    this.#scene.restore();
+    this.#options.onContextChange?.('restored');
+    this.#scheduler.request();
+  };
 
   readonly #onKeyDown = (event: KeyboardEvent): void => {
     const total = this.#options.versification.verseCount;

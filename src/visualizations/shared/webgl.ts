@@ -1,14 +1,14 @@
 import { Color, Vector3, WebGLRenderer } from 'three';
-import { MAX_PIXEL_RATIO } from './frames.ts';
 import { GENRE_RGB, VIZ_SURFACE } from './palette.ts';
+import type { RenderProfile } from './render-profile.ts';
 
-export function createRenderer(canvas: HTMLCanvasElement): WebGLRenderer {
+export function createRenderer(canvas: HTMLCanvasElement, profile: RenderProfile): WebGLRenderer {
   const renderer = new WebGLRenderer({
     canvas,
-    antialias: true,
+    antialias: profile.antialias,
     powerPreference: 'high-performance',
   });
-  renderer.setPixelRatio(Math.min(window.devicePixelRatio, MAX_PIXEL_RATIO));
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio, profile.maxPixelRatio));
   renderer.setClearColor(new Color(VIZ_SURFACE), 1);
   return renderer;
 }

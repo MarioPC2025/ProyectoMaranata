@@ -22,6 +22,24 @@
   block-size: 100%;
 }
 
+/* Si el sistema reinició la placa de video: un aviso centrado, con un botón para reintentar. */
+.notice {
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  gap: var(--space-3);
+  padding: var(--space-6);
+  background: var(--color-background);
+  text-align: center;
+}
+
+.notice p {
+  margin: 0;
+}
+
 .tooltip {
   position: absolute;
   z-index: 3;

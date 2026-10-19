@@ -14,6 +14,7 @@ import {
 } from 'three';
 import { GlowCompositor } from '../shared/glow.ts';
 import { createCurveGeometry, type CurveKind } from '../shared/instanced-templates.ts';
+import type { RenderProfile } from '../shared/render-profile.ts';
 import { createRenderer, genrePaletteUniform } from '../shared/webgl.ts';
 import type { ArcInstances } from './arc-instances.ts';
 import type { ArcLayout } from './arc-layout.ts';
@@ -25,13 +26,16 @@ import {
 } from './arc-shaders.ts';
 import type { AxisView } from './axis-view.ts';
 
-const LINE_SEGMENTS = 48;
 const RIBBON_SEGMENTS = 64;
 
-function createGeometry(kind: CurveKind, instances: ArcInstances): InstancedBufferGeometry {
+function createGeometry(
+  kind: CurveKind,
+  instances: ArcInstances,
+  lineSegments: number,
+): InstancedBufferGeometry {
   return createCurveGeometry(
     kind,
-    kind === 'line' ? LINE_SEGMENTS : RIBBON_SEGMENTS,
+    kind === 'line' ? lineSegments : RIBBON_SEGMENTS,
     instances.count,
     {
       a_ends: { array: instances.endpoints, itemSize: 2 },
@@ -86,9 +90,11 @@ export class ArcScene {
   readonly #hover: ArcObject;
   readonly #focus: ArcObject;
   readonly #preview: ArcObject;
+  readonly #lineSegments: number;
 
-  constructor(canvas: HTMLCanvasElement) {
-    this.#renderer = createRenderer(canvas);
+  constructor(canvas: HTMLCanvasElement, profile: RenderProfile) {
+    this.#lineSegments = profile.lineSegments;
+    this.#renderer = createRenderer(canvas, profile);
     this.#renderer.autoClear = false;
     this.#glow = new GlowCompositor(this.#renderer);
 
@@ -167,6 +173,11 @@ export class ArcScene {
     }
   }
 
+  /** Después de que el sistema le devolvió el contexto WebGL: todo se vuelve a acumular. */
+  restore(): void {
+    this.#glow.invalidate();
+  }
+
   render(): void {
     this.#renderer.clear();
     this.#glow.render(this.#glowScene, this.#camera);
@@ -201,7 +212,7 @@ export class ArcScene {
       depthWrite: false,
       blending,
     });
-    const geometry = createGeometry(kind, EMPTY);
+    const geometry = createGeometry(kind, EMPTY, this.#lineSegments);
     const object =
       kind === 'line' ? new LineSegments(geometry, material) : new Mesh(geometry, material);
     object.frustumCulled = false;
@@ -213,7 +224,7 @@ export class ArcScene {
   #replace(object: ArcObject, instances: ArcInstances): void {
     const kind = object instanceof LineSegments ? 'line' : 'ribbon';
     object.geometry.dispose();
-    object.geometry = createGeometry(kind, instances);
+    object.geometry = createGeometry(kind, instances, this.#lineSegments);
     object.visible = instances.count > 0;
   }
 }
