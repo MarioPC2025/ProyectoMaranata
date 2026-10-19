@@ -1,5 +1,5 @@
 import { describe, expect, it, vi } from 'vitest';
-import { LIMITE_MENSUAL, NTV_ID, obtenerCapitulo, type Almacen } from './ntv';
+import { LIMITE_MENSUAL, NTV_ID, conCors, obtenerCapitulo, type Almacen } from './ntv';
 
 function almacen(inicial: Record<string, string> = {}) {
   const datos = new Map(Object.entries(inicial));
@@ -95,5 +95,29 @@ describe('proxy NTV', () => {
     const r = await obtenerCapitulo('JHN', 3, { APIBIBLE_KEY: 'k' }, pedir, ahora);
     expect(r.status).toBe(503);
     expect((await r.json<{ error: string }>()).error).toBe('sin-acceso');
+  });
+});
+
+describe('CORS para la app de Android', () => {
+  const respuesta = () =>
+    new Response('{"html":"x"}', { status: 200, headers: { 'X-Cache': 'HIT' } });
+
+  it('deja leer la respuesta a la app, sin perder lo que ya traía', async () => {
+    const r = conCors(respuesta(), 'https://localhost');
+    expect(r.headers.get('Access-Control-Allow-Origin')).toBe('https://localhost');
+    expect(r.headers.get('Vary')).toContain('Origin');
+    expect(r.headers.get('X-Cache')).toBe('HIT');
+    expect(r.status).toBe(200);
+    expect(await r.text()).toBe('{"html":"x"}');
+  });
+
+  it('a otro sitio no le abre la puerta', () => {
+    const r = conCors(respuesta(), 'https://otro.example');
+    expect(r.headers.get('Access-Control-Allow-Origin')).toBeNull();
+  });
+
+  it('el propio sitio no manda Origin y la respuesta queda igual', () => {
+    const original = respuesta();
+    expect(conCors(original, null)).toBe(original);
   });
 });

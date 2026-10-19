@@ -112,4 +112,14 @@ describe('registerOfflineCache', () => {
     await settled();
     expect(worker.register).not.toHaveBeenCalled();
   });
+
+  it('en la app de Android no registra nada: los archivos ya vienen en el paquete', async () => {
+    Object.assign(window, { Capacitor: { isNativePlatform: () => true } });
+    const worker = createServiceWorker();
+    useServiceWorker(worker);
+    registerOfflineCache();
+    await settled();
+    expect(worker.register).not.toHaveBeenCalled();
+    Reflect.deleteProperty(window, 'Capacitor');
+  });
 });

@@ -1,3 +1,4 @@
+import { isNativeApp } from '../app/native-app.ts';
 import { createCachedLoader, type CachedLoader } from '../shared/lib/cached-loader.ts';
 
 /**
@@ -129,7 +130,9 @@ function fetchJson<T>(path: string): Promise<T> {
   let pending = files.get(path);
   if (!pending) {
     pending = (async () => {
-      const url = `${import.meta.env.BASE_URL}data/${path}`;
+      // Al armar la app de Android, el empaquetador descomprime los .gz y les quita la extensión.
+      const file = isNativeApp() ? path.replace(/\.gz$/, '') : path;
+      const url = `${import.meta.env.BASE_URL}data/${file}`;
       const response = await fetch(url);
       if (!response.ok) {
         throw new Error(`No se pudo cargar ${path} (${String(response.status)})`);

@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Maranata</string>
+    <string name="title_activity_main">Maranata</string>
+    <string name="package_name">ar.org.proyectomaranata.app</string>
+    <string name="custom_url_scheme">ar.org.proyectomaranata.app</string>
+</resources>

@@ -47,6 +47,10 @@ La base es el repositorio de trekhleb (arcos y hilos); lo propio de Maranata se 
 
 - La misma base de código como PWA empaquetada con Capacitor y publicada en Google Play. Ícono: `public/icono.svg`, `public/icons/`.
 - Offline: RV1909, léxicos y referencias. Las versiones por API requieren conexión.
+- Hecho: Capacitor 8 (`capacitor.config.ts`, id `ar.org.proyectomaranata.app`, que no se puede cambiar después de publicar) y el proyecto de Android en `android/`. `npm run android` arma el sitio en modo `android` y lo copia al proyecto; `npm run android:abrir` abre Android Studio; `npm run android:iconos` regenera los íconos y la pantalla de inicio desde `public/icono.svg`.
+- En la app no se registra el service worker (los archivos ya vienen en el paquete) y la NTV se pide al proxy del sitio publicado (`VITE_API_ORIGIN` en `.env.android`), que acepta el origen de la app por CORS. Hasta que el dominio esté publicado, en la app la NTV muestra el aviso de que no está disponible.
+- El wrapper de Gradle está en 9.2.1 (la plantilla de Capacitor trae 8.14.3, que no corre sobre el Java 25 de Android Studio). Los `.gz` de `public/data/` el empaquetador de Android los descomprime y les saca la extensión, así que en la app se piden sin `.gz` (`src/words/word-by-word.ts`).
+- Pendiente: firmar el build de release y publicarlo (necesita la cuenta de Google Play); revisar si YouVersion acepta las llamadas desde el origen de la app (`https://localhost`).
 
 ## Diseño
 

@@ -38,6 +38,16 @@ function trackView(token: string | null): void {
   window.fums?.('trackView', token);
 }
 
+/**
+ * La dirección del proxy. En el sitio es el mismo origen; en la app de Android la página se sirve
+ * desde el teléfono, así que va al sitio publicado (`VITE_API_ORIGIN`, ver `.env.android`).
+ */
+function proxyUrl(path: string): string {
+  const relative = `${import.meta.env.BASE_URL}${path}`;
+  const origin = import.meta.env.VITE_API_ORIGIN;
+  return origin ? new URL(relative, origin).href : relative;
+}
+
 interface ProxyChapter {
   readonly html: string;
   readonly copyright: string;
@@ -51,9 +61,7 @@ export const ntv: ApiVersion = {
   // La clave vive en el servidor; si falta, el proxy responde 503.
   configured: () => true,
   async fetchChapter(usfmBook, chapter): Promise<ApiChapterText> {
-    const response = await fetch(
-      `${import.meta.env.BASE_URL}api/ntv/${usfmBook}/${String(chapter)}`,
-    );
+    const response = await fetch(proxyUrl(`api/ntv/${usfmBook}/${String(chapter)}`));
     if (response.status === 503) {
       throw new ApiVersionUnavailableError('NTV no disponible');
     }

@@ -32,6 +32,7 @@ Ante la duda, gana la regla más estricta.
 
 - `npm run dev` · `npm run build` · `npm run check` (tipos, lint, formato y tests con cobertura mínima del 98 %) · `npm test` · `npm run test:e2e`
 - `npm run dev:api` (otra terminal, después de `npm run build`): el proxy de la NTV en :8788.
+- App de Android (Capacitor, `android/`): `npm run android` (build + sync), `npm run android:abrir`, `npm run android:iconos`. Gradle usa el JDK de Android Studio (`JAVA_HOME=C:\Program Files\Android\Android Studio\jbr`).
 - Tests de datos Python: `python -m unittest discover -s scripts`
 - Al terminar un cambio, correr solo los tests relacionados; la suite completa, antes de hacer commit.
 

@@ -1,3 +1,5 @@
+import { isNativeApp } from './native-app.ts';
+
 /**
  * Registers the offline cache (sw/service-worker.ts), in production builds only. Its scope is the
  * site's base path, the widest a worker served from there may have, so it never touches the other
@@ -8,7 +10,8 @@
  * chose, which they will expect to have offline too.
  */
 export function registerOfflineCache(datasets: readonly string[] = []): void {
-  if (!import.meta.env.PROD || !('serviceWorker' in navigator)) {
+  // En la app de Android los archivos ya vienen en el paquete: el worker no tiene nada que guardar.
+  if (!import.meta.env.PROD || !('serviceWorker' in navigator) || isNativeApp()) {
     return;
   }
   navigator.serviceWorker

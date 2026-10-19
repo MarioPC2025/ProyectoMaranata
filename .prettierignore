@@ -6,3 +6,4 @@ public/data/
 package-lock.json
 .wrangler/
 .claude/
+android/

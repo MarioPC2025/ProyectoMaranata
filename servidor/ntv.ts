@@ -45,6 +45,24 @@ function json(datos: unknown, estado = 200, extra: Record<string, string> = {}):
   });
 }
 
+/** Los orígenes de la app (Capacitor en Android, y en iOS si algún día la hay). */
+export const ORIGENES_APP: ReadonlySet<string> = new Set([
+  'https://localhost',
+  'capacitor://localhost',
+]);
+
+/**
+ * La app sirve sus páginas desde el teléfono, así que pide el proxy desde otro origen: solo a ella
+ * se le permite leer la respuesta. El sitio no lo necesita, porque está en el mismo origen.
+ */
+export function conCors(respuesta: Response, origen: string | null): Response {
+  if (origen === null || !ORIGENES_APP.has(origen)) return respuesta;
+  const headers = new Headers(respuesta.headers);
+  headers.set('Access-Control-Allow-Origin', origen);
+  headers.append('Vary', 'Origin');
+  return new Response(respuesta.body, { status: respuesta.status, headers });
+}
+
 function mesActual(ahora: Date): string {
   return ahora.toISOString().slice(0, 7);
 }

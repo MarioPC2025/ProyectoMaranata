@@ -1,2 +1,4 @@
 # LF everywhere, as the formatter expects (the checkout on Windows would otherwise write CRLF).
 * text=auto eol=lf
+# Windows batch files (the Gradle wrapper) break with LF line endings.
+*.bat text eol=crlf

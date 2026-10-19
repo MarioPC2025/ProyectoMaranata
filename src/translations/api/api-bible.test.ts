@@ -31,6 +31,16 @@ describe('la NTV', () => {
     expect(text).toMatchObject({ html: '<p>texto</p>', attribution: '© Tyndale', link: null });
   });
 
+  it('en la app de Android pide el capítulo al proxy del sitio publicado', async () => {
+    vi.stubEnv('VITE_API_ORIGIN', 'https://proyectomaranata.org.ar');
+    const fetchMock = serve(CHAPTER);
+    await ntv.fetchChapter('JHN', 3);
+    expect(fetchMock).toHaveBeenCalledWith(
+      `https://proyectomaranata.org.ar${import.meta.env.BASE_URL}api/ntv/JHN/3`,
+    );
+    vi.unstubAllEnvs();
+  });
+
   it('está siempre configurada: si falta la clave, lo dice el proxy', () => {
     expect(ntv.configured()).toBe(true);
   });

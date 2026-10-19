@@ -14,6 +14,8 @@ export default defineConfig([
     '.wrangler/',
     'test-results/',
     'playwright-report/',
+    // The Android project Capacitor generates, with a copy of dist/ inside.
+    'android/',
   ]),
   js.configs.recommended,
   tseslint.configs.strictTypeChecked,

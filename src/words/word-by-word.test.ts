@@ -105,6 +105,14 @@ describe('la carga de los archivos', () => {
     expect(fetchMock).toHaveBeenCalledWith(`${import.meta.env.BASE_URL}data/original/43.json.gz`);
   });
 
+  it('en la app de Android pide el archivo sin .gz, porque el paquete ya lo trae descomprimido', async () => {
+    Object.assign(window, { Capacitor: { isNativePlatform: () => true } });
+    fetchMock.mockImplementation(() => json([[[]]]));
+    await loadBookWords(43);
+    expect(fetchMock).toHaveBeenCalledWith(`${import.meta.env.BASE_URL}data/original/43.json`);
+    Reflect.deleteProperty(window, 'Capacitor');
+  });
+
   it('descomprime el libro si llega en gzip', async () => {
     const body = await gzip(JSON.stringify([[[]]]));
     fetchMock.mockImplementation(() => Promise.resolve(new Response(body)));

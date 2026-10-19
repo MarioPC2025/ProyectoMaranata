@@ -46,6 +46,8 @@ npm-debug.log*
 *.local
 .env
 .env.*
+# El de la app de Android no tiene secretos (ver el archivo).
+!.env.android
 
 # Editors and OS
 .vscode/*
