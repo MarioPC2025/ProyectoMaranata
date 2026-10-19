@@ -6,4 +6,3 @@ public/data/
 package-lock.json
 .wrangler/
 .claude/
-graphify-out/

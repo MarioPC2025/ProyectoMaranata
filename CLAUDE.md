@@ -1,6 +1,6 @@
 # Proyecto Maranata
 
-Web (y luego app Android) en español para explorar la Biblia: visualización de las ~345.000 referencias cruzadas y texto hebreo/griego palabra por palabra (STEP Bible). Autor: Mario Baldovino. Repo: MarioPC2025/MaranathaBible. Código MIT. Interfaz, comentarios y commits en español. Proyecto sin fines de lucro, separado de Mario PC.
+Web (y luego app Android) en español para explorar la Biblia: visualización de las ~345.000 referencias cruzadas y texto hebreo/griego palabra por palabra (STEP Bible). Autor: Mario Baldovino. Repo: MarioPC2025/ProyectoMaranata. Código MIT. Interfaz, comentarios y commits en español. Proyecto sin fines de lucro, separado de Mario PC.
 
 Está construido sobre [trekhleb/bible-cross-references](https://github.com/trekhleb/bible-cross-references) (MIT): mismo estilo visual y misma forma de usarse; no cambiar ninguno de los dos sin que Mario lo pida.
 

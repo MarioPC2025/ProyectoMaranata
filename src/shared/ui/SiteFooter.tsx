@@ -6,7 +6,7 @@ import styles from './SiteFooter.module.css';
 const YEAR = new Date().getFullYear();
 
 /** Where the code lives. The project is open source, so every page points at it. */
-const REPOSITORY_URL = 'https://github.com/MarioPC2025/MaranathaBible';
+const REPOSITORY_URL = 'https://github.com/MarioPC2025/ProyectoMaranata';
 
 interface SiteFooterProps {
   /** Page-specific credits, such as data attribution. */
