@@ -1,21 +1,59 @@
-import js from '@eslint/js'
-import svelte from 'eslint-plugin-svelte'
-import globals from 'globals'
-import ts from 'typescript-eslint'
-import svelteConfig from './svelte.config.js'
+import js from '@eslint/js';
+import prettier from 'eslint-config-prettier';
+import reactHooks from 'eslint-plugin-react-hooks';
+import { defineConfig, globalIgnores } from 'eslint/config';
+import globals from 'globals';
+import tseslint from 'typescript-eslint';
 
-export default ts.config(
-  { ignores: ['dist/', 'node_modules/', 'public/data/', 'data/', '.wrangler/'] },
+export default defineConfig([
+  globalIgnores([
+    'dist/',
+    'coverage/',
+    'data/raw/',
+    'public/data/',
+    '.wrangler/',
+    'test-results/',
+    'playwright-report/',
+  ]),
   js.configs.recommended,
-  ...ts.configs.recommended,
-  ...svelte.configs.recommended,
+  tseslint.configs.strictTypeChecked,
+  tseslint.configs.stylisticTypeChecked,
   {
-    languageOptions: { globals: { ...globals.browser, ...globals.node } },
-  },
-  {
-    files: ['**/*.svelte', '**/*.svelte.ts'],
     languageOptions: {
-      parserOptions: { parser: ts.parser, extraFileExtensions: ['.svelte'], svelteConfig },
+      parserOptions: {
+        projectService: true,
+        tsconfigRootDir: import.meta.dirname,
+      },
+    },
+    rules: {
+      '@typescript-eslint/restrict-template-expressions': ['error', { allowNumber: true }],
+      // Bracket access for index signatures is required by `noPropertyAccessFromIndexSignature`.
+      '@typescript-eslint/dot-notation': ['error', { allowIndexSignaturePropertyAccess: true }],
+      '@typescript-eslint/consistent-type-imports': 'error',
+      '@typescript-eslint/switch-exhaustiveness-check': 'error',
+      eqeqeq: 'error',
+      'no-console': ['error', { allow: ['warn', 'error'] }],
     },
   },
-)
+  {
+    files: ['src/**/*.{ts,tsx}'],
+    extends: [reactHooks.configs.flat.recommended],
+    languageOptions: { globals: globals.browser },
+  },
+  {
+    // Node-side code: the data pipeline CLIs report progress on stdout.
+    files: ['scripts/**/*.ts', 'tests/**/*.ts', 'vite/**/*.ts', '*.config.{js,ts}'],
+    languageOptions: { globals: globals.node },
+    rules: { 'no-console': 'off' },
+  },
+  {
+    // The proxy of the API versions, which runs on Cloudflare Workers.
+    files: ['servidor/**/*.ts', 'functions/**/*.ts'],
+    languageOptions: { globals: globals.serviceworker },
+  },
+  {
+    files: ['**/*.js'],
+    extends: [tseslint.configs.disableTypeChecked],
+  },
+  prettier,
+]);

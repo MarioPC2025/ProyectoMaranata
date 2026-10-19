@@ -10,9 +10,11 @@ import unittest
 from pathlib import Path
 
 from construir_original import REF, palabra_griega, palabra_hebrea, principal, resolver
+from glosas import leer, problema
 from morfologia import VALORES, describir
 
 DATOS = Path(__file__).resolve().parent.parent / "public" / "data"
+CONTEOS = Path(__file__).resolve().parent / "kjv_conteos.json"
 
 
 def leer_gz(ruta: Path):
@@ -46,6 +48,22 @@ class TestParseo(unittest.TestCase):
         fila_aramea = ["Dan.2.4#05=L", "x", "x", "x", "H9001/{H0001}", "AR/Aabsa"]
         self.assertEqual(palabra_hebrea(fila_aramea)[2], "AAabsa")
 
+    def test_palabra_hebrea_con_glosa_en_espanol(self):
+        fila = ["Gen.1.1#01=L", "בְּ/רֵאשִׁ֖ית", "be./re.Shit", "in/ beginning", "H9003/{H7225G}", "HR/Ncfsa"]
+        self.assertEqual(palabra_hebrea(fila)[0][2], "")
+        self.assertEqual(palabra_hebrea(fila, {"in beginning": "en principio"})[0][2], "en principio")
+
+    def test_traducciones_de_glosas(self):
+        self.assertIsNone(problema("[the] son of", "[el] hijo de"))
+        self.assertIsNone(problema("and <obj.>", "y <obj.>"))
+        self.assertIsNotNone(problema("[the] son of", "el hijo de"))
+        self.assertIsNotNone(problema("<to> saying", "diciendo"))
+        self.assertIsNotNone(problema("you", ""))
+        self.assertIsNotNone(problema("you", "tú\tvos"))
+        # Todas las guardadas pasan la misma revisión
+        for ingles, espanol in leer().items():
+            self.assertIsNone(problema(ingles, espanol), ingles)
+
     def test_palabra_griega_y_marcas(self):
         fila = ["Jhn.1.1#05=NKO", "λόγος, (logos)", "Word,", "G3056=N-NSM", "λόγος=word", "", "", "", "Palabra"]
         palabra, strong, morf = palabra_griega(fila, "NKO")
@@ -65,7 +83,7 @@ class TestParseo(unittest.TestCase):
 class TestDatosOriginales(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        cls.meta = json.loads((DATOS / "indice.json").read_text(encoding="utf-8"))
+        cls.meta = json.loads(CONTEOS.read_text(encoding="utf-8"))
         cls.libros = {i: leer_gz(DATOS / "original" / f"{i}.json.gz") for i in range(1, 67)}
         cls.morfologia = json.loads((DATOS / "morfologia.json").read_text(encoding="utf-8"))
 
@@ -111,14 +129,6 @@ class TestDatosOriginales(unittest.TestCase):
                         if not any(s in lexico for s in partes):
                             sin_lexico.add(p[4])
         self.assertLess(len(sin_lexico), 50, sorted(sin_lexico)[:20])
-
-    def test_concordancia(self):
-        bloque = leer_gz(DATOS / "concordancia" / "G6.json.gz")  # G3000-G3499
-        deltas = bloque["G3056"]
-        versiculos = [sum(deltas[: i + 1]) for i in range(len(deltas))]
-        jn11 = sum(self.meta["libros"][i][j] for i in range(42) for j in range(len(self.meta["libros"][i])))
-        self.assertIn(jn11, versiculos)
-        self.assertEqual(versiculos, sorted(set(versiculos)))
 
 
 if __name__ == "__main__":

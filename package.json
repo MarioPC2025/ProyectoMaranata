@@ -1,47 +1,70 @@
 {
   "name": "proyectomaranata",
+  "version": "0.1.0",
   "private": true,
-  "version": "0.0.0",
   "description": "Explorador de las referencias cruzadas de la Biblia, en español.",
   "author": "Mario Baldovino",
   "license": "MIT",
   "type": "module",
+  "engines": {
+    "node": ">=24"
+  },
   "scripts": {
-    "dev": "vite",
-    "dev:api": "wrangler pages dev public --port 8788",
-    "build": "vite build",
+    "dev": "npm run data:build && vite",
+    "build": "npm run data:build && tsc -b && vite build",
     "preview": "vite preview",
-    "check": "svelte-check --tsconfig ./tsconfig.app.json && tsc -p tsconfig.node.json && tsc -p tsconfig.servidor.json",
+    "dev:api": "wrangler pages dev dist --port 8788",
+    "typecheck": "tsc -b",
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
     "test": "vitest run",
     "test:watch": "vitest",
-    "lint": "eslint .",
-    "format": "prettier --write ."
+    "test:coverage": "vitest run --coverage",
+    "test:e2e": "playwright test --project=desktop --project=phone --project=offline",
+    "test:visual": "playwright test --project=visual-desktop --project=visual-phone",
+    "test:visual:update": "npm run test:visual -- --update-snapshots",
+    "check": "npm run typecheck && npm run lint && npm run format:check && npm run test:coverage",
+    "data": "npm run data:fetch && npm run data:build",
+    "data:fetch": "node scripts/data/fetch.ts",
+    "data:build": "node scripts/data/build.ts",
+    "data:original": "python scripts/descargar.py && python scripts/construir_original.py && python scripts/nombres.py"
   },
-  "devDependencies": {
-    "@cloudflare/workers-types": "^5.20261016.1",
-    "@eslint/js": "^10.0.1",
-    "@sveltejs/vite-plugin-svelte": "^7.3.1",
-    "@tsconfig/svelte": "^5.0.8",
-    "@types/node": "^26.6.5",
-    "eslint": "^10.12.0",
-    "eslint-plugin-svelte": "^3.23.1",
-    "globals": "^17.13.0",
-    "prettier": "^3.9.10",
-    "prettier-plugin-svelte": "^4.1.1",
-    "svelte": "^5.57.2",
-    "svelte-check": "^4.7.6",
-    "typescript": "^6.0.3",
-    "typescript-eslint": "^8.71.2",
-    "vite": "^8.3.4",
-    "vitest": "^5.0.5",
-    "wrangler": "^4.151.1"
+  "allowScripts": {
+    "workerd@1.20261012.1": true
   },
   "dependencies": {
     "@fontsource/noto-serif": "^5.3.0",
     "@fontsource/noto-serif-hebrew": "^5.3.0",
-    "@youversion/platform-core": "^2.15.0"
+    "@youversion/platform-core": "^2.15.0",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0",
+    "react-icons": "^5.7.0",
+    "three": "^0.186.1"
   },
-  "allowScripts": {
-    "workerd@1.20261012.1": true
+  "devDependencies": {
+    "@cloudflare/workers-types": "^5.20261016.1",
+    "@eslint/js": "^10.0.1",
+    "@playwright/test": "^1.57.0",
+    "@testing-library/react": "^16.3.0",
+    "@testing-library/user-event": "^14.6.1",
+    "@types/node": "^24.13.6",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@types/three": "^0.186.0",
+    "@vitejs/plugin-react": "^6.1.1",
+    "@vitest/coverage-v8": "^5.0.2",
+    "eslint": "^10.11.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-react-hooks": "^7.1.1",
+    "fflate": "^0.8.3",
+    "globals": "^17.12.0",
+    "happy-dom": "^20.0.0",
+    "prettier": "^3.9.9",
+    "typescript": "~6.0.2",
+    "typescript-eslint": "^8.70.1",
+    "vite": "^8.3.1",
+    "vitest": "^5.0.2",
+    "wrangler": "^4.151.1"
   }
 }

@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="es" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <!-- La misma app que la página de inicio, mostrando los Hilos en esta ruta. Solo título y
+         descripción: los plugins de vite/ agregan el resto del head. -->
+    <meta
+      name="description"
+      content="Lee cualquier capítulo de la Biblia mientras los hilos muestran adónde llegan las referencias cruzadas de cada versículo, de Génesis a Apocalipsis."
+    />
+    <title>Hilos · %SITE_NAME%</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <noscript>
+      Hilos muestra cómo se conecta cada versículo de un capítulo con el resto de la Biblia.
+      Necesita JavaScript para funcionar.
+    </noscript>
+    <script type="module" src="/src/app/main.tsx"></script>
+  </body>
+</html>
