@@ -39,7 +39,7 @@ La base es el repositorio de trekhleb (arcos y hilos); lo propio de Maranata se 
 - Hecho: en un capítulo, tocar una palabra del texto original resalta las que comparten su Strong y marca los versículos que la contienen.
 - Hecho: "Misma palabra hebrea/griega" (dataset de trekhleb, `words/stepbible.json`).
 - Pendiente: la RV1909 no lleva Strong (regla legal 6), así que no se puede marcar la palabra dentro del texto en español.
-- Hecho (90,9 %): glosas del hebreo en español (`data/glosas-hebreo.tsv`, `python scripts/glosas.py pendientes|agregar|aplicar`; 35.400 glosas que cubren el 90,9 % de las palabras del AT, traducción automática por lotes, de las más frecuentes a las menos, pendiente de revisión humana). Las que quedan aparecen una o dos veces cada una.
+- Hecho (91,9 %): glosas del hebreo en español (`data/glosas-hebreo.tsv`, `python scripts/glosas.py pendientes|agregar|aplicar`; 38.200 glosas que cubren el 91,9 % de las palabras del AT, traducción automática por lotes, de las más frecuentes a las menos, pendiente de revisión humana). Las que quedan aparecen una o dos veces cada una.
 - Hecho: fichas de nombres propios (TIPNR) en la ficha de la palabra (`scripts/nombres.py`, `data/nombres-es.tsv`, `python scripts/nombres.py pendientes|agregar`; traducidas las 4.238, con traducción automática pendiente de revisión humana).
 - Pendiente: léxico TBESH/TBESG traducido (IA + revisión humana).
 
