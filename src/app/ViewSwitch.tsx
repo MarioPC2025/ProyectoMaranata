@@ -13,7 +13,7 @@ interface ViewSwitchProps {
 /** The header's switch between the visualizations: links that keep the focused passage. */
 export function ViewSwitch({ views, current, hrefOf, onOpen }: ViewSwitchProps) {
   return (
-    <nav aria-label="Visualizaciones" className={controls.segmented}>
+    <nav aria-label="Visualizaciones" className={controls.segmented} data-tour="vistas">
       {views.map((view) => (
         <InAppLink
           key={view.id}

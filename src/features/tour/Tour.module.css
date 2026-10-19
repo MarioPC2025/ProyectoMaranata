@@ -1,0 +1,87 @@
+/* Over everything, and it catches every touch: the page behind is not usable during the tour. */
+.tour {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+}
+
+.backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgb(0 0 0 / 0.65);
+}
+
+/* What the step points at stays lit; a shadow as big as the screen dims the rest. */
+.spotlight {
+  position: absolute;
+  border-radius: var(--radius);
+  box-shadow: 0 0 0 200vmax rgb(0 0 0 / 0.65);
+  outline: 2px solid var(--color-accent);
+  transition:
+    top 200ms ease,
+    left 200ms ease,
+    width 200ms ease,
+    height 200ms ease;
+}
+
+.bubble {
+  position: absolute;
+  display: grid;
+  gap: var(--space-2);
+  inline-size: min(20rem, calc(100vw - 1.5rem));
+  padding: var(--space-4);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  background: var(--color-surface);
+  box-shadow: 0 0.75rem 2rem rgb(0 0 0 / 0.5);
+  font-size: 0.9375rem;
+  transition:
+    top 200ms ease,
+    left 200ms ease;
+}
+
+.count {
+  margin: 0;
+  color: var(--color-text-muted);
+  font-size: 0.75rem;
+}
+
+.title {
+  margin: 0;
+  font-family: var(--font-serif);
+  font-size: 1.125rem;
+  font-weight: 500;
+}
+
+.text {
+  margin: 0;
+  line-height: 1.5;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--space-2);
+  margin-block-start: var(--space-2);
+}
+
+.skip {
+  margin-inline-end: auto;
+  padding: var(--space-1) 0;
+  border: 0;
+  background: none;
+  color: var(--color-text-muted);
+  cursor: pointer;
+}
+
+.primary {
+  border-color: var(--color-accent);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .spotlight,
+  .bubble {
+    transition: none;
+  }
+}

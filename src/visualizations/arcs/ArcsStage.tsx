@@ -130,6 +130,7 @@ export function ArcsStage({
         className={styles.stage}
         tabIndex={0}
         role="application"
+        data-tour="arcos"
         aria-label="Diagrama de arcos de las referencias cruzadas. Arrastra o usa las flechas para mover, desplaza o usa +/- para acercar, haz clic para enfocar un pasaje y Escape para quitar el foco. En una pantalla táctil, mantén el dedo para ver un pasaje."
       >
         <canvas key={attempt} ref={glCanvasRef} className={styles.canvas} />
@@ -234,10 +235,11 @@ function HoverTooltip({
     <div ref={tooltipRef} className={styles.tooltip} data-input={hover.input}>
       <strong>{formatPassage(hover.passage, versification)}</strong>
       <span>
-        {formatInteger(count)} {count === 1 ? 'connection' : 'connections'}
+        {formatInteger(count)} {count === 1 ? 'conexión' : 'conexiones'}
       </span>
       <span className={styles.gestures}>
-        {hover.input === 'touch' ? <TapIcon /> : <ClickIcon />} to focus · <PinchIcon /> to zoom
+        {hover.input === 'touch' ? <TapIcon /> : <ClickIcon />} para enfocar · <PinchIcon /> para
+        acercar
       </span>
     </div>
   );

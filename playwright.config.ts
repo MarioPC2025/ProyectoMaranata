@@ -36,6 +36,17 @@ export default defineConfig({
   reporter: process.env['CI'] ? [['github'], ['html', { open: 'never' }]] : [['list']],
   use: {
     baseURL: BASE_URL,
+    // The features tour opens by itself on a first visit and would cover what the tests use:
+    // they start as a reader who has seen it (tour.spec.ts starts without it).
+    storageState: {
+      cookies: [],
+      origins: [
+        {
+          origin: `http://localhost:${String(PORT)}`,
+          localStorage: [{ name: 'bible-cross-references:tour-seen', value: 'true' }],
+        },
+      ],
+    },
     trace: 'on-first-retry',
     screenshot: 'only-on-failure',
     // The software renderer: the arcs are WebGL, and CI machines have no GPU.

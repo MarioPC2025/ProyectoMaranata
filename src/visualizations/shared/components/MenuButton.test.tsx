@@ -2,7 +2,7 @@ import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { describe, expect, it } from 'vitest';
 import { FiltersIcon } from '../../../shared/ui/icons.tsx';
-import { MenuButton } from './MenuButton.tsx';
+import { MenuButton, OptionsMenu } from './MenuButton.tsx';
 
 function renderMenu(props: Partial<Parameters<typeof MenuButton>[0]> = {}) {
   return render(
@@ -107,5 +107,45 @@ describe('MenuButton', () => {
     // No listener should survive to act on this.
     await userEvent.keyboard('{Escape}');
     expect(document.body.textContent).toBe('');
+  });
+});
+
+describe('OptionsMenu', () => {
+  it('junta varios menús en un solo botón, cada uno como una sección', async () => {
+    render(
+      <OptionsMenu>
+        <MenuButton label="Traducción" value="RV1909">
+          <p>traducciones</p>
+        </MenuButton>
+        <MenuButton label="Filtros" icon={FiltersIcon}>
+          <p>filtros</p>
+        </MenuButton>
+      </OptionsMenu>,
+    );
+    expect(screen.getAllByRole('button')).toHaveLength(1);
+    await userEvent.click(screen.getByRole('button', { name: 'Opciones' }));
+    expect(screen.getByRole('region', { name: 'Traducción' }).textContent).toContain(
+      'Traducción: RV1909',
+    );
+    expect(screen.getByRole('region', { name: 'Filtros' }).textContent).toContain('filtros');
+    expect(screen.getAllByRole('button')).toHaveLength(1);
+  });
+
+  it('avisa si algo de adentro no está como al principio', () => {
+    render(
+      <OptionsMenu indicator>
+        <p>contenido</p>
+      </OptionsMenu>,
+    );
+    expect(screen.getByRole('button').getAttribute('aria-label')).toBe('Opciones (cambiado)');
+  });
+
+  it('queda marcado para el recorrido', () => {
+    const { container } = render(
+      <OptionsMenu>
+        <p>contenido</p>
+      </OptionsMenu>,
+    );
+    expect(container.querySelector('[data-tour="opciones"]')).not.toBeNull();
   });
 });

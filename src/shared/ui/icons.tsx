@@ -7,6 +7,7 @@ import {
   LuArrowRightLeft,
   LuBookOpenText,
   LuCheck,
+  LuCircleHelp,
   LuChevronDown,
   LuChevronLeft,
   LuChevronRight,
@@ -23,6 +24,7 @@ import {
   LuRefreshCw,
   LuRotateCcw,
   LuSearch,
+  LuSettings2,
   LuShare,
   LuSlidersHorizontal,
   LuSquarePlus,
@@ -89,6 +91,8 @@ export const WordsIcon = decorative(LuLanguages);
 
 // Settings
 export const FiltersIcon = decorative(LuSlidersHorizontal);
+export const OptionsIcon = decorative(LuSettings2);
+export const HelpIcon = decorative(LuCircleHelp);
 export const GenresIcon = decorative(LuPalette);
 
 // Link direction: a passage points to others, others point to it, or both. The arrows follow the

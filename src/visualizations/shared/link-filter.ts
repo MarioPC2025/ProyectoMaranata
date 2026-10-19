@@ -1,3 +1,4 @@
+import { isNativeApp } from '../../app/native-app.ts';
 import { GENRES, type GenreId } from '../../core/bible/genres.ts';
 import type { VerseIndex } from '../../core/bible/verse-ref.ts';
 import { elementAt } from '../../core/lib/array.ts';
@@ -23,8 +24,11 @@ export function createLinkFilter(minVotes: number): LinkFilter {
  * (153,419 of 344,799 in the OpenBible.info snapshot of 2026-09-21). It hides the links readers
  * voted down (0.4%, e.g. Ephesians 6:17 → 1 Samuel 17:58, at −86) and the loosest ones, which few
  * readers found helpful; the Filters menu shows more, down to every link.
+ *
+ * En la app de Android arranca más estricto, con 10 votos: menos arcos, que se leen mejor en una
+ * pantalla chica y le piden menos al teléfono. Desde Filtros se puede bajar igual que en la web.
  */
-export const DEFAULT_LINK_FILTER: LinkFilter = createLinkFilter(4);
+export const DEFAULT_LINK_FILTER: LinkFilter = createLinkFilter(isNativeApp() ? 10 : 4);
 
 export function isDefaultFilter(filter: LinkFilter, defaults: LinkFilter): boolean {
   return filter.minVotes === defaults.minVotes && filter.hiddenGenres.size === 0;

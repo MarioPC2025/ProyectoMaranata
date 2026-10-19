@@ -167,6 +167,26 @@
 
 /* Sized to its content up to a comfortable measure; MenuButton slides it back into the viewport
    (keeping the same 0.75rem margin) when it would overflow a narrow screen. */
+/* Las secciones del menú de opciones (traducción, géneros, filtros), separadas por una línea. */
+.menuSection {
+  display: grid;
+  gap: var(--space-3);
+}
+
+.menuSection + .menuSection {
+  padding-block-start: var(--space-3);
+  border-block-start: 1px solid var(--color-border);
+}
+
+.menuSectionTitle {
+  margin: 0;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
 .popover {
   position: absolute;
   inset-block-start: calc(100% + var(--space-2));
@@ -182,6 +202,9 @@
   background: var(--color-surface);
   box-shadow: 0 0.75rem 2rem rgb(0 0 0 / 0.5);
   font-size: 0.875rem;
+  /* El menú de opciones junta tres: en un teléfono puede ser más alto que la pantalla. */
+  max-block-size: calc(100dvh - 8rem);
+  overflow-y: auto;
 }
 
 .field {

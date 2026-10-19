@@ -33,7 +33,7 @@ export function ReferenceSearch({ versification, onSelect }: ReferenceSearchProp
   };
 
   return (
-    <form role="search" className={styles.search} onSubmit={handleSubmit}>
+    <form role="search" className={styles.search} onSubmit={handleSubmit} data-tour="buscar">
       <SearchIcon className={styles.searchIcon} />
       <input
         name="reference"

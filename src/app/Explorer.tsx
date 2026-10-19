@@ -1,6 +1,9 @@
 import { useEffect, useMemo, useOptimistic, useRef, useState, useTransition, use } from 'react';
 import { formatPassage, type Passage } from '../core/bible/passage.ts';
+import { hasSeenTour } from '../features/tour/tour-steps.ts';
+import { Tour } from '../features/tour/Tour.tsx';
 import { ErrorBoundary } from '../shared/ui/ErrorBoundary.tsx';
+import { HelpIcon } from '../shared/ui/icons.tsx';
 import { getTranslationManifest } from '../translations/registry.ts';
 import controls from '../visualizations/shared/components/controls.module.css';
 import { DEFAULT_LINK_FILTER } from '../visualizations/shared/link-filter.ts';
@@ -22,6 +25,9 @@ import { ViewSwitch } from './ViewSwitch.tsx';
 import { VIEWS, type View } from './views.ts';
 
 const [HOME] = VIEWS;
+
+/** The tour opens by itself this long after the arcs appear, so they are seen first. */
+const TOUR_DELAY_MS = 900;
 
 /**
  * The app: every visualization over one shared passage, with a switch between them.
@@ -61,6 +67,21 @@ export function Explorer({ core }: { readonly core: VizCore }) {
   // the element to focus there.
   const focusTarget = useRef<string | null>(null);
   const active = VIEWS.find((view) => view.id === location.view) ?? HOME;
+  const [tourOpen, setTourOpen] = useState(false);
+  // Only the first time, and not over a passage someone shared: whoever follows a link came to
+  // read it.
+  const [autoTour] = useState(() => passage === null && !hasSeenTour());
+  useEffect(() => {
+    if (!autoTour) {
+      return undefined;
+    }
+    const timer = setTimeout(() => {
+      setTourOpen(true);
+    }, TOUR_DELAY_MS);
+    return () => {
+      clearTimeout(timer);
+    };
+  }, [autoTour]);
 
   const title = [
     passage && formatPassage(passage, versification),
@@ -127,24 +148,38 @@ export function Explorer({ core }: { readonly core: VizCore }) {
 
   const masthead = (
     <>
-      <h1 className={styles.title}>
-        <InAppLink
-          href={hrefOf(HOME, null)}
-          className={styles.home}
-          onFollow={() => {
-            focusTarget.current = 'h1 a';
-            navigate({
-              view: HOME.id,
-              passage: null,
-              filter: DEFAULT_LINK_FILTER,
-              translation: location.translation,
-            });
-            setGeneration((value) => value + 1);
+      <div className={styles.brand}>
+        <h1 className={styles.title}>
+          <InAppLink
+            href={hrefOf(HOME, null)}
+            className={styles.home}
+            onFollow={() => {
+              focusTarget.current = 'h1 a';
+              navigate({
+                view: HOME.id,
+                passage: null,
+                filter: DEFAULT_LINK_FILTER,
+                translation: location.translation,
+              });
+              setGeneration((value) => value + 1);
+            }}
+          >
+            {import.meta.env.SITE_NAME}
+          </InAppLink>
+        </h1>
+        <button
+          type="button"
+          className={`${controls.button} ${styles.help}`}
+          aria-label="Ver el recorrido por la app"
+          title="Ver el recorrido"
+          data-tour="ayuda"
+          onClick={() => {
+            setTourOpen(true);
           }}
         >
-          {import.meta.env.SITE_NAME}
-        </InAppLink>
-      </h1>
+          <HelpIcon />
+        </button>
+      </div>
       <ViewSwitch
         views={VIEWS}
         current={location.view}
@@ -157,78 +192,91 @@ export function Explorer({ core }: { readonly core: VizCore }) {
     </>
   );
 
-  return VIEWS.map((view) => {
-    const isActive = view === active;
-    return (
-      <div
-        key={`${view.id}:${String(generation)}`}
-        className={styles.view}
-        data-view={view.id}
-        data-active={isActive}
-        inert={!isActive}
-      >
-        {/* One view failing (e.g. without WebGL) keeps the page frame, so the other stays one
+  return (
+    <>
+      <Tour
+        open={tourOpen}
+        onClose={() => {
+          setTourOpen(false);
+        }}
+      />
+      {VIEWS.map((view) => {
+        const isActive = view === active;
+        return (
+          <div
+            key={`${view.id}:${String(generation)}`}
+            className={styles.view}
+            data-view={view.id}
+            data-active={isActive}
+            inert={!isActive}
+          >
+            {/* One view failing (e.g. without WebGL) keeps the page frame, so the other stays one
             switch away. */}
-        <ErrorBoundary
-          fallback={(error) => (
-            <VizPage masthead={masthead} credits={<Credits translation={translation.manifest} />}>
-              <p role="alert" className={styles.error}>
-                {view.title} no pudo iniciar: {error.message}
-              </p>
-            </VizPage>
-          )}
-        >
-          <view.Component
-            data={data}
-            active={isActive}
-            passage={passage}
-            onNavigate={(target) => {
-              navigate({ ...location, view: view.id, passage: target });
-            }}
-            filter={filter}
-            onFilterChange={(next) => {
-              // A filter tweak replaces the history entry: Back returns to the previous passage.
-              navigate({ ...location, filter: next }, { replace: true });
-            }}
-            masthead={masthead}
-            translationMenu={translationMenu}
-            shareUrl={(target) =>
-              new URL(
-                explorerUrl(
-                  HOME,
-                  {
-                    passage: target,
-                    filter: DEFAULT_LINK_FILTER,
-                    translation: location.translation,
-                  },
-                  '',
-                  versification,
-                  // A quote carries the name of the text it is in, so its link always names it
-                  // too: whoever opens it reads the words that were quoted, not their own
-                  // translation of them.
-                  null,
-                ),
-                import.meta.env.SITE_URL,
-              ).href
-            }
-            passageLinks={(target) =>
-              VIEWS.filter((other) => other !== view).map((other) => (
-                <InAppLink
-                  key={other.id}
-                  href={hrefOf(other, target)}
-                  className={controls.button}
-                  onFollow={() => {
-                    navigate({ ...location, view: other.id, passage: target });
-                  }}
+            <ErrorBoundary
+              fallback={(error) => (
+                <VizPage
+                  masthead={masthead}
+                  credits={<Credits translation={translation.manifest} />}
                 >
-                  <other.icon />
-                  {other.openLabel}
-                </InAppLink>
-              ))
-            }
-          />
-        </ErrorBoundary>
-      </div>
-    );
-  });
+                  <p role="alert" className={styles.error}>
+                    {view.title} no pudo iniciar: {error.message}
+                  </p>
+                </VizPage>
+              )}
+            >
+              <view.Component
+                data={data}
+                active={isActive}
+                passage={passage}
+                onNavigate={(target) => {
+                  navigate({ ...location, view: view.id, passage: target });
+                }}
+                filter={filter}
+                onFilterChange={(next) => {
+                  // A filter tweak replaces the history entry: Back returns to the previous passage.
+                  navigate({ ...location, filter: next }, { replace: true });
+                }}
+                masthead={masthead}
+                translationMenu={translationMenu}
+                shareUrl={(target) =>
+                  new URL(
+                    explorerUrl(
+                      HOME,
+                      {
+                        passage: target,
+                        filter: DEFAULT_LINK_FILTER,
+                        translation: location.translation,
+                      },
+                      '',
+                      versification,
+                      // A quote carries the name of the text it is in, so its link always names it
+                      // too: whoever opens it reads the words that were quoted, not their own
+                      // translation of them.
+                      null,
+                    ),
+                    import.meta.env.SITE_URL,
+                  ).href
+                }
+                passageLinks={(target) =>
+                  VIEWS.filter((other) => other !== view).map((other) => (
+                    <InAppLink
+                      key={other.id}
+                      href={hrefOf(other, target)}
+                      className={controls.button}
+                      onFollow={() => {
+                        navigate({ ...location, view: other.id, passage: target });
+                      }}
+                    >
+                      <other.icon />
+                      {other.openLabel}
+                    </InAppLink>
+                  ))
+                }
+              />
+            </ErrorBoundary>
+          </div>
+        );
+      })}
+    </>
+  );
 }

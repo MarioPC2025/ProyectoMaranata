@@ -10,7 +10,7 @@ import { GenreToggles, type GenreTogglesProps } from './GenreToggles.tsx';
 export function GenreLegend(toggles: GenreTogglesProps) {
   const [open, setOpen] = useState(false);
   return (
-    <section className={styles.legend} data-open={open} aria-label="Géneros">
+    <section className={styles.legend} data-open={open} aria-label="Géneros" data-tour="generos">
       <button
         type="button"
         className={styles.toggle}

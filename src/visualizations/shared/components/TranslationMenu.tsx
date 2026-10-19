@@ -34,7 +34,7 @@ export function TranslationMenu({
   // Solo las que se pueden usar: las de YouVersion necesitan su app key.
   const apiVersions = API_VERSIONS.filter((version) => version.configured());
   return (
-    <MenuButton label="Traducción" value={current.abbreviation} busy={pending}>
+    <MenuButton label="Traducción" value={current.abbreviation} busy={pending} tour="traduccion">
       <div className={styles.field} role="radiogroup" aria-label="Traducción">
         {TRANSLATION_MANIFESTS.map((translation) => (
           <label key={translation.id} className={styles.choice}>

@@ -23,7 +23,8 @@ export function VizDataBoundary({ children }: VizDataBoundaryProps) {
     <ErrorBoundary
       fallback={(error, reset) => (
         <div role="alert" style={{ padding: 'var(--space-6)' }}>
-          <p>{error.message}</p>
+          <p>No se pudieron cargar las referencias cruzadas. Revisa tu conexión.</p>
+          <p className={styles.hint}>{error.message}</p>
           <button
             type="button"
             className={styles.button}
@@ -34,7 +35,7 @@ export function VizDataBoundary({ children }: VizDataBoundaryProps) {
             }}
           >
             <RetryIcon />
-            Retry
+            Reintentar
           </button>
         </div>
       )}

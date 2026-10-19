@@ -1,17 +1,19 @@
 import { useMemo, useState } from 'react';
+import { isNativeApp } from '../../app/native-app.ts';
 import type { BookId } from '../../core/bible/books.ts';
 import { passageRange, type Passage } from '../../core/bible/passage.ts';
 import { BothDirectionsIcon, IncomingIcon, OutgoingIcon } from '../../shared/ui/icons.tsx';
 import { Credits } from '../shared/components/Credits.tsx';
 import { FiltersMenu } from '../shared/components/FiltersMenu.tsx';
 import { GenreMenu } from '../shared/components/GenreMenu.tsx';
+import { OptionsMenu } from '../shared/components/MenuButton.tsx';
 import { toggleGenre } from '../shared/components/GenreToggles.tsx';
 import { PassagePanel } from '../shared/components/PassagePanel.tsx';
 import { ReferenceSearch } from '../shared/components/ReferenceSearch.tsx';
 import { SegmentedControl } from '../shared/components/SegmentedControl.tsx';
 import { VizPage } from '../shared/components/VizPage.tsx';
 import type { Connection } from '../shared/connections.ts';
-import { DEFAULT_LINK_FILTER, selectLinks } from '../shared/link-filter.ts';
+import { DEFAULT_LINK_FILTER, isDefaultFilter, selectLinks } from '../shared/link-filter.ts';
 import type { VizData } from '../shared/viz-data.ts';
 import type { VisualizationProps } from '../visualization.ts';
 import { ThreadsStage, type ThreadDirection } from './ThreadsStage.tsx';
@@ -70,6 +72,24 @@ export function ThreadsExplorer({
     readonly connection: Connection;
   } | null>(null);
   const previewed = preview?.passage === passage ? preview.connection : null;
+  const menus = (
+    <>
+      {translationMenu}
+      <GenreMenu
+        hiddenGenres={filter.hiddenGenres}
+        onToggle={(genre) => {
+          onFilterChange({ ...filter, hiddenGenres: toggleGenre(filter.hiddenGenres, genre) });
+        }}
+      />
+      <FiltersMenu
+        filter={filter}
+        defaults={DEFAULT_LINK_FILTER}
+        onChange={onFilterChange}
+        shownLinks={shownLinks}
+        totalLinks={index.linkCount}
+      />
+    </>
+  );
 
   return (
     <VizPage
@@ -79,7 +99,6 @@ export function ThreadsExplorer({
       controls={
         <>
           <ReferenceSearch versification={data.versification} onSelect={onNavigate} />
-          {translationMenu}
           <SegmentedControl
             label="Dirección de los hilos"
             options={DIRECTIONS}
@@ -87,19 +106,14 @@ export function ThreadsExplorer({
             onChange={setDirection}
             iconsOnlyWhenNarrow
           />
-          <GenreMenu
-            hiddenGenres={filter.hiddenGenres}
-            onToggle={(genre) => {
-              onFilterChange({ ...filter, hiddenGenres: toggleGenre(filter.hiddenGenres, genre) });
-            }}
-          />
-          <FiltersMenu
-            filter={filter}
-            defaults={DEFAULT_LINK_FILTER}
-            onChange={onFilterChange}
-            shownLinks={shownLinks}
-            totalLinks={index.linkCount}
-          />
+          {/* En la app de Android, los tres menús van juntos en "Opciones". */}
+          {isNativeApp() ? (
+            <OptionsMenu indicator={!isDefaultFilter(filter, DEFAULT_LINK_FILTER)}>
+              {menus}
+            </OptionsMenu>
+          ) : (
+            menus
+          )}
         </>
       }
       panel={

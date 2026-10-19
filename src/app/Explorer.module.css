@@ -10,6 +10,24 @@
   visibility: hidden;
 }
 
+/* The site's name and, beside it, the button that opens the tour again. */
+.brand {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.help {
+  padding: var(--space-1);
+  border-color: transparent;
+  background: none;
+  color: var(--color-text-muted);
+}
+
+.help:hover {
+  color: var(--color-text);
+}
+
 .title {
   margin: 0;
   font-family: var(--font-serif);

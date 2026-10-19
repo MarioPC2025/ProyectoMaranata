@@ -1,4 +1,5 @@
 import { useMemo, useState } from 'react';
+import { isNativeApp } from '../../app/native-app.ts';
 import {
   ClickIcon,
   DragIcon,
@@ -10,12 +11,14 @@ import {
 import { Credits } from '../shared/components/Credits.tsx';
 import { FiltersMenu } from '../shared/components/FiltersMenu.tsx';
 import { GenreLegend } from '../shared/components/GenreLegend.tsx';
+import { GenreMenu } from '../shared/components/GenreMenu.tsx';
 import { toggleGenre } from '../shared/components/GenreToggles.tsx';
 import { LinkStats } from '../shared/components/LinkStats.tsx';
+import { OptionsMenu } from '../shared/components/MenuButton.tsx';
 import { PassagePanel } from '../shared/components/PassagePanel.tsx';
 import { ReferenceSearch } from '../shared/components/ReferenceSearch.tsx';
 import { VizPage } from '../shared/components/VizPage.tsx';
-import { DEFAULT_LINK_FILTER, selectLinks } from '../shared/link-filter.ts';
+import { DEFAULT_LINK_FILTER, isDefaultFilter, selectLinks } from '../shared/link-filter.ts';
 import { summarizeLinks } from '../shared/link-summary.ts';
 import type { Passage } from '../../core/bible/passage.ts';
 import type { Connection } from '../shared/connections.ts';
@@ -58,6 +61,21 @@ export function ArcsExplorer({
     readonly connection: Connection;
   } | null>(null);
   const previewed = preview?.passage === passage ? preview.connection : null;
+  // En la app de Android, un encabezado más simple: la búsqueda y un solo botón de opciones, sin
+  // los contadores ni la leyenda sobre el diagrama (los gestos los explica el recorrido).
+  const simple = isNativeApp();
+  const toggleGenreOf = (genre: Parameters<typeof toggleGenre>[1]) => {
+    onFilterChange({ ...filter, hiddenGenres: toggleGenre(filter.hiddenGenres, genre) });
+  };
+  const filtersMenu = (
+    <FiltersMenu
+      filter={filter}
+      defaults={DEFAULT_LINK_FILTER}
+      onChange={onFilterChange}
+      shownLinks={linkIds.length}
+      totalLinks={index.linkCount}
+    />
+  );
 
   return (
     <VizPage
@@ -67,14 +85,18 @@ export function ArcsExplorer({
       controls={
         <>
           <ReferenceSearch versification={data.versification} onSelect={onNavigate} />
-          {translationMenu}
-          <FiltersMenu
-            filter={filter}
-            defaults={DEFAULT_LINK_FILTER}
-            onChange={onFilterChange}
-            shownLinks={linkIds.length}
-            totalLinks={index.linkCount}
-          />
+          {simple ? (
+            <OptionsMenu indicator={!isDefaultFilter(filter, DEFAULT_LINK_FILTER)}>
+              {translationMenu}
+              <GenreMenu hiddenGenres={filter.hiddenGenres} onToggle={toggleGenreOf} />
+              {filtersMenu}
+            </OptionsMenu>
+          ) : (
+            <>
+              {translationMenu}
+              {filtersMenu}
+            </>
+          )}
         </>
       }
       panel={
@@ -103,28 +125,25 @@ export function ArcsExplorer({
         preview={previewed}
         onSelect={onNavigate}
       />
-      <LinkStats
-        summary={summary}
-        hint={{
-          pointer: (
-            <>
-              <ScrollIcon /> para acercar · <DragIcon /> para mover · <ClickIcon /> para enfocar
-            </>
-          ),
-          touch: (
-            <>
-              <HoldAndSlideIcon /> mantén para ver · <TapIcon /> para enfocar · <PinchIcon /> para
-              acercar
-            </>
-          ),
-        }}
-      />
-      <GenreLegend
-        hiddenGenres={filter.hiddenGenres}
-        onToggle={(genre) => {
-          onFilterChange({ ...filter, hiddenGenres: toggleGenre(filter.hiddenGenres, genre) });
-        }}
-      />
+      {!simple && (
+        <LinkStats
+          summary={summary}
+          hint={{
+            pointer: (
+              <>
+                <ScrollIcon /> para acercar · <DragIcon /> para mover · <ClickIcon /> para enfocar
+              </>
+            ),
+            touch: (
+              <>
+                <HoldAndSlideIcon /> mantén para ver · <TapIcon /> para enfocar · <PinchIcon /> para
+                acercar
+              </>
+            ),
+          }}
+        />
+      )}
+      {!simple && <GenreLegend hiddenGenres={filter.hiddenGenres} onToggle={toggleGenreOf} />}
     </VizPage>
   );
 }

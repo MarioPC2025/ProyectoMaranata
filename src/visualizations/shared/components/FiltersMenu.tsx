@@ -33,7 +33,7 @@ export function FiltersMenu({
 }: FiltersMenuProps) {
   const isDefault = isDefaultFilter(filter, defaults);
   return (
-    <MenuButton label="Filtros" icon={FiltersIcon} indicator={!isDefault}>
+    <MenuButton label="Filtros" icon={FiltersIcon} indicator={!isDefault} tour="filtros">
       <label className={styles.field}>
         Votos de la comunidad
         <select

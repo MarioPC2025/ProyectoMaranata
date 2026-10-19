@@ -1,5 +1,14 @@
-import { useEffect, useId, useLayoutEffect, useRef, useState, type ReactNode } from 'react';
-import { ExpandIcon, type IconComponent } from '../../../shared/ui/icons.tsx';
+import {
+  createContext,
+  use,
+  useEffect,
+  useId,
+  useLayoutEffect,
+  useRef,
+  useState,
+  type ReactNode,
+} from 'react';
+import { ExpandIcon, OptionsIcon, type IconComponent } from '../../../shared/ui/icons.tsx';
 import styles from './controls.module.css';
 
 interface MenuButtonProps {
@@ -18,7 +27,15 @@ interface MenuButtonProps {
   readonly busy?: boolean;
   /** The popover's content. */
   readonly children: ReactNode;
+  /** Marks the button for the features tour (see `src/features/tour`). */
+  readonly tour?: string;
 }
+
+/**
+ * Dentro de un `OptionsMenu`, cada menú no abre su propio botón: muestra su contenido como una
+ * sección del menú de opciones.
+ */
+const InOptionsMenu = createContext(false);
 
 /** Space kept between an open popover and the edges of the viewport (matches `.popover`). */
 const VIEWPORT_MARGIN_PX = 12;
@@ -37,13 +54,48 @@ function keepInViewport(popover: HTMLElement): void {
 }
 
 /** A header button that opens a small popover; closes on outside click or Escape. */
-export function MenuButton({
+export function MenuButton(props: MenuButtonProps) {
+  if (use(InOptionsMenu)) {
+    const { label, value, children } = props;
+    return (
+      <section className={styles.menuSection} aria-label={label}>
+        <h2 className={styles.menuSectionTitle}>
+          {label}
+          {value !== undefined && `: ${value}`}
+        </h2>
+        {children}
+      </section>
+    );
+  }
+  return <PopoverButton {...props} />;
+}
+
+/**
+ * Un solo botón, "Opciones", con los menús que se le den adentro (traducción, géneros, filtros):
+ * la versión simple del encabezado, para la app de Android.
+ */
+export function OptionsMenu({
+  indicator = false,
+  children,
+}: {
+  readonly indicator?: boolean;
+  readonly children: ReactNode;
+}) {
+  return (
+    <PopoverButton label="Opciones" icon={OptionsIcon} indicator={indicator} tour="opciones">
+      <InOptionsMenu value>{children}</InOptionsMenu>
+    </PopoverButton>
+  );
+}
+
+function PopoverButton({
   label,
   icon: Icon,
   value,
   indicator = false,
   busy = false,
   children,
+  tour,
 }: MenuButtonProps) {
   const [open, setOpen] = useState(false);
   const name = value === undefined ? label : `${label}: ${value}`;
@@ -90,7 +142,7 @@ export function MenuButton({
   }, [open]);
 
   return (
-    <div ref={menuRef} className={styles.menu}>
+    <div ref={menuRef} className={styles.menu} data-tour={tour}>
       <button
         type="button"
         className={`${styles.button} ${styles.menuButton}`}

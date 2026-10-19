@@ -51,7 +51,10 @@ La base es el repositorio de trekhleb (arcos y hilos); lo propio de Maranata se 
 - En la app no se registra el service worker (los archivos ya vienen en el paquete) y la NTV se pide al proxy del sitio publicado (`VITE_API_ORIGIN` en `.env.android`), que acepta el origen de la app por CORS. Hasta que el dominio esté publicado, en la app la NTV muestra el aviso de que no está disponible.
 - El wrapper de Gradle está en 9.2.1 (la plantilla de Capacitor trae 8.14.3, que no corre sobre el Java 25 de Android Studio). Los `.gz` de `public/data/` el empaquetador de Android los descomprime y les saca la extensión, así que en la app se piden sin `.gz` (`src/words/word-by-word.ts`).
 - En la app, la animación de carga de los arcos se ve al menos 3 segundos desde que abre (`src/visualizations/shared/viz-data.ts`).
-- Pendiente (etapa de optimización, más adelante): la app responde con algo de demora en el teléfono; medir y optimizar la carga de datos y el dibujo de los arcos. En un teléfono real los arcos mostraron un error al iniciar (en el emulador andan): averiguar el mensaje y corregirlo.
+- Arcos en teléfonos (pantallas táctiles, también en la web): perfil de dibujo liviano (`src/visualizations/shared/render-profile.ts`: resolución 1x, 16 tramos por arco, sin la animación de entrada). En un Samsung A54 el perfil completo hacía que Android reiniciara la placa de video y los arcos quedaban en blanco; si vuelve a pasar, aparece un aviso con "Volver a dibujar". Falta confirmarlo en el A54.
+- Interfaz simple en la app (pedido de Mario): la búsqueda y un solo botón "Opciones" con traducción, géneros y filtros (`OptionsMenu` en `MenuButton.tsx`); sin la línea de contadores ni la leyenda sobre los arcos; arranca con el filtro en 10 votos en lugar de 4. La web queda como la de trekhleb.
+- Recorrido por las funciones (app y web, `src/features/tour/`): se abre solo la primera vez (no sobre un pasaje compartido) y se vuelve a abrir con el botón "?" junto al nombre.
+- Pendiente (etapa de optimización, más adelante): la app responde con algo de demora en el teléfono; medir y optimizar la carga de datos y el dibujo de los arcos.
 - Pendiente: firmar el build de release y publicarlo (necesita la cuenta de Google Play); revisar si YouVersion acepta las llamadas desde el origen de la app (`https://localhost`).
 
 ## Diseño

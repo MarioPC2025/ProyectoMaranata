@@ -118,16 +118,16 @@ describe('VizDataBoundary', () => {
     await renderSuspending(<VizDataBoundary>{() => <p>done</p>}</VizDataBoundary>);
     const alert = await screen.findByRole('alert');
     expect(alert.textContent).toContain('offline');
-    expect(screen.getByRole('button', { name: /Retry/ })).toBeDefined();
+    expect(screen.getByRole('button', { name: /Reintentar/ })).toBeDefined();
   });
 
   it('forgets the failure when retried, so the download starts over', async () => {
     vi.spyOn(console, 'error').mockImplementation(() => undefined);
     const fetch = serve({ failing: true });
     await renderSuspending(<VizDataBoundary>{() => <p>done</p>}</VizDataBoundary>);
-    await screen.findByRole('button', { name: /Retry/ });
+    await screen.findByRole('button', { name: /Reintentar/ });
     const before = fetch.mock.calls.length;
-    await userEvent.click(screen.getByRole('button', { name: /Retry/ }));
+    await userEvent.click(screen.getByRole('button', { name: /Reintentar/ }));
     await waitFor(() => {
       expect(fetch.mock.calls.length).toBeGreaterThan(before);
     });
