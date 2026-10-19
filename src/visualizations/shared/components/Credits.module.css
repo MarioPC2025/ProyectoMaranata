@@ -8,6 +8,15 @@
   }
 }
 
+/* Tablets: the Spanish line is longer than the English one it replaced, and with the widest
+   fonts it no longer fits between 48rem and 64rem. The text's credit is the one that goes, as on
+   phones: the header's picker names the text being read. */
+@media (min-width: 48rem) and (max-width: 63.99rem) {
+  .text {
+    display: none;
+  }
+}
+
 /* The background only appears where the footer still fits on one line with it. The whole line
    measures about 80rem here; it waits for 92rem, because a font is not the same width everywhere
    (the system stack is wider on a Mac than on the Linux box this was measured on) and the line

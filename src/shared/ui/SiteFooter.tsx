@@ -24,8 +24,14 @@ export function SiteFooter({ children, className }: SiteFooterProps) {
     <footer className={className ? `${styles.footer} ${className}` : styles.footer}>
       <span className={styles.owner}>
         <span className={styles.copyright}>© {YEAR} · </span>
-        <a href="https://github.com/MarioPC2025" target="_blank" rel="noreferrer">
-          Mario Baldovino
+        <a
+          href="https://github.com/MarioPC2025"
+          target="_blank"
+          rel="noreferrer"
+          aria-label="Mario Baldovino"
+        >
+          <span className={styles.givenName}>Mario</span>
+          <span className={styles.initial}>M.</span> Baldovino
         </a>{' '}
         ·{' '}
         <a
