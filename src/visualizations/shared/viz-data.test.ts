@@ -98,6 +98,39 @@ describe('vizCoreLoader', () => {
     await vizCoreLoader.load();
     expect(fetch).toHaveBeenCalledTimes(2);
   });
+
+  describe('en la app de Android', () => {
+    beforeEach(() => {
+      vi.stubGlobal('Capacitor', { isNativePlatform: () => true });
+    });
+
+    it('deja ver la animación de carga hasta los 3 segundos de abierta', async () => {
+      vi.useFakeTimers();
+      try {
+        vi.spyOn(performance, 'now').mockReturnValue(1000);
+        serveDatasets();
+        let listo = false;
+        const carga = vizCoreLoader.load().then(() => {
+          listo = true;
+        });
+        await vi.advanceTimersByTimeAsync(1999);
+        expect(listo).toBe(false);
+        await vi.advanceTimersByTimeAsync(1);
+        await carga;
+        expect(listo).toBe(true);
+      } finally {
+        vi.useRealTimers();
+        vi.restoreAllMocks();
+      }
+    });
+
+    it('no espera si la app ya lleva 3 segundos abierta', async () => {
+      vi.spyOn(performance, 'now').mockReturnValue(5000);
+      serveDatasets();
+      await expect(vizCoreLoader.load()).resolves.toBeDefined();
+      vi.restoreAllMocks();
+    });
+  });
 });
 
 describe('translationLoader', () => {

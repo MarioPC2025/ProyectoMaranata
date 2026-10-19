@@ -50,7 +50,7 @@ La base es el repositorio de trekhleb (arcos y hilos); lo propio de Maranata se 
 - Hecho: Capacitor 8 (`capacitor.config.ts`, id `ar.org.proyectomaranata.app`, que no se puede cambiar después de publicar) y el proyecto de Android en `android/`. `npm run android` arma el sitio en modo `android` y lo copia al proyecto; `npm run android:abrir` abre Android Studio; `npm run android:iconos` regenera los íconos y la pantalla de inicio desde `public/icono.svg`.
 - En la app no se registra el service worker (los archivos ya vienen en el paquete) y la NTV se pide al proxy del sitio publicado (`VITE_API_ORIGIN` en `.env.android`), que acepta el origen de la app por CORS. Hasta que el dominio esté publicado, en la app la NTV muestra el aviso de que no está disponible.
 - El wrapper de Gradle está en 9.2.1 (la plantilla de Capacitor trae 8.14.3, que no corre sobre el Java 25 de Android Studio). Los `.gz` de `public/data/` el empaquetador de Android los descomprime y les saca la extensión, así que en la app se piden sin `.gz` (`src/words/word-by-word.ts`).
-- Pantalla de inicio de 3 segundos (`@capacitor/splash-screen`, en `capacitor.config.ts`).
+- En la app, la animación de carga de los arcos se ve al menos 3 segundos desde que abre (`src/visualizations/shared/viz-data.ts`).
 - Pendiente (etapa de optimización, más adelante): la app responde con algo de demora en el teléfono; medir y optimizar la carga de datos y el dibujo de los arcos. En un teléfono real los arcos mostraron un error al iniciar (en el emulador andan): averiguar el mensaje y corregirlo.
 - Pendiente: firmar el build de release y publicarlo (necesita la cuenta de Google Play); revisar si YouVersion acepta las llamadas desde el origen de la app (`https://localhost`).
 

@@ -1,3 +1,4 @@
+import { isNativeApp } from '../../app/native-app.ts';
 import { CANONICAL_VERSIFICATION, type Versification } from '../../core/bible/versification.ts';
 import type { TranslationId } from '../../core/datasets/ids.ts';
 import {
@@ -27,11 +28,26 @@ export interface VizData extends VizCore {
 }
 
 /**
+ * En la app de Android los datos vienen en el paquete y cargan casi al instante: la animación de
+ * carga de los arcos se muestra al menos este tiempo desde que abre la app.
+ */
+const NATIVE_LOADING_MS = 3000;
+
+/** Espera hasta que la página lleve abierta `ms` milisegundos (si ya pasaron, no espera). */
+function untilAppAge(ms: number): Promise<void> {
+  const remaining = ms - performance.now();
+  return remaining > 0
+    ? new Promise((resolve) => setTimeout(resolve, remaining))
+    : Promise.resolve();
+}
+
+/**
  * The links: by far the larger download, and the same for every translation, so it is loaded once
  * and kept while the reader switches between texts.
  */
 export const vizCoreLoader = createCachedLoader(async (): Promise<VizCore> => {
   const { dataset } = await loadCrossReferences(vizCrossReferenceSource());
+  if (isNativeApp()) await untilAppAge(NATIVE_LOADING_MS);
   return {
     versification: CANONICAL_VERSIFICATION,
     crossReferences: dataset,
